@@ -1,0 +1,202 @@
+%\documentclass[prd,twocolumn,amsmath,amssymb,floatfix,superscriptaddress,nofootinbib,preprintnumbers]{revtex4-1}
+\documentclass[prd,amsmath,amssymb,floatfix,superscriptaddress,nofootinbib,preprintnumbers]{revtex4-1}
+
+\def\be{\begin{equation}}
+\def\ee{\end{equation}}
+\def\bea{\begin{eqnarray}}
+\def\eea{\end{eqnarray}}
+\newcommand{\vs}{\nonumber\\}
+\def\across{a^\times}
+\def\tcross{T^\times}
+\def\ccross{C^\times}
+\newcommand{\ec}[1]{Eq.~(\ref{eq:#1})}
+\newcommand{\eec}[2]{Eqs.~(\ref{eq:#1}) and (\ref{eq:#2})}
+\newcommand{\Ec}[1]{(\ref{eq:#1})}
+\newcommand{\eql}[1]{\label{eq:#1}}
+\newcommand{\sfig}[2]{
+\includegraphics[width=#2]{#1}
+        }
+\newcommand{\sfigr}[2]{
+\includegraphics[angle=270,origin=c,width=#2]{#1}
+        }
+\newcommand{\sfigra}[2]{
+\includegraphics[angle=90,origin=c,width=#2]{#1}
+        }
+\newcommand{\Sfig}[2]{
+   \begin{figure}[thbp]
+   \begin{center}
+    \sfig{#1.pdf}{0.5\columnwidth}
+    \caption{{\small #2}}
+    \label{fig:#1}
+     \end{center}
+   \end{figure}
+}
+\newcommand\dirac{\delta_D}
+\newcommand{\rf}[1]{\ref{fig:#1}}
+\newcommand\rhoc{\rho_{\rm cr}}
+\newcommand\zs{D_S}
+\newcommand\dts{\Delta t_{\rm Sh}}
+\newcommand\zle{D_L}
+\newcommand\zsl{D_{SL}}
+
+
+%USEFUL PACKAGES
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{bm}
+\usepackage{color}
+\usepackage{enumitem}
+\usepackage[linktocpage=true]{hyperref} 
+\hypersetup{
+    colorlinks=true,       % false: boxed links; true: colored links
+    linkcolor=red,          % color of internal links
+    citecolor=blue,        % color of links to bibliography 
+    filecolor=magenta,      % color of file links
+    urlcolor=blue           % color of external links
+}
+\usepackage[all]{hypcap} 
+
+%USEFUL MACROS
+%\usepackage{myterms}
+\definecolor{darkgreen}{cmyk}{0.85,0.1,1.00,0} 
+
+\newcommand{\SD}[1]{{\color{darkgreen} SD: #1}}
+\newcommand{\WH}[1]{{\color{red} WH: #1}}
+\newcommand{\wh}[1]{{\color{red} WH: #1}}
+\newcommand{\AL}[1]{{\color{magenta} AL: #1}}
+\newcommand{\MR}[1]{{\color{blue} MR: #1}}
+
+\newcommand{\nl}{\\ \indent}
+%
+
+\begin{document}
+
+\title{\Large Time Delays in the Cosmic Microwave Background}
+
+
+\author{\large Scott Dodelson}
+\author{\large Peikai Li}
+%\email{dodelson@fnal.gov}
+\affiliation{Department of Physics, Carnegie Mellon University, Pittsburgh, Pennsylvania 15312, USA.}
+
+\date{\today}
+
+\begin{abstract}
+We consider the possibility of detecting the time delay field from cosmic microwave background experiments.
+\end{abstract}
+
+\maketitle
+
+\section{Time Delay Estimator}
+
+\subsection{Flat Sky Approximation} We would like to obtain an expression for the change in the observed temperature due to the time delay akin to the one used for deflection. Recall that the impact of deflection can be traced by Taylor expanding
+\begin{equation}
+T(\vec\theta) = T^u(\vec\theta) - \vec\alpha\cdot \frac{\partial T^u}{\partial\vec\theta}.
+\end{equation}
+Making a move towards the notation in \cite{Hu:2001yq}, this can be rewritten as
+\begin{equation}
+T(\hat n) = \int \frac{d^2l}{(2\pi)^2}\, e^{i\vec l\cdot\hat n} \int \frac{d^2l'}{(2\pi)^2} \vec l'\cdot (\vec l-\vec l') \tilde\phi(\vec l') \tilde T^u(\vec l-\vec l')
+\end{equation}
+We want to derive a similar expression for the impact of time delay. 
+
+A first guess at the Fourier space is
+that the unlensed temperature is simply
+\begin{equation}
+\tilde T^u(\vec l) = \int d^2\theta e^{-i\vec l\cdot \vec\theta}\, \int \frac{d^3k}{(2\pi)^3} e^{i\vec k\cdot [\chi_*\vec\theta,\chi_*]}  [\tilde T_0+\tilde\Psi](\vec k)
+\end{equation}
+which uses the small sky approximation to express the position from whence the CMB photons are emitted as $[\chi_*\vec\theta,\chi_*]$ and recognizes that the temperature is due to the sum of the monopole and the gravitational potential.Carrying out the $\vec\theta$ integral leads to a delta function in $\vec k_\perp$, so that 
+\begin{equation}
+\tilde T^u(\vec l) = 
+\frac{1}{\chi_*^2}\, \int \frac{dk_z}{2\pi}  [\tilde T_0+\tilde\Psi](\vec l/\chi_*,k_z)
+\end{equation}
+while the contribution from time delay is
+\begin{equation}
+\tilde T^d(\vec l) = \frac{i}{\chi_*} \int \frac{d^2l_1}{(2\pi)^2}\, \tilde d(\vec l_1) \int \frac{dk_z}{2\pi} k_z\, [\tilde T_0+\tilde\Psi]([\vec l-\vec l_1]/\chi_*,k_z).
+\end{equation}
+This second equation comes from taking the derivative of the unlensed equation with respect to $\chi_*$ (Taylor expanding around $d=0$). The derivative acts on 3 terms but the leading effect (since $k\chi_*\sim l\gg 1$) is when it acts on the exponential.
+
+When I roughly carry this through to follow the deflection estimator, I get something roughly 
+\begin{equation}
+\hat{\tilde d}(\vec L) \simeq \frac{\tilde T(\vec l) \tilde T(\vec l -\vec L)}{lC_l}
+\end{equation}
+and if we wanted to construct the optimal estimator,we would sum these over all $\vec l$ with appropriate weighting.
+
+Although this is a very rough derivation, we can already glimpse several points about the time delay estimator:
+\begin{itemize}
+\item Just like the deflection estimator, this will be a quadratic estimator pairing temperatures on small scales separated by a small Fourier space difference $\vec L$
+\item Because Hu and Cooray showed that the time delay power spectrum peaks on the largest of scales, instead of $\Delta L\sim 50$ used for the deflection potential, here we will be using very small $\Delta L$'s, perhaps as small as 1. This means an all-sky treatment of the time delay field is essential.
+\item While the deflection estimator upweights modes with small $\vec L\cdot \vec l$, i.e., it uses modes with lensing wavevector perpendicular to the anistropy wavevector, here there is no such angular preference. This should make it slightly easier to disentangle the two estimators.
+\end{itemize}
+\subsection{All-sky Expressions}
+
+A starting point is 
+%the set of equations 21 in \cite{knuthwebsite}. Their expressions are in terms of spherical harmonics so more complex than what we are looking for, but the two relevant terms are:
+%\begin{eqnarray}
+%T^\phi(\hat n) &=& \sum_{lm} I_m[j_l] \nabla_i\phi(\hat n) \nabla^i Y_l^m(\hat n)\\
+%T^d(\hat n) &=& \sum_{lm} \frac{\partial a_{lm}(k\chi_*)}{(\partial k\chi_*)} d(\hat n)  Y_l^m(\hat n)\label{eq:ttd}
+%\end{eqnarray}
+\begin{equation}
+T(\hat n) = \sum_{lm} Y_{lm}(\hat n) a_{lm}(\chi_*)
+\end{equation}
+where (Eq. (21) in ~\cite{Hu:2001bc})
+\begin{equation}
+a_{lm}(\chi_*) = (-i)^l \int \frac{d^3k}{(2\pi)^3}\, Y_{lm}^*(\hat k) [\tilde T_0+\tilde\Psi](\vec k;\eta_*) j_l(k\chi_*) \eql{alm}
+\end{equation}
+where $T_0$ is the monopole; $\Psi$ one of the scalar potentials; and $\chi_*$ the distance to the last scattering surface. 
+Therefore, the small change due to the time delay is:
+\begin{equation}
+T^d(\hat n) = \sum_{lm} Y_{lm}(\hat n) \frac{\partial a_{lm}(\chi_*)}{\partial \chi_*} \chi_* d(\hat n)
+\end{equation}
+where $d$ is the fractional change in the distance to the last scattering surface as in \cite{Hu:2001yq}. We can go a step further using some of the formalism developed in \cite{Okamoto:2003zw} to express $d(\hat n)$ in terms of its spherical harmonics; then,
+\begin{equation}
+T^d(\hat n) = \sum_{LM;L'M'}\frac{\partial a_{LM}(\chi_*)}{\partial \ln\chi_*} d_{L'M'}  Y_{LM}(\hat n)  Y_{L'M'}(\hat n) .
+\end{equation}
+Writing this as
+\begin{equation}
+T^d(\hat n) = \sum_{lm} D_{lm}\,Y_{lm}(\hat n)  
+\end{equation}
+where -- to be clear -- $d_{lm}$ are the coefficients of the spherical harmonics of the time delay field while $D_{lm}$ are the coefficients of the contribution to the change in the CMB anisotropies due to this time delay. Multiplying by $Y^*_{lm}$ and integrating over $d\Omega_n$ leads to
+\be
+D_{lm} =\sum_{LM;L'M'}\frac{\partial a_{LM}(\chi_*)}{\partial \ln\chi_*} d_{L'M'}   \int d\Omega_{\hat n} Y_{LM}(\hat n)  Y_{L'M'}(\hat n)Y^*_{lm}(\hat n)  .
+\ee
+The integral can be done by using the formula for the product of spherical harmonics and then orthogonality leading to
+\be
+D_{lm} = \sum_{LM;L'M'}\frac{\partial a_{LM}(\chi_*)}{\partial \ln\chi_*} d_{L'M'}  I(lm;LM;L'M')
+\ee
+where 
+\be
+ I(lm;LM;L'M') = (-1)^m \left[ \frac{(2L+1)(2L'+1)(2l+1)}{4\pi}\right]^{1/2}\left(\begin{matrix} l & L &L'\cr 0&0&0\end{matrix}\right)
+ \left(\begin{matrix} l & L &L'\cr -m&M&M'\end{matrix}\right).
+\ee
+
+\section{Estimators}
+
+The observed temperature field has coefficients
+\be
+a^{\rm obs}_{lm} = a_{lm} + D_{lm}
+.\ee
+When we take quadratic estimators the perturbative term will have an expectation value:
+\be
+\langle a^{\rm obs}_{l_1m_1} a^{\rm obs}_{l_2m_2} \rangle= \delta_{l_1l_2}\delta_{m_1-m_2}C_{l_1} + \langle a_{l_1m_1}D_{l_2m_2}\rangle+ \langle a_{l_2m_2}D_{l_1m_1}\rangle
+.
+\ee
+Consider the middle term here and use \ec{alm} to get
+\bea
+\langle a_{l_1m_1}D_{l_2m_2}\rangle&=&\sum_{LM;L'M'}d_{L'M'}  I(l_2m_2;LM;L'M')
+ (-i)^{l_1+L} \int \frac{d^3k}{(2\pi)^3}\, Y_{l_1m_1}^*(\hat k) j_{l_1}(k\chi_*)\,
+ \int \frac{d^3k'}{(2\pi)^3}\, Y_{LM}^*(\hat k') \frac{\partial j_L(k'\chi_*)}{\partial\ln(\chi_*)}
+\vs
+&&\times\langle  [\tilde T_0+\tilde\Psi](\vec k;\eta_*)  [\tilde T_0+\tilde\Psi](\vec k';\eta_*) \rangle.
+\eea
+But the expectation value leads to the 3D power spectrum multiplied by a delta function in $\vec k+\vec k'$, after which the angular integral over the spherical harmonics can be performed using ($Y_{LM}^*(-\hat k)=(-1)^{L+M}Y_{LM}(\hat k)$, and we are left with
+\be
+\langle a_{l_1m_1}D_{l_2m_2}\rangle=(i)^{2l_1}\sum_{L'M'}d_{L'M'}  I(l_2m_2;l_1m_1;L'M')
+ (-1)^{m_1} \int \frac{dk k^2}{(2\pi)^3}\, j_{l_1}(k\chi_*)\,\frac{\partial j_{l_1}(k\chi_*)}{\partial\ln(\chi_*)}P_{T_0+\Psi}(k)
+\ee
+
+
+\bibliography{refs}
+\end{document}
+
