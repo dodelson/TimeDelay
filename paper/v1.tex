@@ -95,10 +95,10 @@ We consider the possibility of detecting the time delay field from cosmic microw
 \begin{equation}
 T(\vec\theta) = T^u(\vec\theta) - \vec\alpha\cdot \frac{\partial T^u}{\partial\vec\theta}.
 \end{equation}
-Making a move towards the notation in \cite{Hu:2001yq}, this can be rewritten as
+The Fourier transform of the deflection term is then
 \begin{equation}
-T(\hat n) = \int \frac{d^2l}{(2\pi)^2}\, e^{i\vec l\cdot\hat n} \int \frac{d^2l'}{(2\pi)^2} \vec l'\cdot (\vec l-\vec l') \tilde\phi(\vec l') \tilde T^u(\vec l-\vec l')
-\end{equation}
+\tilde T^\phi(\vec l) =\int \frac{d^2l'}{(2\pi)^2} \vec l'\cdot (\vec l-\vec l') \tilde\phi(\vec l') \tilde T^u(\vec l-\vec l')
+\eql{tphi}\end{equation}
 We want to derive a similar expression for the impact of time delay. 
 
 A first guess at the Fourier space is
@@ -108,14 +108,21 @@ that the unlensed temperature is simply
 \end{equation}
 which uses the small sky approximation to express the position from whence the CMB photons are emitted as $[\chi_*\vec\theta,\chi_*]$ and recognizes that the temperature is due to the sum of the monopole and the gravitational potential.Carrying out the $\vec\theta$ integral leads to a delta function in $\vec k_\perp$, so that 
 \begin{equation}
-\tilde T^u(\vec l) = 
-\frac{1}{\chi_*^2}\, \int \frac{dk_z}{2\pi}  [\tilde T_0+\tilde\Psi](\vec l/\chi_*,k_z)
+\tilde T^u(\vec l;\chi_*) = 
+\frac{1}{\chi_*^2}\, \int \frac{dk_z}{2\pi}  [\tilde T_0+\tilde\Psi](\vec l/\chi_*,k_z)\,e^{ik_z\chi_*}
 \end{equation}
-while the contribution from time delay is
+where the fact that $T^u$ depends on the distance to the last scattering surface is encoded in the argument on the left hand side.
+This is important, as the temperature due to the time delay requires us to take the derivative with respect to $\chi_*$.
+
+In particular,
+\be
+T^d(\vec\theta) = d(\vec\theta)\,\frac{\partial}{\partial\ln\chi_*}\, T^u(\vec\theta;\chi_*).
+\ee
+This is simply a Taylor expansion in the deviation from $\chi_*$ accounting for the fact that $d$ is the fractional change in the distance to the last scattering surface. In Fourier space, this becomes
 \begin{equation}
-\tilde T^d(\vec l) = \frac{i}{\chi_*} \int \frac{d^2l_1}{(2\pi)^2}\, \tilde d(\vec l_1) \int \frac{dk_z}{2\pi} k_z\, [\tilde T_0+\tilde\Psi]([\vec l-\vec l_1]/\chi_*,k_z).
-\end{equation}
-This second equation comes from taking the derivative of the unlensed equation with respect to $\chi_*$ (Taylor expanding around $d=0$). The derivative acts on 3 terms but the leading effect (since $k\chi_*\sim l\gg 1$) is when it acts on the exponential.
+\tilde T^d(\vec l) = \int \frac{d^2l'}{(2\pi)^2}\, \tilde d(\vec l') \tilde T^{u'}(\vec l-\vec l';\chi_*) % \int \frac{dk_z}{2\pi} \frac{k_z\chi_*}{\chi_*^2}\, [\tilde T_0+\tilde\Psi]([\vec l-\vec l_1]/\chi_*,k_z) \,e^{ik_z\chi_*}.
+\eql{td}\end{equation}
+where the prime on $T^u$ denote the  derivative with respect to $\ln\chi_*$. Comparing \ec{td} with \ec{tphi}  gives us a sense of the difficulty of extracting this signal. The contribution to the temperature due to deflection has two derivatives compared to the one due to time delay. These show up in Fourier space as extra factors of $\vec l'\cdot\vec l$, where $\vec l'$ is small (of order 50 for deflection, but $l\sim 10^3$. So the signal is nominally down by a factor of at order $10^4$. Figure 5 in \cite{Hu:2001yq} suggests that the power spectrum is only down by a factor of $10^4$ implying that the RMS is down by only 100, so things are apparently not as bad as they appear. %A simpler way to compare the signals is to work in real space, so that the deflection signal is of order $\alpha/\theta\sim1'/
 
 When I roughly carry this through to follow the deflection estimator, I get something roughly 
 \begin{equation}
