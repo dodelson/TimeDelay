@@ -218,10 +218,27 @@ Consider the middle term here and use \ec{alm} to get
 \vs
 &&\times\langle  [\tilde T_0+\tilde\Psi](\vec k;\eta_*)  [\tilde T_0+\tilde\Psi](\vec k';\eta_*) \rangle.
 \eea
-But the expectation value leads to the 3D power spectrum multiplied by a delta function in $\vec k+\vec k'$, after which the angular integral over the spherical harmonics can be performed using ($Y_{LM}^*(-\hat k)=(-1)^{L+M}Y_{LM}(\hat k)$, and we are left with
+But the expectation value leads to the 3D power spectrum multiplied by a delta function in $\vec k+\vec k'$, after which the angular integral over the spherical harmonics can be performed using ($Y_{LM}^*(-\hat k)=(-1)^{L+M}Y_{L,-M}(\hat k)$, and we are left with
 \be
-\langle a_{l_1m_1}D_{l_2m_2}\rangle=(i)^{2l_1}\sum_{L'M'}d_{L'M'}  I(l_2m_2;l_1m_1;L'M')
+\langle a_{l_1m_1}D_{l_2m_2}\rangle=\sum_{L'M'}d_{L'M'}  I(l_2m_2;l_1,-m_1;L'M')
  (-1)^{m_1} \int \frac{dk k^2}{(2\pi)^3}\, j_{l_1}(k\chi_*)\,\frac{\partial j_{l_1}(k\chi_*)}{\partial\ln(\chi_*)}P_{T_0+\Psi}(k).
+\ee
+The last term in \ec{terms} simply has $l_1,m_1\leftrightarrow l_2,m_2$ so the full off-diagonal expression for the expectation value is
+\bea
+\langle a^{\rm obs}_{l_1m_1} a^{\rm obs}_{l_2m_2} \rangle\Big\vert_{\rm off-diagonal} &=&
+\sum_{L'M'}d_{L'M'}  
+ \vs
+\times &&
+ \left[
+ I(l_2m_2;l_1,-m_1;L'M')
+ (-1)^{m_1} C^{(1)}_{l_1}
+  + 
+ I(l_1m_1;l_2,-m_2;L'M')
+ (-1)^{m_2}C^{(1)}_{l_2}
+ \right]\eea
+where
+\be
+C^{(1)}_{l_1}\equiv \int \frac{dk k^2}{(2\pi)^3}\, j_{l_1}(k\chi_*)\,\frac{\partial j_{l_1}(k\chi_*)}{\partial\ln(\chi_*)}P_{T_0+\Psi}(k).
 \ee
 
 We can use the identity (Eq 31 in ~\cite{Okamoto:2003zw})
@@ -229,7 +246,7 @@ We can use the identity (Eq 31 in ~\cite{Okamoto:2003zw})
 \sum_{m_1m_2} 
  \left(\begin{matrix} l_2 & l_1 &L'\cr -m_2&m_1&M'\end{matrix}\right)
  \left(\begin{matrix} l_2 & l_1 &L\cr -m_2&m_1&M\end{matrix}\right)
-=\frac{1}{2L+1}\,\delta_{LL'}\delta_{MM"}
+=\frac{1}{2L+1}\,\delta_{LL'}\delta_{MM}
 \ee
 so that
 \be
@@ -238,10 +255,7 @@ so that
  \left[ \frac{(2l_1+1)(2L+1)(2l_2+1)}{4\pi}\right]^{1/2}\left(\begin{matrix} l_2& l_1 &L\cr 0&0&0\end{matrix}\right)
  C^{(1)}_{l_1}
 \ee
-where
-\be
-C^{(1)}_{l_1}\equiv \int \frac{dk k^2}{(2\pi)^3}\, j_{l_1}(k\chi_*)\,\frac{\partial j_{l_1}(k\chi_*)}{\partial\ln(\chi_*)}P_{T_0+\Psi}(k).
-\ee
+
 So, neglecting the last term in \ec{terms}, an estimator for the time delay field is
 \be
 \hat D_{LM} = \mathcal{A} \sum_{m_1m_2}  \left(\begin{matrix} l_2 & l_1 &L\cr -m_2&m_1&M\end{matrix}\right)
