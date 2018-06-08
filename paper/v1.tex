@@ -122,7 +122,7 @@ This is simply a Taylor expansion in the deviation from $\chi_*$ accounting for 
 \begin{equation}
 \tilde T^d(\vec l) = \int \frac{d^2l'}{(2\pi)^2}\, \tilde d(\vec l') \tilde T^{u'}(\vec l-\vec l';\chi_*) % \int \frac{dk_z}{2\pi} \frac{k_z\chi_*}{\chi_*^2}\, [\tilde T_0+\tilde\Psi]([\vec l-\vec l_1]/\chi_*,k_z) \,e^{ik_z\chi_*}.
 \eql{td}\end{equation}
-where the prime on $T^u$ denote the  derivative with respect to $\ln\chi_*$. Comparing \ec{td} with \ec{tphi}  gives us a sense of the difficulty of extracting this signal. The contribution to the temperature due to deflection has two derivatives compared to the one due to time delay. These show up in Fourier space as extra factors of $\vec l'\cdot\vec l$, where $\vec l'$ is small (of order 50 for deflection, but $l\sim 10^3$. So the signal is nominally down by a factor of at order $10^4$. Figure 5 in \cite{Hu:2001yq} suggests that the power spectrum is only down by a factor of $10^4$ implying that the RMS is down by only 100, so things are apparently not as bad as they appear. %A simpler way to compare the signals is to work in real space, so that the deflection signal is of order $\alpha/\theta\sim1'/
+where the prime on $T^u$ denote the  derivative with respect to $\ln\chi_*$. Comparing \ec{td} with \ec{tphi}  gives us a sense of the difficulty of extracting this signal. The contribution to the temperature due to deflection has two derivatives compared to the one due to time delay. These show up in Fourier space as extra factors of $\vec l'\cdot\vec l$, where $\vec l'$ is small (of order 50 for deflection, but $l\sim 10^3$. Even if the single derivative in the time delay case gives a factor of $k\chi_*\sim l$, the signal would still be down by a factor of order $l'\sim50$. Indeed, Figure 5 in \cite{Hu:2001yq} suggests that the power spectrum is down by a factor of $10^4$ implying that the RMS is down by 100. %A simpler way to compare the signals is to work in real space, so that the deflection signal is of order $\alpha/\theta\sim1'/
 
 The derivative of $\tilde T^u$ nominally acts on three places in \ec{tu}: on the $\chi_*^{-2}$ out front, the logarithmic derivative is or order unity and similarly when it acts on the $\vec k_\perp$ argument of the temperature. When it acts on the exponential it is of order $k_z\chi_*$. Now $k_\perp\chi_*\sim l$; assuming $k_z$ is of the same order, the leading term in the derivative is the one that acts on the exponential, and we get
 \begin{equation}
@@ -139,7 +139,7 @@ Multiplying this by $\tilde T^u(\vec L)$ and taking the expectation value gives
  The 3 delta functions reduce this to
  \be
  \langle \tilde T^u(\vec L) \tilde T^d(\vec l) \rangle
- = \frac{i\tilde d(\vec l + \vec L)}{\chi_*^3} \int \frac{dk_z\,k_z}{2\pi} \, P_{T_o+\Psi}(L/\chi_*,k_z)
+ = \frac{i\tilde d(\vec l + \vec L)}{\chi_*} \int \frac{dk_z\,k_z}{2\pi} \, P_{T_o+\Psi}(L/\chi_*,k_z)
 . \ee
  Redefining $\vec l + \vec L \rightarrow \vec L$ leads to an estimator
  \be
@@ -147,7 +147,7 @@ Multiplying this by $\tilde T^u(\vec L)$ and taking the expectation value gives
  \ee
  where
  \be
- C'_l \equiv  \frac{1}{\chi_*^3}\, \int \frac{dk_z\,k_z}{2\pi} \, P_{T_o+\Psi}(l/\chi_*,k_z)
+ C'_l \equiv  \frac{1}{\chi_*}\, \int \frac{dk_z\,k_z}{2\pi} \, P_{T_o+\Psi}(l/\chi_*,k_z)
  .\ee
 If we wanted to construct the optimal estimator, we would sum these over all $\vec l$ with appropriate weighting.
 
