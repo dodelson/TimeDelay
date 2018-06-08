@@ -109,7 +109,7 @@ that the unlensed temperature is simply
 which uses the small sky approximation to express the position from whence the CMB photons are emitted as $[\chi_*\vec\theta,\chi_*]$ and recognizes that the temperature is due to the sum of the monopole and the gravitational potential.Carrying out the $\vec\theta$ integral leads to a delta function in $\vec k_\perp$, so that 
 \begin{equation}
 \tilde T^u(\vec l;\chi_*) = 
-\frac{1}{\chi_*^2}\, \int \frac{dk_z}{2\pi}  [\tilde T_0+\tilde\Psi](\vec l/\chi_*,k_z)\,e^{ik_z\chi_*}
+\frac{1}{\chi_*^2}\, \int \frac{dk_z}{2\pi}  [\tilde T_0+\tilde\Psi](\vec l/\chi_*,k_z)\,e^{ik_z\chi_*}\eql{tu}
 \end{equation}
 where the fact that $T^u$ depends on the distance to the last scattering surface is encoded in the argument on the left hand side.
 This is important, as the temperature due to the time delay requires us to take the derivative with respect to $\chi_*$.
@@ -124,11 +124,32 @@ This is simply a Taylor expansion in the deviation from $\chi_*$ accounting for 
 \eql{td}\end{equation}
 where the prime on $T^u$ denote the  derivative with respect to $\ln\chi_*$. Comparing \ec{td} with \ec{tphi}  gives us a sense of the difficulty of extracting this signal. The contribution to the temperature due to deflection has two derivatives compared to the one due to time delay. These show up in Fourier space as extra factors of $\vec l'\cdot\vec l$, where $\vec l'$ is small (of order 50 for deflection, but $l\sim 10^3$. So the signal is nominally down by a factor of at order $10^4$. Figure 5 in \cite{Hu:2001yq} suggests that the power spectrum is only down by a factor of $10^4$ implying that the RMS is down by only 100, so things are apparently not as bad as they appear. %A simpler way to compare the signals is to work in real space, so that the deflection signal is of order $\alpha/\theta\sim1'/
 
-When I roughly carry this through to follow the deflection estimator, I get something roughly 
+The derivative of $\tilde T^u$ nominally acts on three places in \ec{tu}: on the $\chi_*^{-2}$ out front, the logarithmic derivative is or order unity and similarly when it acts on the $\vec k_\perp$ argument of the temperature. When it acts on the exponential it is of order $k_z\chi_*$. Now $k_\perp\chi_*\sim l$; assuming $k_z$ is of the same order, the leading term in the derivative is the one that acts on the exponential, and we get
 \begin{equation}
-\hat{\tilde d}(\vec L) \simeq \frac{\tilde T(\vec l) \tilde T(\vec l -\vec L)}{lC_l}
+\tilde T^d(\vec l) = \chi_*\int \frac{d^2l'}{(2\pi)^2}\, \tilde d(\vec l')
+\frac{i}{\chi_*^2}\, \int \frac{dk_z\,k_z}{2\pi}  [\tilde T_0+\tilde\Psi]([\vec l-\vec l']/\chi_*,k_z)\,e^{ik_z\chi_*}.
 \end{equation}
-and if we wanted to construct the optimal estimator,we would sum these over all $\vec l$ with appropriate weighting.
+Multiplying this by $\tilde T^u(\vec L)$ and taking the expectation value gives
+\be
+\int \frac{d^2l'}{(2\pi)^2}\, \tilde d(\vec l')
+\frac{i}{\chi_*^2}\, \int \frac{dk_z\,k_z}{2\pi}  \,e^{ik_z\chi_*}
+\frac{1}{\chi_*}\, \int \frac{dk'_z}{2\pi} \,e^{ik'_z\chi_*}
+ \langle [\tilde T_0+\tilde\Psi]([\vec l-\vec l']/\chi_*,k_z)  [\tilde T_0+\tilde\Psi](\vec L/\chi_*,k'_z)\rangle
+ \ee
+ The 3 delta functions reduce this to
+ \be
+ \langle \tilde T^u(\vec L) \tilde T^d(\vec l) \rangle
+ = \frac{i\tilde d(\vec l + \vec L)}{\chi_*^3} \int \frac{dk_z\,k_z}{2\pi} \, P_{T_o+\Psi}(L/\chi_*,k_z)
+. \ee
+ Redefining $\vec l + \vec L \rightarrow \vec L$ leads to an estimator
+ \be
+ \hat{\tilde d}(\vec L) = i \frac{\tilde T^*(\vec l-\vec L) \tilde T(\vec l)}{C'_{l-L}}
+ \ee
+ where
+ \be
+ C'_l \equiv  \frac{1}{\chi_*^3}\, \int \frac{dk_z\,k_z}{2\pi} \, P_{T_o+\Psi}(l/\chi_*,k_z)
+ .\ee
+If we wanted to construct the optimal estimator, we would sum these over all $\vec l$ with appropriate weighting.
 
 Although this is a very rough derivation, we can already glimpse several points about the time delay estimator:
 \begin{itemize}
