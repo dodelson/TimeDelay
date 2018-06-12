@@ -288,21 +288,59 @@ Therefore,
 \eea
 
 
-Therefore, an estimator for the time delay field is
+Therefore, an intermediate estimator for the time delay field is
 \be
-\hat d_{LM} = \mathcal{A}_{l_1l_2L} \sum_{m_1m_2}  (-1)^{m_1+m_2}\,\left(\begin{matrix} l_2 & l_1 &L\cr -m_2&-m_1&M\end{matrix}\right)
+\hat d_{LM}(l_1l_2) =  \sum_{m_1m_2}  (-1)^{m_1+m_2}\,\left(\begin{matrix} l_2 & l_1 &L\cr -m_2&-m_1&M\end{matrix}\right)
  a^{\rm obs}_{l_1m_1} a^{\rm obs}_{l_2m_2} 
  \ee
- where the normalization is
+ where the expectation value is
  \be
- \mathcal{A}_{l_1l_2L} \equiv 
- \left[ \frac{4\pi (2L+1)}{(2l_1+1)(2l_2+1)}\right]^{1/2}
+\langle \hat d_{LM}(l_1l_2) \rangle = f_{l_1l_2L} \equiv 
+ \left[ \frac{(2l_1+1)(2l_2+1)}{4\pi (2L+1)}\right]^{1/2}
  \Big[
  \left(\begin{matrix} l_2& l_1 &L\cr 0&0&0\end{matrix}\right)
-  \Big]^{-1}
-  \left[ C^{(1)}_{l_1} + (-1)^{l_1+l_2+L}C^{(1)}_{l_2}\right]^{-1}
- \ee
+  \Big]
+  \left[ C^{(1)}_{l_1} + (-1)^{l_1+l_2+L}C^{(1)}_{l_2}\right]
+ .\ee
  
+ This is for a fixed value of $l_1, l_2$; we want to sum over all possible values with a weighting fixed so that the variance is as small as possible. Define the weighting factor as $g_{l_1l_2}(L)$; then,
+ \be
+ \hat d_{LM} = \mathcal{A}_{LM}\sum_{l_1l_2} g_{l_1l_2}(L) \sum_{m_1m_2}  (-1)^{m_1+m_2}\,\left(\begin{matrix} l_2 & l_1 &L\cr -m_2&-m_1&M\end{matrix}\right)
+ a^{\rm obs}_{l_1m_1} a^{\rm obs}_{l_2m_2} 
+ \ee
+ where to get the expectation right
+ \be
+ \mathcal{A}_{LM} \equiv \left[ \sum_{l_1l_2} g_{l_1l_2}(L) f_{l_1l_2L}\right]^{-1}
+ .\ee
+ 
+ \subsection{Variance}
+ 
+ We want to choose the coefficients $g$ to maximize the signal to noise, so we need to first compute the variance:
+ \bea
+ \langle d_{LM} d^*_{L'M'} \rangle &=& (-1)^{M+M'}  \mathcal{A}_{LM}\mathcal{A}^*_{L'M'} \sum_{l_1l_2m_1m_2 l_1'l_2'm_1'm_2'} g_{l_1l_2}(L)  g^*_{l_1'l_2'}(L') \vs
+ &&\times \left(\begin{matrix} l_2 & l_1 &L\cr -m_2&-m_1&M\end{matrix}\right)
+ \left(\begin{matrix} l_2' & l_1' &L'\cr -m_2'&-m_1'&M'\end{matrix}\right)^*
+ \langle a^{\rm obs}_{l_1m_1} a^{\rm obs}_{l_2m_2}  a^{*,\rm obs}_{l_1'm_1'} a^{*,\rm obs}_{l_2'm_2'} \rangle.
+ \eea
+ Here we used the fact that $m_1+m_2=-M$ because of the Wigner 3j symbol. In the expectation value, we can consider only the dominant unlensed contribution, which is Gaussian, so that the 4-point function would has 3 terms, corresponding to the 3 contractions. One of these sets $m_1=-m_2$ (and similarly for $m_i'$) so that the Wigner 3j symbols require $M=M'=0$. The other 2 set, e.g., $m_1=m_1'$ so eliminate the sums over the primed indices, leading to a diagonal variance of
+ \bea
+ \langle d_{LM} d^*_{LM} \rangle &=& \vert \mathcal{A}_{LM}\vert^2
+ \sum_{l_1m_1} C_{l_1}
+ \vs
+ &&\times 
+\Bigg[ \sum_{ l_1'm_1'}  C_{l_1'} g_{l_1l_1}(L)  g^*_{l_1'l_1'}(L) 
+\times \left(\begin{matrix} l_1 & l_1 &L\cr m_1&-m_1&M\end{matrix}\right)
+ \left(\begin{matrix} l_1' & l_1' &L\cr m_1'&-m_1'&M\end{matrix}\right)^*\vs
+ &&+ \sum_{l_2m_2}  C_{l_2}  g_{l_1l_2}(L)  g^*_{l_1l_2}(L)  \left(\begin{matrix} l_2 & l_1 &L\cr -m_2&-m_1&M\end{matrix}\right)
+ \left(\begin{matrix} l_2 & l_1 &L\cr -m_2&-m_1&M\end{matrix}\right)^* 
+ \vs
+ &&+ \sum_{l_2m_2}  C_{l_2} g_{l_1l_2}(L)  g^*_{l_2l_1}(L)  \left(\begin{matrix} l_2 & l_1 &L\cr -m_2&-m_1&M\end{matrix}\right)
+ \left(\begin{matrix} l_1 & l_2 &L\cr -m_1&-m_2&M\end{matrix}\right)^* 
+ \Bigg]
+  \eea 
+\bibliography{refs}
+\end{document}
+
  \subsection{Comparison with Deflection estimator}
  
  It is interesting to compare this estimator with that obtained for the deflection angle at this stage in the calculation in \citet{Okamoto:2003zw}. Paraphrasing Eq (29) there leads to
@@ -312,7 +350,9 @@ Therefore, an estimator for the time delay field is
  g_{l_1l_2}
  a^{\rm obs}_{l_1m_1} a^{\rm obs}_{l_2m_2} 
  \ee
+ where
  
-\bibliography{refs}
-\end{document}
+ \be
+ A_L \equiv L(L+1)(2L+1) \left[ \sum_{l_1l_2} g_{l_1l_2} f_{l_1Ll_2}\right]^{-1}
+ \ee
 
