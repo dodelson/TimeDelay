@@ -141,9 +141,9 @@ Multiplying this by $\tilde T^u(\vec L)$ and taking the expectation value gives
  \langle \tilde T^u(\vec L) \tilde T^d(\vec l) \rangle
  = \frac{i\tilde d(\vec l + \vec L)}{\chi_*} \int \frac{dk_z\,k_z}{2\pi} \, P_{T_o+\Psi}(L/\chi_*,k_z)
 . \ee
- Redefining $\vec l + \vec L \rightarrow \vec L$ leads to an estimator
+ Redefining $\vec l + \vec L \rightarrow \vec L$ leads to an estimator\footnote{Not really; we need to include the $T^dT^u$ term as well}
  \be
- \hat{\tilde d}(\vec L) = i \frac{\tilde T^*(\vec l-\vec L) \tilde T(\vec l)}{C'_{l-L}}
+ \hat{\tilde d}(\vec L) = -i \frac{\tilde T(\vec l-\vec L) \tilde T(\vec l)}{C'_{\vert\vec l-\vec L\vert}}
  \ee
  where
  \be
@@ -336,8 +336,54 @@ Therefore, an intermediate estimator for the time delay field is
  \vs
  &&+ \sum_{l_2m_2}  C_{l_2} g_{l_1l_2}(L)  g^*_{l_2l_1}(L)  \left(\begin{matrix} l_2 & l_1 &L\cr -m_2&-m_1&M\end{matrix}\right)
  \left(\begin{matrix} l_1 & l_2 &L\cr -m_1&-m_2&M\end{matrix}\right)^* 
- \Bigg]
+ \Bigg].
   \eea 
+  The sum of the $m$'s in the second row of the Wigner 3j symbols must be zero. In the first pair, this means that $M$ must be equal to zero. On the second and third, the sum over $m_2$ can be removed, leaving
+  \bea
+ \langle d_{LM} d^*_{LM} \rangle &=& \vert \mathcal{A}_{LM}\vert^2
+ \sum_{l_1m_1} C_{l_1}
+ \vs
+ &&\times 
+\Bigg[ \delta_{M0}\sum_{ l_1'm_1'}  C_{l_1'} g_{l_1l_1}(L)  g^*_{l_1'l_1'}(L) 
+\times \left(\begin{matrix} l_1 & l_1 &L\cr m_1&-m_1&0\end{matrix}\right)
+ \left(\begin{matrix} l_1' & l_1' &L\cr m_1'&-m_1'&0\end{matrix}\right)^*\vs
+ &&+ \sum_{l_2}  C_{l_2}  \bigg( g_{l_1l_2}(L)  g^*_{l_1l_2}(L)  \left(\begin{matrix} l_2 & l_1 &L\cr m_1-M&-m_1&M\end{matrix}\right)
+ \left(\begin{matrix} l_2 & l_1 &L\cr m_1-M&-m_1&M\end{matrix}\right)^* 
+ \vs
+ &&+ g_{l_1l_2}(L)  g^*_{l_2l_1}(L)  \left(\begin{matrix} l_2 & l_1 &L\cr m_1-M&-m_1&M\end{matrix}\right)
+ \left(\begin{matrix} l_1 & l_2 &L\cr -m_1&m_1-M&M\end{matrix}\right)^* 
+\bigg) \Bigg].
+  \eea 
+An odd permutation of columns brings in a phase factor of $(-1)^{l_1+l_2+L}$ so the 3j symbols on the last line are related to those on the first line by this factor and $l'$ on the third line can be replaced by $l_2$:
+ \bea
+ \langle d_{LM} d^*_{LM} \rangle &=& \vert \mathcal{A}_{LM}\vert^2
+ \sum_{l_1m_1l_2} C_{l_1} C_{l_2}  
+ \vs
+ &\times &
+\Bigg[ \delta_{M0}\sum_{ m_1'}  g_{l_1l_1}(L)  g^*_{l_2l_2}(L) 
+\times \left(\begin{matrix} l_1 & l_1 &L\cr m_1&-m_1&0\end{matrix}\right)
+ \left(\begin{matrix} l_2& l_2 &L\cr m_1'&-m_1'&0\end{matrix}\right)^*\vs
+ &&+ g_{l_1l_2}(L)  \bigg\vert\left(\begin{matrix} l_2 & l_1 &L\cr m_1-M&-m_1&M\end{matrix}\right)\bigg\vert^2
+  \left( g^*_{l_1l_2}(L)  + (-1)^{l_1+l_2+L}g^*_{l_2l_1}(L) \right)
+  \Bigg].
+  \eea 
+
+Before minimizing, let's put this in a more compact form:
+\be  
+  \langle d_{LM} d^*_{LM} \rangle 
+  = \vert \mathcal{A}_{LM}\vert^2 \sum_{l_1l_2}
+  \left[ \delta_{M0} g_{l_1l_1}(L)  g^*_{l_2l_2}(L) I(l_1,l_2,L)
+  + g_{l_1l_2}(L)   \left( g^*_{l_1l_2}(L)  + (-1)^{l_1+l_2+L}g^*_{l_2l_1}(L) \right) J(l_2,l_1,L,M)
+  \right]
+ \ee 
+ with
+ \bea
+ I(l_1,l_2,L) &\equiv& \sum_{m_1m'} \left(\begin{matrix} l_1 & l_1 &L\cr m_1&-m_1&0\end{matrix}\right)
+ \left(\begin{matrix} l_2& l_2 &L\cr m_1'&-m_1'&0\end{matrix}\right)^*
+ \vs
+ J(l_2,l_1,L,M) &\equiv&\sum_{m_1} \bigg\vert\left(\begin{matrix} l_2 & l_1 &L\cr m_1-M&-m_1&M\end{matrix}\right)\bigg\vert^2
+ .\eea
+ 
 \bibliography{refs}
 \end{document}
 
