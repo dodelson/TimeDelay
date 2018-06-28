@@ -76,8 +76,9 @@ plt.show()
 
 Psi_N = ev[np.arange(len(ks)),0,0]
 monopole = ev[np.arange(len(ks)),0,0]
-np.savetxt('Psi_N.txt',Psi_N,header='Psi_N')
-np.savetxt('monopole.txt',monopole,header='monopole')
+# np.savetxt('klin_cmb.txt',ks)
+# np.savetxt('Psi_N.txt',Psi_N)
+# np.savetxt('monopole.txt',monopole)
 
 
 

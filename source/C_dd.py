@@ -78,7 +78,8 @@ for l in range(1,161):
 X = range(1,161)
 Y = C_l
 
-plt.figure(figsize=(25, 16))
+# plt.figure(figsize=(25, 16))
+plt.figure(figsize=(14, 6))
 plt.loglog(X,Y, label = 'Time Delay Spectrum')
 plt.xlabel('$l$')
 plt.ylabel('$l(l+1)C_{l}^{dd}/2\pi)$')
