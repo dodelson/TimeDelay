@@ -16,13 +16,13 @@ font = {#'family' : 'normal',
 plt.rc('font', **font)
 
 omega_m = 0.3
-
-def D_A(z): #angular diameter distance, in h^-1*Mpc
+h=0.7
+def D_A(z): #angular diameter distance, in Mpc
     ans= integrate.quad(lambda x:1.0/
                     np.sqrt(omega_m*(1.+x)*(1.+x)*(1.+x)+1-omega_m),0.0,z)[0]
-    return 3000.0 * ans/(1.0+z)
+    return 3000.0 * ans/((1.0+z)*h)
 
-def chi(z): #comiving distance, assuming flat universe, in h^-1*Mpc
+def chi(z): #comiving distance, assuming flat universe, in Mpc
     return D_A(z) * (1.0+z)
 
 z = np.concatenate((np.loadtxt('OUTPUT1/matter_power_lin/z.txt'),
@@ -62,6 +62,13 @@ interp_z = interpolate.interp1d(chi_R,z)
 #     return special.spherical_jn(l, (chi_Rmax - chi)*k)\
 #                 *interp_D(interp_z(chi))
 
+monopole = np.loadtxt('../source/data/monopole.txt')
+Psi_N = np.loadtxt('../source/data/Psi_N.txt')
+klin_cmb = np.loadtxt('../source/data/klin_cmb.txt')
+nklin_cmb = len(klin_cmb)
+#monopole + Psi_N spectrum
+P_0 = (monopole+Psi_N)*(monopole+Psi_N)
+
 def interp1d(lnk,karray,funcarray):
     interp_eg = interpolate.interp1d(karray,karray*funcarray)
     return interp_eg(np.exp(lnk))
@@ -80,49 +87,22 @@ def interp1d(lnk,karray,funcarray):
 #     print(l,units)
 #     C_l[l-1] = units
 
-C_l1 = np.zeros(161) #eq 25 in the paper
-func_k1 = np.zeros(nk_nl)
+C_l1 = np.zeros(2601) #eq 25 in the paper
+func_k1 = np.zeros(nklin_cmb)
 
-for l in range(0,161):
-    for i,kloop in enumerate(k_nl):
-        func_k1[i] = omega_m*omega_m*(1.+z[nz-1])*(1.+z[nz-1])*p_nl_R[i]*special.spherical_jn(l,kloop*chi_Rmax)*\
+for l in range(0,2601):
+    print(l)
+    for i,kloop in enumerate(klin_cmb):
+        func_k1[i] = kloop*kloop*special.spherical_jn(l,kloop*chi_Rmax)*P_0[i]*\
                     (special.spherical_jn(l,kloop*chi_Rmax)*l - special.spherical_jn(l+1,kloop*chi_Rmax)*kloop*chi_Rmax)\
-                    /(16.*np.power(4*np.pi,3)*9e12*kloop*kloop)
+                    /(8.*np.pi*np.pi*np.pi)
         # func_k1[i] = p_nl_R[i]*kloop*kloop*special.spherical_jn(l,kloop*chi_Rmax)*\
         #             (special.spherical_jn(l,kloop*chi_Rmax)*l - special.spherical_jn(l+1,kloop*chi_Rmax)*kloop*chi_Rmax)\
         #             /(np.power(2.*np.pi,3.))
-    k_min = np.log(k_nl.min())
-    k_max = np.log(k_nl.max())
-    term = integrate.quad(interp1d, k_min, k_max,args=(k_nl,func_k1), epsrel = 1e-6)[0]
+    k_min = np.log(klin_cmb.min())
+    k_max = np.log(klin_cmb.max())
+    term = integrate.quad(interp1d, k_min, k_max,args=(klin_cmb,func_k1), epsrel = 1e-6)[0]
     C_l1[l] = term
 
-
-def f_expect(l1,l2,L):
-    return np.sqrt((2*l1+1)*(2*l2+1)/(4*np.pi*(2*L+1)))*wigner_3j(l2,l1,L,0,0,0)*(C_l1[l1]+np.power(-1,l1+l2+L)*C_l1[l2])
-
-def g_weight(l1,l2,L):
-    return 1
-
-C_CMB = np.arange(200)
-def d_variance(L,M):
-    sum3 = 0.
-    for l1 in range(161):
-        print(l1)
-        sum2 = 0.
-        for l2 in range(161):
-            sum1 = 0.
-            for m1 in range(-l1,l1+1):
-                sum0 = 0.
-                if M==0:
-                    for m2 in range(-l2,l2+1):
-                        sum0 = sum0 + g_weight(l1,l1,L)*np.conj(g_weight(l2,l2,L))*wigner_3j(l1,l1,L,m1,-m1,0)*np.conj(wigner_3j(l2,l2,L,m2,-m2,0))
-                    sum0 = sum0 + g_weight(l1,l2,L)*wigner_3j(l2,l1,L,m1,-m1,0)*np.conj(wigner_3j(l2,l1,L,m1,-m1,0))*(np.conj(g_weight(l1,l2,L))+np.power(-1,l1+l2+L)*np.conj(g_weight(l2,l1,L)))
-                else:
-                    sum0 = sum0 + g_weight(l1,l2,L)*wigner_3j(l2,l1,L,m1-M,-m1,M)*np.conj(wigner_3j(l2,l1,L,m1-M,-m1,M))*(np.conj(g_weight(l1,l2,L))+np.power(-1,l1+l2+L)*np.conj(g_weight(l2,l1,L)))
-                sum1 = sum1 + sum0
-            sum2 = sum2 + sum1*C_CMB[l2]
-        sum3 = sum3 + sum2*C_CMB[l1]
-    return sum3
-
-print(d_variance(8,0))
+print(chi_Rmax)
 

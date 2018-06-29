@@ -30,7 +30,7 @@ long double factorial(int n)
         return 1.;
 }
 
-double triangle_coefficient(int j1, int j2, int j3){
+long double triangle_coefficient(int j1, int j2, int j3){
 	return factorial(j1+j2-j3)*factorial(j1-j2+j3)*factorial(-j1+j2+j3)
 	 		/factorial(j1+j2+j3+1);
 }
