@@ -44,11 +44,13 @@ std::complex<double> diag_variance(int L, int M , std::vector<double> C_l, std::
   std::complex<double> sum1 (0.,0.);
   std::complex<double> sum0 (0.,0.);
   int l1,l2,m1, m2;
+
   for(l1=0; l1<=l_max;l1++){
     std::cout << l1 << "\n";
     sum2 = std::complex<double>(0.,0.);
     for(l2=0; l2<=l_max;l2++){
       sum1 = std::complex<double>(0.,0.);
+      if((L>=std::abs(l1-l2))&&(L<=(l1+l2))&&(l1+l2+L)%2==0){
       for(m1=-l1;m1<=l1;m1++){
         sum0 = std::complex<double>(0.,0.);
         if(M==0){
@@ -66,7 +68,7 @@ std::complex<double> diag_variance(int L, int M , std::vector<double> C_l, std::
                     std::conj(g(l1,l2,L))*std::conj(1./f(l1,l2,L,C_l1))+std::conj(pow_minus1(l1+l2+L))*std::conj(g(l2,l1,L))*std::conj(1./f(l2,l1,L,C_l1)));
         }
         sum1 = sum1 +sum0;
-      }
+      }}
       sum2 = sum2 + sum1*std::conj(C_l[l2]);
     }
     sum3 = sum3 + sum2*std::conj(C_l[l1]);
@@ -130,7 +132,6 @@ main(int argc, char* argv[])
   C_l1.pop_back();
 
   int nklin_cmb = klin_cmb.size();
-
-  std::cout << diag_variance(5,3,C_CMB,C_l1) << "\n";
+  
   return 0;
 }
