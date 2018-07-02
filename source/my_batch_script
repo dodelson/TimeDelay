@@ -1,0 +1,8 @@
+#!/bin/bash -l
+#SBATCH -q debug
+#SBATCH -N 1
+#SBATCH -C haswell
+#SBATCH -t 00:10:00
+#SBATCH -J TimeDelay
+/global/homes/p/peikail/TimeDelay/source/a.out
+
