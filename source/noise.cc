@@ -52,20 +52,28 @@ std::complex<double> diag_variance(int L, int M , std::vector<double> C_l, std::
       if((L>=std::abs(l1-l2))&&(L<=(l1+l2))&&((l1+l2+L)%2==0)){
       for(m1=-l1;m1<=l1;m1++){
         sum0 = std::complex<double>(0.,0.);
-        if(M==0){
-          for(m2=-l2;m2<=l2;m2++){
-            sum0 = sum0 /*+g(l1,l1,L)*std::conj(wigner3j(l1,l1,L,m1,-m1,0)
-                    *wigner3j(l2,l2,L,m2,-m2,0)/(f(l1,l1,L,C_l1)*f(l2,l2,L,C_l1)))*std::conj(g(l2,l2,L))*/;
+        if((L%2==0)){
+          if(M==0){
+            for(m2=-l2;m2<=l2;m2++){
+              sum0 = sum0 +g(l1,l1,L)*std::conj(wigner3j(l1,l1,L,m1,-m1,0)
+                      *wigner3j(l2,l2,L,m2,-m2,0)/(f(l1,l1,L,C_l1)*f(l2,l2,L,C_l1)))*std::conj(g(l2,l2,L));
+            }
+            sum0 = sum0 + g(l1,l2,L)*std::conj(wigner3j(l2,l1,L,m1,-m1,0)*
+                    wigner3j(l2,l1,L,m1,-m1,0)/(f(l1,l2,L,C_l1)))*(
+                      std::conj(g(l1,l2,L))*std::conj(1./f(l1,l2,L,C_l1))+std::conj(pow_minus1(l1+l2+L))*std::conj(g(l2,l1,L))*std::conj(1./f(l2,l1,L,C_l1)));
           }
-          sum0 = sum0 + g(l1,l2,L)*std::conj(wigner3j(l2,l1,L,m1,-m1,0)*
-                  wigner3j(l2,l1,L,m1,-m1,0)/(f(l1,l2,L,C_l1)))*(
-                    std::conj(g(l1,l2,L))*std::conj(1./f(l1,l2,L,C_l1))+std::conj(pow_minus1(l1+l2+L))*std::conj(g(l2,l1,L))*std::conj(1./f(l2,l1,L,C_l1)));
+          else{
+            sum0 = sum0 + g(l1,l2,L)*std::conj(wigner3j(l2,l1,L,m1-M,-m1,M)*
+                    wigner3j(l2,l1,L,m1-M,-m1,M)/(f(l1,l2,L,C_l1)))*(
+                      std::conj(g(l1,l2,L))*std::conj(1./f(l1,l2,L,C_l1))+std::conj(pow_minus1(l1+l2+L))*std::conj(g(l2,l1,L))*std::conj(1./f(l2,l1,L,C_l1)));
+          }
         }
         else{
           sum0 = sum0 + g(l1,l2,L)*std::conj(wigner3j(l2,l1,L,m1-M,-m1,M)*
-                  wigner3j(l2,l1,L,m1-M,-m1,M)/(f(l1,l2,L,C_l1)))*(
-                    std::conj(g(l1,l2,L))*std::conj(1./f(l1,l2,L,C_l1))+std::conj(pow_minus1(l1+l2+L))*std::conj(g(l2,l1,L))*std::conj(1./f(l2,l1,L,C_l1)));
+                    wigner3j(l2,l1,L,m1-M,-m1,M)/(f(l1,l2,L,C_l1)))*(
+                      std::conj(g(l1,l2,L))*std::conj(1./f(l1,l2,L,C_l1))+std::conj(pow_minus1(l1+l2+L))*std::conj(g(l2,l1,L))*std::conj(1./f(l2,l1,L,C_l1)));
         }
+
         sum1 = sum1 +sum0;
       }}
       sum2 = sum2 + sum1*std::conj(C_l[l2]);
