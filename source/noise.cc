@@ -46,6 +46,7 @@ std::complex<double> diag_variance(int L, int M , std::vector<double> C_l, std::
   int l1,l2,m1, m2;
 
   for(l1=0; l1<=l_max;l1++){
+    std::cout << l1 << "\n";
     sum2 = std::complex<double>(0.,0.);
     for(l2=0; l2<=l_max;l2++){
       sum1 = std::complex<double>(0.,0.);
@@ -141,8 +142,8 @@ main(int argc, char* argv[])
   int nklin_cmb = klin_cmb.size();
   int L;
   std::ofstream fout("/global/homes/p/peikail/TimeDelay/source/diag_variance/L.txt");
-  for(L=0;L<=50;L++){
-    std::cout << L << "\n";
+  for(L=0;L<=15;L++){
+    std::cout <<"L="<< L  << "\n";
     fout <<diag_variance(L,0,C_CMB,C_l1)<<"\n";
   }
   fout.close();
