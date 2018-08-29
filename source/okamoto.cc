@@ -34,6 +34,7 @@ double A(int L, std::vector<double> C_l,std::vector<double> C_l_noise){
 	int l1, l2;
 	for(l1=l_min;l1<=l_max;l1++){
 		sum0=sum0+sum1;
+		sum1=0;
 		for(l2=l_min;l2<=l_max;l2++){
 			sum1 = sum1 + g(l1,L,l2,C_l,C_l_noise)*f(l1,L,l2,C_l);
 		}
