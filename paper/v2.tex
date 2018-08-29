@@ -119,9 +119,9 @@ A starting point is to assume that the last scattering surface is infinitely thi
 .\ee
 The derivative can be evaluated by recalling that the undistorted temperature can be expanded in spherical harmonics with coefficients
 \be
-\tu_{lm} = (-1)^{l} \int \frac{d^{3}k}{(2\pi)^{3}}Y_{lm}^{*}(\hat{k})S(\vec k;\eta_{*})j_{l}(kD_{*}) 
+\tu_{lm} = 4\pi(-i)^{l} \int \frac{d^{3}k}{(2\pi)^{3}}Y_{lm}^{*}(\hat{k})S(\vec k;\eta_{*})j_{l}(kD_{*}) 
 \ee
-where $S$ is the source function, dominated on small scales by the monopole and dipole, as in Eq. (22) of Ref.~\cite{Hu:2001bc}. The derivative then acts on the spherical Bessel function, and after expanding the fractional difference in spherical harmonics as well, we obtain
+where $S$ is the source function, dominated on small scales by the monopole and dipole, as in Eq. (22) of Ref.~\cite{Hu:2001bc} (but note. The derivative then acts on the spherical Bessel function, and after expanding the fractional difference in spherical harmonics as well, we obtain
 \be
 \tob_{lm} = \tu_{lm} + \td_{lm}
 \ee
@@ -147,7 +147,7 @@ We proceed as in Ref.~\cite{Hu:2001tn} by focusing on the expectation of off-dia
 \vs\eea
 where the spectrum
 \be
-C_{l}^d \equiv \int_0^\infty \frac{d^3k}{(2\pi)^3}\, P_S(k,\eta_*)\,j_l(kD_*)\,\frac{\partial j_l(kD_*)}{\partial\ln D_*}
+C_{l}^d \equiv \frac{2}{\pi}\,\int_0^\infty dk\,k^2\, P_S(k,\eta_*)\,j_l(kD_*)\,\frac{\partial j_l(kD_*)}{\partial\ln D_*}
 \ee
 with $P_S$ the power spectrum of the source. This expression is identical to the one for the undistorted CMB spectrum $C_l$ other than the replacement $j_l\rightarrow j_l'$. The two spectra are shown in Fig.~XXX. Therefore, following Ref.~\cite{Okamoto:2003zw}, we form the quadratic estimator for the fractional distance field
 \be
