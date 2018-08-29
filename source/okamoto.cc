@@ -53,7 +53,8 @@ main(int argc, char* argv[])
   
   /*TT spectrum I restored is C_{l}/(2*PI), so I timed a 2*PI here*/
   std::ifstream file0("data/tt.txt");
-  std::vector<double> C_TT={0.,0.};
+  std::vector<double> C_TT={0.,0.};/*This is because CAMB generates C_l from l=2; We could just set C[0]=C[1]=0., 
+  					becasue we don't use thse two points.. and in this case C[l] = C_l*/
 
   while(!file0.eof())
   {
