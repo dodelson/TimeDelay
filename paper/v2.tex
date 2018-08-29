@@ -104,313 +104,69 @@ d^{\rm CMB}(\hat n) = \frac{-2}{D_*} \int_0^\infty dD e^{-\tau(D)}\, \Phi\left(D
 \ee
 where $\tau$ is the optical depth, which becomes very large at times smaller than $t_*$ or equivalently when $D>D_*$, the nominal distance to the last scattering surface. This directional-dependent change in the distance to last scattering is independent of its finite width and a phenomenon different than the angular deflections~\cite{Hu:2001tn,Lewis:2006fu} that have been captured by recent experiments~\cite{Smith:2007rg,Ade:2013tyw,Story:2014hni,Sherwin:2016tyf,Aghanim:2018oex}.
 
-Although deflections and delays are two different phenomena, they share some similarities, especially in the case of the CMB. Both are determined by the integrated potential along the line of sight, although with slight different kernels, as depicted in Figure~\rf{kernel}. It is clear that they will be highly correlated, so as a first approximation, we might view the maps of the lensing potential created for example in \citet{Aghanim:2018oex} as maps of distance to the last scattering surface. Another similarity, one that has not yet been exploited, is that the formalism first proposed in \citet{Hu:2001tn} can be applied to the delays as well, and this is what we will do in this paper. We start though with the rather humbling calculation of \cite{Hu:2001yq} that the RMS fractional distance differences are a factor of ten smaller than the RMS angular deviations. Further, while the latter peak at degree scales, the former peak on the largest scales.
+Although deflections and delays are two different phenomena, they share some similarities, especially in the case of the CMB. Both are determined by the integrated potential along the line of sight, although with slight different kernels, as depicted in Figure~\rf{kernel}. It is clear that they will be highly correlated, so as a first approximation, we might view the maps of the lensing potential created for example in \citet{Aghanim:2018oex} as maps of distance to the last scattering surface. Another similarity, one that has not yet been exploited, is that the formalism first proposed in \citet{Hu:2001tn} can be applied to the delays as well, and this is what we will do in this paper. We start though with the rather humbling calculation of \cite{Hu:2001yq} that the RMS fractional distance differences are a factor of ten smaller than the RMS angular deviations. Further, while the latter peaks at degree scales, the former peak on the largest scales.
 
 \Sfig{kernel}{Kernel that weights the integral of the gravitational potential for the time delay examined here and the more carefully studied deflection angle.}
 
-\subsection{Flat Sky Approximation} We would like to obtain an expression for the change in the observed temperature due to the time delay akin to the one used for deflection. Recall that the impact of deflection can be traced by Taylor expanding
-\begin{equation}
-T(\vec\theta) = T^u(\vec\theta) - \vec\alpha\cdot \frac{\partial T^u}{\partial\vec\theta}.
-\end{equation}
-The Fourier transform of the deflection term is then
-\begin{equation}
-\tilde T^\phi(\vec l) =\int \frac{d^2l'}{(2\pi)^2} \vec l'\cdot (\vec l-\vec l') \tilde\phi(\vec l') \tilde T^u(\vec l-\vec l')
-\eql{tphi}\end{equation}
-We want to derive a similar expression for the impact of time delay. 
-
-A first guess at the Fourier space is
-that the unlensed temperature is simply
-\begin{equation}
-\tilde T^u(\vec l) = \int d^2\theta e^{-i\vec l\cdot \vec\theta}\, \int \frac{d^3k}{(2\pi)^3} e^{i\vec k\cdot [\chi_*\vec\theta,\chi_*]}  [\tilde T_0+\tilde\Psi](\vec k)
-\end{equation}
-which uses the small sky approximation to express the position from whence the CMB photons are emitted as $[\chi_*\vec\theta,\chi_*]$ and recognizes that the temperature is due to the sum of the monopole and the gravitational potential.Carrying out the $\vec\theta$ integral leads to a delta function in $\vec k_\perp$, so that 
-\begin{equation}
-\tilde T^u(\vec l;\chi_*) = 
-\frac{1}{\chi_*^2}\, \int \frac{dk_z}{2\pi}  [\tilde T_0+\tilde\Psi](\vec l/\chi_*,k_z)\,e^{ik_z\chi_*}\eql{tu}
-\end{equation}
-where the fact that $T^u$ depends on the distance to the last scattering surface is encoded in the argument on the left hand side.
-This is important, as the temperature due to the time delay requires us to take the derivative with respect to $\chi_*$.
-
-In particular,
+\section{Effect of distance changes on the CMB}
+\newcommand\fd{d^{\rm CMB}}
+\newcommand\tob{\Theta^{\rm obs}}
+\newcommand\tu{\Theta}
+\newcommand\td{\Theta^{\rm dist}}
+A starting point is to assume that the last scattering surface is infinitely thin, note that the observed temperature in a given direction $\tob(\hat n)$ is the undistorted temperature $\tu(\hat n)$ plus a term proportional to the small fractional difference $\fd(\hat n)$:
 \be
-T^d(\vec\theta) = d(\vec\theta)\,\frac{\partial}{\partial\ln\chi_*}\, T^u(\vec\theta;\chi_*).
-\ee
-This is simply a Taylor expansion in the deviation from $\chi_*$ accounting for the fact that $d$ is the fractional change in the distance to the last scattering surface. In Fourier space, this becomes
-\begin{equation}
-\tilde T^d(\vec l) = \int \frac{d^2l'}{(2\pi)^2}\, \tilde d(\vec l') \tilde T^{u'}(\vec l-\vec l';\chi_*) % \int \frac{dk_z}{2\pi} \frac{k_z\chi_*}{\chi_*^2}\, [\tilde T_0+\tilde\Psi]([\vec l-\vec l_1]/\chi_*,k_z) \,e^{ik_z\chi_*}.
-\eql{td}\end{equation}
-where the prime on $T^u$ denote the  derivative with respect to $\ln\chi_*$. Comparing \ec{td} with \ec{tphi}  gives us a sense of the difficulty of extracting this signal. The contribution to the temperature due to deflection has two derivatives compared to the one due to time delay. These show up in Fourier space as extra factors of $\vec l'\cdot\vec l$, where $\vec l'$ is small (of order 50 for deflection, but $l\sim 10^3$. Even if the single derivative in the time delay case gives a factor of $k\chi_*\sim l$, the signal would still be down by a factor of order $l'\sim50$. Indeed, Figure 5 in \cite{Hu:2001yq} suggests that the power spectrum is down by a factor of $10^4$ implying that the RMS is down by 100. %A simpler way to compare the signals is to work in real space, so that the deflection signal is of order $\alpha/\theta\sim1'/
-
-The derivative of $\tilde T^u$ nominally acts on three places in \ec{tu}: on the $\chi_*^{-2}$ out front, the logarithmic derivative is or order unity and similarly when it acts on the $\vec k_\perp$ argument of the temperature. When it acts on the exponential it is of order $k_z\chi_*$. Now $k_\perp\chi_*\sim l$; assuming $k_z$ is of the same order, the leading term in the derivative is the one that acts on the exponential, and we get
-\begin{equation}
-\tilde T^d(\vec l) = \chi_*\int \frac{d^2l'}{(2\pi)^2}\, \tilde d(\vec l')
-\frac{i}{\chi_*^2}\, \int \frac{dk_z\,k_z}{2\pi}  [\tilde T_0+\tilde\Psi]([\vec l-\vec l']/\chi_*,k_z)\,e^{ik_z\chi_*}.
-\end{equation}
-Multiplying this by $\tilde T^u(\vec L)$ and taking the expectation value gives
-\be
-\int \frac{d^2l'}{(2\pi)^2}\, \tilde d(\vec l')
-\frac{i}{\chi_*^2}\, \int \frac{dk_z\,k_z}{2\pi}  \,e^{ik_z\chi_*}
-\frac{1}{\chi_*}\, \int \frac{dk'_z}{2\pi} \,e^{ik'_z\chi_*}
- \langle [\tilde T_0+\tilde\Psi]([\vec l-\vec l']/\chi_*,k_z)  [\tilde T_0+\tilde\Psi](\vec L/\chi_*,k'_z)\rangle
- \ee
- The 3 delta functions reduce this to
- \be
- \langle \tilde T^u(\vec L) \tilde T^d(\vec l) \rangle
- = \frac{i\tilde d(\vec l + \vec L)}{\chi_*} \int \frac{dk_z\,k_z}{2\pi} \, P_{T_o+\Psi}(L/\chi_*,k_z)
-. \ee
- Redefining $\vec l + \vec L \rightarrow \vec L$ leads to an estimator\footnote{Not really; we need to include the $T^dT^u$ term as well}
- \be
- \hat{\tilde d}(\vec L) = -i \frac{\tilde T(\vec l-\vec L) \tilde T(\vec l)}{C'_{\vert\vec l-\vec L\vert}}
- \ee
- where
- \be
- C'_l \equiv  \frac{1}{\chi_*}\, \int \frac{dk_z\,k_z}{2\pi} \, P_{T_o+\Psi}(l/\chi_*,k_z)
- .\ee
-If we wanted to construct the optimal estimator, we would sum these over all $\vec l$ with appropriate weighting.
-
-Although this is a very rough derivation, we can already glimpse several points about the time delay estimator:
-\begin{itemize}
-\item Just like the deflection estimator, this will be a quadratic estimator pairing temperatures on small scales separated by a small Fourier space difference $\vec L$
-\item Because Hu and Cooray showed that the time delay power spectrum peaks on the largest of scales, instead of $\Delta L\sim 50$ used for the deflection potential, here we will be using very small $\Delta L$'s, perhaps as small as 1. This means an all-sky treatment of the time delay field is essential.
-\item While the deflection estimator upweights modes with small $\vec L\cdot \vec l$, i.e., it uses modes with lensing wavevector perpendicular to the anistropy wavevector, here there is no such angular preference. This should make it slightly easier to disentangle the two estimators.
-\end{itemize}
-\subsection{All-sky Expressions}
-
-A starting point is 
-%the set of equations 21 in \cite{knuthwebsite}. Their expressions are in terms of spherical harmonics so more complex than what we are looking for, but the two relevant terms are:
-%\begin{eqnarray}
-%T^\phi(\hat n) &=& \sum_{lm} I_m[j_l] \nabla_i\phi(\hat n) \nabla^i Y_l^m(\hat n)\\
-%T^d(\hat n) &=& \sum_{lm} \frac{\partial a_{lm}(k\chi_*)}{(\partial k\chi_*)} d(\hat n)  Y_l^m(\hat n)\label{eq:ttd}
-%\end{eqnarray}
-\begin{equation}
-T(\hat n) = \sum_{lm} Y_{lm}(\hat n) a_{lm}(\chi_*)
-\end{equation}
-where (Eq. (21) in ~\cite{Hu:2001bc})
-\begin{equation}
-a_{lm}(\chi_*) = (-i)^l \int \frac{d^3k}{(2\pi)^3}\, Y_{lm}^*(\hat k) [\tilde T_0+\tilde\Psi](\vec k;\eta_*) j_l(k\chi_*) \eql{alm}
-\end{equation}
-where $T_0$ is the monopole; $\Psi$ one of the scalar potentials; and $\chi_*$ the distance to the last scattering surface. 
-Therefore, the small change due to the time delay is:
-\begin{equation}
-T^d(\hat n) = \sum_{lm} Y_{lm}(\hat n) \frac{\partial a_{lm}(\chi_*)}{\partial \chi_*} \chi_* d(\hat n)
-\end{equation}
-where $d$ is the fractional change in the distance to the last scattering surface as in \cite{Hu:2001yq}. We can go a step further using some of the formalism developed in \cite{Okamoto:2003zw} to express $d(\hat n)$ in terms of its spherical harmonics; then,
-\begin{equation}
-T^d(\hat n) = \sum_{LM;L'M'}\frac{\partial a_{LM}(\chi_*)}{\partial \ln\chi_*} d_{L'M'}  Y_{LM}(\hat n)  Y_{L'M'}(\hat n) .
-\end{equation}
-Writing this as
-\begin{equation}
-T^d(\hat n) = \sum_{lm} D_{lm}\,Y_{lm}(\hat n)  
-\end{equation}
-where -- to be clear -- $d_{lm}$ are the coefficients of the spherical harmonics of the time delay field while $D_{lm}$ are the coefficients of the contribution to the change in the CMB anisotropies due to this time delay. Multiplying by $Y^*_{lm}$ and integrating over $d\Omega_n$ leads to
-\be
-D_{lm} =\sum_{LM;L'M'}\frac{\partial a_{LM}(\chi_*)}{\partial \ln\chi_*} d_{L'M'}   \int d\Omega_{\hat n} Y_{LM}(\hat n)  Y_{L'M'}(\hat n)Y^*_{lm}(\hat n)  .
-\ee
-The integral can be done by using the formula for the product of spherical harmonics and then orthogonality leading to
-\be
-D_{lm} = \sum_{LM;L'M'}\frac{\partial a_{LM}(\chi_*)}{\partial \ln\chi_*} d_{L'M'}  I(lm;LM;L'M')
-\ee
-where 
-\be
- I(lm;LM;L'M') = (-1)^m \left[ \frac{(2L+1)(2L'+1)(2l+1)}{4\pi}\right]^{1/2}\left(\begin{matrix} l & L &L'\cr 0&0&0\end{matrix}\right)
- \left(\begin{matrix} l & L &L'\cr -m&M&M'\end{matrix}\right).
-\ee
-
-\section{Estimators}
-
-The observed temperature field has coefficients
-\be
-a^{\rm obs}_{lm} = a_{lm} + D_{lm}
+\tob(\hat n) = \tu(\hat n) + \frac{\partial\tu(\hat n)}{\partial \ln D_*}\, \fd(\hat n)
 .\ee
-When we take quadratic estimators the perturbative term will have an expectation value:
+The derivative can be evaluated by recalling that the undistorted temperature can be expanded in spherical harmonics with coefficients
 \be
-\langle a^{\rm obs}_{l_1m_1} a^{\rm obs}_{l_2m_2} \rangle= \delta_{l_1l_2}\delta_{m_1-m_2}C_{l_1} + \langle a_{l_1m_1}D_{l_2m_2}\rangle+ \langle a_{l_2m_2}D_{l_1m_1}\rangle
-.\eql{terms}
+\tu_{lm} = (-1)^{l} \int \frac{d^{3}k}{(2\pi)^{3}}Y_{lm}^{*}(\hat{k})S(\vec k;\eta_{*})j_{l}(kD_{*}) 
 \ee
-Consider the middle term here and use \ec{alm} to get
-\bea
-\langle a_{l_1m_1}D_{l_2m_2}\rangle&=&\sum_{LM;L'M'}d_{L'M'}  I(l_2m_2;LM;L'M')
- (-i)^{l_1+L} \int \frac{d^3k}{(2\pi)^3}\, Y_{l_1m_1}^*(\hat k) j_{l_1}(k\chi_*)\,
- \int \frac{d^3k'}{(2\pi)^3}\, Y_{LM}^*(\hat k') \frac{\partial j_L(k'\chi_*)}{\partial\ln(\chi_*)}
-\vs
-&&\times\langle  [\tilde T_0+\tilde\Psi](\vec k;\eta_*)  [\tilde T_0+\tilde\Psi](\vec k';\eta_*) \rangle.
-\eea
-But the expectation value leads to the 3D power spectrum multiplied by a delta function in $\vec k+\vec k'$, after which the angular integral over the spherical harmonics can be performed using ($Y_{LM}^*(-\hat k)=(-1)^{L+M}Y_{L,-M}(\hat k)$, and we are left with
+where $S$ is the source function, dominated on small scales by the monopole and dipole, as in Eq. (22) of Ref.~\cite{Hu:2001bc}. The derivative then acts on the spherical Bessel function, and after expanding the fractional difference in spherical harmonics as well, we obtain
 \be
-\langle a_{l_1m_1}D_{l_2m_2}\rangle=\sum_{L'M'}d_{L'M'}  I(l_2m_2;l_1,-m_1;L'M')
- (-1)^{m_1} \int \frac{dk k^2}{(2\pi)^3}\, j_{l_1}(k\chi_*)\,\frac{\partial j_{l_1}(k\chi_*)}{\partial\ln(\chi_*)}P_{T_0+\Psi}(k).
+\tob_{lm} = \tu_{lm} + \td_{lm}
 \ee
-The last term in \ec{terms} simply has $l_1,m_1\leftrightarrow l_2,m_2$ so the full off-diagonal expression for the expectation value is
-\bea
-\langle a^{\rm obs}_{l_1m_1} a^{\rm obs}_{l_2m_2} \rangle\Big\vert_{\rm off-diagonal} &=&
-\sum_{L'M'}d_{L'M'}  
- \vs
-\times &&
- \left[
- I(l_2m_2;l_1,-m_1;L'M')
- (-1)^{m_1} C^{(1)}_{l_1}
-  + 
- I(l_1m_1;l_2,-m_2;L'M')
- (-1)^{m_2}C^{(1)}_{l_2}
- \right]\eea
-where
+with the first order term due to the distortion equal to
 \be
-C^{(1)}_{l}\equiv \int \frac{dk k^2}{(2\pi)^3}\, j_{l}(k\chi_*)\,\frac{\partial j_{l}(k\chi_*)}{\partial\ln(\chi_*)}P_{T_0+\Psi}(k).
-\ee
-
-We can use the identity (Eq 31 in ~\cite{Okamoto:2003zw})
-\be
-\sum_{m_1m_2} 
- \left(\begin{matrix} l_2 & l_1 &L'\cr -m_2&m_1&M'\end{matrix}\right)
- \left(\begin{matrix} l_2 & l_1 &L\cr -m_2&m_1&M\end{matrix}\right)
-=\frac{1}{2L+1}\,\delta_{LL'}\delta_{MM}
-\ee
-so that multiplying by $(-1)^{m_1+m_2} \left(\begin{matrix} l_2 & l_1 &L\cr -m_2&-m_1&M\end{matrix}\right)$ and summing over $m_1,m_2$ leads to
-\be
-\sum_{m_1m_2}  (-1)^{m_1+m_2} \left(\begin{matrix} l_2 & l_1 &L\cr -m_2&-m_1&M\end{matrix}\right) 
-I(l_2m_2;l_1,-m_1;L'M')
- (-1)^{m_1} 
-= \left[
-\frac{(2l_1+1)(2l_2+1)}{4\pi (2L+1)}\right]^{1/2}\delta_{LL'}\delta_{MM'}\left(\begin{matrix} l_2 & l_1 &L\cr 0&0&0\end{matrix}\right)
+\td_{lm} = \sum_{LM}\sum_{l'm'} \frac{\partial \tu_{LM}(D_{*})}{\partial \ln D_{*}} d_{l'm'} I_{lLl'}^{mMm'}
 .\ee
-The same operation on the second term is trickier:
-\bea
-\sum_{m_1m_2}  (-1)^{m_1+m_2} &&\left(\begin{matrix} l_2 & l_1 &L\cr -m_2&-m_1&M\end{matrix}\right) 
-I(l_1m_1;l_2,-m_2;L'M')
- (-1)^{m_2}
- =
- \sum_{m_1m_2}   \left(\begin{matrix} l_2 & l_1 &L\cr -m_2&-m_1&M\end{matrix}\right) 
- \vs
- &&\times\left[ \frac{(2l_1+1)(2L'+1)(2l_2+1)}{4\pi}\right]^{1/2}\left(\begin{matrix} l_1 & l_2 &L'\cr 0&0&0\end{matrix}\right) 
- \left(\begin{matrix} l_1 & l_2 &L'\cr -m_1&-m_2&M'\end{matrix}\right).
- \eea
-Switching columns in the Wigner 3j symbol brings in a factor of $(-1)^{l_1+l_2+L'}$ so
-\bea
-\sum_{m_1m_2}  (-1)^{m_1+m_2} &&\left(\begin{matrix} l_2 & l_1 &L\cr -m_2&-m_1&M\end{matrix}\right) 
-I(l_1m_1;l_2,-m_2;L'M')
- (-1)^{m_2}
- =
- (-1)^{l_1+l_2+L'}  
- \vs
- &&\times\left[
-\frac{(2l_1+1)(2l_2+1)}{4\pi (2L+1)}\right]^{1/2}\delta_{LL'}\delta_{MM'}\left(\begin{matrix} l_2 & l_1 &L\cr 0&0&0\end{matrix}\right).
- \eea
-Therefore,
-\bea
-\sum_{m_1m_2}  (-1)^{m_1+m_2} &&\left(\begin{matrix} l_2 & l_1 &L\cr -m_2&-m_1&M\end{matrix}\right)
-\langle a^{\rm obs}_{l_1m_1} a^{\rm obs}_{l_2m_2} \rangle\Big\vert_{\rm off-diagonal}
-\vs
-&=& d_{LM} \left[ \frac{(2l_1+1)(2l_2+1)}{4\pi(2L+1)}\right]^{1/2}\left(\begin{matrix} l_1 & l_2 &L\cr 0&0&0\end{matrix}\right)
-\left[ C^{(1)}_{l_1} + (-1)^{l_1+l_2+L}C^{(1)}_{l_2}\right]
-\eea
-
-
-Therefore, an intermediate estimator for the time delay field is
+Here, the integral over the product of three spherical harmonics is expressed as 
 \be
-\hat d'_{LM}(l_1l_2) =  \sum_{m_1m_2}  (-1)^{m_1+m_2}\,\left(\begin{matrix} l_2 & l_1 &L\cr -m_2&-m_1&M\end{matrix}\right)
- a^{\rm obs}_{l_1m_1} a^{\rm obs}_{l_2m_2} 
- \ee
- where the expectation value is
- \be
-\langle \hat d'_{LM}(l_1l_2) \rangle = d_{LM} \times f_{l_1l_2L}
+I_{lLl'}^{mMm'}  = (-1)^m\,
+\bigl(\begin{smallmatrix} l & L & l' \\ -m & M & m'  \end{smallmatrix}\bigr) F_{lLl'}
+\ee
+with
+\be
+F_{lLl'} \equiv \frac{\big[ (2l+1)(2L+1)(2l'+1)\big]^{1/2} }{\sqrt{4 \pi}} \bigl(\begin{smallmatrix} l & L & l' \\ 0 & 0 & 0  \end{smallmatrix}\bigr)
+.\ee
+
+We proceed as in Ref.~\cite{Hu:2001tn} by focusing on the expectation of off-diagonal (${l_1,m_1\ne l_2,m_2}$) terms quadratic in the observed moments:
+\bea
+\langle \tob_{l_1m_1} \tob_{l_2m_2} \rangle &&=
+\sum_{LM} d_{LM} (-1)^M F_{l_2 l_1L}  \bigl(\begin{smallmatrix} l_1 & l_2 & L \\ m_1 & m_2 & -M  \end{smallmatrix}\bigr) \vs
+&\times &\Big[ C_{l_1}^d +C_{l_2}^d\Big]
+\vs\eea
+where the spectrum
+\be
+C_{l}^d \equiv \int_0^\infty \frac{d^3k}{(2\pi)^3}\, P_S(k,\eta_*)\,j_l(kD_*)\,\frac{\partial j_l(kD_*)}{\partial\ln D_*}
+\ee
+with $P_S$ the power spectrum of the source. This expression is identical to the one for the undistorted CMB spectrum $C_l$ other than the replacement $j_l\rightarrow j_l'$. The two spectra are shown in Fig.~XXX. Therefore, following Ref.~\cite{Okamoto:2003zw}, we form the quadratic estimator for the fractional distance field
+\be
+\hat d_{LM} = A_{L} \sum_{l_1m_1l_2m_2} (-1)^M  \bigl(\begin{smallmatrix} l_1 & l_2 & L \\ m_1 & m_2 & -M  \end{smallmatrix}\bigr) g_{l_1l_2}(L)  \tob_{l_1m_1} \tob_{l_2m_2}
 \ee
 where
 \be
- f_{l_1l_2L}
- \equiv 
- \left[ \frac{(2l_1+1)(2l_2+1)}{4\pi (2L+1)}\right]^{1/2}
- \Big[
- \left(\begin{matrix} l_2& l_1 &L\cr 0&0&0\end{matrix}\right)
-  \Big]
-  \left[ C^{(1)}_{l_1} + (-1)^{l_1+l_2+L}C^{(1)}_{l_2}\right]
- .\ee
- Therefore, our estimator for a given $l_1,l_2$ is
- \be
- \hat d_{LM}(l_1l_2) =  \frac{1}{f_{l_1l_2L}}\,\sum_{m_1m_2}  (-1)^{m_1+m_2}\,\left(\begin{matrix} l_2 & l_1 &L\cr -m_2&-m_1&M\end{matrix}\right)
- a^{\rm obs}_{l_1m_1} a^{\rm obs}_{l_2m_2} 
- \ee
+g_{l_1l_2}(L)\equiv \frac{f_{l_1Ll_2}}{2C_{l_1}C_{l_2}}
+\ee
+and
+\be
+A_L \equiv (2L+1) \left\{ \sum_{l_1l_2} g_{l_1l_2}(L)f_{l_1Ll_2}\right\}^{-1}
+.\ee 
+This estimator has an expected value equal to the true $d_{LM}$ and a variance 
+\be
+\langle \hat d_{LM} \hat d^*_{L'M'}  \rangle = \delta_{LL'}\delta_{MM'} \left( C_L^{dd} + A_L \right)
+\ee
+with the first term on the right the signal and the second the noise. Fig.YYY shows the signal and noise as a function of $L$ for several experimental configurations.
 
- 
- This is for a fixed value of $l_1, l_2$; we want to sum over all possible values with a weighting fixed so that the variance is as small as possible. Define the weighting factor as $g_{l_1l_2}(L)$; then,
- \be
- \hat d_{LM} = \mathcal{A}_{LM}\sum_{l_1l_2} \frac{g_{l_1l_2}(L)}{f_{l_1l_2L}}\sum_{m_1m_2}  (-1)^{m_1+m_2}\,\left(\begin{matrix} l_2 & l_1 &L\cr -m_2&-m_1&M\end{matrix}\right)
- a^{\rm obs}_{l_1m_1} a^{\rm obs}_{l_2m_2} 
- \ee
- where to get the expectation right
- \be
- \mathcal{A}_{LM} \equiv \left[ \sum_{l_1l_2} g_{l_1l_2}(L) \right]^{-1}
- .\ee
- 
- \subsection{Variance}
- 
- We want to choose the coefficients $g$ to maximize the signal to noise, so we need to first compute the variance:
- \bea
- \langle d_{LM} d^*_{L'M'} \rangle &=& (-1)^{M+M'}  \mathcal{A}_{LM}\mathcal{A}^*_{L'M'} \sum_{l_1l_2m_1m_2 l_1'l_2'm_1'm_2'} g_{l_1l_2}(L)  g^*_{l_1'l_2'}(L') \vs
- &&\times \left(\begin{matrix} l_2 & l_1 &L\cr -m_2&-m_1&M\end{matrix}\right)
- \left(\begin{matrix} l_2' & l_1' &L'\cr -m_2'&-m_1'&M'\end{matrix}\right)^*
- \langle a^{\rm obs}_{l_1m_1} a^{\rm obs}_{l_2m_2}  a^{*,\rm obs}_{l_1'm_1'} a^{*,\rm obs}_{l_2'm_2'} \rangle.
- \eea
- Here we used the fact that $m_1+m_2=-M$ because of the Wigner 3j symbol. In the expectation value, we can consider only the dominant unlensed contribution, which is Gaussian, so that the 4-point function would has 3 terms, corresponding to the 3 contractions. One of these sets $m_1=-m_2$ (and similarly for $m_i'$) so that the Wigner 3j symbols require $M=M'=0$. The other 2 set, e.g., $m_1=m_1'$ so eliminate the sums over the primed indices, leading to a diagonal variance of
- \bea
- \langle d_{LM} d^*_{LM} \rangle &=& \vert \mathcal{A}_{LM}\vert^2
- \sum_{l_1m_1} C_{l_1}
- \vs
- &&\times 
-\Bigg[ \sum_{ l_1'm_1'}  C_{l_1'} g_{l_1l_1}(L)  g^*_{l_1'l_1'}(L) 
-\times \left(\begin{matrix} l_1 & l_1 &L\cr m_1&-m_1&M\end{matrix}\right)
- \left(\begin{matrix} l_1' & l_1' &L\cr m_1'&-m_1'&M\end{matrix}\right)^*\vs
- &&+ \sum_{l_2m_2}  C_{l_2}  g_{l_1l_2}(L)  g^*_{l_1l_2}(L)  \left(\begin{matrix} l_2 & l_1 &L\cr -m_2&-m_1&M\end{matrix}\right)
- \left(\begin{matrix} l_2 & l_1 &L\cr -m_2&-m_1&M\end{matrix}\right)^* 
- \vs
- &&+ \sum_{l_2m_2}  C_{l_2} g_{l_1l_2}(L)  g^*_{l_2l_1}(L)  \left(\begin{matrix} l_2 & l_1 &L\cr -m_2&-m_1&M\end{matrix}\right)
- \left(\begin{matrix} l_1 & l_2 &L\cr -m_1&-m_2&M\end{matrix}\right)^* 
- \Bigg].
-  \eea 
-  The sum of the $m$'s in the second row of the Wigner 3j symbols must be zero. In the first pair, this means that $M$ must be equal to zero. On the second and third, the sum over $m_2$ can be removed, leaving
-  \bea
- \langle d_{LM} d^*_{LM} \rangle &=& \vert \mathcal{A}_{LM}\vert^2
- \sum_{l_1m_1} C_{l_1}
- \vs
- &&\times 
-\Bigg[ \delta_{M0}\sum_{ l_1'm_1'}  C_{l_1'} g_{l_1l_1}(L)  g^*_{l_1'l_1'}(L) 
-\times \left(\begin{matrix} l_1 & l_1 &L\cr m_1&-m_1&0\end{matrix}\right)
- \left(\begin{matrix} l_1' & l_1' &L\cr m_1'&-m_1'&0\end{matrix}\right)^*\vs
- &&+ \sum_{l_2}  C_{l_2}  \bigg( g_{l_1l_2}(L)  g^*_{l_1l_2}(L)  \left(\begin{matrix} l_2 & l_1 &L\cr m_1-M&-m_1&M\end{matrix}\right)
- \left(\begin{matrix} l_2 & l_1 &L\cr m_1-M&-m_1&M\end{matrix}\right)^* 
- \vs
- &&+ g_{l_1l_2}(L)  g^*_{l_2l_1}(L)  \left(\begin{matrix} l_2 & l_1 &L\cr m_1-M&-m_1&M\end{matrix}\right)
- \left(\begin{matrix} l_1 & l_2 &L\cr -m_1&m_1-M&M\end{matrix}\right)^* 
-\bigg) \Bigg].
-  \eea 
-An odd permutation of columns brings in a phase factor of $(-1)^{l_1+l_2+L}$ so the 3j symbols on the last line are related to those on the first line by this factor and $l'$ on the third line can be replaced by $l_2$:
- \bea
- \langle d_{LM} d^*_{LM} \rangle &=& \vert \mathcal{A}_{LM}\vert^2
- \sum_{l_1m_1l_2} C_{l_1} C_{l_2}  
- \vs
- &\times &
-\Bigg[ \delta_{M0}\sum_{ m_1'}  g_{l_1l_1}(L)  g^*_{l_2l_2}(L) 
-\times \left(\begin{matrix} l_1 & l_1 &L\cr m_1&-m_1&0\end{matrix}\right)
- \left(\begin{matrix} l_2& l_2 &L\cr m_1'&-m_1'&0\end{matrix}\right)^*\vs
- &&+ g_{l_1l_2}(L)  \bigg\vert\left(\begin{matrix} l_2 & l_1 &L\cr m_1-M&-m_1&M\end{matrix}\right)\bigg\vert^2
-  \left( g^*_{l_1l_2}(L)  + (-1)^{l_1+l_2+L}g^*_{l_2l_1}(L) \right)
-  \Bigg].
-  \eea 
-
-Before minimizing, let's put this in a more compact form:
-\be  
-  \langle d_{LM} d^*_{LM} \rangle 
-  = \vert \mathcal{A}_{LM}\vert^2 \sum_{l_1l_2}
-  \left[ \delta_{M0} g_{l_1l_1}(L)  g^*_{l_2l_2}(L) I(l_1,l_2,L)
-  + g_{l_1l_2}(L)   \left( g^*_{l_1l_2}(L)  + (-1)^{l_1+l_2+L}g^*_{l_2l_1}(L) \right) J(l_2,l_1,L,M)
-  \right]
- \ee 
- with
- \bea
- I(l_1,l_2,L) &\equiv& \sum_{m_1m'} \left(\begin{matrix} l_1 & l_1 &L\cr m_1&-m_1&0\end{matrix}\right)
- \left(\begin{matrix} l_2& l_2 &L\cr m_1'&-m_1'&0\end{matrix}\right)^*
- \vs
- J(l_2,l_1,L,M) &\equiv&\sum_{m_1} \bigg\vert\left(\begin{matrix} l_2 & l_1 &L\cr m_1-M&-m_1&M\end{matrix}\right)\bigg\vert^2
- .\eea
  
 \bibliography{refs}
 \end{document}
