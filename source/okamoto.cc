@@ -83,7 +83,7 @@ main(int argc, char* argv[])
   double fwhm2_noise = 16.*(PI/10800.)*(PI/10800.);
 
   for(int i=0;i<=5000;i++){
-    C_TT_noise.push_back(C_TT[i]+coeff*std::exp(i*(i+1.)*fwhm2_noise/(8.*std::log(2))));
+    C_TT_noise.push_back(C_TT[i]+coeff_noise*std::exp(i*(i+1.)*fwhm2_noise/(8.*std::log(2))));
   }
 
   int L=2;
