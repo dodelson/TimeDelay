@@ -32,6 +32,16 @@
      \end{center}
    \end{figure}
 }
+\newcommand{\Spng}[2]{
+   \begin{figure}[thbp]
+   \begin{center}
+    \sfig{#1.png}{\columnwidth}
+    \caption{{\small #2}}
+    \label{fig:#1}
+     \end{center}
+   \end{figure}
+}
+
 \newcommand\dirac{\delta_D}
 \newcommand{\rf}[1]{\ref{fig:#1}}
 \newcommand\rhoc{\rho_{\rm cr}}
@@ -139,6 +149,7 @@ with
 F_{lLl'} \equiv \frac{\big[ (2l+1)(2L+1)(2l'+1)\big]^{1/2} }{\sqrt{4 \pi}} \bigl(\begin{smallmatrix} l & L & l' \\ 0 & 0 & 0  \end{smallmatrix}\bigr)
 .\ee
 
+\Spng{TT1}{Spectra of CMB temperature anisotropies and the logarithmic derivative of that spectrum with respect to the distance to the last scattering surface as defined in \ec{cld}.}
 We proceed as in Ref.~\cite{Hu:2001tn} by focusing on the expectation of off-diagonal (${l_1,m_1\ne l_2,m_2}$) terms quadratic in the observed moments:
 \bea
 \langle \tob_{l_1m_1} \tob_{l_2m_2} \rangle &&=
@@ -147,9 +158,9 @@ We proceed as in Ref.~\cite{Hu:2001tn} by focusing on the expectation of off-dia
 \vs\eea
 where the spectrum
 \be
-C_{l}^d \equiv \frac{2}{\pi}\,\int_0^\infty dk\,k^2\, P_S(k,\eta_*)\,j_l(kD_*)\,\frac{\partial j_l(kD_*)}{\partial\ln D_*}
+C_{l}^d \equiv \frac{2}{\pi}\,\int_0^\infty dk\,k^2\, P_S(k,\eta_*)\,j_l(kD_*)\,\frac{\partial j_l(kD_*)}{\partial\ln D_*}\eql{cld}
 \ee
-with $P_S$ the power spectrum of the source. This expression is identical to the one for the undistorted CMB spectrum $C_l$ other than the replacement $j_l\rightarrow j_l'$. The two spectra are shown in Fig.~XXX. Therefore, following Ref.~\cite{Okamoto:2003zw}, we form the quadratic estimator for the fractional distance field
+with $P_S$ the power spectrum of the source. This expression is identical to the one for the undistorted CMB spectrum $C_l$ other than the replacement $j_l\rightarrow j_l'$. The two spectra are shown in Fig.~\rf{TT1}. Therefore, following Ref.~\cite{Okamoto:2003zw}, we form the quadratic estimator for the fractional distance field
 \be
 \hat d_{LM} = A_{L} \sum_{l_1m_1l_2m_2} (-1)^M  \bigl(\begin{smallmatrix} l_1 & l_2 & L \\ m_1 & m_2 & -M  \end{smallmatrix}\bigr) g_{l_1l_2}(L)  \tob_{l_1m_1} \tob_{l_2m_2}
 \ee
@@ -165,7 +176,8 @@ This estimator has an expected value equal to the true $d_{LM}$ and a variance
 \be
 \langle \hat d_{LM} \hat d^*_{L'M'}  \rangle = \delta_{LL'}\delta_{MM'} \left( C_L^{dd} + A_L \right)
 \ee
-with the first term on the right the signal and the second the noise. Fig.YYY shows the signal and noise as a function of $L$ for several experimental configurations.
+with the first term on the right the signal and the second the noise. Fig.~\rf{Delay} shows the signal and noise as a function of $L$ for several experimental configurations.
+\Spng{Delay}{Signal and noise spectra}
 
  
 \bibliography{refs}
