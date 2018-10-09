@@ -121,65 +121,164 @@ Although deflections and delays are two different phenomena, they share some sim
 \section{Effect of distance changes on the CMB}
 \newcommand\fd{d^{\rm CMB}}
 \newcommand\tob{\Theta^{\rm obs}}
-\newcommand\tu{\Theta}
+\newcommand\tu{\tilde{\Theta}}
 \newcommand\td{\Theta^{\rm dist}}
 A starting point is to assume that the last scattering surface is infinitely thin, note that the observed temperature in a given direction $\tob(\hat n)$ is the undistorted temperature $\tu(\hat n)$ plus a term proportional to the small fractional difference $\fd(\hat n)$:
 \be
-\tob(\hat n) = \tu(\hat n) + \frac{\partial\tu(\hat n)}{\partial \ln D_*}\, \fd(\hat n)
+\tob(\hat n) = \tu(\hat n) + \nabla_{i} \phi(\hat n) \nabla^{i}\tu(\hat n) + \frac{\partial\tu(\hat n)}{\partial \ln D_*}\, \fd(\hat n)
 .\ee
-The derivative can be evaluated by recalling that the undistorted temperature can be expanded in spherical harmonics with coefficients
+The first term is caused by lensing and has been fully evaluated in Okamoto \& Hu. The second term is due to time delay; this term's derivative can be evaluated by recalling that the undistorted temperature can be expanded in spherical harmonics with coefficients
 \be
 \tu_{lm} = 4\pi(-i)^{l} \int \frac{d^{3}k}{(2\pi)^{3}}Y_{lm}^{*}(\hat{k})S(\vec k;\eta_{*})j_{l}(kD_{*}) 
 \ee
 where $S$ is the source function, dominated on small scales by the monopole and dipole, as in Eq. (22) of Ref.~\cite{Hu:2001bc} (but note. The derivative then acts on the spherical Bessel function, and after expanding the fractional difference in spherical harmonics as well, we obtain
 \be
-\tob_{lm} = \tu_{lm} + \td_{lm}
+\tob_{lm} = \tu_{lm} +\delta \Theta_{lm}^{\rm lens}+ \delta \td_{lm}
 \ee
 with the first order term due to the distortion equal to
-\be
-\td_{lm} = \sum_{LM}\sum_{l'm'} \frac{\partial \tu_{LM}(D_{*})}{\partial \ln D_{*}} d_{l'm'} I_{lLl'}^{mMm'}
-.\ee
-Here, the integral over the product of three spherical harmonics is expressed as 
-\be
-I_{lLl'}^{mMm'}  = (-1)^m\,
-\bigl(\begin{smallmatrix} l & L & l' \\ -m & M & m'  \end{smallmatrix}\bigr) F_{lLl'}
-\ee
+\bea
+\delta \Theta_{lm}^{\rm lens} &=& \sum_{LM}\sum_{l'm'}\tu_{l'm'} \;{}_{0}I_{lLl'}^{mMm'}\phi_{LM}\\
+\delta \Theta_{lm}^{\rm dist} &=& \sum_{LM}\sum_{l'm'} \frac{\partial \tu_{LM}(D_{*})}{\partial \ln D_{*}} \;{}_{0} J_{lLl'}^{mMm'}d_{l'm'}
+.\eea
+Here, the integral over the product of three spherical harmonics is expressed as (general case)
+\bea
+{}_{s}I_{lLl'}^{mMm'}  &=& (-1)^m\,
+\bigl(\begin{smallmatrix} l & L & l' \\ -m & M & m'  \end{smallmatrix}\bigr) {}_{s}F_{lLl'} \\
+{}_{s}J_{lLl'}^{mMm'}  &=& (-1)^m\,
+\bigl(\begin{smallmatrix} l & L & l' \\ -m & M & m'  \end{smallmatrix}\bigr) {}_{s}G_{lLl'}
+\eea
 with
-\be
-F_{lLl'} \equiv \frac{\big[ (2l+1)(2L+1)(2l'+1)\big]^{1/2} }{\sqrt{4 \pi}} \bigl(\begin{smallmatrix} l & L & l' \\ 0 & 0 & 0  \end{smallmatrix}\bigr)
-.\ee
+\bea
+{}_{s}F_{lLl'} &\equiv& \big[L(L+1)-l'(l'+1)+l(l+1)\big]\nonumber  \\& \times& \frac{\big[ (2l+1)(2L+1)(2l'+1)\big]^{1/2} }{\sqrt{16 \pi}} \bigl(\begin{smallmatrix} l & L & l' \\ s & 0 & -s  \end{smallmatrix}\bigr) \\
+{}_{s}G_{lLl'} &\equiv& \frac{\big[ (2l+1)(2L+1)(2l'+1)\big]^{1/2} }{\sqrt{4 \pi}} \bigl(\begin{smallmatrix} l & L & l' \\ s & 0 & -s  \end{smallmatrix}\bigr)
+.\eea
 
 \Spng{TT1}{Spectra of CMB temperature anisotropies and the logarithmic derivative of that spectrum with respect to the distance to the last scattering surface as defined in \ec{cld}.}
 We proceed as in Ref.~\cite{Hu:2001tn} by focusing on the expectation of off-diagonal (${l_1,m_1\ne l_2,m_2}$) terms quadratic in the observed moments:
 \bea
-\langle \tob_{l_1m_1} \tob_{l_2m_2} \rangle &&=
-\sum_{LM} d_{LM} (-1)^M F_{l_2 l_1L}  \bigl(\begin{smallmatrix} l_1 & l_2 & L \\ m_1 & m_2 & -M  \end{smallmatrix}\bigr) \vs
-&\times &\Big[ C_{l_1}^d +C_{l_2}^d\Big]
-\vs\eea
+&&\langle \tob_{l_1m_1} \tob_{l_2m_2} \rangle = \sum_{LM}  (-1)^M \bigl(\begin{smallmatrix} l_1 & l_2 & L \\ m_1 & m_2 & -M  \end{smallmatrix}\bigr) \nonumber \\
+&\times&\left\{  \phi_{LM} \big[ \tilde{C}_{l_{1}}^{\Theta\Theta} {}_{0}F_{l_{2}Ll_{1}} +\tilde{C}_{l_{2}}^{\Theta\Theta} {}_{0}F_{l_{1}Ll_{2}}\big] \right. \nonumber \\
+&&+ \left. d_{LM} \big[ \tilde{C}_{l_{1}}^{\Theta\Theta,d} {}_{0}G_{l_{2}Ll_{1}} +\tilde{C}_{l_{2}}^{\Theta \Theta,d} {}_{0}G_{l_{1}Ll_{2}}\big] \right \} \nonumber \\
+&=& \sum_{LM}(-1)^{M}\bigl(\begin{smallmatrix} l_1 & l_2 & L \\ m_1 & m_2 & -M  \end{smallmatrix}\bigr)\nonumber \\
+&\times&\big[ \phi_{LM}f_{l_{1}Ll_{2}} + d_{LM}g_{l_{1}Ll_{2}} \big] 
+\eea
 where the spectrum
 \be
-C_{l}^d \equiv \frac{2}{\pi}\,\int_0^\infty dk\,k^2\, P_S(k,\eta_*)\,j_l(kD_*)\,\frac{\partial j_l(kD_*)}{\partial\ln D_*}\eql{cld}
+C^{\Theta\Theta,d}_{l} \equiv \frac{2}{\pi}\,\int_0^\infty dk\,k^2\, P_S(k,\eta_*)\,j_l(kD_*)\,\frac{\partial j_l(kD_*)}{\partial\ln D_*}\eql{cld}
 \ee
-with $P_S$ the power spectrum of the source. This expression is identical to the one for the undistorted CMB spectrum $C_l$ other than the replacement $j_l\rightarrow j_l'$. The two spectra are shown in Fig.~\rf{TT1}. Therefore, following Ref.~\cite{Okamoto:2003zw}, we form the quadratic estimator for the fractional distance field
-\be
-\hat d_{LM} = A_{L} \sum_{l_1m_1l_2m_2} (-1)^M  \bigl(\begin{smallmatrix} l_1 & l_2 & L \\ m_1 & m_2 & -M  \end{smallmatrix}\bigr) g_{l_1l_2}(L)  \tob_{l_1m_1} \tob_{l_2m_2}
-\ee
+with $P_S$ the power spectrum of the source. This expression is identical to the one for the undistorted CMB spectrum $C_l$ other than the replacement $j_l\rightarrow j_l'$. The two spectra are shown in Fig.~\rf{TT1}. We modify the public CAMB code and get the result. Therefore, following Ref.~\cite{Okamoto:2003zw}, we form the quadratic estimator for gravitational lensing and also the fractional distance field
+\bea
+\hat \phi_{LM} &=& \frac{A_{L}}{\sqrt{L(L+1)}}\sum_{l_1m_1}\sum_{l_2m_2} \nonumber \\  
+&& (-1)^M  \bigl(\begin{smallmatrix} l_1 & l_2 & L \\ m_1 & m_2 & -M  \end{smallmatrix}\bigr) h^{\phi}_{l_1l_2}(L)  \tob_{l_1m_1} \tob_{l_2m_2} \\
+\hat d_{LM} &=& B_{L} \sum_{l_1m_1}\sum_{l_2m_2}\nonumber \\
+&& (-1)^M  \bigl(\begin{smallmatrix} l_1 & l_2 & L \\ m_1 & m_2 & -M  \end{smallmatrix}\bigr) h^{d}_{l_1l_2}(L)  \tob_{l_1m_1} \tob_{l_2m_2}
+\eea
 where
-\be
-g_{l_1l_2}(L)\equiv \frac{f_{l_1Ll_2}}{2C_{l_1}C_{l_2}}
-\ee
+\bea
+h^{\phi}_{l_1l_2}(L)&\equiv& \frac{f_{l_1Ll_2}}{2C_{l_1}C_{l_2}} \\
+h^{d}_{l_1l_2}(L)&\equiv& \frac{h_{l_1Ll_2}}{2C_{l_1}C_{l_2}}
+\eea
 and
+\bea
+A_L &\equiv& L(L+1)(2L+1) \left\{ \sum_{l_1l_2} h^{\phi}_{l_1l_2}(L)f_{l_1Ll_2}\right\}^{-1}\\
+B_L &\equiv& (2L+1) \left\{ \sum_{l_1l_2} h^{d}_{l_1l_2}(L)g_{l_1Ll_2}\right\}^{-1}
+\eea 
+Notice we don't have the factor of $1/\sqrt{L(L+1)}$ for the time delay estimator, since time delay effect does not depend on angular gradient. This time delay estimator has an expected value equal to the true $d_{LM}$ and a variance 
 \be
-A_L \equiv (2L+1) \left\{ \sum_{l_1l_2} g_{l_1l_2}(L)f_{l_1Ll_2}\right\}^{-1}
-.\ee 
-This estimator has an expected value equal to the true $d_{LM}$ and a variance 
-\be
-\langle \hat d_{LM} \hat d^*_{L'M'}  \rangle = \delta_{LL'}\delta_{MM'} \left( C_L^{dd} + A_L \right)
+\langle \hat d_{LM} \hat d^*_{L'M'}  \rangle = \delta_{LL'}\delta_{MM'} \left( C_L^{dd} + B_L \right)
 \ee
-with the first term on the right the signal and the second the noise. Fig.~\rf{Delay} shows the signal and noise as a function of $L$ for several experimental configurations.
-\Spng{Delay}{Signal and noise spectra}
+with the first term on the right the signal and the second the noise. Fig.~\rf{Delay} shows the signal and noise as a function of $L$ for a specific choice of experimental configuration.
+\Spng{Delay}{Signal and noise spectra for detector noise $C_{l}^{\Theta \Theta}|_{\rm noise} = \left(\frac{\Delta_{\Theta}}{T_{\rm CMB}} \right)^{2} e^{l(l+1)\theta_{\rm FWHM}^{2}/8 \, \rm ln \,2}$, \\with $\Delta_{\Theta}=1\mu K-arcmin$ and $\theta_{\rm FWHM}=4'$.}
 
- 
+\section{Polarization and Minimum Variance Estimator}
+Based on Okamoto \& Hu's construction, we can make a similar table for function $f$ and $g$ in the following expression
+\bea
+\langle a^{obs}_{l_{1}m_{1}}b^{obs}_{l_{2}m_{2}}\rangle &=& \sum_{LM}(-1)^{M}\bigl(\begin{smallmatrix} l_1 & l_2 & L \\ m_1 & m_2 & -M  \end{smallmatrix}\bigr)\nonumber \\
+&\times&\big[ \phi_{LM}f^{\alpha}_{l_{1}Ll_{2}} + d_{LM}g^{\alpha}_{l_{1}Ll_{2}} \big] 
+\eea
+where $\alpha=ab$ stands for different polarizations.
+
+\begin{table}[thbp]
+\scalebox{0.9}{
+\begin{tabular}{|l|c|c|}
+\hline
+$\alpha$ & $f_{l_{1}Ll_{2}}^{\alpha}$ & $g_{l_{1}Ll_{2}}^{\alpha}$  \\
+\hline
+$\Theta \Theta$ & $\tilde{C}_{l_{1}}^{\Theta\Theta} {}_{0}F_{l_{2}Ll_{1}}+\tilde{C}_{l_{2}}^{\Theta\Theta}{}_{0}F_{l_{1}Ll_{2}}$ & $\tilde{C}_{l_{1}}^{\Theta\Theta,d} {}_{0}G_{l_{2}Ll_{1}}+\tilde{C}_{l_{2}}^{\Theta\Theta,d}{}_{0}G_{l_{1}Ll_{2}}$\\
+$\Theta E$ &$\tilde{C}_{l_{1}}^{\Theta E} {}_{2}F_{l_{2}Ll_{1}}+\tilde{C}_{l_{2}}^{\Theta E}{}_{0}F_{l_{1}Ll_{2}}$ & $\tilde{C}_{l_{1}}^{\Theta E,d} {}_{2}G_{l_{2}Ll_{1}}+\tilde{C}_{l_{2}}^{\Theta E,d}{}_{0}G_{l_{1}Ll_{2}}$ \\
+$EE$ &$\tilde{C}_{l_{1}}^{EE} {}_{2}F_{l_{2}Ll_{1}}+\tilde{C}_{l_{2}}^{EE}{}_{2}F_{l_{1}Ll_{2}}$ & $\tilde{C}_{l_{1}}^{EE,d} {}_{2}G_{l_{2}Ll_{1}}+\tilde{C}_{l_{2}}^{EE,d}{}_{2}G_{l_{1}Ll_{2}}$ \\
+$\Theta B$ & $i\tilde{C}^{ \Theta E}_{l_{1}} {}_{2}F_{l_{2}Ll_{1}}$ &$i\tilde{C}^{\Theta E,d}_{l_{1}}{}_{2}G_{l_{2}Ll_{1}}  $\\
+$EB$ &i\big[$\tilde{C}_{l_{1}}^{EE} {}_{2}F_{l_{2}Ll_{1}}-\tilde{C}_{l_{2}}^{BB}{}_{2}F_{l_{1}Ll_{2}}$\big] & $i\big[\tilde{C}_{l_{1}}^{EE,d} {}_{2}G_{l_{2}Ll_{1}}-\tilde{C}_{l_{2}}^{BB,d}{}_{2}G_{l_{1}Ll_{2}}\big]$ \\
+$BB$ &$\tilde{C}_{l_{1}}^{BB} {}_{2}F_{l_{2}Ll_{1}}+\tilde{C}_{l_{2}}^{BB}{}_{2}F_{l_{1}Ll_{2}}$ & $\tilde{C}_{l_{1}}^{BB,d} {}_{2}G_{l_{2}Ll_{1}}+\tilde{C}_{l_{2}}^{BB,d}{}_{2}G_{l_{1}Ll_{2}}$ \\
+\hline
+\end{tabular}}
+\caption{Explicit forms for $f$ anb $h$ of various polarizations. Notice that for $TT$, $TE$, $EE$ and $BB$ polarization these functions are "even"; for $TB$ and $EB$ polarization they are "odd" instead. "Even" and "Odd" indicate that the functions are non-zero only when $l_{1}+l_{2}+L$ are even or odd, respectively.}
+\end{table}
+with corresponding estimators given by:
+\bea
+\hat{d}^{\alpha}_{LM} &=&\nonumber B_{L}^{\alpha}\sum_{l_{1}m_{1}}\sum_{l_{2}m_{2}} \\
+&& (-1)^{M}\bigl(\begin{smallmatrix} l_1 & l_2 & L \\ m_1 & m_2 & -M  \end{smallmatrix}\bigr) h^{\alpha,d}_{l_{1}l_{2}}(L) a^{obs}_{l_{1}m_{1}}b^{obs}_{l_{2}m_{2}}
+\eea
+Also notice that we only consider off-diagonal terms as well.
+Here the minimum weighting function is given by
+\bea
+ && \noindent h^{\alpha,d}_{l_{1}l_{2}}(L) \nonumber \\
+&=& \frac{C_{l_{2}}^{aa}C_{l_{1}}^{bb}g^{\alpha*}_{l_{1}Ll_{2}}-(-1)^{L+l_{1}+l_{2}}C_{l_{1}}^{ab}C_{l_{2}}^{ab}g^{\alpha*}_{l_{2}Ll_{1}}}{C_{l_{1}}^{aa}C_{l_{2}}^{aa}C_{l_{1}}^{bb}C_{l_{2}}^{bb}-(C_{l_{1}}^{ab}C_{l_{2}}^{ab})^{2}}
+\eea
+We have some simplifications, for $a=b$, we have
+\be
+h^{\alpha,d}_{l_{1}l_{2}}(L) \rightarrow \frac{g^{\alpha *}_{l_{1}Ll_{2}}}{2C_{l_{1}}^{aa}C_{l_{2}}^{aa}}
+\ee
+and for $C_{l}^{ab}=0$ (e.g., for $\Theta B$ or $EB$),
+\be
+h^{\alpha,d}_{l_{1}l_{2}}(L) \rightarrow \frac{g^{\alpha *}_{l_{1}Ll_{2}}}{C_{l_{1}}^{aa}C_{l_{2}}^{aa}}
+\ee
+The covariance of these quadratic estimator
+\be
+\langle \hat{d}^{\alpha*}_{LM}d^{\beta}_{L'M'}\rangle \equiv \delta_{LL'}\delta_{MM'}\big[ C_{L}^{dd}+N_{L}^{\alpha \beta} \big]
+\ee
+with Gaussion noise given by
+\bea
+N_{L}^{\alpha\beta}&=&\frac{B_{L}^{\alpha*}B_{L}^{\beta}}{2L+1}\sum_{l_{1}l_{2}}  \left\{ h_{l_{1}l_{2}}^{\alpha,d*} (L)\big[ C_{l_{1}}^{ac}C_{l_{2}}^{bd}h_{l_{1}l_{2}}^{\alpha,d}(L)\right. \nonumber \\
+&&\left. +(-1)^{L+l_{1}+l_{2}}C_{l_{1}}^{ad}C_{l_{2}}^{bc} h_{l_{2}l_{1}}^{\beta,d}(L)  \big]\right\}
+\eea
+with $\alpha=(ab)$, $\beta=(cd)$. For $\alpha=\beta$, simply we have $N_{L}^{\alpha\alpha}=B_{L}^{\alpha}$.
+We can thus form a minimum variance estimator
+\be
+\hat{d}^{\rm mv}_{LM} = \sum_{\alpha}\omega^{\alpha}(L)\hat{d}^{\alpha}_{LM}
+\ee
+with weights and variance give by
+\bea
+\omega^{\alpha}(L) & =&A^{\rm mv}_{L} \sum_{\beta}(N_{L}^{-1})^{\alpha \beta} \\
+N^{\rm mv}_{L} &=& \frac{1}{\sum_{\alpha\beta}} (N_{L}^{-1})^{\alpha \beta}
+\eea
+where $N_{L}^{-1}$ is the inverse matrix of time delay noise given by Eq. (27), with matrix indices given by polarizations. 
+
+We can see that the noise for time delay $\Theta \Theta$ quadratic estimator in FIG. 3 is much larger than the signal, given that we sum up from $1000$ to $4000$ for $l_{1}$ and $l_{2}$ in Eq. (19) indices and also detector noise is taken into consideration.
+
+We want to know when will the signal to noise go greater than $1$ if we continue to enlarge the summation range and neglect detector noise. The result is shown in next figure
+
+\Spng{StoN}{Time Delay Signal to Noise with $L=1$}
+
+Here we keep $l_{min}$ fixed at $1000$ and let $l_{max}$ vary up to $7000$, we can see that at $l_{max} \approx 4200$, minimum variance estimator $S/N \approx 1$. 
+
+Also notice that there is no $\Theta B$, $EB$ or $BB$ polarization here, since if you look at the difference of ${}_{s} F_{lLl'}$ and ${}_{s} G_{lLl'}$, we would find that the noise for $\Theta B$, $EB$ and $BB$ estimator is much larger than $\Theta \Theta$, $\Theta E$ and $EE$ estimator. So we don't include those terms. 
+
+The next thing we want to consider is the orthogonality of lensing and time delay quadratic estimator. Consider a lensing quadratic estimator given by Okamoto \& Hu
+\bea
+\hat{\phi}^{\alpha}_{LM} &=&\nonumber \frac{A_{L}^{\alpha}}{\sqrt{L(L+1)}}\sum_{l_{1}m_{1}}\sum_{l_{2}m_{2}} \\
+&& (-1)^{M}\bigl(\begin{smallmatrix} l_1 & l_2 & L \\ m_1 & m_2 & -M  \end{smallmatrix}\bigr) h^{\alpha,\phi}_{l_{1}l_{2}}(L) a^{obs}_{l_{1}m_{1}}b^{obs}_{l_{2}m_{2}}
+\eea
+Here $h^{\alpha,\phi}_{l_{1}l_{2}}$ has a similar expression to $h^{\alpha,\phi}_{l_{1}l_{2}}$ with $g$ replaced by $f$. And we can compute the time delay contamination of this lensing estimator
+\bea
+&& \langle \hat{\phi}^{\alpha}_{LM} \rangle = \sqrt{L(L+1)} \phi_{LM} \nonumber \\
+&& + \sqrt{L(L+1)} d_{LM} C^{\alpha}_{L}
+\eea
+where $C^{\alpha}_{L}$ is given by
+\be
+C^{\alpha}_{L} = \frac{\sum_{l_{1}l_{2}}h_{l_{1}l_{2}}^{\alpha,\phi}(L)g_{l_{1}Ll_{2}}^{\alpha}}{\sum_{l_{1}l_{2}}h_{l_{1}l_{2}}^{\alpha,\phi}(L)f_{l_{1}Ll_{2}}^{\alpha}}
+\ee
+Now we are mostly interested in $L\approx 30$ because that when lensing signal is at maximum. $C^{\Theta \Theta}_{30} \approx 0.00157$ so the contribution from time delay is actually negligible (for $\Theta \Theta $ case).
 \bibliography{refs}
 \end{document}
 
@@ -197,4 +296,3 @@ with the first term on the right the signal and the second the noise. Fig.~\rf{D
  \be
  A_L \equiv L(L+1)(2L+1) \left[ \sum_{l_1l_2} g_{l_1l_2} f_{l_1Ll_2}\right]^{-1}
  \ee
-
