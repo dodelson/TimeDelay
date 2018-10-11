@@ -123,11 +123,11 @@ Although deflections and delays are two different phenomena, they share some sim
 \newcommand\tob{\Theta^{\rm obs}}
 \newcommand\tu{\tilde{\Theta}}
 \newcommand\td{\Theta^{\rm dist}}
-A starting point is to assume that the last scattering surface is infinitely thin, note that the observed temperature in a given direction $\tob(\hat n)$ is the undistorted temperature $\tu(\hat n)$ plus a term proportional to the small fractional difference $\fd(\hat n)$:
+A starting point is to assume that the last scattering surface is infinitely thin, note that the observed temperature in a given direction $\tob(\hat n)$ is the undistorted temperature $\tu(\hat n)$ plus gravitational lensing effect plus a term proportional to the small fractional difference $\fd(\hat n)$:
 \be
 \tob(\hat n) = \tu(\hat n) + \nabla_{i} \phi(\hat n) \nabla^{i}\tu(\hat n) + \frac{\partial\tu(\hat n)}{\partial \ln D_*}\, \fd(\hat n)
 .\ee
-The first term is caused by lensing and has been fully evaluated in Okamoto \& Hu. The second term is due to time delay; this term's derivative can be evaluated by recalling that the undistorted temperature can be expanded in spherical harmonics with coefficients
+The first term is caused by lensing and has been fully evaluated in Okamoto \& Hu. The second term is due to time delay. Notice we don't consider their cross effect here. The second term's derivative can be evaluated by recalling that the undistorted temperature can be expanded in spherical harmonics with coefficients
 \be
 \tu_{lm} = 4\pi(-i)^{l} \int \frac{d^{3}k}{(2\pi)^{3}}Y_{lm}^{*}(\hat{k})S(\vec k;\eta_{*})j_{l}(kD_{*}) 
 \ee
@@ -176,13 +176,18 @@ with $P_S$ the power spectrum of the source. This expression is identical to the
 where
 \bea
 h^{\phi}_{l_1l_2}(L)&\equiv& \frac{f_{l_1Ll_2}}{2C_{l_1}C_{l_2}} \\
-h^{d}_{l_1l_2}(L)&\equiv& \frac{h_{l_1Ll_2}}{2C_{l_1}C_{l_2}}
+h^{d}_{l_1l_2}(L)&\equiv& \frac{g_{l_1Ll_2}}{2C_{l_1}C_{l_2}}
 \eea
 and
 \bea
 A_L &\equiv& L(L+1)(2L+1) \left\{ \sum_{l_1l_2} h^{\phi}_{l_1l_2}(L)f_{l_1Ll_2}\right\}^{-1}\\
 B_L &\equiv& (2L+1) \left\{ \sum_{l_1l_2} h^{d}_{l_1l_2}(L)g_{l_1Ll_2}\right\}^{-1}
 \eea 
+So that
+\bea
+\langle \hat{\phi}_{LM} \rangle &=& \sqrt{L(L+1)} \phi_{LM} \\
+\langle \hat{d}_{LM} \rangle &=& d_{LM}
+\eea
 Notice we don't have the factor of $1/\sqrt{L(L+1)}$ for the time delay estimator, since time delay effect does not depend on angular gradient. This time delay estimator has an expected value equal to the true $d_{LM}$ and a variance 
 \be
 \langle \hat d_{LM} \hat d^*_{L'M'}  \rangle = \delta_{LL'}\delta_{MM'} \left( C_L^{dd} + B_L \right)
@@ -196,7 +201,7 @@ Based on Okamoto \& Hu's construction, we can make a similar table for function 
 \langle a^{obs}_{l_{1}m_{1}}b^{obs}_{l_{2}m_{2}}\rangle &=& \sum_{LM}(-1)^{M}\bigl(\begin{smallmatrix} l_1 & l_2 & L \\ m_1 & m_2 & -M  \end{smallmatrix}\bigr)\nonumber \\
 &\times&\big[ \phi_{LM}f^{\alpha}_{l_{1}Ll_{2}} + d_{LM}g^{\alpha}_{l_{1}Ll_{2}} \big] 
 \eea
-where $\alpha=ab$ stands for different polarizations.
+where $\alpha=(ab)$ stands for different polarizations.
 
 \begin{table}[thbp]
 \scalebox{0.9}{
@@ -249,8 +254,8 @@ We can thus form a minimum variance estimator
 \ee
 with weights and variance give by
 \bea
-\omega^{\alpha}(L) & =&A^{\rm mv}_{L} \sum_{\beta}(N_{L}^{-1})^{\alpha \beta} \\
-N^{\rm mv}_{L} &=& \frac{1}{\sum_{\alpha\beta}} (N_{L}^{-1})^{\alpha \beta}
+\omega^{\alpha}(L) & =&N^{\rm mv}_{L} \sum_{\beta}(N_{L}^{-1})^{\alpha \beta} \\
+N^{\rm mv}_{L} &=& \frac{1}{\sum_{\alpha\beta} (N_{L}^{-1})^{\alpha \beta}}
 \eea
 where $N_{L}^{-1}$ is the inverse matrix of time delay noise given by Eq. (27), with matrix indices given by polarizations. 
 
@@ -258,10 +263,8 @@ We can see that the noise for time delay $\Theta \Theta$ quadratic estimator in 
 
 We want to know when will the signal to noise go greater than $1$ if we continue to enlarge the summation range and neglect detector noise. The result is shown in next figure
 
-\Spng{StoN}{Time Delay Signal to Noise with $L=1$}
-
+\Spng{StoN}{Time Delay Signal to Noise with $L=1$,$l_{min}$ fixed at $1000$, $l_{max}$ varying}
 Here we keep $l_{min}$ fixed at $1000$ and let $l_{max}$ vary up to $7000$, we can see that at $l_{max} \approx 4200$, minimum variance estimator $S/N \approx 1$. 
-
 Also notice that there is no $\Theta B$, $EB$ or $BB$ polarization here, since if you look at the difference of ${}_{s} F_{lLl'}$ and ${}_{s} G_{lLl'}$, we would find that the noise for $\Theta B$, $EB$ and $BB$ estimator is much larger than $\Theta \Theta$, $\Theta E$ and $EE$ estimator. So we don't include those terms. 
 
 The next thing we want to consider is the orthogonality of lensing and time delay quadratic estimator. Consider a lensing quadratic estimator given by Okamoto \& Hu
