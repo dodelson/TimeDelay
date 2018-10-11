@@ -73,7 +73,7 @@
 %\usepackage{myterms}
 \definecolor{darkgreen}{cmyk}{0.85,0.1,1.00,0} 
 
-\newcommand{\SD}[1]{{\color{darkgreen} SD: #1}}
+\newcommand{\scott}[1]{{\color{darkgreen} SD: #1}}
 \newcommand{\WH}[1]{{\color{red} WH: #1}}
 \newcommand{\wh}[1]{{\color{red} WH: #1}}
 \newcommand{\AL}[1]{{\color{magenta} AL: #1}}
@@ -101,6 +101,7 @@ The surface of last scattering of the photons in the cosmic microwave background
 \maketitle
 
 \section{Distance to the Last Scattering Surface}
+\newcommand\fd{d}
 
 The theory of general relativity dictates that particles traveling through gravitational potential wells experience time delays~\cite{1964PhRvL..13..789S}. If two photons are emitted at the same time, then they will travel different distances depending upon the potential $\Phi$ through which they travel. In a cosmological context of an expanding universe, the difference in comoving distance $D$ is equal to  
 \be
@@ -110,20 +111,21 @@ where $t(D)$ is the age of the universe at the time that the photon is a distanc
 
 Similarly~\cite{Hu:2001yq}, photons that comprise the cosmic microwave background (CMB) experience these same time delays or advances depending on the integrated potential through which they travel. Since photons do not decouple instantaneously from the electron-proton plasma, the surface of last scattering is often said to have a finite width, and a more accurate expression for the fractional difference in distance traveled is
 \be
-d^{\rm CMB}(\hat n) = \frac{-2}{D_*} \int_0^\infty dD e^{-\tau(D)}\, \Phi\left(D\hat n; t(D)\right)
+\fd(\hat n) = \frac{-2}{D_*} \int_0^\infty dD e^{-\tau(D)}\, \Phi\left(D\hat n; t(D)\right)
 \ee
-where $\tau$ is the optical depth, which becomes very large at times smaller than $t_*$ or equivalently when $D>D_*$, the nominal distance to the last scattering surface. This directional-dependent change in the distance to last scattering is independent of its finite width and a phenomenon different than the angular deflections~\cite{Hu:2001tn,Lewis:2006fu} that have been captured by recent experiments~\cite{Smith:2007rg,Ade:2013tyw,Story:2014hni,Sherwin:2016tyf,Aghanim:2018oex}.
+where $\tau$ is the optical depth, which becomes very large at times smaller than the epoch of  last scattering, $t_*$ or equivalently when $D>D_*$, the nominal distance to the last scattering surface. This directional-dependent change in the distance to last scattering is independent of its finite width and a phenomenon different than the angular deflections~\cite{Hu:2001tn,Lewis:2006fu} that have been captured by recent experiments~\cite{Smith:2007rg,Ade:2013tyw,Story:2014hni,Sherwin:2016tyf,Aghanim:2018oex}.
 
-Although deflections and delays are two different phenomena, they share some similarities, especially in the case of the CMB. Both are determined by the integrated potential along the line of sight, although with slight different kernels, as depicted in Figure~\rf{kernel}. It is clear that they will be highly correlated, so as a first approximation, we might view the maps of the lensing potential created for example in \citet{Aghanim:2018oex} as maps of distance to the last scattering surface. Another similarity, one that has not yet been exploited, is that the formalism first proposed in \citet{Hu:2001tn} can be applied to the delays as well, and this is what we will do in this paper. We start though with the rather humbling calculation of \cite{Hu:2001yq} that the RMS fractional distance differences are a factor of ten smaller than the RMS angular deviations. Further, while the latter peaks at degree scales, the former peak on the largest scales.
+Although deflections and delays are two different phenomena, they share some similarities, especially in the case of the CMB. Both are determined by the integrated potential along the line of sight, although with slightly different kernels, as depicted in Figure~\rf{kernel}. It is clear that they will be highly correlated, so as a first approximation, we might view the maps of the lensing potential created for example in \citet{Aghanim:2018oex} as maps of distance to the last scattering surface. Another similarity, one that has not yet been exploited, is that the formalism first proposed in \citet{Hu:2001tn} can be applied to the delays as well, and this is what we will do in this paper. We start though with the rather humbling calculation of \citet{Hu:2001yq} that the RMS fractional distance differences are a factor of ten smaller than the RMS angular deviations. Further, while the latter peaks at degree scales, the former peak on the largest scales.
 
 \Sfig{kernel}{Kernel that weights the integral of the gravitational potential for the time delay examined here and the more carefully studied deflection angle.}
 
 \section{Effect of distance changes on the CMB}
-\newcommand\fd{d^{\rm CMB}}
+\newcommand\dtl{\delta\Theta^{\rm defl}}
+\newcommand\dtd{\delta\Theta^{\rm dist}}
 \newcommand\tob{\Theta^{\rm obs}}
 \newcommand\tu{\tilde{\Theta}}
 \newcommand\td{\Theta^{\rm dist}}
-A starting point is to assume that the last scattering surface is infinitely thin, note that the observed temperature in a given direction $\tob(\hat n)$ is the undistorted temperature $\tu(\hat n)$ plus gravitational lensing effect plus a term proportional to the small fractional difference $\fd(\hat n)$:
+A starting point is to assume that the last scattering surface is infinitely thin, note that the observed temperature in a given direction $\tob(\hat n)$ is the undistorted temperature $\tu(\hat n)$ plus the deflection due to gravitational lensing plus a term proportional to the small fractional difference $\fd(\hat n)$:
 \be
 \tob(\hat n) = \tu(\hat n) + \nabla_{i} \phi(\hat n) \nabla^{i}\tu(\hat n) + \frac{\partial\tu(\hat n)}{\partial \ln D_*}\, \fd(\hat n)
 .\ee
@@ -135,12 +137,12 @@ where $S$ is the source function, dominated on small scales by the monopole and 
 \be
 \tob_{lm} = \tu_{lm} +\delta \Theta_{lm}^{\rm lens}+ \delta \td_{lm}
 \ee
-with the two first order terms due to deflection and distortion equal to
+with the two first order terms due to deflection and the change in distance equal to
 \bea
-\delta \Theta_{lm}^{\rm lens} &=& \sum_{LM}\sum_{l'm'}\tu_{l'm'} \;{}_{0}I_{lLl'}^{mMm'}\phi_{LM}\\
-\delta \Theta_{lm}^{\rm dist} &=& \sum_{LM}\sum_{l'm'} \frac{\partial \tu_{LM}(D_{*})}{\partial \ln D_{*}} \;{}_{0} J_{lLl'}^{mMm'}d_{l'm'}
+\dtl_{lm} &=& \sum_{LM}\sum_{l'm'}\tu_{l'm'} \;{}_{0}I_{lLl'}^{mMm'}\phi_{LM}\\
+\dtd_{lm} &=& \sum_{LM}\sum_{l'm'} \frac{\partial \tu_{LM}(D_{*})}{\partial \ln D_{*}} \;{}_{0} J_{lLl'}^{mMm'}d_{l'm'}\eql{dtd}
 .\eea
-Here, the integral over the product of three spherical harmonics is expressed as (general case)
+Here, the integral over the product of three spherical harmonics is expressed as (general case) \scott{I get two $(-1)^m$ factors: once when converting the complex conjugate and once when using Eq 12 from Okamoto-Hu}
 \bea
 {}_{s}I_{lLl'}^{mMm'}  &=& (-1)^m\,
 \bigl(\begin{smallmatrix} l & L & l' \\ -m & M & m'  \end{smallmatrix}\bigr) {}_{s}F_{lLl'} \\
@@ -152,21 +154,25 @@ with
 {}_{s}F_{lLl'} &\equiv& \big[L(L+1)-l'(l'+1)+l(l+1)\big]\nonumber  \\& \times& \frac{\big[ (2l+1)(2L+1)(2l'+1)\big]^{1/2} }{\sqrt{16 \pi}} \bigl(\begin{smallmatrix} l & L & l' \\ s & 0 & -s  \end{smallmatrix}\bigr) \\
 {}_{s}G_{lLl'} &\equiv& \frac{\big[ (2l+1)(2L+1)(2l'+1)\big]^{1/2} }{\sqrt{4 \pi}} \bigl(\begin{smallmatrix} l & L & l' \\ s & 0 & -s  \end{smallmatrix}\bigr)
 .\eea
+Note the extra two powers of the multipoles in the function $F$ that governs deflection; these follow from the fact that both the temperature and the potential are differentiated with respect to transverse position on the sky. The radial derivative that governs the impact of the time delay, or change in distance to the last scattering surface, appears in \ec{dtd} as the logarithmic derivative of the unlensed coefficients $\tilde\Theta_{LM}$.
 
 \Spng{TT1}{Spectra of CMB temperature anisotropies and the logarithmic derivative of that spectrum with respect to the distance to the last scattering surface as defined in \ec{cld}.}
-We proceed as in Ref.~\cite{Hu:2001tn} by focusing on the expectation of off-diagonal (${l_1,m_1\ne l_2,m_2}$) terms quadratic in the observed moments:
+As in the case of the effect of deflections on the CMB, the varying distances to the last scattering surface leads to correlations between $l$-modes that differ from one another. We proceed as in Ref.~\cite{Hu:2001tn} by focusing on the expectation of off-diagonal (${l_1,m_1\ne l_2,m_2}$) terms quadratic in the observed moments:
 \bea
-&&\langle \tob_{l_1m_1} \tob_{l_2m_2} \rangle = \sum_{LM}  (-1)^M \bigl(\begin{smallmatrix} l_1 & l_2 & L \\ m_1 & m_2 & -M  \end{smallmatrix}\bigr) \nonumber \\
+\langle \tob_{l_1m_1} \tob_{l_2m_2} \rangle &=& \sum_{LM}  (-1)^M \bigl(\begin{smallmatrix} l_1 & l_2 & L \\ m_1 & m_2 & -M  \end{smallmatrix}\bigr) \nonumber \\
 &\times&\left\{  \phi_{LM} \big[ \tilde{C}_{l_{1}}^{\Theta\Theta} {}_{0}F_{l_{2}Ll_{1}} +\tilde{C}_{l_{2}}^{\Theta\Theta} {}_{0}F_{l_{1}Ll_{2}}\big] \right. \nonumber \\
 &&+ \left. d_{LM} \big[ \tilde{C}_{l_{1}}^{\Theta\Theta,d} {}_{0}G_{l_{2}Ll_{1}} +\tilde{C}_{l_{2}}^{\Theta \Theta,d} {}_{0}G_{l_{1}Ll_{2}}\big] \right \} \nonumber \\
-&=& \sum_{LM}(-1)^{M}\bigl(\begin{smallmatrix} l_1 & l_2 & L \\ m_1 & m_2 & -M  \end{smallmatrix}\bigr)\nonumber \\
-&\times&\big[ \phi_{LM}f_{l_{1}Ll_{2}} + d_{LM}g_{l_{1}Ll_{2}} \big] 
+= \sum_{LM}(-1)^{M}&&\bigl(\begin{smallmatrix} l_1 & l_2 & L \\ m_1 & m_2 & -M  \end{smallmatrix}\bigr)
+\big[ \phi_{LM}f_{l_{1}Ll_{2}} + d_{LM}g_{l_{1}Ll_{2}} \big] 
 \eea
 where the spectrum
 \be
 C^{\Theta\Theta,d}_{l} \equiv \frac{2}{\pi}\,\int_0^\infty dk\,k^2\, P_S(k,\eta_*)\,j_l(kD_*)\,\frac{\partial j_l(kD_*)}{\partial\ln D_*}\eql{cld}
 \ee
-with $P_S$ the power spectrum of the source. This expression is identical to the one for the undistorted CMB spectrum $C_l$ other than the replacement $j_l\rightarrow j_l'$. The two spectra are shown in Fig.~\rf{TT1}. We modify the public CAMB code and get the result. Therefore, following Ref.~\cite{Okamoto:2003zw}, we form the quadratic estimator for gravitational lensing and also the fractional distance field
+with $P_S$ the power spectrum of the source. This expression is identical to the one for the undistorted CMB spectrum $C_l$ other than the replacement $j_l\rightarrow j_l'$. The two spectra are shown in Fig.~\rf{TT1}. We modify the public CAMB code and account for the finite thickness of the last scattering surface. 
+
+
+Therefore, following Ref.~\cite{Okamoto:2003zw}, we can form the quadratic estimator for both the gravitational potential responsible for deflections and the fractional distance field:
 \bea
 \hat \phi_{LM} &=& \frac{A_{L}}{\sqrt{L(L+1)}}\sum_{l_1m_1}\sum_{l_2m_2} \nonumber \\  
 && (-1)^M  \bigl(\begin{smallmatrix} l_1 & l_2 & L \\ m_1 & m_2 & -M  \end{smallmatrix}\bigr) h^{\phi}_{l_1l_2}(L)  \tob_{l_1m_1} \tob_{l_2m_2} \\
