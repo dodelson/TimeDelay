@@ -152,7 +152,7 @@ Here, the integral over the product of three spherical harmonics is expressed as
 with
 \bea
 {}_{s}F_{lLl'} &\equiv& \big[L(L+1)-l'(l'+1)+l(l+1)\big]\nonumber  \\& \times& \frac{\big[ (2l+1)(2L+1)(2l'+1)\big]^{1/2} }{\sqrt{16 \pi}} \bigl(\begin{smallmatrix} l & L & l' \\ s & 0 & -s  \end{smallmatrix}\bigr) \\
-{}_{s}G_{lLl'} &\equiv& \frac{\big[ (2l+1)(2L+1)(2l'+1)\big]^{1/2} }{\sqrt{4 \pi}} \bigl(\begin{smallmatrix} l & L & l' \\ s & 0 & -s  \end{smallmatrix}\bigr)
+{}_{s}G_{lLl'} &\equiv& \frac{\big[ (2l+1)(2L+1)(2l'+1)\big]^{1/2} }{\sqrt{4 \pi}} \bigl(\begin{smallmatrix} l & L & l' \\ s & 0 & -s  \end{smallmatrix}\bigr)\eql{fg}
 .\eea
 Note the extra two powers of the multipoles in the function $F$ that governs deflection; these follow from the fact that both the temperature and the potential are differentiated with respect to transverse position on the sky. The radial derivative that governs the impact of the time delay, or change in distance to the last scattering surface, appears in \ec{dtd} as the logarithmic derivative of the unlensed coefficients $\tilde\Theta_{LM}$.
 
@@ -162,17 +162,24 @@ As in the case of the effect of deflections on the CMB, the varying distances to
 \langle \tob_{l_1m_1} \tob_{l_2m_2} \rangle &=& \sum_{LM}  (-1)^M \bigl(\begin{smallmatrix} l_1 & l_2 & L \\ m_1 & m_2 & -M  \end{smallmatrix}\bigr) \nonumber \\
 &\times&\left\{  \phi_{LM} \big[ \tilde{C}_{l_{1}}^{\Theta\Theta} {}_{0}F_{l_{2}Ll_{1}} +\tilde{C}_{l_{2}}^{\Theta\Theta} {}_{0}F_{l_{1}Ll_{2}}\big] \right. \nonumber \\
 &&+ \left. d_{LM} \big[ \tilde{C}_{l_{1}}^{\Theta\Theta,d} {}_{0}G_{l_{2}Ll_{1}} +\tilde{C}_{l_{2}}^{\Theta \Theta,d} {}_{0}G_{l_{1}Ll_{2}}\big] \right \} \nonumber \\
-= \sum_{LM}(-1)^{M}&&\bigl(\begin{smallmatrix} l_1 & l_2 & L \\ m_1 & m_2 & -M  \end{smallmatrix}\bigr)
-\big[ \phi_{LM}f_{l_{1}Ll_{2}} + d_{LM}g_{l_{1}Ll_{2}} \big] 
+&&\equiv \sum_{LM}(-1)^{M}\bigl(\begin{smallmatrix} l_1 & l_2 & L \\ m_1 & m_2 & -M  \end{smallmatrix}\bigr)
+\vs&&\times\big[ \phi_{LM}f_{l_{1}Ll_{2}} + d_{LM}g_{l_{1}Ll_{2}} \big]   \eql{quad}
 \eea
-where the spectrum
+where the change in distance to the last scattering spectrum produces the spectrum
 \be
 C^{\Theta\Theta,d}_{l} \equiv \frac{2}{\pi}\,\int_0^\infty dk\,k^2\, P_S(k,\eta_*)\,j_l(kD_*)\,\frac{\partial j_l(kD_*)}{\partial\ln D_*}\eql{cld}
 \ee
-with $P_S$ the power spectrum of the source. This expression is identical to the one for the undistorted CMB spectrum $C_l$ other than the replacement $j_l\rightarrow j_l'$. The two spectra are shown in Fig.~\rf{TT1}. We modify the public CAMB code and account for the finite thickness of the last scattering surface. 
+with $P_S$ the power spectrum of the source. This expression is identical to the one for the undistorted CMB spectrum $C_l$ other than the replacement $j_l\rightarrow j_l'$. The two spectra are shown in Fig.~\rf{TT1}. We modify the public CAMB code and account for the finite thickness of the last scattering surface. The last line of \ec{quad} defines the functions 
+\bea
+f_{l_1Ll_2} &\equiv& \big[ \tilde{C}_{l_{1}}^{\Theta\Theta} {}_{0}F_{l_{2}Ll_{1}} +\tilde{C}_{l_{2}}^{\Theta\Theta} {}_{0}F_{l_{1}Ll_{2}}\big]
+\vs
+g_{l_1Ll_2} &\equiv&\big[ \tilde{C}_{l_{1}}^{\Theta\Theta,d} {}_{0}G_{l_{2}Ll_{1}} +\tilde{C}_{l_{2}}^{\Theta \Theta,d} {}_{0}G_{l_{1}Ll_{2}}\big].
+\eea
+Note the difference between these two functions. The one that governs deflections, $f$, depends on the unlensed CMB spectrum $\tilde{C}_{l}^{\Theta\Theta} $
+and the deflections are encoded in the extra powers of $l$ (which are derivatives with respect to transverse position in real space) contained in $F$ compared to $G$ in \ec{fg}. The function that governs changes in distances depends on the spectrum $C^{\Theta\Theta,d}_{l}$, which carries a radial derivative.
 
 
-Therefore, following Ref.~\cite{Okamoto:2003zw}, we can form the quadratic estimator for both the gravitational potential responsible for deflections and the fractional distance field:
+The correlation between different $l$-modes enables us, following Ref.~\cite{Okamoto:2003zw}, to extract information about the fields causing these correlations by forming quadratic estimators for both the gravitational potential responsible for deflections and the fractional distance field:
 \bea
 \hat \phi_{LM} &=& \frac{A_{L}}{\sqrt{L(L+1)}}\sum_{l_1m_1}\sum_{l_2m_2} \nonumber \\  
 && (-1)^M  \bigl(\begin{smallmatrix} l_1 & l_2 & L \\ m_1 & m_2 & -M  \end{smallmatrix}\bigr) h^{\phi}_{l_1l_2}(L)  \tob_{l_1m_1} \tob_{l_2m_2} \\
@@ -184,22 +191,24 @@ where
 h^{\phi}_{l_1l_2}(L)&\equiv& \frac{f_{l_1Ll_2}}{2C_{l_1}C_{l_2}} \\
 h^{d}_{l_1l_2}(L)&\equiv& \frac{g_{l_1Ll_2}}{2C_{l_1}C_{l_2}}
 \eea
-and
+and \scott{I changed to the square root of $L(L+1)$ to make the expectation value of the estimator equal to $\phi$; not sure if this is ok.}
 \bea
-A_L &\equiv& L(L+1)(2L+1) \left\{ \sum_{l_1l_2} h^{\phi}_{l_1l_2}(L)f_{l_1Ll_2}\right\}^{-1}\\
-B_L &\equiv& (2L+1) \left\{ \sum_{l_1l_2} h^{d}_{l_1l_2}(L)g_{l_1Ll_2}\right\}^{-1}
+A_L &\equiv& \sqrt{L(L+1)}(2L+1) \left\{ \sum_{l_1l_2} h^{\phi}_{l_1l_2}(L)f_{l_1Ll_2}\right\}^{-1}\\
+B_L &\equiv& (2L+1) \left\{ \sum_{l_1l_2} h^{d}_{l_1l_2}(L)g_{l_1Ll_2}\right\}^{-1}.
 \eea 
-So that
-\bea
-\langle \hat{\phi}_{LM} \rangle &=& \sqrt{L(L+1)} \phi_{LM} \\
-\langle \hat{d}_{LM} \rangle &=& d_{LM}
-\eea
-Notice we don't have the factor of $1/\sqrt{L(L+1)}$ for the time delay estimator, since time delay effect does not depend on angular gradient. This time delay estimator has an expected value equal to the true $d_{LM}$ and a variance 
+With these definitions, the expectation values of the two estimators are equal to $\phi_{LM}$ and $d_{LM}$ respectively.
+%\bea
+%\langle \hat{\phi}_{LM} \rangle &=& \sqrt{L(L+1)} \phi_{LM} \\
+%\langle \hat{d}_{LM} \rangle &=& d_{LM}
+%\eea
+%Notice we don't have the factor of $1/\sqrt{L(L+1)}$ for the time delay estimator, since time delay effect does not depend on angular gradient. This time delay estimator has an expected value equal to the true $d_{LM}$ and a variance 
+
+The noise on these estimators is now given by the prefactors $A_L$ and $B_L$, so  
 \be
 \langle \hat d_{LM} \hat d^*_{L'M'}  \rangle = \delta_{LL'}\delta_{MM'} \left( C_L^{dd} + B_L \right)
 \ee
-with the first term on the right the signal and the second the noise. Fig.~\rf{Delay} shows the signal and noise as a function of $L$ for a specific choice of experimental configuration.
-\Spng{Delay}{Signal and noise spectra for detector noise $C_{l}^{\Theta \Theta}|_{\rm noise} = \left(\frac{\Delta_{\Theta}}{T_{\rm CMB}} \right)^{2} e^{l(l+1)\theta_{\rm FWHM}^{2}/8 \, \rm ln \,2}$, \\with $\Delta_{\Theta}=1\mu K-arcmin$ and $\theta_{\rm FWHM}=4'$.}
+with the first term on the right the signal and the second the noise. Fig.~\rf{Delay} shows the signal and noise as a function of $L$ for several \scott{We should put in CMB-S4 specs and perhaps cosmic variance. Also, this is temperature only?} experimental configuration.
+\Spng{Delay}{Signal and noise spectra for detector noise $C_{l}^{\Theta \Theta}|_{\rm noise} = \left(\frac{\Delta_{\Theta}}{T_{\rm CMB}} \right)^{2} e^{l(l+1)\theta_{\rm FWHM}^{2}/8 \, \rm ln \,2}$, with $\Delta_{\Theta}=1\mu K-arcmin$ and $\theta_{\rm FWHM}=4'$. \scott{Other noise configurations.}}
 
 \section{Polarization and Minimum Variance Estimator}
 Based on Okamoto \& Hu's construction, we can make a similar table for function $f$ and $g$ in the following expression
