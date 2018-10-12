@@ -187,7 +187,7 @@ The correlation between different $l$-modes enables us, following Ref.~\cite{Oka
 \hat \phi_{LM} &=& \frac{A_{L}}{\sqrt{L(L+1)}}\sum_{l_1m_1}\sum_{l_2m_2} \nonumber \\  
 && (-1)^M  \bigl(\begin{smallmatrix} l_1 & l_2 & L \\ m_1 & m_2 & -M  \end{smallmatrix}\bigr) h^{\phi}_{l_1l_2}(L)  \tob_{l_1m_1} \tob_{l_2m_2} \\
 \hat d_{LM} &=& B_{L} \sum_{l_1m_1}\sum_{l_2m_2}\nonumber \\
-&& (-1)^M  \bigl(\begin{smallmatrix} l_1 & l_2 & L \\ m_1 & m_2 & -M  \end{smallmatrix}\bigr) h^{d}_{l_1l_2}(L)  \tob_{l_1m_1} \tob_{l_2m_2}
+&& (-1)^M  \bigl(\begin{smallmatrix} l_1 & l_2 & L \\ m_1 & m_2 & -M  \end{smallmatrix}\bigr) h^{d}_{l_1l_2}(L)  \tob_{l_1m_1} \tob_{l_2m_2}\eql{distest}
 \eea
 where
 \bea
@@ -267,10 +267,10 @@ The covariance of these quadratic estimators
 with Gaussian noise given by
 \bea
 N_{L}^{\alpha\beta}&=&\frac{B_{L}^{\alpha*}B_{L}^{\beta}}{2L+1}\sum_{l_{1}l_{2}}  \left\{ h_{l_{1}l_{2}}^{\alpha,d*} (L)\big[ C_{l_{1}}^{ac}C_{l_{2}}^{bd}h_{l_{1}l_{2}}^{\alpha,d}(L)\right. \nonumber \\
-&&\left. +(-1)^{L+l_{1}+l_{2}}C_{l_{1}}^{ad}C_{l_{2}}^{bc} h_{l_{2}l_{1}}^{\beta,d}(L)  \big]\right\}
+&&\left. +(-1)^{L+l_{1}+l_{2}}C_{l_{1}}^{ad}C_{l_{2}}^{bc} h_{l_{2}l_{1}}^{\beta,d}(L)  \big]\right\}\eql{full}
 \eea
-with $\alpha=(ab)$, $\beta=(cd)$. For $\alpha=\beta$, simply we have $N_{L}^{\alpha\alpha}=B_{L}^{\alpha}$.
-We can thus form a minimum variance estimator
+with $\alpha=(ab)$, $\beta=(cd)$. For $\alpha=\beta$, \ec{full} reduces to $N_{L}^{\alpha\alpha}=B_{L}^{\alpha}$.
+Armed with these expressions, we can form a minimum variance estimator
 \be
 \hat{d}^{\rm mv}_{LM} = \sum_{\alpha}\omega^{\alpha}(L)\hat{d}^{\alpha}_{LM}
 \ee
@@ -281,16 +281,16 @@ N^{\rm mv}_{L} &=& \frac{1}{\sum_{\alpha\beta} (N_{L}^{-1})^{\alpha \beta}}
 \eea
 where $N_{L}^{-1}$ is the inverse matrix of time delay noise given by Eq. (27), with matrix indices given by polarizations. 
 
-We saw in Fig.~\rf{Delay} that temperature maps only are not sufficient to detect this signal. To assess the added information contained in the polarization field, we show the signal to noise as a function $l_{\rm max}$ for a noiseless experiment in Fig.~\rf{StoN}.
-We can see that the noise for time delay $\Theta \Theta$ quadratic estimator in FIG. 3 is much larger than the signal, given that we sum up from $1000$ to $4000$ for $l_{1}$ and $l_{2}$ in Eq. (19) indices and also detector noise is taken into consideration.
+We saw in Fig.~\rf{Delay} that temperature maps only are not sufficient to detect this signal. To assess the added information contained in the polarization field, we show the signal to noise for the lowest $L$-mode as a function $l_{\rm max}$ for a noiseless experiment in Fig.~\rf{StoN}.
+%We can see that the noise for time delay $\Theta \Theta$ quadratic estimator in FIG. 3 is much larger than the signal, given that we sum up from $1000$ to $4000$ for $l_{1}$ and $l_{2}$ in Eq. (19) indices and also detector noise is taken into consideration.
+\Spng{StoN}{Time Delay Signal to Noise for $L=1$,$l_{min}$ fixed at $1000$, $l_{max}$ varying}
+Here we keep $l_{min}$ fixed at $1000$ and let $l_{max}$ vary, we can see that at $l_{max} \approx XXXX$, minimum variance estimator $S/N \approx 1$. 
+%Also notice that there is no $\Theta B$, $EB$ or $BB$ polarization here, since if you look at the difference of ${}_{s} F_{lLl'}$ and ${}_{s} G_{lLl'}$, we would find that the noise for $\Theta B$, $EB$ and $BB$ estimator is much larger than $\Theta \Theta$, $\Theta E$ and $EE$ estimator. So we don't include those terms. 
 
-We want to know when will the signal to noise go greater than $1$ if we continue to enlarge the summation range and neglect detector noise. The result is shown in next figure
+\section{Contamination}
 
-\Spng{StoN}{Time Delay Signal to Noise with $L=1$,$l_{min}$ fixed at $1000$, $l_{max}$ varying}
-Here we keep $l_{min}$ fixed at $1000$ and let $l_{max}$ vary up to $7000$, we can see that at $l_{max} \approx 4200$, minimum variance estimator $S/N \approx 1$. 
-Also notice that there is no $\Theta B$, $EB$ or $BB$ polarization here, since if you look at the difference of ${}_{s} F_{lLl'}$ and ${}_{s} G_{lLl'}$, we would find that the noise for $\Theta B$, $EB$ and $BB$ estimator is much larger than $\Theta \Theta$, $\Theta E$ and $EE$ estimator. So we don't include those terms. 
-
-The next thing we want to consider is the orthogonality of lensing and time delay quadratic estimator. Consider a lensing quadratic estimator given by Okamoto \& Hu
+The presence of both the deflection and the distance perturbations to the CMB leads to contamination of each of the quadratic estimators, which implicitly neglected the other. For example, the distance estimator in \ec{distest} will get contributions from the deflection field $\delta\Theta^{\rm defl}$. Of course it is possible to construct estimators that are independent of one another, but for now, we simply estimate the magnitude of the contaminations.
+Consider a lensing quadratic estimator given by Okamoto \& Hu
 \bea
 \hat{\phi}^{\alpha}_{LM} &=&\nonumber \frac{A_{L}^{\alpha}}{\sqrt{L(L+1)}}\sum_{l_{1}m_{1}}\sum_{l_{2}m_{2}} \\
 && (-1)^{M}\bigl(\begin{smallmatrix} l_1 & l_2 & L \\ m_1 & m_2 & -M  \end{smallmatrix}\bigr) h^{\alpha,\phi}_{l_{1}l_{2}}(L) a^{obs}_{l_{1}m_{1}}b^{obs}_{l_{2}m_{2}}
@@ -305,6 +305,9 @@ where $C^{\alpha}_{L}$ is given by
 C^{\alpha}_{L} = \frac{\sum_{l_{1}l_{2}}h_{l_{1}l_{2}}^{\alpha,\phi}(L)g_{l_{1}Ll_{2}}^{\alpha}}{\sum_{l_{1}l_{2}}h_{l_{1}l_{2}}^{\alpha,\phi}(L)f_{l_{1}Ll_{2}}^{\alpha}}
 \ee
 Now we are mostly interested in $L\approx 30$ because that when lensing signal is at maximum. $C^{\Theta \Theta}_{30} \approx 0.00157$ so the contribution from time delay is actually negligible (for $\Theta \Theta $ case).
+
+\scott{We need to do the converse as Wayne suggested: how much $\phi$ messes up the $d$ estimator.}
+
 \bibliography{refs}
 \end{document}
 
