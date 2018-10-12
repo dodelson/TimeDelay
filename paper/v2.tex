@@ -89,8 +89,11 @@
 
 \author{\large Peikai Li}
 \author{\large Scott Dodelson}
+\affiliation{Department of Physics, Carnegie Mellon University, Pittsburgh, Pennsylvania 15312, USA}
+\author{\large Wayne Hu}
+\affiliation{Kavli Institute for Cosmological Physics, Department of Astronomy \& Astrophysics,
+Enrico Fermi Institute, The University of Chicago, Chicago, IL 60637, USA}
 %\email{dodelson@fnal.gov}
-\affiliation{Department of Physics, Carnegie Mellon University, Pittsburgh, Pennsylvania 15312, USA.}
 
 \date{\today}
 
@@ -194,7 +197,7 @@ h^{d}_{l_1l_2}(L)&\equiv& \frac{g_{l_1Ll_2}}{2C_{l_1}C_{l_2}}
 and \scott{I changed to the square root of $L(L+1)$ to make the expectation value of the estimator equal to $\phi$; not sure if this is ok.}
 \bea
 A_L &\equiv& \sqrt{L(L+1)}(2L+1) \left\{ \sum_{l_1l_2} h^{\phi}_{l_1l_2}(L)f_{l_1Ll_2}\right\}^{-1}\\
-B_L &\equiv& (2L+1) \left\{ \sum_{l_1l_2} h^{d}_{l_1l_2}(L)g_{l_1Ll_2}\right\}^{-1}.
+B_L &\equiv& (2L+1) \left\{ \sum_{l_1l_2} h^{d}_{l_1l_2}(L)g_{l_1Ll_2}\right\}^{-1}.\eql{bt}
 \eea 
 With these definitions, the expectation values of the two estimators are equal to $\phi_{LM}$ and $d_{LM}$ respectively.
 %\bea
@@ -210,13 +213,15 @@ The noise on these estimators is now given by the prefactors $A_L$ and $B_L$, so
 with the first term on the right the signal and the second the noise. Fig.~\rf{Delay} shows the signal and noise as a function of $L$ for several \scott{We should put in CMB-S4 specs and perhaps cosmic variance. Also, this is temperature only?} experimental configuration.
 \Spng{Delay}{Signal and noise spectra for detector noise $C_{l}^{\Theta \Theta}|_{\rm noise} = \left(\frac{\Delta_{\Theta}}{T_{\rm CMB}} \right)^{2} e^{l(l+1)\theta_{\rm FWHM}^{2}/8 \, \rm ln \,2}$, with $\Delta_{\Theta}=1\mu K-arcmin$ and $\theta_{\rm FWHM}=4'$. \scott{Other noise configurations.}}
 
-\section{Polarization and Minimum Variance Estimator}
-Based on Okamoto \& Hu's construction, we can make a similar table for function $f$ and $g$ in the following expression
+\section{Polarization}
+
+The estimator above used only the temperature anisotropy field, but the polarization field contains even more information about the lensing potentials that govern deflection and distance changes. This was worked out in detail by \citet{Okamoto:2003zw}, and we follow their notation here. There are now three fields of interest: temperature $\Theta$, and the two fields associated with polarization, $E$ and $B$. With letters $a,b$ each ranging over these three fields, we have 
 \bea
 \langle a^{obs}_{l_{1}m_{1}}b^{obs}_{l_{2}m_{2}}\rangle &=& \sum_{LM}(-1)^{M}\bigl(\begin{smallmatrix} l_1 & l_2 & L \\ m_1 & m_2 & -M  \end{smallmatrix}\bigr)\nonumber \\
-&\times&\big[ \phi_{LM}f^{\alpha}_{l_{1}Ll_{2}} + d_{LM}g^{\alpha}_{l_{1}Ll_{2}} \big] 
-\eea
-where $\alpha=(ab)$ stands for different polarizations.
+&\times&
+\big[ \phi_{LM}f^{\alpha}_{l_{1}Ll_{2}} + d_{LM}g^{\alpha}_{l_{1}Ll_{2}} \big] 
+.\eea
+The functions $f^\alpha$ and $g^\alpha$ are the generalizations of \ec{fg} to include polarization (\ec{fg} now corresponds to $a=\Theta$). The full set of $f^a$ was determined by \citet{Okamoto:2003zw} and is reproduced in Table 1, which now includes the full set of $g^a$ that govern the impact of changing radial distances. Note that $\tilde C_l$ corresponds to the unlensed fields.
 
 \begin{table}[thbp]
 \scalebox{0.9}{
@@ -234,30 +239,32 @@ $BB$ &$\tilde{C}_{l_{1}}^{BB} {}_{2}F_{l_{2}Ll_{1}}+\tilde{C}_{l_{2}}^{BB}{}_{2}
 \end{tabular}}
 \caption{Explicit forms for $f$ anb $h$ of various polarizations. Notice that for $TT$, $TE$, $EE$ and $BB$ polarization these functions are "even"; for $TB$ and $EB$ polarization they are "odd" instead. "Even" and "Odd" indicate that the functions are non-zero only when $l_{1}+l_{2}+L$ are even or odd, respectively.}
 \end{table}
-with corresponding estimators given by:
+
+An estimator can now be constructed for each of the pairs of fields (except $BB$), so letting $\alpha$ denote pairs of fields $(ab)$, we have
 \bea
 \hat{d}^{\alpha}_{LM} &=&\nonumber B_{L}^{\alpha}\sum_{l_{1}m_{1}}\sum_{l_{2}m_{2}} \\
 && (-1)^{M}\bigl(\begin{smallmatrix} l_1 & l_2 & L \\ m_1 & m_2 & -M  \end{smallmatrix}\bigr) h^{\alpha,d}_{l_{1}l_{2}}(L) a^{obs}_{l_{1}m_{1}}b^{obs}_{l_{2}m_{2}}
 \eea
-Also notice that we only consider off-diagonal terms as well.
-Here the minimum weighting function is given by
+where the coefficients are generalizations of \ec{bt} with $g$ and $h$ acquiring superscripts $\alpha$. The $g^\alpha$ are given in Table 1 and the minimizing weights are
 \bea
- && \noindent h^{\alpha,d}_{l_{1}l_{2}}(L) \nonumber \\
-&=& \frac{C_{l_{2}}^{aa}C_{l_{1}}^{bb}g^{\alpha*}_{l_{1}Ll_{2}}-(-1)^{L+l_{1}+l_{2}}C_{l_{1}}^{ab}C_{l_{2}}^{ab}g^{\alpha*}_{l_{2}Ll_{1}}}{C_{l_{1}}^{aa}C_{l_{2}}^{aa}C_{l_{1}}^{bb}C_{l_{2}}^{bb}-(C_{l_{1}}^{ab}C_{l_{2}}^{ab})^{2}}
+h^{\alpha=(ab),d}_{l_{1}l_{2}}(L) 
+&=& \frac{C_{l_{2}}^{aa}C_{l_{1}}^{bb}g^{\alpha*}_{l_{1}Ll_{2}}-(-1)^{L+l_{1}+l_{2}}C_{l_{1}}^{ab}C_{l_{2}}^{ab}g^{\alpha*}_{l_{2}Ll_{1}}}{C_{l_{1}}^{aa}C_{l_{2}}^{aa}C_{l_{1}}^{bb}C_{l_{2}}^{bb}-(C_{l_{1}}^{ab}C_{l_{2}}^{ab})^{2}}\vs && \qquad\qquad \qquad\qquad (a\ne b)
+\vs
+&=&  \frac{g^{\alpha *}_{l_{1}Ll_{2}}}{2C_{l_{1}}^{aa}C_{l_{2}}^{aa}}\qquad(a= b).
 \eea
-We have some simplifications, for $a=b$, we have
+%We have some simplifications, for $a=b$, we have
+%\be
+%h^{\alpha,d}_{l_{1}l_{2}}(L) \rightarrow \frac{g^{\alpha *}_{l_{1}Ll_{2}}}{2C_{l_{1}}^{aa}C_{l_{2}}^{aa}}
+%\ee
+Note that in the special case when $C_{l}^{ab}=0$ (e.g., for $\Theta B$ or $EB$), this reduces to 
 \be
-h^{\alpha,d}_{l_{1}l_{2}}(L) \rightarrow \frac{g^{\alpha *}_{l_{1}Ll_{2}}}{2C_{l_{1}}^{aa}C_{l_{2}}^{aa}}
+h^{\alpha,d}_{l_{1}l_{2}}(L) \rightarrow \frac{g^{\alpha *}_{l_{1}Ll_{2}}}{C_{l_{1}}^{aa}C_{l_{2}}^{bb}}. 
 \ee
-and for $C_{l}^{ab}=0$ (e.g., for $\Theta B$ or $EB$),
-\be
-h^{\alpha,d}_{l_{1}l_{2}}(L) \rightarrow \frac{g^{\alpha *}_{l_{1}Ll_{2}}}{C_{l_{1}}^{aa}C_{l_{2}}^{aa}}
-\ee
-The covariance of these quadratic estimator
+The covariance of these quadratic estimators
 \be
 \langle \hat{d}^{\alpha*}_{LM}d^{\beta}_{L'M'}\rangle \equiv \delta_{LL'}\delta_{MM'}\big[ C_{L}^{dd}+N_{L}^{\alpha \beta} \big]
 \ee
-with Gaussion noise given by
+with Gaussian noise given by
 \bea
 N_{L}^{\alpha\beta}&=&\frac{B_{L}^{\alpha*}B_{L}^{\beta}}{2L+1}\sum_{l_{1}l_{2}}  \left\{ h_{l_{1}l_{2}}^{\alpha,d*} (L)\big[ C_{l_{1}}^{ac}C_{l_{2}}^{bd}h_{l_{1}l_{2}}^{\alpha,d}(L)\right. \nonumber \\
 &&\left. +(-1)^{L+l_{1}+l_{2}}C_{l_{1}}^{ad}C_{l_{2}}^{bc} h_{l_{2}l_{1}}^{\beta,d}(L)  \big]\right\}
@@ -274,6 +281,7 @@ N^{\rm mv}_{L} &=& \frac{1}{\sum_{\alpha\beta} (N_{L}^{-1})^{\alpha \beta}}
 \eea
 where $N_{L}^{-1}$ is the inverse matrix of time delay noise given by Eq. (27), with matrix indices given by polarizations. 
 
+We saw in Fig.~\rf{Delay} that temperature maps only are not sufficient to detect this signal. To assess the added information contained in the polarization field, we show the signal to noise as a function $l_{\rm max}$ for a noiseless experiment in Fig.~\rf{StoN}.
 We can see that the noise for time delay $\Theta \Theta$ quadratic estimator in FIG. 3 is much larger than the signal, given that we sum up from $1000$ to $4000$ for $l_{1}$ and $l_{2}$ in Eq. (19) indices and also detector noise is taken into consideration.
 
 We want to know when will the signal to noise go greater than $1$ if we continue to enlarge the summation range and neglect detector noise. The result is shown in next figure
