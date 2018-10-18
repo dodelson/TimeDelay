@@ -106,17 +106,19 @@ The surface of last scattering of the photons in the cosmic microwave background
 \section{Distance to the Last Scattering Surface}
 \newcommand\fd{d}
 
-The theory of general relativity dictates that particles traveling through gravitational potential wells experience time delays~\cite{1964PhRvL..13..789S}. If two photons are emitted at the same time, then they will travel different distances depending upon the potential $\Phi$ through which they travel. In a cosmological context of an expanding universe, the difference in comoving distance $D$ is equal to  
+The theory of general relativity dictates that particles traveling through gravitational potential wells experience time delays~\cite{1964PhRvL..13..789S}. If two photons are emitted at the same time, then they will travel different distances depending upon the potential $\Phi$ through which they travel. In a cosmological context of an expanding universe, the fractional difference in comoving distance $D$ to a source at redshift $z$ is equal to  
 \be
-d(\hat n) = \frac{-2}{D} \int_0^D dD'\, \Phi\left(D'\hat n; t(D')\right)
+d(\hat n) = -2\, \int_0^{z} d\ln(1+z')\, K(z,z')\Phi\left(D(z')\hat n; t(z')\right)
 \ee
-where $t(D)$ is the age of the universe at the time that the photon is a distance $D$ from us. There is also a geometric time delay that is typically of the same size for a single lens, but when the path is through a series of peaks and troughs, the mean time delay is much smaller, of order $\theta_{RMS}$, so we neglect it here. 
+where the kernel $K(z,z')=(H(z') D(z))^{-1}$ with $H$ the Hubble rate; and $t(z)$ is the age of the universe . There is also a geometric time delay that is typically of the same size for a single lens, but when the path is through a series of peaks and troughs, the mean time delay is much smaller, of order $\theta_{RMS}$, so we neglect it here. 
 
 Similarly~\cite{Hu:2001yq}, photons that comprise the cosmic microwave background (CMB) experience these same time delays or advances depending on the integrated potential through which they travel. Since photons do not decouple instantaneously from the electron-proton plasma, the surface of last scattering is often said to have a finite width, and a more accurate expression for the fractional difference in distance traveled is
 \be
-\fd(\hat n) = \frac{-2}{D_*} \int_0^\infty dD e^{-\tau(D)}\, \Phi\left(D\hat n; t(D)\right)
+\fd(\hat n) = -2\, \int_0^{\infty} d\ln(1+z')\, e^{-\tau(z')}\, K(z,z')\Phi\left(D(z')\hat n; t(z')\right)
+%\frac{-2}{D_*} \int_0^\infty dD e^{-\tau(D)}\, \Phi\left(D\hat n; t(D)\right)
 \ee
-where $\tau$ is the optical depth, which becomes very large at times smaller than the epoch of  last scattering, $t_*$ or equivalently when $D>D_*$, the nominal distance to the last scattering surface. This directional-dependent change in the distance to last scattering is independent of its finite width and a phenomenon different than the angular deflections~\cite{Hu:2001tn,Lewis:2006fu} that have been captured by recent experiments~\cite{Smith:2007rg,Ade:2013tyw,Story:2014hni,Sherwin:2016tyf,Aghanim:2018oex}.
+where $\tau$ is the optical depth, which becomes very large at times smaller than the epoch of  last scattering, $t_*$ or equivalently when $z>z_*$.
+This directional-dependent change in the distance to last scattering is independent of its finite width and a phenomenon different than the angular deflections~\cite{Hu:2001tn,Lewis:2006fu} that have been captured by recent experiments~\cite{Smith:2007rg,Ade:2013tyw,Story:2014hni,Sherwin:2016tyf,Aghanim:2018oex}.
 
 Although deflections and delays are two different phenomena, they share some similarities, especially in the case of the CMB. Both are determined by the integrated potential along the line of sight, although with slightly different kernels, as depicted in Figure~\rf{kernel}. It is clear that they will be highly correlated, so as a first approximation, we might view the maps of the lensing potential created for example in \citet{Aghanim:2018oex} as maps of distance to the last scattering surface. Another similarity, one that has not yet been exploited, is that the formalism first proposed in \citet{Hu:2001tn} can be applied to the delays as well, and this is what we will do in this paper. We start though with the rather humbling calculation of \citet{Hu:2001yq} that the RMS fractional distance differences are a factor of ten smaller than the RMS angular deviations. Further, while the latter peaks at degree scales, the former peak on the largest scales.
 
