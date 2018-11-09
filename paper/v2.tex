@@ -137,7 +137,9 @@ Although deflections and delays are two different phenomena, they share some sim
 \be
 K_\phi(z) \approx K(z)  \frac{D(z)-D_*}{ D(z) } .
 \ee}
- It is clear that they will be highly correlated, so as a first approximation, we might view the maps of the lensing potential created for example in \citet{Aghanim:2018oex} as maps of distance to the last scattering surface. Another similarity, one that has not yet been exploited, is that the quadratic estimator formalism  \cite{Hu:2001tn} can be applied to the delays as well, and this is what we will do in this paper.  \wh{We start though with the rather daunting fact that the RMS fractional distance differences are a factor of ten smaller than the RMS angular deviations and their impact on CMB power spectra is even smaller \cite{Hu:2001yq}.} Further, while the latter peaks at degree scales, the former peak on the largest scales.
+ It is clear that they will be highly correlated, so as a first approximation, we might view the maps of the lensing potential created for example in \citet{Aghanim:2018oex} as maps of distance to the last scattering surface. Another similarity, one that has not yet been exploited, is that the quadratic estimator formalism  \cite{Hu:2001tn} can be applied to the delays as well, and this is what we will do in this paper.  \wh{We start though with the rather daunting fact that the RMS fractional distance differences are a factor of ten smaller than the RMS angular deviations 
+ % this part is arguably comparing apples to oranges so I think the more daunting fact is the many orders of magnitude between their effects on the power spectra
+ and their impact on CMB power spectra is even smaller \cite{Hu:2001yq}.} Further, while the latter peaks at degree scales, the former peak on the largest scales.
 
 \Sfig{kernel}{Kernel that weights the integral of the gravitational potential for the time delay examined here and the more carefully studied deflection angle.}
 
@@ -147,11 +149,14 @@ K_\phi(z) \approx K(z)  \frac{D(z)-D_*}{ D(z) } .
 \newcommand\tob{\Theta^{\rm obs}}
 \newcommand\tu{\tilde{\Theta}}
 \newcommand\td{\Theta^{\rm dist}}
-A starting point is to assume that the last scattering surface is infinitely thin, note that the observed temperature in a given direction $\tob(\hat n)$ is the undistorted temperature $\tu(\hat n)$ plus the deflection due to gravitational lensing plus a term proportional to the small fractional difference $\fd(\hat n)$:
+The starting point is to assume that the last scattering surface is infinitely thin, note that the observed temperature in a given direction $\tob(\hat n)$ is the undistorted temperature $\tu(\hat n)$ plus the deflection due to gravitational lensing plus a term proportional to the small fractional difference $\fd(\hat n)$:
 \be
 \tob(\hat n) = \tu(\hat n) + \nabla_{i} \phi(\hat n) \nabla^{i}\tu(\hat n) + \frac{\partial\tu(\hat n)}{\partial \ln D_*}\, \fd(\hat n)
 .\ee
-The first term is caused by lensing and has been fully evaluated in Okamoto \& Hu. The second term is due to time delay. Notice we don't consider their cross effect here. The second term's derivative can be evaluated by recalling that the undistorted temperature can be expanded in spherical harmonics with coefficients
+\wh{I'm unclear on what caveat you are pointing out here - at the level, we're just linearizing and haven't yet
+dropped any cross terms as far as I can see: The first term is caused by lensing and the second term is due to time delay. 
+Notice we don't consider their cross effect here. }
+The second term's derivative can be evaluated by recalling that the undistorted temperature can be expanded in spherical harmonics with coefficients
 \be
 \tu_{lm} = 4\pi(-i)^{l} \int \frac{d^{3}k}{(2\pi)^{3}}Y_{lm}^{*}(\hat{k})S(\vec k;\eta_{*})j_{l}(kD_{*}) 
 \ee
