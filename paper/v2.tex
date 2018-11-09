@@ -111,6 +111,12 @@ The theory of general relativity dictates that particles traveling through gravi
 \be
 d(\hat n) = -2\, \int_0^{z} d\ln(1+z')\, K(z,z')\Phi\left(D(z')\hat n; t(z')\right)
 \ee
+\wh{see query on measure, I'd suggest also we switch back to: fractional difference in comoving distance
+$D_*$ to a source at redshift $z_*$ in a spatially flat universe is equal to
+\be
+d(\hat n) = -\frac{2}{D_*}\, \int_0^{D_*} \Phi\left(D \hat n; t(D)\right)
+\ee
+}
 where the kernel $K(z,z')=(H(z') D(z))^{-1}$ with $H$ the Hubble rate; and $t(z)$ is the age of the universe . There is also a geometric time delay that is typically of the same size for a single lens, but when the path is through a series of peaks and troughs, the mean time delay is much smaller, of order $\theta_{RMS}$, so we neglect it here. 
 
 Similarly~\cite{Hu:2001yq}, photons that comprise the cosmic microwave background (CMB) experience these same time delays or advances depending on the integrated potential through which they travel. Since photons do not decouple instantaneously from the electron-proton plasma, the surface of last scattering is often said to have a finite width, and a more accurate expression for the fractional difference in distance traveled is
@@ -118,10 +124,20 @@ Similarly~\cite{Hu:2001yq}, photons that comprise the cosmic microwave backgroun
 \fd(\hat n) = -2\, \int_0^{\infty} d\ln(1+z')\, e^{-\tau(z')}\, K(z,z')\Phi\left(D(z')\hat n; t(z')\right)
 %\frac{-2}{D_*} \int_0^\infty dD e^{-\tau(D)}\, \Phi\left(D\hat n; t(D)\right)
 \ee
+\wh{would suggest here 
+\be
+\fd(\hat n) = -2\, \int_0^{\infty} dz \, e^{-\tau(z')}\, K_\fd(z')\Phi\left(D(z')\hat n; t(z')\right)
+\ee
+where $K_\fd(z) = (H(z)D_*)^{-1}$ and $D_* =  \int_0^\infty e^{-\tau(z') }dz'/H(z')$.}
 where $\tau$ is the optical depth, which becomes very large at times smaller than the epoch of  last scattering, $t_*$ or equivalently when $z>z_*$.
 This directional-dependent change in the distance to last scattering is independent of its finite width and a phenomenon different than the angular deflections~\cite{Hu:2001tn,Lewis:2006fu} that have been captured by recent experiments~\cite{Smith:2007rg,Ade:2013tyw,Story:2014hni,Sherwin:2016tyf,Aghanim:2018oex}.
 
-Although deflections and delays are two different phenomena, they share some similarities, especially in the case of the CMB. Both are determined by the integrated potential along the line of sight, although with slightly different kernels, as depicted in Figure~\rf{kernel}. It is clear that they will be highly correlated, so as a first approximation, we might view the maps of the lensing potential created for example in \citet{Aghanim:2018oex} as maps of distance to the last scattering surface. Another similarity, one that has not yet been exploited, is that the formalism first proposed in \citet{Hu:2001tn} can be applied to the delays as well, and this is what we will do in this paper. We start though with the rather humbling calculation of \citet{Hu:2001yq} that the RMS fractional distance differences are a factor of ten smaller than the RMS angular deviations. Further, while the latter peaks at degree scales, the former peak on the largest scales.
+Although deflections and delays are two different phenomena, they share some similarities, especially in the case of the CMB. Both are determined by the integrated potential along the line of sight, although with slightly different kernels, as depicted in Figure~\rf{kernel}.
+\wh{(after sorting out which kernel we are referring to, I would suggest here something explicit for maximal clarity
+\be
+K_\phi(z) \approx K(z)  \frac{D(z)-D_*}{ D(z) } .
+\ee}
+ It is clear that they will be highly correlated, so as a first approximation, we might view the maps of the lensing potential created for example in \citet{Aghanim:2018oex} as maps of distance to the last scattering surface. Another similarity, one that has not yet been exploited, is that the formalism first proposed in \citet{Hu:2001tn} can be applied to the delays as well, and this is what we will do in this paper. We start though with the rather humbling calculation of \citet{Hu:2001yq} that the RMS fractional distance differences are a factor of ten smaller than the RMS angular deviations. Further, while the latter peaks at degree scales, the former peak on the largest scales.
 
 \Sfig{kernel}{Kernel that weights the integral of the gravitational potential for the time delay examined here and the more carefully studied deflection angle.}
 
@@ -290,7 +306,9 @@ We saw in Fig.~\rf{Delay} that temperature maps only are not sufficient to detec
 Here we keep $l_{min}$ fixed at $1000$ and let $l_{max}$ vary, we can see that at $l_{max} \approx XXXX$, minimum variance estimator $S/N \approx 1$. 
 %Also notice that there is no $\Theta B$, $EB$ or $BB$ polarization here, since if you look at the difference of ${}_{s} F_{lLl'}$ and ${}_{s} G_{lLl'}$, we would find that the noise for $\Theta B$, $EB$ and $BB$ estimator is much larger than $\Theta \Theta$, $\Theta E$ and $EE$ estimator. So we don't include those terms. 
 
-\begin{appendices}
+%\begin{appendices}
+\appendix
+
 \section{Appendix A: Dectection of Cross Power Spectrum}
 The expectation value of lensing and time delay estimators would give us cross power spectrum and its Gaussion noise:
 \bea
@@ -356,7 +374,7 @@ Let's see what the Gaussion noise would be in this construction
 &&+\langle \hat{d}_{LM}^{\alpha}\delta\hat{d}_{L'M'}^{\beta*} \rangle + \langle \delta\hat{d}_{LM}^{\alpha}\delta\hat{d}_{L'M'}^{\beta*} \rangle \nonumber \\
 &=&\delta_{LL'}\delta_{MM'}(C_{L}^{dd}+N_{L}^{\alpha\beta}+\Delta_{L}^{\alpha\beta})
 \eea 
-\end{appendices}
+%\end{appendices}
 
 \bibliography{refs}
 \end{document}
