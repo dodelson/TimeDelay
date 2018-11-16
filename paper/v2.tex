@@ -129,16 +129,16 @@ Photons that comprise the cosmic microwave background (CMB) experience these sam
 \be
 \fd(\hat n) = -2\, \int_0^{\infty} dz \, e^{-\tau(z')}\, K_\fd(z')\Phi\left(D(z')\hat n; t(z')\right)
 \ee
-\wh{perhaps define  $K_\fd(z) = -2(H(z)D_*)^{-1}$?}
-where $H(z)$ is the Hubble expansion rate; $K_\fd(z) = (H(z)D_*)^{-1}$ and $D_* =  \int_0^\infty dz' e^{-\tau(z') }/H(z')$.
+%\wh{perhaps define  $K_\fd(z) = -2(H(z)D_*)^{-1}$?}
+where $H(z)$ is the Hubble expansion rate; $K_\fd(z) = - (H(z)D_*)^{-1}$ and $D_* =  \int_0^\infty dz' e^{-\tau(z') }/H(z')$.
 where $\tau$ is the optical depth, ignoring reionization, which becomes very large at times smaller than the epoch of  last scattering, $t_*$ or equivalently when $z>z_*$.
 This directional-dependent change in the distance to last scattering is independent of its finite width and is a phenomenon different than the angular deflections~\cite{Hu:2001tn,Lewis:2006fu} that have been captured by recent experiments~\cite{Smith:2007rg,Ade:2013tyw,Story:2014hni,Sherwin:2016tyf,Aghanim:2018oex}.
 
-Although deflections and delays are two different phenomena, they share some similarities, especially in the case of the CMB. Both are determined by the integrated potential along the line of sight, although with slightly different kernels, as depicted in Figure~\rf{kernel}, with the deflection kernel equal to \scott{I changed the order of terms in the numerator here from what you had Wayne; I assume that was a typo? Please check out the new figure; it's different from before because of a bug; does it look right to you? is it misleading because we don't capture the transverse derivative for the deflection term?} \wh{I think it's now clear what is plotted - and its a good way to show high cross correlation though less good at identifying observability}
+%Although deflections and delays are two different phenomena, they share some similarities, especially in the case of the CMB. Both are determined by the integrated potential along the line of sight, although with slightly different kernels, as depicted in Figure~\rf{kernel}, with the deflection kernel equal to \scott{I changed the order of terms in the numerator here from what you had Wayne; I assume that was a typo? Please check out the new figure; it's different from before because of a bug; does it look right to you? is it misleading because we don't capture the transverse derivative for the deflection term?} \wh{I think it's now clear what is plotted - and its a good way to show high cross correlation though less good at identifying observability}
 \be
-K_\phi(z) \approx K_\fd(z)  \frac{D_*-D(z)}{ D(z) } .
+K_\phi(z) = \frac{D_*-D(z)}{ D(z) D_* H(z)} .
 \ee
-\wh{and define absolute instead of relative $K_\phi = (D_*-D)/(D D_* H)$.}
+%\wh{and define absolute instead of relative $K_\phi = (D_*-D)/(D D_* H)$.}
 It is clear that they will be highly correlated, so as a first approximation, we might view the maps of the lensing potential created for example in \citet{Aghanim:2018oex} as maps of distance to the last scattering surface. Another similarity, one that has not yet been exploited, is that the quadratic estimator formalism  \cite{Hu:2001tn} can be applied to the delays as well, and this is what we will do in this paper.  We start though with the rather daunting facts that the RMS fractional distance differences are a factor of ten smaller than the RMS angular deviations 
  % this part is arguably comparing apples to oranges so I think the more daunting fact is the many orders of magnitude between their effects on the power spectra
  and their impact on CMB power spectra is even smaller \cite{Hu:2001yq}. Further, while the latter peaks at degree scales, the former peak on the largest scales.
