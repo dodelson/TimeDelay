@@ -107,7 +107,7 @@ The surface of last scattering of the photons in the cosmic microwave background
 \section{Distance to the Last Scattering Surface}
 \newcommand\fd{d}
 
-The theory of general relativity dictates that particles traveling through gravitational potential wells experience time delays~\cite{1964PhRvL..13..789S}. If two photons are emitted at the same time, then they will travel different distances depending upon the potential $\Phi$ through which they travel. In a cosmological context of an expanding universe, the %fractional difference in comoving distance $D$ to a source at redshift $z$ is equal to  
+The theory of general relativity dictates that particles traveling through gravitational potential wells experience time delays~\cite{1964PhRvL..13..789S}. If two photons are emitted at the same time, then they will travel different distances depending upon the potential $\Phi$ \wh{define which sign convention} through which they travel. In a cosmological context of an expanding universe, the %fractional difference in comoving distance $D$ to a source at redshift $z$ is equal to  
 %\be
 %d(\hat n) = -2\, \int_0^{z} d\ln(1+z')\, K(z,z')\Phi\left(D(z')\hat n; t(z')\right)
 %\ee
@@ -129,14 +129,16 @@ Photons that comprise the cosmic microwave background (CMB) experience these sam
 \be
 \fd(\hat n) = -2\, \int_0^{\infty} dz \, e^{-\tau(z')}\, K_\fd(z')\Phi\left(D(z')\hat n; t(z')\right)
 \ee
+\wh{perhaps define  $K_\fd(z) = -2(H(z)D_*)^{-1}$?}
 where $H(z)$ is the Hubble expansion rate; $K_\fd(z) = (H(z)D_*)^{-1}$ and $D_* =  \int_0^\infty dz' e^{-\tau(z') }/H(z')$.
 where $\tau$ is the optical depth, ignoring reionization, which becomes very large at times smaller than the epoch of  last scattering, $t_*$ or equivalently when $z>z_*$.
 This directional-dependent change in the distance to last scattering is independent of its finite width and is a phenomenon different than the angular deflections~\cite{Hu:2001tn,Lewis:2006fu} that have been captured by recent experiments~\cite{Smith:2007rg,Ade:2013tyw,Story:2014hni,Sherwin:2016tyf,Aghanim:2018oex}.
 
-Although deflections and delays are two different phenomena, they share some similarities, especially in the case of the CMB. Both are determined by the integrated potential along the line of sight, although with slightly different kernels, as depicted in Figure~\rf{kernel}, with the deflection kernel equal to \scott{I changed the order of terms in the numerator here from what you had Wayne; I assume that was a typo? Please check out the new figure; it's different from before because of a bug; does it look right to you? is it misleading because we don't capture the transverse derivative for the deflection term?}
+Although deflections and delays are two different phenomena, they share some similarities, especially in the case of the CMB. Both are determined by the integrated potential along the line of sight, although with slightly different kernels, as depicted in Figure~\rf{kernel}, with the deflection kernel equal to \scott{I changed the order of terms in the numerator here from what you had Wayne; I assume that was a typo? Please check out the new figure; it's different from before because of a bug; does it look right to you? is it misleading because we don't capture the transverse derivative for the deflection term?} \wh{I think it's now clear what is plotted - and its a good way to show high cross correlation though less good at identifying observability}
 \be
 K_\phi(z) \approx K_\fd(z)  \frac{D_*-D(z)}{ D(z) } .
 \ee
+\wh{and define absolute instead of relative $K_\phi = (D_*-D)/(D D_* H)$.}
 It is clear that they will be highly correlated, so as a first approximation, we might view the maps of the lensing potential created for example in \citet{Aghanim:2018oex} as maps of distance to the last scattering surface. Another similarity, one that has not yet been exploited, is that the quadratic estimator formalism  \cite{Hu:2001tn} can be applied to the delays as well, and this is what we will do in this paper.  We start though with the rather daunting facts that the RMS fractional distance differences are a factor of ten smaller than the RMS angular deviations 
  % this part is arguably comparing apples to oranges so I think the more daunting fact is the many orders of magnitude between their effects on the power spectra
  and their impact on CMB power spectra is even smaller \cite{Hu:2001yq}. Further, while the latter peaks at degree scales, the former peak on the largest scales.
@@ -154,10 +156,16 @@ observed temperature in a given direction $\tob(\hat n)$ is the undistorted temp
 \be
 \tob(\hat n) = \tu(\hat n) + \nabla_{i} \phi(\hat n) \nabla^{i}\tu(\hat n) + \frac{\partial\tu(\hat n)}{\partial \ln D_*}\, \fd(\hat n)
 .\ee
-\wh{I'm unclear on what caveat you are pointing out here - at this point, we're just linearizing and haven't yet
-dropped any cross terms as far as I can see: The first term is caused by lensing and the second term is due to time delay. 
-Notice we don't consider their cross effect here. }
-\scott{not sure where we're pointing out a caveat.}
+%\wh{I'm unclear on what caveat you are pointing out here - at this point, we're just linearizing and haven't yet
+%dropped any cross terms as far as I can see: The first term is caused by lensing and the second term is due to time delay. 
+%
+%\scott{not sure where we're pointing out a caveat.}
+%
+% It was this sentence that I didn't understand: 
+%Notice we don't consider their cross effect here. }
+%
+% so I think you are OK with commenting it out?
+%
 The second term's derivative can be evaluated by recalling that the undistorted temperature can be expanded in spherical harmonics with coefficients
 \be
 \tu_{lm} = 4\pi(-i)^{l} \int \frac{d^{3}k}{(2\pi)^{3}}Y_{lm}^{*}(\hat{k})S(\vec k;\eta_{*})j_{l}(kD_{*}) 
@@ -178,8 +186,12 @@ Here, we have written the integral over the product of three spherical harmonics
 {}_{s}J_{lLl'}^{mMm'}  &=& (-1)^m\,
 \bigl(\begin{smallmatrix} l & L & l' \\ -m & M & m'  \end{smallmatrix}\bigr) {}_{s}G_{lLl'}
 \eea
-\wh{why interchange the rolls of $L \leftrightarrow l'$ for $d$? are you trying to get rid of some $(-1)^{l+l'+L}$ phase 
-factor for $s\ne 0$?  relatedly $s$ looks unexplained here.}\scott{I think i addressed the last issue.}
+%\wh{why interchange the rolls of $L \leftrightarrow l'$ for $d$? are you trying to get rid of some $(-1)^{l+l'+L}$ phase 
+%factor for $s\ne 0$?  relatedly $s$ looks unexplained here.}\scott{I think i addressed the last issue.}
+%
+% wh: OK, though I think permuting would affect s=2 and I didn't check that everything is consistent with this
+% choice of phase factor
+%
 with
 \bea
 {}_{s}F_{lLl'} &\equiv& \big[L(L+1)-l'(l'+1)+l(l+1)\big]\nonumber  \\& \times& \frac{\big[ (2l+1)(2L+1)(2l'+1)\big]^{1/2} }{\sqrt{16 \pi}} \bigl(\begin{smallmatrix} l & L & l' \\ s & 0 & -s  \end{smallmatrix}\bigr) \\
