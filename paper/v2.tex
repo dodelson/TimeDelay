@@ -180,14 +180,14 @@ with the two first order terms due to deflection and the change in distance equa
 \dtl_{lm} &=& \sum_{LM}\sum_{l'm'}\tu_{l'm'} \;{}_{0}I_{lLl'}^{mMm'}\phi_{LM}\\
 \dtd_{lm} &=& \sum_{LM}\sum_{l'm'} \frac{\partial \tu_{l'm'}(D_{*})}{\partial \ln D_{*}} \;{}_{0} J_{lLl'}^{mMm'}d_{LM}\eql{dtd}
 .\eea
-Here, we have written the integral over the product of three spherical harmonics as $_0I$ and $_0J$ to enable generalization to the case of polarization where (some of the) spherical harmonics are spin 2. The general expression is  \scott{I get two $(-1)^m$ factors: once when converting the complex conjugate and once when using Eq 12 from Okamoto-Hu}
+Here, we have written the integral over the product of three spherical harmonics as $_0I$ and $_0J$ to enable generalization to the case of polarization where (some of the) spherical harmonics are spin 2. The general expression is  \scott{I get two $(-1)^m$ factors: once when converting the complex conjugate and once when using Eq 12 from Okamoto-Hu.}\scott{Update: I think i now disagree with the $(-1)^{m_1}$ factor in Eq 12 of Okamoto-Hu, which means that I now agree with the $(-1)^m$'s here}
 \bea
 {}_{s}I_{lLl'}^{mMm'}  &=& (-1)^m\,
 \bigl(\begin{smallmatrix} l & L & l' \\ -m & M & m'  \end{smallmatrix}\bigr) {}_{s}F_{lLl'} \\
 {}_{s}J_{lLl'}^{mMm'}  &=& (-1)^m\,
 \bigl(\begin{smallmatrix} l & L & l' \\ -m & M & m'  \end{smallmatrix}\bigr) {}_{s}G_{lLl'}
 \eea
-%\wh{why interchange the rolls of $L \leftrightarrow l'$ for $d$? are you trying to get rid of some $(-1)^{l+l'+L}$ phase 
+\scott{Resurrecting this comment of Wayne's to make sure we have it right, although not sure i understand it:} \wh{why interchange the rolls of $L \leftrightarrow l'$ for $d$? are you trying to get rid of some $(-1)^{l+l'+L}$ phase }
 %factor for $s\ne 0$?  relatedly $s$ looks unexplained here.}\scott{I think i addressed the last issue.}
 %
 % wh: OK, though I think permuting would affect s=2 and I didn't check that everything is consistent with this
@@ -198,7 +198,7 @@ with
 {}_{s}F_{lLl'} &\equiv& \big[L(L+1)-l'(l'+1)+l(l+1)\big]\nonumber  \\& \times& \frac{\big[ (2l+1)(2L+1)(2l'+1)\big]^{1/2} }{\sqrt{16 \pi}} \bigl(\begin{smallmatrix} l & L & l' \\ s & 0 & -s  \end{smallmatrix}\bigr) \\
 {}_{s}G_{lLl'} &\equiv& \frac{\big[ (2l+1)(2L+1)(2l'+1)\big]^{1/2} }{\sqrt{4 \pi}} \bigl(\begin{smallmatrix} l & L & l' \\ s & 0 & -s  \end{smallmatrix}\bigr)\eql{fg}
 .\eea
-Note the extra two powers of the multipoles in the function $F$ that governs deflection; these follow from the fact that both the temperature and the potential are differentiated with respect to transverse position on the sky. The radial derivative that governs the impact of the time delay, or change in distance to the last scattering surface, appears in \ec{dtd} as the logarithmic derivative of the unlensed coefficients $\tilde\Theta_{LM}$.
+Note the extra two powers of the multipoles in the function $F$ that governs deflection; these follow from the fact that both the temperature and the potential are differentiated with respect to transverse position on the sky. By contrast, the radial derivative that governs the impact of the time delay, or change in distance to the last scattering surface, appears in \ec{dtd} as the logarithmic derivative of the unlensed coefficients $\tilde\Theta_{LM}$.
 
 As in the case of the effect of deflections on the CMB, the varying distances to the last scattering surface leads to correlations between $l$-modes that differ from one another. We proceed as in Ref.~\cite{Hu:2001tn} by focusing on the expectation of off-diagonal (${l_1,m_1\ne l_2,m_2}$) terms quadratic in the observed moments:
 \bea
