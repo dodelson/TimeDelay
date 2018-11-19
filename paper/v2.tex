@@ -178,7 +178,7 @@ where $S$ is the source function, dominated on small scales by the monopole and 
 with the two first order terms due to deflection and the change in distance equal to
 \bea
 \dtl_{lm} &=& \sum_{LM}\sum_{l'm'}\tu_{l'm'} \;{}_{0}I_{lLl'}^{mMm'}\phi_{LM}\\
-\dtd_{lm} &=& \sum_{LM}\sum_{l'm'} \frac{\partial \tu_{LM}(D_{*})}{\partial \ln D_{*}} \;{}_{0} J_{lLl'}^{mMm'}d_{l'm'}\eql{dtd}
+\dtd_{lm} &=& \sum_{LM}\sum_{l'm'} \frac{\partial \tu_{l'm'}(D_{*})}{\partial \ln D_{*}} \;{}_{0} J_{lLl'}^{mMm'}d_{LM}\eql{dtd}
 .\eea
 Here, we have written the integral over the product of three spherical harmonics as $_0I$ and $_0J$ to enable generalization to the case of polarization where (some of the) spherical harmonics are spin 2. The general expression is  \scott{I get two $(-1)^m$ factors: once when converting the complex conjugate and once when using Eq 12 from Okamoto-Hu}
 \bea
@@ -237,9 +237,9 @@ h^{\phi}_{l_1l_2}(L)&\equiv& \frac{f_{l_1Ll_2}}{2C_{l_1}C_{l_2}} \\
 h^{d}_{l_1l_2}(L)&\equiv& \frac{g_{l_1Ll_2}}{2C_{l_1}C_{l_2}}
 \eea
 and \scott{I changed to the square root of $L(L+1)$ to make the expectation value of the estimator equal to $\phi$; not sure if this is ok.} \wh{seems easier and more symmetric just to define $A_L$ to absorb this factor - the original one was normalized to
-deflection angles but there's no reason to do that here.}
+deflection angles but there's no reason to do that here.} \peikai{I changed it back.}
 \bea
-A_L &\equiv& \sqrt{L(L+1)}(2L+1) \left\{ \sum_{l_1l_2} h^{\phi}_{l_1l_2}(L)f_{l_1Ll_2}\right\}^{-1}\\
+A_L &\equiv& L(L+1)(2L+1) \left\{ \sum_{l_1l_2} h^{\phi}_{l_1l_2}(L)f_{l_1Ll_2}\right\}^{-1}\\
 B_L &\equiv& (2L+1) \left\{ \sum_{l_1l_2} h^{d}_{l_1l_2}(L)g_{l_1Ll_2}\right\}^{-1}.\eql{bt}
 \eea 
 With these definitions, the expectation values of the two estimators are equal to $\phi_{LM}$ and $d_{LM}$ respectively.
@@ -291,10 +291,12 @@ An estimator can now be constructed for each of the pairs of fields (except $BB$
 where the coefficients are generalizations of \ec{bt} with $g$ and $h$ acquiring superscripts $\alpha$. The $g^\alpha$ are given in Table 1 and the minimizing weights are
 \bea
 h^{\alpha=(ab),d}_{l_{1}l_{2}}(L) 
-&=& \frac{C_{l_{2}}^{aa}C_{l_{1}}^{bb}g^{\alpha*}_{l_{1}Ll_{2}}-(-1)^{L+l_{1}+l_{2}}C_{l_{1}}^{ab}C_{l_{2}}^{ab}g^{\alpha*}_{l_{2}Ll_{1}}}{C_{l_{1}}^{aa}C_{l_{2}}^{aa}C_{l_{1}}^{bb}C_{l_{2}}^{bb}-(C_{l_{1}}^{ab}C_{l_{2}}^{ab})^{2}}\vs && \qquad\qquad \qquad\qquad (a\ne b)
-\vs
-&=&  \frac{g^{\alpha *}_{l_{1}Ll_{2}}}{2C_{l_{1}}^{aa}C_{l_{2}}^{aa}}\qquad(a= b).
+&=& \frac{C_{l_{2}}^{aa}C_{l_{1}}^{bb}g^{\alpha*}_{l_{1}Ll_{2}}-(-1)^{L+l_{1}+l_{2}}C_{l_{1}}^{ab}C_{l_{2}}^{ab}g^{\alpha*}_{l_{2}Ll_{1}}}{C_{l_{1}}^{aa}C_{l_{2}}^{aa}C_{l_{1}}^{bb}C_{l_{2}}^{bb}-(C_{l_{1}}^{ab}C_{l_{2}}^{ab})^{2}}
 \eea
+With 
+\bea 
+h_{l_{1}l_{2}}^{\alpha=(aa),d}(L)= \frac{g_{l_{1}Ll_{2}}^{\alpha*}}{2C_{l_{1}}^{aa}C_{l_{2}}^{aa}}
+\eea 
 \wh{strictly speaking, the separate cases aren't necessary since $a=b$ has the form $(a-b)/(a^2-b^2) = 1/(a+b)$, especially if you go on to list special cases where you could just give $a=b$.}
 %We have some simplifications, for $a=b$, we have
 %\be
@@ -306,28 +308,28 @@ h^{\alpha,d}_{l_{1}l_{2}}(L) \rightarrow \frac{g^{\alpha *}_{l_{1}Ll_{2}}}{C_{l_
 \ee
 The covariance of these quadratic estimators
 \be
-\langle \hat{d}^{\alpha*}_{LM}d^{\beta}_{L'M'}\rangle \equiv \delta_{LL'}\delta_{MM'}\big[ C_{L}^{dd}+N_{L}^{\alpha \beta} \big]
+\langle \hat{d}^{\alpha*}_{LM}d^{\beta}_{L'M'}\rangle \equiv \delta_{LL'}\delta_{MM'}\big[ C_{L}^{dd}+N_{L}^{d,\alpha \beta} \big]
 \ee
 with Gaussian noise given by
 \bea
-N_{L}^{\alpha\beta}&=&\frac{B_{L}^{\alpha*}B_{L}^{\beta}}{2L+1}\sum_{l_{1}l_{2}}  \left\{ h_{l_{1}l_{2}}^{\alpha,d*} (L)\big[ C_{l_{1}}^{ac}C_{l_{2}}^{bd}h_{l_{1}l_{2}}^{\alpha,d}(L)\right. \nonumber \\
+N_{L}^{d,\alpha\beta}&=&\frac{B_{L}^{\alpha*}B_{L}^{\beta}}{2L+1}\sum_{l_{1}l_{2}}  \left\{ h_{l_{1}l_{2}}^{\alpha,d*} (L)\big[ C_{l_{1}}^{ac}C_{l_{2}}^{bd}h_{l_{1}l_{2}}^{\alpha,d}(L)\right. \nonumber \\
 &&\left. +(-1)^{L+l_{1}+l_{2}}C_{l_{1}}^{ad}C_{l_{2}}^{bc} h_{l_{2}l_{1}}^{\beta,d}(L)  \big]\right\}\eql{full}
 \eea
-with $\alpha=(ab)$, $\beta=(cd)$. For $\alpha=\beta$, \ec{full} reduces to $N_{L}^{\alpha\alpha}=B_{L}^{\alpha}$.
+with $\alpha=(ab)$, $\beta=(cd)$. For $\alpha=\beta$, \ec{full} reduces to $N_{L}^{d,\alpha\alpha}=B_{L}^{\alpha}$.
 Armed with these expressions, we can form a minimum variance estimator
 \be
 \hat{d}^{\rm mv}_{LM} = \sum_{\alpha}\omega^{\alpha}(L)\hat{d}^{\alpha}_{LM}
 \ee
 with weights and variance give by
 \bea
-\omega^{\alpha}(L) & =&N^{\rm mv}_{L} \sum_{\beta}(N_{L}^{-1})^{\alpha \beta} \\
-N^{\rm mv}_{L} &=& \frac{1}{\sum_{\alpha\beta} (N_{L}^{-1})^{\alpha \beta}}
+\omega^{\alpha}(L) & =&N^{d,\rm mv}_{L} \sum_{\beta}(N_{L}^{d,-1})^{\alpha \beta} \\
+N^{d,\rm mv}_{L} &=& \frac{1}{\sum_{\alpha\beta} (N_{L}^{d,-1})^{\alpha \beta}}
 \eea
-where $N_{L}^{-1}$ is the inverse matrix of time delay noise given by Eq. (27), with matrix indices given by polarizations. 
+where $N_{L}^{d,-1}$ is the inverse matrix of time delay noise given by Eq. (27), with matrix indices given by polarizations. 
 
 We saw in Fig.~\rf{Delay} that temperature maps only are not sufficient to detect this signal. To assess the added information contained in the polarization field, we show the signal to noise for the lowest $L$-mode as a function $l_{\rm max}$ for a noiseless experiment in Fig.~\rf{StoN}.
 %We can see that the noise for time delay $\Theta \Theta$ quadratic estimator in FIG. 3 is much larger than the signal, given that we sum up from $1000$ to $4000$ for $l_{1}$ and $l_{2}$ in Eq. (19) indices and also detector noise is taken into consideration.
-\Spng{StoN}{Time Delay Signal to Noise for $L=1$,$l_{\rm min}$ fixed at $1000$, $l_{\rm max}$ varying}
+\Spng{StoN}{Time Delay Signal to Noise}
 Here we keep $l_{min}$ fixed at $1000$ and let $l_{\rm max}$ vary, we can see that at $l_{max} \approx XXXX$, minimum variance estimator $S/N \approx 1$.  \wh{some words on why $l_{\rm min}$? and whether that matters?}
 %Also notice that there is no $\Theta B$, $EB$ or $BB$ polarization here, since if you look at the difference of ${}_{s} F_{lLl'}$ and ${}_{s} G_{lLl'}$, we would find that the noise for $\Theta B$, $EB$ and $BB$ estimator is much larger than $\Theta \Theta$, $\Theta E$ and $EE$ estimator. So we don't include those terms. 
 
@@ -335,16 +337,20 @@ Here we keep $l_{min}$ fixed at $1000$ and let $l_{\rm max}$ vary, we can see th
 \appendix
 
 \section{Appendix A: Dectection of Cross Power Spectrum}
-The expectation value of lensing and time delay estimators would give us cross power spectrum and its Gaussion noise:
+With the existence of these two estimators, we can now construct a new estimator 
 \bea
-\langle \hat{\phi}^{\alpha}_{LM} \hat{d}^{\beta}_{L'M'}\rangle = \delta_{LL'}\delta_{MM'}(C_{L}^{\phi d}+\mathcal{N}_{L}^{\alpha \beta})
+\hat{C}_{LM}^{\phi d,\alpha \beta} = \hat{\phi}^{\alpha*}_{LM}\hat{d}^{\beta}_{LM}-\mathcal{N}_{L}^{\alpha \beta}
+\eea 
+to estimate cross power spectrum, where $\mathcal{N}_{L}^{\alpha \beta}$ is the bias of the expectation value of $\hat{\phi}^{\alpha*}_{LM}\hat{d}^{\beta}_{LM}$ and the power spectrum
+\bea
+\langle \hat{\phi}^{\alpha*}_{LM} \hat{d}^{\beta}_{L'M'}\rangle = \delta_{LL'}\delta_{MM'}(C_{L}^{\phi d}+\mathcal{N}_{L}^{\alpha \beta})
 \eea
-where $\mathcal{N}^{\alpha \beta}_{L}$ is given similarly as $N_{L}^{\alpha \beta}$ by
+thus $\mathcal{N}^{\alpha \beta}_{L}$ is given similarly as $N_{L}^{\alpha \beta}$ by
 \bea
 \mathcal{N}_{L}^{\alpha\beta}&=&\frac{\bar{A}_{L}^{\alpha*}\bar{B}_{L}^{\beta}}{\sqrt{L(L+1)}(2L+1)}\sum_{l_{1}l_{2}}  \left\{ \bar{h}_{l_{1}l_{2}}^{\alpha,\phi*} (L)\big[ C_{l_{1}}^{ac}C_{l_{2}}^{bd}\bar{h}_{l_{1}l_{2}}^{\alpha,d}(L)\right. \nonumber \\
 &&\left. +(-1)^{L+l_{1}+l_{2}}C_{l_{1}}^{ad}C_{l_{2}}^{bc} \bar{h}_{l_{2}l_{1}}^{\beta,d}(L)  \big]\right\}\eql{full}
 \eea
-Notice that we can choose the definition of $\bar{h}$ to minimize $\mathcal{N}$, and the result is quite symmetric
+Notice that we can choose the definition of $\bar{h}$ to minimize covariance of $\hat{C}_{LM}^{\phi d,\alpha \beta} $, and the result is quite symmetric
 \bea 
 \bar{h}_{l_{1}l_{2}}^{\alpha,\phi}(L) =h_{l_{1}l_{2}}^{\alpha,d}; \; \bar{h}_{l_{1}l_{2}}^{\alpha,d}(L)= h_{l_{1}l_{2}}^{\alpha,\phi} (L)
 \eea 
@@ -361,8 +367,24 @@ In this case
 &=& \sqrt{L(L+1)}(2L+1)\left\{ \sum_{l_{1}l_{2}}h_{l_{1}l_{2}}^{\alpha,d}(L)f_{l_{1}Ll_{2}}^{\alpha} \right\}^{-1} \nonumber \\
 &=& \sqrt{L(L+1)}(2L+1)\left\{ \sum_{l_{1}l_{2}}h_{l_{1}l_{2}}^{\alpha,\phi}(L)g_{l_{1}Ll_{2}}^{\alpha} \right\}^{-1}
 \eea
-\peikai{One thing to notice that here the definition of $A$ is the same as Okamoto \& Hu. But it is easy to get the scale Scott suggested.}
-
+\peikai{One thing to notice that here the definition of $A$ is the same as Okamoto \& Hu. But it is easy to get the scale Scott suggested.}\\
+Finally the Gaussian covariance of $\hat{C}_{LM}^{\phi d,\alpha \beta} $ is
+\bea 
+&&\big\langle \hat{C}_{LM}^{\phi d,\alpha \beta*} \hat{C}_{LM}^{\phi d,\gamma \sigma} - (C_{L}^{\phi d})^{2} \big\rangle/(2L+1) \nonumber \\
+&=&\left\{(C_{L}^{\phi d}+\mathcal{N}_{L}^{\alpha \beta})(C_{L}^{\phi d}+\mathcal{N}_{L}^{\gamma \sigma})\right \nonumber \\
+&&+(C_{L}^{\phi d}+\mathcal{N}_{L}^{\alpha \sigma})(C_{L}^{\phi d}+\mathcal{N}_{L}^{\beta \gamma})\nonumber \\
+&&+(C_{L}^{\phi \phi}+N_{L}^{\phi,\alpha \gamma})(C_{L}^{d d}+N_{L}^{d,\beta \sigma})\nonumber\\
+&&-(C_{L}^{\phi d}+\mathcal{N}_{L}^{\alpha \beta})\mathcal{N}_{L}^{\gamma \sigma}-(C_{L}^{\phi d}+\mathcal{N}_{L}^{\gamma \sigma})\mathcal{N}_{L}^{\alpha \beta}\nonumber \\
+&&\left +\mathcal{N}_{L}^{\alpha \beta}\mathcal{N}_{L}^{\gamma \sigma}-(C_{L}^{\phi d})^{2}\right\}/(2L+1)
+\eea
+When $(\alpha\beta)=(\gamma \sigma)$, this simplified to
+\bea 
+&&\frac{1}{2L+1}\left\{(C_{L}^{\phi d}+\mathcal{N}_{L}^{\alpha \beta})^{2}\right\nonumber \\
+&&\left 
++(C_{L}^{\phi \phi} +N_{L}^{\phi,\alpha \alpha})(C_{L}^{d d}+N_{L}^{d,\beta \beta})\right\}
+\eea
+And we can compute cross power spectrum signal-to-noise.
+\Spng{CrossStoN}{Cross Power Spectrum S/N \peikai{Signal to Noise looks really bad for this one...}}
 \section{Appendix B: Contamination}
 
 The presence of both the deflection and the distance perturbations to the CMB leads to contamination of each of the quadratic estimators, which implicitly neglected the other. For example, the distance estimator in \ec{distest} will get contributions from the deflection field $\delta\Theta^{\rm defl}$. Of course it is possible to construct estimators that are independent of one another, but for now, we simply estimate the magnitude of the contaminations.
