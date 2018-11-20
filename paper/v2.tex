@@ -153,7 +153,7 @@ It is clear that they will be highly correlated, so as a first approximation, we
 \newcommand\tu{\tilde{\Theta}}
 \newcommand\td{\Theta^{\rm dist}}
 The %starting point is to assume that the last scattering surface is infinitely thin, note that the 
-observed temperature in a given direction $\tob(\hat n)$ is the undistorted temperature $\tu(\hat n)$ plus the deflection due to gravitational lensing plus a term proportional to the small fractional difference $\fd(\hat n)$:
+observed temperature in a given direction $\tob(\hat n)$ is the undistorted temperature $\tu(\hat n)$ plus the deflection due to gravitational lensing plus a term proportional to the small fractional difference $\fd(\hat n)$ \scott{Based on emails with Wayne, I now think the sign of the 2nd term on the right should be negative}:
 \be
 \tob(\hat n) = \tu(\hat n) + \nabla_{i} \phi(\hat n) \nabla^{i}\tu(\hat n) + \frac{\partial\tu(\hat n)}{\partial \ln D_*}\, \fd(\hat n)
 .\ee
@@ -237,9 +237,9 @@ h^{\phi}_{l_1l_2}(L)&\equiv& \frac{f_{l_1Ll_2}}{2C_{l_1}C_{l_2}} \\
 h^{d}_{l_1l_2}(L)&\equiv& \frac{g_{l_1Ll_2}}{2C_{l_1}C_{l_2}}
 \eea
 and \scott{I changed to the square root of $L(L+1)$ to make the expectation value of the estimator equal to $\phi$; not sure if this is ok.} \wh{seems easier and more symmetric just to define $A_L$ to absorb this factor - the original one was normalized to
-deflection angles but there's no reason to do that here.} \peikai{I changed it back.}
+deflection angles but there's no reason to do that here.} \peikai{I changed it back.}\scott{I changed the prefactor of $A_L$ (square root) so that now its expectation value is equal to $\phi$; please check.}
 \bea
-A_L &\equiv& L(L+1)(2L+1) \left\{ \sum_{l_1l_2} h^{\phi}_{l_1l_2}(L)f_{l_1Ll_2}\right\}^{-1}\\
+A_L &\equiv& \sqrt{L(L+1)}(2L+1) \left\{ \sum_{l_1l_2} h^{\phi}_{l_1l_2}(L)f_{l_1Ll_2}\right\}^{-1}\\
 B_L &\equiv& (2L+1) \left\{ \sum_{l_1l_2} h^{d}_{l_1l_2}(L)g_{l_1Ll_2}\right\}^{-1}.\eql{bt}
 \eea 
 With these definitions, the expectation values of the two estimators are equal to $\phi_{LM}$ and $d_{LM}$ respectively.
