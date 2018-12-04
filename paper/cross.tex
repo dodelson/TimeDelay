@@ -1,0 +1,157 @@
+\documentclass[10pt]{article}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\begin{document}
+\newcommand{\problem}[1]{%\addtocounter{problemc}{1}
+\item {#1}
+}
+\newcommand{\probl}[1]{\label{#1}}
+\def\be{\begin{equation}}
+\def\ee{\end{equation}}
+\def\bea{\begin{eqnarray}}
+\def\eea{\end{eqnarray}}
+\newcommand{\vs}{\nonumber\\}
+\def\across{a^\times}
+\def\tcross{T^\times}
+\def\ccross{C^\times}
+\newcommand{\ec}[1]{Eq.~(\ref{eq:#1})}
+\newcommand{\eec}[2]{Eqs.~(\ref{eq:#1}) and (\ref{eq:#2})}
+\newcommand{\Ec}[1]{(\ref{eq:#1})}
+\newcommand{\eql}[1]{\label{eq:#1}}
+\newcommand{\sfig}[2]{
+\includegraphics[width=#2]{#1}
+        }
+\newcommand{\sfigr}[2]{
+\includegraphics[angle=270,origin=c,width=#2]{#1}
+        }
+\newcommand{\sfigra}[2]{
+\includegraphics[angle=90,origin=c,width=#2]{#1}
+        }
+\newcommand{\Sfig}[2]{
+   \begin{figure}[thbp]
+   \begin{center}
+    \sfig{#1.pdf}{0.5\columnwidth}
+    \caption{{\small #2}}
+    \label{fig:#1}
+     \end{center}
+   \end{figure}
+}
+\newcommand\dirac{\delta_D}
+\newcommand{\rf}[1]{\ref{fig:#1}}
+\newcommand\rhoc{\rho_{\rm cr}}
+\newcommand\zs{D_S}
+\newcommand\dts{\Delta t_{\rm Sh}}
+\newcommand\zle{D_L}
+\newcommand\zsl{D_{SL}}
+
+\newcommand\sy{\sigma_y}
+\newcommand\sx{\sigma_x}
+\newcommand\xn{\sigma_{nx}}
+\section{Cross Correlations}
+
+Imagine a field $x$ drawn from a gaussian distribution with mean zero and dispersion $\sx$. We know that the error on $\sigma$ will be 
+\be
+Var(\sx^2) = 2(\sx^2 + \xn^2)^2
+\ee
+Therefore, the signal to noise of this is
+\be
+\left( \frac{S}{N} \right)_0 = \left(\frac{N}{2}\right)^{1/2}\frac{\sx^2}{(\sx^2 + \xn^2)}
+\ee
+where $N$ is the number of measurements.
+
+Now suppose there is another field $y$ with its own variance $\sy$ and suppose it has no noise. What will be the variance of the cross-dispersion:
+\be
+\sigma^2_{xy} = \langle xy\rangle = r\sx\sy
+.\ee
+\be
+Var(\sigma^2_{xy}) = (\sx^2+\xn^2)\sy^2
+\ee
+So the signal to noise of the cross power spectrum is
+\be
+\left( \frac{S}{N} \right)_c = N^{1/2}r \frac{\sx\sy}{(\sx^2 + \xn^2)^{1/2} \sy}
+= \left({2N}\right)^{1/4} r\left( \frac{S}{N} \right)_0^{1/2}
+\eql{sn}
+.\ee
+
+Another way of doing this is via Fisher is to put an $A$ in front of the cross spectrum, so the likelihood is
+\be
+2\ln(L) = -\ln\det(C) -dC^{-1}d
+\ee
+with
+\be
+C =
+\begin{pmatrix} 
+ \sigma_x^2+\sigma_{nx}^2 & Ar\sx\sy \\
+Ar\sx\sy & \sy^2 \\
+\end{pmatrix}
+.\ee
+So
+\be
+\det(C) = (\sx^2+\xn^2)\sy^2-A^2r^2\sx^2\sy^2
+\ee
+and 
+\be
+C^{-1} = \frac{1}{\det(C)} \begin{pmatrix}  \sy^2 & -Ar\sx\sy \\
+-Ar\sx\sy &  \sigma_x^2+\sigma_{nx}^2 \end{pmatrix}
+.
+\ee
+
+If we write $D\equiv \det(C)=\alpha-A^2\beta$, then
+\bea
+D' &=& -2A\beta\vs
+D'' &=& -2\beta
+\eea
+so
+\bea
+(\ln D)' &=& \frac{-2A\beta}{D}\vs
+(\ln D)'' &=&  \frac{-2\beta}{D} + \frac{2D'\beta}{D^2} =  \frac{-2\beta}{D} + \frac{-4A\beta^2}{D^2} .
+\eea
+So, when $A=1$, the first term in the Fisher matrix is
+\be
+(\ln D)'' = -\frac{2\beta}{D^2}\left[ \alpha+\beta\right].
+\ee
+
+To evaluate the second term, use
+\bea
+(D^{-1})' &=& \frac{-D'}{D^2} = \frac{2A\beta}{D^2}
+\vs
+(D^{-1})'' &=& \frac{2\beta}{D^2} + \frac{8A\beta^2 }{D^3}.
+\eea
+We want
+\be
+\frac{\partial^2}{\partial A^2} \frac{1}{2}dC^{-1}d =  \frac{ \langle d_id_j\rangle}{2}\, \frac{\partial^2}{\partial A^2}\left[ D^{-1}\begin{pmatrix}  \sy^2 & -Ar\sx\sy \\
+-Ar\sx\sy &  \sigma_x^2+\sigma_{nx}^2 \end{pmatrix}. \right].
+\ee
+There are two terms: one in which the derivative acts on $D^{-1}$ once and the matrix once:
+\be
+2\times  \frac{ \langle d_id_j\rangle}{2}\,(D^{-1})' \begin{pmatrix}  0 & -r\sx\sy \\
+-r\sx\sy &  0 \end{pmatrix}
+= - \sum_{i\ne j} \frac{\beta^{1/2}}{2}\, \frac{4\beta}{D^2} \beta^{1/2} = -\frac{4\beta^2}{D^2}.
+\ee
+Then the second term, in which the derivative acts on the denominator twice:
+\be
+\frac{ \langle d_id_j\rangle}{2}\, \left[ \frac{2\beta}{D^2} + \frac{8A\beta^2 }{D^3}\right]\begin{pmatrix}  \sy^2 & -Ar\sx\sy \\
+-Ar\sx\sy &  \sigma_x^2+\sigma_{nx}^2 \end{pmatrix}=\sum_{ij} \frac{ C_{ij} }{2}\, \left[ \frac{2\beta}{D} + \frac{8A\beta^2 }{D^2}\right]C^{-1}_{ij}.
+\ee
+After contraction, this becomes
+\be
+\left[ \frac{2\beta}{D} + \frac{8\beta^2 }{D^2}\right].
+\ee
+
+So, we are left with
+\bea
+\frac{-\partial^2L}{\partial A^2} &=& -\frac{\beta}{D^2}\left[ \alpha+\beta\right] + \left[ \frac{2\beta}{D} + \frac{4\beta^2 }{D^2}\right]
+\vs
+&=&\frac{\beta}{D^2} \left[ -\alpha -\beta + 2(\alpha-\beta) + 4\beta\right]\vs
+&=& \frac{\beta(\alpha+\beta)}{(\alpha-\beta)}.
+\eea
+If there were $N$ such measurements, then the Fisher matrix would be
+\be
+\frac{1}{\Delta A^2} = N\frac{r^2\sx^2\sy^2( (\sx^2+\xn^2)\sy^2 + r^2\sx^2\sy^2)}{((\sx^2+\xn^2)\sy^2 - r^2\sx^2\sy^2)^2}.
+\ee
+If you neglect $r$ everywhere except in the prefactor, we get
+\be
+(\Delta A) = \frac{(\sx^2+\xn^2)^{1/2}}{N^{1/2}r\sx},
+\ee
+which agrees with \ec{sn}.
+\end{document}
