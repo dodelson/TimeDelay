@@ -107,7 +107,11 @@ The surface of last scattering of the photons in the cosmic microwave background
 \section{Distance to the Last Scattering Surface}
 \newcommand\fd{d}
 
-The theory of general relativity dictates that particles traveling through gravitational potential wells experience time delays~\cite{1964PhRvL..13..789S}. If two photons are emitted at the same time, then they will travel different distances depending upon the potential $\Phi$ \wh{define which sign convention} through which they travel. In a cosmological context of an expanding universe, the %fractional difference in comoving distance $D$ to a source at redshift $z$ is equal to  
+The theory of general relativity dictates that particles traveling through gravitational potential wells experience time delays~\cite{1964PhRvL..13..789S}. If two photons are emitted at the same time, then they will travel different distances depending upon the potential $\Phi$ through which they travel. Here we use space-time metric convention as 
+\bea
+ds^{2}= -(1+2\Phi)dt^{2}+a^{2}(1-2\Phi)d\vec{x}^{2}
+\eea
+In a cosmological context of an expanding universe, the %fractional difference in comoving distance $D$ to a source at redshift $z$ is equal to  
 %\be
 %d(\hat n) = -2\, \int_0^{z} d\ln(1+z')\, K(z,z')\Phi\left(D(z')\hat n; t(z')\right)
 %\ee
@@ -132,7 +136,7 @@ Photons that comprise the cosmic microwave background (CMB) experience these sam
 %\wh{perhaps define  $K_\fd(z) = -2(H(z)D_*)^{-1}$?}
 where $H(z)$ is the Hubble expansion rate; $K_\fd(z) =  (H(z)D_*)^{-1}$ and $D_* =  \int_0^\infty dz' e^{-\tau(z') }/H(z')$.
 where $\tau$ is the optical depth, ignoring reionization, which becomes very large at times smaller than the epoch of  last scattering, $t_*$ or equivalently when $z>z_*$.
-This directional-dependent change in the distance to last scattering is independent of its finite width and is a phenomenon different than the angular deflections~\cite{Hu:2001tn,Lewis:2006fu} that have been captured by recent experiments~\cite{Smith:2007rg,Ade:2013tyw,Story:2014hni,Sherwin:2016tyf,Aghanim:2018oex}.
+This directional-dependent change in the distance to last scattering is independent of its finite width and is a phenomenon difference from the angular deflections~\cite{Hu:2001tn,Lewis:2006fu} that have been captured by recent experiments~\cite{Smith:2007rg,Ade:2013tyw,Story:2014hni,Sherwin:2016tyf,Aghanim:2018oex}.
 
 Although deflections and delays are two different phenomena, they share some similarities, especially in the case of the CMB. Both are determined by the integrated potential along the line of sight, although with slightly different kernels, as depicted in Figure~\rf{kernel}: the integrated potential $\phi$ that determines deflections has the same form as the right-hand side of Eq 2 with
 %\scott{I changed the order of terms in the numerator here from what you had Wayne; I assume that was a typo? Please check out the new figure; it's different from before because of a bug; does it look right to you? is it misleading because we don't capture the transverse derivative for the deflection term?} \wh{I think it's now clear what is plotted - and its a good way to show high cross correlation though less good at identifying observability}
@@ -155,7 +159,7 @@ It is clear that they will be highly correlated, so as a first approximation, we
 The %starting point is to assume that the last scattering surface is infinitely thin, note that the 
 observed temperature in a given direction $\tob(\hat n)$ is the undistorted temperature $\tu(\hat n)$ plus the deflection due to gravitational lensing plus a term proportional to the small fractional difference $\fd(\hat n)$ \scott{Based on emails with Wayne, I now think the sign of the 2nd term on the right should be negative}:
 \be
-\tob(\hat n) = \tu(\hat n) + \nabla_{i} \phi(\hat n) \nabla^{i}\tu(\hat n) + \frac{\partial\tu(\hat n)}{\partial \ln D_*}\, \fd(\hat n)
+\tob(\hat n) = \tu(\hat n) + \nabla_{i} \phi(\hat n) \nabla^{i}\tu(\hat n) - \frac{\partial\tu(\hat n)}{\partial \ln D_*}\, \fd(\hat n)
 .\ee
 %\wh{I'm unclear on what caveat you are pointing out here - at this point, we're just linearizing and haven't yet
 %dropped any cross terms as far as I can see: The first term is caused by lensing and the second term is due to time delay. 
@@ -173,12 +177,12 @@ The second term's derivative can be evaluated by recalling that the undistorted 
 \ee
 where $S$ is the source function, dominated on small scales by the monopole and dipole, as in Eq. (22) of Ref.~\cite{Hu:2001bc}. The derivative then acts on the spherical Bessel function, and after expanding the fractional difference in spherical harmonics as well, we obtain
 \be
-\tob_{lm} = \tu_{lm} +\delta \Theta_{lm}^{\rm lens}+ \delta \td_{lm}
+\tob_{lm} = \tu_{lm} +\delta \Theta_{lm}^{\rm lens}- \delta \td_{lm}
 \ee
 with the two first order terms due to deflection and the change in distance equal to
 \bea
-\dtl_{lm} &=& \sum_{LM}\sum_{l'm'}\tu_{l'm'} \;{}_{0}I_{lLl'}^{mMm'}\phi_{LM}\\
-\dtd_{lm} &=& \sum_{LM}\sum_{l'm'} \frac{\partial \tu_{l'm'}(D_{*})}{\partial \ln D_{*}} \;{}_{0} J_{lLl'}^{mMm'}d_{LM}\eql{dtd}
+\dtl_{lm} &=& \sum_{LM}\sum_{l'm'}{}_{0}I_{lLl'}^{mMm'}\tu_{l'm'}\phi_{LM}\\
+\dtd_{lm} &=& \sum_{LM}\sum_{l'm'} {}_{0} J_{lLl'}^{mMm'}\frac{\partial \tu_{l'm'}(D_{*})}{\partial \ln D_{*}}d_{LM}\eql{dtd}
 .\eea
 Here, we have written the integral over the product of three spherical harmonics as $_0I$ and $_0J$ to enable generalization to the case of polarization where (some of the) spherical harmonics are spin 2. The general expression is  \scott{I get two $(-1)^m$ factors: once when converting the complex conjugate and once when using Eq 12 from Okamoto-Hu.}\scott{Update: I think i now disagree with the $(-1)^{m_1}$ factor in Eq 12 of Okamoto-Hu, which means that I now agree with the $(-1)^m$'s here}
 \bea
@@ -187,7 +191,7 @@ Here, we have written the integral over the product of three spherical harmonics
 {}_{s}J_{lLl'}^{mMm'}  &=& (-1)^m\,
 \bigl(\begin{smallmatrix} l & L & l' \\ -m & M & m'  \end{smallmatrix}\bigr) {}_{s}G_{lLl'}
 \eea
-\scott{Resurrecting this comment of Wayne's to make sure we have it right, although not sure i understand it:} \wh{why interchange the rolls of $L \leftrightarrow l'$ for $d$? are you trying to get rid of some $(-1)^{l+l'+L}$ phase }
+%\scott{Resurrecting this comment of Wayne's to make sure we have it right, %although not sure i understand it:} \wh{why interchange the rolls of $L %\leftrightarrow l'$ for $d$? are you trying to get rid of some %$(-1)^{l+l'+L}$ phase }
 %factor for $s\ne 0$?  relatedly $s$ looks unexplained here.}\scott{I think i addressed the last issue.}
 %
 % wh: OK, though I think permuting would affect s=2 and I didn't check that everything is consistent with this
@@ -237,7 +241,7 @@ h^{\phi}_{l_1l_2}(L)&\equiv& \frac{f_{l_1Ll_2}}{2C_{l_1}C_{l_2}} \\
 h^{d}_{l_1l_2}(L)&\equiv& \frac{g_{l_1Ll_2}}{2C_{l_1}C_{l_2}}
 \eea
 and \scott{I changed to the square root of $L(L+1)$ to make the expectation value of the estimator equal to $\phi$; not sure if this is ok.} \wh{seems easier and more symmetric just to define $A_L$ to absorb this factor - the original one was normalized to
-deflection angles but there's no reason to do that here.} \peikai{I changed it back.}\scott{I changed the prefactor of $A_L$ (square root) so that now its expectation value is equal to $\phi$; please check.}
+deflection angles but there's no reason to do that here.} %\peikai{I changed it back.}\scott{I changed the prefactor of $A_L$ (square root) so that now its expectation value is equal to $\phi$; please check.}
 \bea
 A_L &\equiv& \sqrt{L(L+1)}(2L+1) \left\{ \sum_{l_1l_2} h^{\phi}_{l_1l_2}(L)f_{l_1Ll_2}\right\}^{-1}\\
 B_L &\equiv& (2L+1) \left\{ \sum_{l_1l_2} h^{d}_{l_1l_2}(L)g_{l_1Ll_2}\right\}^{-1}.\eql{bt}
@@ -253,8 +257,8 @@ The noise on these estimators is now given by the prefactors $A_L$ and $B_L$, so
 \be
 \langle \hat d_{LM} \hat d^*_{L'M'}  \rangle = \delta_{LL'}\delta_{MM'} \left( C_L^{dd} + B_L \right)
 \ee
-with the first term on the right the signal and the second the noise. Fig.~\rf{Delay} shows the signal and noise as a function of $L$ for several \scott{We should put in CMB-S4 specs and perhaps cosmic variance. Also, this is temperature only?} experimental configuration.
-\Spng{Delay}{Signal and noise spectra for detector noise $C_{l}^{\Theta \Theta}|_{\rm noise} = \left(\frac{\Delta_{\Theta}}{T_{\rm CMB}} \right)^{2} e^{l(l+1)\theta_{\rm FWHM}^{2}/8 \, \rm ln \,2}$, with $\Delta_{\Theta}=1\mu K-arcmin$ and $\theta_{\rm FWHM}=4'$. \scott{Other noise configurations.}}
+with the first term on the right the signal and the second the noise. Fig.~\rf{Delay} shows the signal and bias as a function of $L$ for several \scott{We should put in CMB-S4 specs and perhaps cosmic variance. Also, this is temperature only?} experimental configuration.
+\Spng{Delay}{Signal and noise spectra for detector noise $C_{l}^{\Theta \Theta}|_{\rm noise} = 0$ or $\left(\frac{\Delta_{\Theta}}{T_{\rm CMB}} \right)^{2} e^{l(l+1)\theta_{\rm FWHM}^{2}/8 \, \rm ln \,2}$, with $\Delta_{\Theta}=1\mu K-arcmin$ and $\theta_{\rm FWHM}=1'$ or $4'$, which is the expected noise level CMB-S4 can reach. \scott{Other noise configurations.}}
 
 \section{Polarization}
 
@@ -293,7 +297,7 @@ where the coefficients are generalizations of \ec{bt} with $g$ and $h$ acquiring
 h^{\alpha=(ab),d}_{l_{1}l_{2}}(L) 
 &=& \frac{C_{l_{2}}^{aa}C_{l_{1}}^{bb}g^{\alpha*}_{l_{1}Ll_{2}}-(-1)^{L+l_{1}+l_{2}}C_{l_{1}}^{ab}C_{l_{2}}^{ab}g^{\alpha*}_{l_{2}Ll_{1}}}{C_{l_{1}}^{aa}C_{l_{2}}^{aa}C_{l_{1}}^{bb}C_{l_{2}}^{bb}-(C_{l_{1}}^{ab}C_{l_{2}}^{ab})^{2}}
 \eea
-With 
+with 
 \bea 
 h_{l_{1}l_{2}}^{\alpha=(aa),d}(L)= \frac{g_{l_{1}Ll_{2}}^{\alpha*}}{2C_{l_{1}}^{aa}C_{l_{2}}^{aa}}
 \eea 
@@ -329,8 +333,9 @@ where $N_{L}^{d,-1}$ is the inverse matrix of time delay noise given by Eq. (27)
 
 We saw in Fig.~\rf{Delay} that temperature maps only are not sufficient to detect this signal. To assess the added information contained in the polarization field, we show the signal to noise for the lowest $L$-mode as a function $l_{\rm max}$ for a noiseless experiment in Fig.~\rf{StoN}.
 %We can see that the noise for time delay $\Theta \Theta$ quadratic estimator in FIG. 3 is much larger than the signal, given that we sum up from $1000$ to $4000$ for $l_{1}$ and $l_{2}$ in Eq. (19) indices and also detector noise is taken into consideration.
-\Spng{StoN}{Time Delay Signal to Noise}
-Here we keep $l_{min}$ fixed at $1000$ and let $l_{\rm max}$ vary, we can see that at $l_{max} \approx XXXX$, minimum variance estimator $S/N \approx 1$.  \wh{some words on why $l_{\rm min}$? and whether that matters?}
+\Spng{StoN}{Time Delay Signal to Noise, with the formula $$ \frac{S}{N}=\sum_{L}\left\{ \frac{C^{dd}_{L}}{\sqrt{\frac{2}{(2L+1)f_{sky}}}(C^{dd}_{L}+B^{\alpha}_{L})}\right\}^{2} $$
+for different estimators. Here we choose $f_{sky}=1$}
+Here we keep $l_{min}$ fixed at $1000$ and let $l_{\rm max}$ vary (note that the choice of $l_{min}$ will only have a very little influence, e.g. if we set $l_{min}=500$, $S/N$ will only have $\approx 1\%$ difference when $l_{max}$ is fixed at $4000$). We can see that at $l_{max} \approx 5000$, minimum variance estimator $S/N \approx 1$.  \wh{some words on why $l_{\rm min}$? and whether that matters?}
 %Also notice that there is no $\Theta B$, $EB$ or $BB$ polarization here, since if you look at the difference of ${}_{s} F_{lLl'}$ and ${}_{s} G_{lLl'}$, we would find that the noise for $\Theta B$, $EB$ and $BB$ estimator is much larger than $\Theta \Theta$, $\Theta E$ and $EE$ estimator. So we don't include those terms. 
 
 %\begin{appendices}
