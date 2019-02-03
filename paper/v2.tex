@@ -341,55 +341,55 @@ Here we keep $l_{\rm min}$ fixed at $1000$ and let $l_{\rm max}$ vary (note that
 %\begin{appendices}
 \appendix
 
-\section{Appendix A: Dectection of Cross Power Spectrum}
-With the existence of these two estimators, we can now construct a new estimator 
-\bea
-\hat{C}_{LM}^{\phi d,\alpha \beta} = \hat{\phi}^{\alpha*}_{LM}\hat{d}^{\beta}_{LM}-\mathcal{N}_{L}^{\alpha \beta}
-\eea 
-to estimate cross power spectrum, where $\mathcal{N}_{L}^{\alpha \beta}$ is the bias of the expectation value of $\hat{\phi}^{\alpha*}_{LM}\hat{d}^{\beta}_{LM}$ and the power spectrum
-\bea
-\langle \hat{\phi}^{\alpha*}_{LM} \hat{d}^{\beta}_{L'M'}\rangle = \delta_{LL'}\delta_{MM'}(C_{L}^{\phi d}+\mathcal{N}_{L}^{\alpha \beta})
-\eea
-thus $\mathcal{N}^{\alpha \beta}_{L}$ is given similarly as $N_{L}^{\alpha \beta}$ by
-\bea
-\mathcal{N}_{L}^{\alpha\beta}&=&\frac{\bar{A}_{L}^{\alpha*}\bar{B}_{L}^{\beta}}{\sqrt{L(L+1)}(2L+1)}\sum_{l_{1}l_{2}}  \left\{ \bar{h}_{l_{1}l_{2}}^{\alpha,\phi*} (L)\big[ C_{l_{1}}^{ac}C_{l_{2}}^{bd}\bar{h}_{l_{1}l_{2}}^{\alpha,d}(L)\right. \nonumber \\
-&&\left. +(-1)^{L+l_{1}+l_{2}}C_{l_{1}}^{ad}C_{l_{2}}^{bc} \bar{h}_{l_{2}l_{1}}^{\beta,d}(L)  \big]\right\}\eql{full}
-\eea
-Notice that we can choose the definition of $\bar{h}$ to minimize covariance of $\hat{C}_{LM}^{\phi d,\alpha \beta} $, and the result is quite symmetric
-\bea 
-\bar{h}_{l_{1}l_{2}}^{\alpha,\phi}(L) =h_{l_{1}l_{2}}^{\alpha,d}; \; \bar{h}_{l_{1}l_{2}}^{\alpha,d}(L)= h_{l_{1}l_{2}}^{\alpha,\phi} (L)
-\eea 
-with 
-\bea 
-\bar{A}_{L}^{\alpha} &=& L(L+1)(2L+1)\left\{ \sum_{l_{1}l_{2}}\bar{h}_{l_{1}l_{2}}^{\alpha,\phi}(L)f_{l_{1}Ll_{2}}^{\alpha} \right\}^{-1} \nonumber \\
-&=& L(L+1)(2L+1)\left\{ \sum_{l_{1}l_{2}}h_{l_{1}l_{2}}^{\alpha,d}(L)f_{l_{1}Ll_{2}}^{\alpha} \right\}^{-1} \\
-\bar{B}_{L}^{\alpha} &=& (2L+1)\left\{ \sum_{l_{1}l_{2}}\bar{h}_{l_{1}l_{2}}^{\alpha,d}(L)g_{l_{1}Ll_{2}}^{\alpha} \right\}^{-1} \nonumber \\
-&=& (2L+1)\left\{ \sum_{l_{1}l_{2}}h_{l_{1}l_{2}}^{\alpha,\phi}(L)g_{l_{1}Ll_{2}}^{\alpha} \right\}^{-1}
-\eea 
-In this case
-\bea
-\mathcal{N}_{L}^{\alpha \alpha} &=& \bar{A}_{L}^{\alpha} /\sqrt{L(L+1)}=\bar{B}_{L}^{\alpha}  \sqrt{L(L+1)} \nonumber \\
-&=& \sqrt{L(L+1)}(2L+1)\left\{ \sum_{l_{1}l_{2}}h_{l_{1}l_{2}}^{\alpha,d}(L)f_{l_{1}Ll_{2}}^{\alpha} \right\}^{-1} \nonumber \\
-&=& \sqrt{L(L+1)}(2L+1)\left\{ \sum_{l_{1}l_{2}}h_{l_{1}l_{2}}^{\alpha,\phi}(L)g_{l_{1}Ll_{2}}^{\alpha} \right\}^{-1}
-\eea
-\peikai{One thing to notice that here the definition of $A$ is the same as Okamoto \& Hu. But it is easy to get the scale Scott suggested.}\\
-Finally the Gaussian covariance of $\hat{C}_{LM}^{\phi d,\alpha \beta} $ is
-\bea 
-&&\big\langle \hat{C}_{LM}^{\phi d,\alpha \beta*} \hat{C}_{LM}^{\phi d,\gamma \sigma} - (C_{L}^{\phi d})^{2} \big\rangle/(2L+1) \nonumber \\
-&=&\left\{(C_{L}^{\phi d}+\mathcal{N}_{L}^{\alpha \beta})(C_{L}^{\phi d}+\mathcal{N}_{L}^{\gamma \sigma})\right. \nonumber \\
-&&+(C_{L}^{\phi d}+\mathcal{N}_{L}^{\alpha \sigma})(C_{L}^{\phi d}+\mathcal{N}_{L}^{\beta \gamma})\nonumber \\
-&&+(C_{L}^{\phi \phi}+N_{L}^{\phi,\alpha \gamma})(C_{L}^{d d}+N_{L}^{d,\beta \sigma})\nonumber\\
-&&-(C_{L}^{\phi d}+\mathcal{N}_{L}^{\alpha \beta})\mathcal{N}_{L}^{\gamma \sigma}-(C_{L}^{\phi d}+\mathcal{N}_{L}^{\gamma \sigma})\mathcal{N}_{L}^{\alpha \beta}\nonumber \\
-&&\left. +\mathcal{N}_{L}^{\alpha \beta}\mathcal{N}_{L}^{\gamma \sigma}-(C_{L}^{\phi d})^{2}\right\}/(2L+1)
-\eea
-When $(\alpha\beta)=(\gamma \sigma)$, this simplified to
-\bea 
-&&\frac{1}{2L+1}\left\{(C_{L}^{\phi d}+\mathcal{N}_{L}^{\alpha \beta})^{2}\right. \nonumber \\
-&&\left. 
-+(C_{L}^{\phi \phi} +N_{L}^{\phi,\alpha \alpha})(C_{L}^{d d}+N_{L}^{d,\beta \beta})\right\}
-\eea
-And we can compute cross power spectrum signal-to-noise.
-\Spng{CrossStoN}{Cross Power Spectrum S/N \peikai{Signal to Noise looks really bad for this one...}}
+%\section{Appendix A: Dectection of Cross Power Spectrum}
+%With the existence of these two estimators, we can now construct a new estimator 
+%\bea
+%\hat{C}_{LM}^{\phi d,\alpha \beta} = \hat{\phi}^{\alpha*}_{LM}\hat{d}^{\beta}_{LM}-\mathcal{N}_{L}^{\alpha \beta}
+%\eea 
+%to estimate cross power spectrum, where $\mathcal{N}_{L}^{\alpha \beta}$ is the bias of the expectation value of $\hat{\phi}^{\alpha*}_{LM}\hat{d}^{\beta}_{LM}$ and the power spectrum
+%\bea
+%\langle \hat{\phi}^{\alpha*}_{LM} \hat{d}^{\beta}_{L'M'}\rangle = \delta_{LL'}\delta_{MM'}(C_{L}^{\phi d}+\mathcal{N}_{L}^{\alpha \beta})
+%\eea
+%thus $\mathcal{N}^{\alpha \beta}_{L}$ is given similarly as $N_{L}^{\alpha \beta}$ by
+%\bea
+%\mathcal{N}_{L}^{\alpha\beta}&=&\frac{\bar{A}_{L}^{\alpha*}\bar{B}_{L}^{\beta}}{\sqrt{L(L+1)}(2L+1)}\sum_{l_{1}l_{2}}  \left\{ \bar{h}_{l_{1}l_{2}}^{\alpha,\phi*} (L)\big[ C_{l_{1}}^{ac}C_{l_{2}}^{bd}\bar{h}_{l_{1}l_{2}}^{\alpha,d}(L)\right. \nonumber \\
+%&&\left. +(-1)^{L+l_{1}+l_{2}}C_{l_{1}}^{ad}C_{l_{2}}^{bc} \bar{h}_{l_{2}l_{1}}^{\beta,d}(L)  \big]\right\}\eql{full}
+%\eea
+%Notice that we can choose the definition of $\bar{h}$ to minimize covariance of $\hat{C}_{LM}^{\phi d,\alpha \beta} $, and the result is quite symmetric
+%\bea 
+%\bar{h}_{l_{1}l_{2}}^{\alpha,\phi}(L) =h_{l_{1}l_{2}}^{\alpha,d}; \; \bar{h}_{l_{1}l_{2}}^{\alpha,d}(L)= h_{l_{1}l_{2}}^{\alpha,\phi} (L)
+%\eea 
+%with 
+%\bea 
+%\bar{A}_{L}^{\alpha} &=& L(L+1)(2L+1)\left\{ \sum_{l_{1}l_{2}}\bar{h}_{l_{1}l_{2}}^{\alpha,\phi}(L)f_{l_{1}Ll_{2}}^{\alpha} \right\}^{-1} \nonumber \\
+%&=& L(L+1)(2L+1)\left\{ \sum_{l_{1}l_{2}}h_{l_{1}l_{2}}^{\alpha,d}(L)f_{l_{1}Ll_{2}}^{\alpha} \right\}^{-1} \\
+%\bar{B}_{L}^{\alpha} &=& (2L+1)\left\{ \sum_{l_{1}l_{2}}\bar{h}_{l_{1}l_{2}}^{\alpha,d}(L)g_{l_{1}Ll_{2}}^{\alpha} \right\}^{-1} \nonumber \\
+%&=& (2L+1)\left\{ \sum_{l_{1}l_{2}}h_{l_{1}l_{2}}^{\alpha,\phi}(L)g_{l_{1}Ll_{2}}^{\alpha} \right\}^{-1}
+%\eea 
+%In this case
+%\bea
+%\mathcal{N}_{L}^{\alpha \alpha} &=& \bar{A}_{L}^{\alpha} /\sqrt{L(L+1)}=\bar{B}_{L}^{\alpha}  \sqrt{L(L+1)} \nonumber \\
+%&=& \sqrt{L(L+1)}(2L+1)\left\{ \sum_{l_{1}l_{2}}h_{l_{1}l_{2}}^{\alpha,d}(L)f_{l_{1}Ll_{2}}^{\alpha} \right\}^{-1} \nonumber \\
+%&=& \sqrt{L(L+1)}(2L+1)\left\{ \sum_{l_{1}l_{2}}h_{l_{1}l_{2}}^{\alpha,\phi}(L)g_{l_{1}Ll_{2}}^{\alpha} \right\}^{-1}
+%\eea
+%\peikai{One thing to notice that here the definition of $A$ is the same as Okamoto \& Hu. But it is easy to get the scale Scott suggested.}\\
+%Finally the Gaussian covariance of $\hat{C}_{LM}^{\phi d,\alpha \beta} $ is
+%\bea 
+%&&\big\langle \hat{C}_{LM}^{\phi d,\alpha \beta*} \hat{C}_{LM}^{\phi d,\gamma \sigma} - (C_{L}^{\phi d})^{2} \big\rangle/(2L+1) \nonumber \\
+%&=&\left\{(C_{L}^{\phi d}+\mathcal{N}_{L}^{\alpha \beta})(C_{L}^{\phi d}+\mathcal{N}_{L}^{\gamma \sigma})\right. \nonumber \\
+%&&+(C_{L}^{\phi d}+\mathcal{N}_{L}^{\alpha \sigma})(C_{L}^{\phi d}+\mathcal{N}_{L}^{\beta \gamma})\nonumber \\
+%&&+(C_{L}^{\phi \phi}+N_{L}^{\phi,\alpha \gamma})(C_{L}^{d d}+N_{L}^{d,\beta \sigma})\nonumber\\
+%&&-(C_{L}^{\phi d}+\mathcal{N}_{L}^{\alpha \beta})\mathcal{N}_{L}^{\gamma \sigma}-(C_{L}^{\phi d}+\mathcal{N}_{L}^{\gamma \sigma})\mathcal{N}_{L}^{\alpha \beta}\nonumber \\
+%&&\left. +\mathcal{N}_{L}^{\alpha \beta}\mathcal{N}_{L}^{\gamma \sigma}-(C_{L}^{\phi d})^{2}\right\}/(2L+1)
+%\eea
+%When $(\alpha\beta)=(\gamma \sigma)$, this simplified to
+%\bea 
+%&&\frac{1}{2L+1}\left\{(C_{L}^{\phi d}+\mathcal{N}_{L}^{\alpha \beta})^{2}\right. \nonumber \\
+%&&\left. 
+%+(C_{L}^{\phi \phi} +N_{L}^{\phi,\alpha \alpha})(C_{L}^{d d}+N_{L}^{d,\beta \beta})\right\}
+%\eea
+%And we can compute cross power spectrum signal-to-noise.
+%\Spng{CrossStoN}{Cross Power Spectrum S/N \peikai{Signal to Noise looks really bad for this one...}}
 %\section{Appendix B: Contamination}
 
 %The presence of both the deflection and the distance perturbations to the CMB leads to contamination of each of the quadratic estimators, which implicitly neglected the other. For example, the distance estimator in \ec{distest} will get contributions from the deflection field $\delta\Theta^{\rm defl}$. Of course it is possible to construct estimators that are independent of one another, but for now, we simply estimate the magnitude of the contaminations.
