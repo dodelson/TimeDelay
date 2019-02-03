@@ -99,7 +99,7 @@ Enrico Fermi Institute, The University of Chicago, Chicago, IL 60637, USA}
 \date{\today}
 
 \begin{abstract}
-The surface of last scattering of the photons in the cosmic microwave background is {\bf not} a spherical shell. Apart from its finite width, each photon experiences a difference gravitational potential along its journey to us, leading to different travel times in different directions. Since all photons were released at the same cosmic time, the photons with longer travel times started farther away from us than those with shorter times. Thus, the surface of last scattering is corrugated, a deformed spherical shell. We present a quadratic estimator that could provide a map of the time delays as a function of position on the sky. The signal to noise of this map could exceed unity on large scales.
+The surface of last scattering of the photons in the cosmic microwave background is {\bf not} a spherical shell. Apart from its finite width, each photon experiences a different gravitational potential along its journey to us, leading to different travel times in different directions. Since all photons were released at the same cosmic time, the photons with longer travel times started farther away from us than those with shorter times. Thus, the surface of last scattering is corrugated, a deformed spherical shell. We present a quadratic estimator that could provide a map of the time delays as a function of position on the sky. The signal to noise of this map could exceed unity on large scales.
 \end{abstract}
 
 \maketitle
@@ -111,7 +111,7 @@ The theory of general relativity dictates that particles traveling through gravi
 \bea
 ds^{2}= -(1+2\Phi)dt^{2}+a^{2}(1-2\Phi)d\vec{x}^{2}
 \eea
-In a cosmological context of an expanding universe, the %fractional difference in comoving distance $D$ to a source at redshift $z$ is equal to  
+where $a$ is the scale factor. In a cosmological context of an expanding universe, the %fractional difference in comoving distance $D$ to a source at redshift $z$ is equal to  
 %\be
 %d(\hat n) = -2\, \int_0^{z} d\ln(1+z')\, K(z,z')\Phi\left(D(z')\hat n; t(z')\right)
 %\ee
@@ -135,7 +135,7 @@ Photons that comprise the cosmic microwave background (CMB) experience these sam
 \ee
 %\wh{perhaps define  $K_\fd(z) = -2(H(z)D_*)^{-1}$?}
 where $H(z)$ is the Hubble expansion rate; $K_\fd(z) =  (H(z)D_*)^{-1}$ and $D_* =  \int_0^\infty dz' e^{-\tau(z') }/H(z')$.
-where $\tau$ is the optical depth, ignoring reionization, which becomes very large at times smaller than the epoch of  last scattering, $t_*$ or equivalently when $z>z_*$.
+with $\tau$ being the optical depth, ignoring reionization, which becomes very large at times smaller than the epoch of  last scattering, $t_*$ or equivalently when $z>z_*$.
 This directional-dependent change in the distance to last scattering is independent of its finite width and is a phenomenon difference from the angular deflections~\cite{Hu:2001tn,Lewis:2006fu} that have been captured by recent experiments~\cite{Smith:2007rg,Ade:2013tyw,Story:2014hni,Sherwin:2016tyf,Aghanim:2018oex}.
 
 Although deflections and delays are two different phenomena, they share some similarities, especially in the case of the CMB. Both are determined by the integrated potential along the line of sight, although with slightly different kernels, as depicted in Figure~\rf{kernel}: the integrated potential $\phi$ that determines deflections has the same form as the right-hand side of Eq 2 with
@@ -184,7 +184,8 @@ with the two first order terms due to deflection and the change in distance equa
 \dtl_{lm} &=& \sum_{LM}\sum_{l'm'}{}_{0}I_{lLl'}^{mMm'}\tu_{l'm'}\phi_{LM}\\
 \dtd_{lm} &=& \sum_{LM}\sum_{l'm'} {}_{0} J_{lLl'}^{mMm'}\frac{\partial \tu_{l'm'}(D_{*})}{\partial \ln D_{*}}d_{LM}\eql{dtd}
 .\eea
-Here, we have written the integral over the product of three spherical harmonics as $_0I$ and $_0J$ to enable generalization to the case of polarization where (some of the) spherical harmonics are spin 2. The general expression is  \scott{I get two $(-1)^m$ factors: once when converting the complex conjugate and once when using Eq 12 from Okamoto-Hu.}\scott{Update: I think i now disagree with the $(-1)^{m_1}$ factor in Eq 12 of Okamoto-Hu, which means that I now agree with the $(-1)^m$'s here}
+Here, we have written the integral over the product of three spherical harmonics as $_0I$ and $_0J$ to enable generalization to the case of polarization where (some of the) spherical harmonics are spin 2. The general expression is  
+%\scott{I get two $(-1)^m$ factors: once when converting the complex conjugate and once when using Eq 12 from Okamoto-Hu.}\scott{Update: I think i now disagree with the $(-1)^{m_1}$ factor in Eq 12 of Okamoto-Hu, which means that I now agree with the $(-1)^m$'s here}
 \bea
 {}_{s}I_{lLl'}^{mMm'}  &=& (-1)^m\,
 \bigl(\begin{smallmatrix} l & L & l' \\ -m & M & m'  \end{smallmatrix}\bigr) {}_{s}F_{lLl'} \\
@@ -262,13 +263,13 @@ with the first term on the right the signal and the second the noise. Fig.~\rf{D
 
 \section{Polarization}
 
-The estimator above used only the temperature anisotropy field, but the polarization field contains even more information about the lensing potentials that govern deflection and distance changes. This was worked out in detail by Ref.~\cite{Okamoto:2003zw} for deflection, and we follow their notation here. There are now three fields of interest: temperature $\Theta$, and the two fields associated with polarization, $E$ and $B$. With letters $a,b$ each ranging over these three fields, we have 
+The estimator above used only the temperature anisotropy field, but the polarization field contains even more information about the lensing potential that governs deflection and distance changes. This was worked out in detail by Ref.~\cite{Okamoto:2003zw} for deflection, and we follow their notation here. There are now three fields of interest: temperature $\Theta$, and the two fields associated with polarization, $E$ and $B$. With letters $a,b$ each ranging over these three fields, we have 
 \bea
 \langle a^{obs}_{l_{1}m_{1}}b^{obs}_{l_{2}m_{2}}\rangle &=& \sum_{LM}(-1)^{M}\bigl(\begin{smallmatrix} l_1 & l_2 & L \\ m_1 & m_2 & -M  \end{smallmatrix}\bigr)\nonumber \\
 &\times&
 \big[ \phi_{LM}f^{\alpha}_{l_{1}Ll_{2}} + d_{LM}g^{\alpha}_{l_{1}Ll_{2}} \big] 
 .\eea
-The functions $f^\alpha$ and $g^\alpha$ are the generalizations of \ec{lfg} to include polarization (\ec{lfg} now corresponds to $\alpha=\Theta\Theta$). The full set of $f^a$ was determined by Ref.~\cite{Okamoto:2003zw} and is reproduced in Table 1, which now includes the full set of $g^a$ that govern the impact of changing radial distances. Note that $\tilde C_l$ corresponds to the unlensed fields.
+The functions $f^\alpha$ and $g^\alpha$ are the generalizations of \ec{lfg} to include polarization (\ec{lfg} now corresponds to $\alpha=\Theta\Theta$). The full set of $f^{\alpha}$ was determined by Ref.~\cite{Okamoto:2003zw} and is reproduced in Table 1, which now includes the full set of $g^{\alpha}$ that govern the impact of changing radial distances. Note that $\tilde C_l$ corresponds to the unlensed fields.
 
 \begin{table}[thbp]
 \scalebox{0.9}{
@@ -333,8 +334,8 @@ where $N_{L}^{d,-1}$ is the inverse matrix of time delay noise given by Eq. (27)
 
 We saw in Fig.~\rf{Delay} that temperature maps only are not sufficient to detect this signal. To assess the added information contained in the polarization field, we show the signal to noise for the lowest $L$-mode as a function $l_{\rm max}$ for a noiseless experiment in Fig.~\rf{StoN}.
 %We can see that the noise for time delay $\Theta \Theta$ quadratic estimator in FIG. 3 is much larger than the signal, given that we sum up from $1000$ to $4000$ for $l_{1}$ and $l_{2}$ in Eq. (19) indices and also detector noise is taken into consideration.
-\Spng{StoN}{Time Delay Signal to Noise, with the formula $\frac{S}{N}=\sum_{L}\left\{ \frac{C^{dd}_{L}}{\sqrt{\frac{2}{(2L+1)f_{\rm sky}}}(C^{dd}_{L}+B^{\alpha}_{L})}\right\}^{2}$ for different estimators. Here we choose $f_{\rm sky}=1$.}
-Here we keep $l_{\rm min}$ fixed at $1000$ and let $l_{\rm max}$ vary (note that the choice of $l_{\rm min}$ will only have a very little influence, e.g. if we set $l_{\rm min}=500$, $S/N$ will only have $\approx 1\%$ difference when $l_{\rm max}$ is fixed at $4000$). We can see that at $l_{\rm max} \approx 5000$, minimum variance estimator $S/N \approx 1$.  \wh{some words on why $l_{\rm min}$? and whether that matters?}
+\Spng{StoN}{Time Delay Signal to Noise, with the formula $(\frac{S}{N})^{2}=\sum_{L}\left\{ \frac{C^{dd}_{L}}{\sqrt{\frac{2}{(2L+1)f_{\rm sky}}}(C^{dd}_{L}+B^{\alpha}_{L})}\right\}^{2}$ for different estimators. Here we set the fraction of sky $f_{\rm sky}$ to be $1$.}
+Here we keep $l_{\rm min}$ fixed at $1000$ and let $l_{\rm max}$ vary (note that the choice of $l_{\rm min}$ will only have a very little influence, e.g. if we set $l_{\rm min}=500$, $S/N$ will only have $\approx 1\%$ difference from when $l_{\rm max}$ is fixed at $4000$). We can see that at $l_{\rm max} \approx 5000$, minimum variance estimator $S/N \approx 1$.  \wh{some words on why $l_{\rm min}$? and whether that matters?}
 %Also notice that there is no $\Theta B$, $EB$ or $BB$ polarization here, since if you look at the difference of ${}_{s} F_{lLl'}$ and ${}_{s} G_{lLl'}$, we would find that the noise for $\Theta B$, $EB$ and $BB$ estimator is much larger than $\Theta \Theta$, $\Theta E$ and $EE$ estimator. So we don't include those terms. 
 
 %\begin{appendices}
@@ -389,42 +390,42 @@ When $(\alpha\beta)=(\gamma \sigma)$, this simplified to
 \eea
 And we can compute cross power spectrum signal-to-noise.
 \Spng{CrossStoN}{Cross Power Spectrum S/N \peikai{Signal to Noise looks really bad for this one...}}
-\section{Appendix B: Contamination}
+%\section{Appendix B: Contamination}
 
-The presence of both the deflection and the distance perturbations to the CMB leads to contamination of each of the quadratic estimators, which implicitly neglected the other. For example, the distance estimator in \ec{distest} will get contributions from the deflection field $\delta\Theta^{\rm defl}$. Of course it is possible to construct estimators that are independent of one another, but for now, we simply estimate the magnitude of the contaminations.
-Consider a lensing quadratic estimator given by Okamoto \& Hu
-\bea
-\hat{\phi}^{\alpha}_{LM} &=&\nonumber \frac{A_{L}^{\alpha}}{\sqrt{L(L+1)}}\sum_{l_{1}m_{1}}\sum_{l_{2}m_{2}} \\
-&& (-1)^{M}\bigl(\begin{smallmatrix} l_1 & l_2 & L \\ m_1 & m_2 & -M  \end{smallmatrix}\bigr) h^{\alpha,\phi}_{l_{1}l_{2}}(L) a^{obs}_{l_{1}m_{1}}b^{obs}_{l_{2}m_{2}}
-\eea
-Here $h^{\alpha,\phi}_{l_{1}l_{2}}$ has a similar expression to $h^{\alpha,\phi}_{l_{1}l_{2}}$ with $g$ replaced by $f$. And we can compute the lensing contamination of this time delay estimator
-\bea
-&& \langle \hat{d}^{\alpha}_{LM} \rangle = d_{LM} +\phi_{LM}E_{L}^{\alpha}
-\eea
-where $E^{\alpha}_{L}$ is given by
-\be
-E^{\alpha}_{L} = \frac{\sum_{l_{1}l_{2}}h_{l_{1}l_{2}}^{\alpha,d}(L)f_{l_{1}Ll_{2}}^{\alpha}}{\sum_{l_{1}l_{2}}h_{l_{1}l_{2}}^{\alpha,d}(L)g_{l_{1}Ll_{2}}^{\alpha}}
-\ee
-And contamination from lensing is relatively large, $E_{L=1}^{TT} \approx -1.73$. We would like to see if it is possible to eliminate this effect by constructing a new time delay estimator
-\bea
-\hat{\mathcal{D}}_{L}^{\alpha} = \hat{d}_{LM}^{\alpha}+\delta\hat{d}_{LM}^{\alpha}
-\eea 
-where $\delta\hat{d}_{LM}^{\alpha}$ satisfies property
-\bea 
-\langle \delta\hat{d}_{LM}^{\alpha} \rangle = - \phi_{LM}E_{L}^{\alpha}
-\eea 
-so that
-\bea 
-\langle \hat{\mathcal{D}}_{LM}^{\alpha} \rangle = d_{LM}
-\eea 
-We should also notice that we only consider $\alpha = TT, TE, EE$ cases. \\
-Let's see what the Gaussion noise would be in this construction
-\bea 
-&&\langle \hat{\mathcal{D}}_{LM}^{\alpha}\hat{\mathcal{D}}_{L'M'}^{\beta*} \rangle \nonumber \\
-&=&\langle \hat{d}_{LM}^{\alpha}\hat{d}_{L'M'}^{\beta*} \rangle + \langle \delta\hat{d}_{LM}^{\alpha}\hat{d}_{L'M'}^{\beta*} \rangle \nonumber \\
-&&+\langle \hat{d}_{LM}^{\alpha}\delta\hat{d}_{L'M'}^{\beta*} \rangle + \langle \delta\hat{d}_{LM}^{\alpha}\delta\hat{d}_{L'M'}^{\beta*} \rangle \nonumber \\
-&=&\delta_{LL'}\delta_{MM'}(C_{L}^{dd}+N_{L}^{\alpha\beta}+\Delta_{L}^{\alpha\beta})
-\eea 
+%The presence of both the deflection and the distance perturbations to the CMB leads to contamination of each of the quadratic estimators, which implicitly neglected the other. For example, the distance estimator in \ec{distest} will get contributions from the deflection field $\delta\Theta^{\rm defl}$. Of course it is possible to construct estimators that are independent of one another, but for now, we simply estimate the magnitude of the contaminations.
+%Consider a lensing quadratic estimator given by Okamoto \& Hu
+%\bea
+%\hat{\phi}^{\alpha}_{LM} &=&\nonumber \frac{A_{L}^{\alpha}}{\sqrt{L(L+1)}}\sum_{l_{1}m_{1}}\sum_{l_{2}m_{2}} \\
+%&& (-1)^{M}\bigl(\begin{smallmatrix} l_1 & l_2 & L \\ m_1 & m_2 & -M  \end{smallmatrix}\bigr) h^{\alpha,\phi}_{l_{1}l_{2}}(L) a^{obs}_{l_{1}m_{1}}b^{obs}_{l_{2}m_{2}}
+%\eea
+%Here $h^{\alpha,\phi}_{l_{1}l_{2}}$ has a similar expression to $h^{\alpha,\phi}_{l_{1}l_{2}}$ with $g$ replaced by $f$. And we can compute the lensing contamination of this time delay estimator
+%\bea
+%&& \langle \hat{d}^{\alpha}_{LM} \rangle = d_{LM} +\phi_{LM}E_{L}^{\alpha}
+%\eea
+%where $E^{\alpha}_{L}$ is given by
+%\be
+%E^{\alpha}_{L} = \frac{\sum_{l_{1}l_{2}}h_{l_{1}l_{2}}^{\alpha,d}(L)f_{l_{1}Ll_{2}}^{\alpha}}{\sum_{l_{1}l_{2}}h_{l_{1}l_{2}}^{\alpha,d}(L)g_{l_{1}Ll_{2}}^{\alpha}}
+%\ee
+%And contamination from lensing is relatively large, $E_{L=1}^{TT} \approx -1.73$. We would like to see if it is possible to eliminate this effect by constructing a new time delay estimator
+%\bea
+%\hat{\mathcal{D}}_{L}^{\alpha} = %\hat{d}_{LM}^{\alpha}+\delta\hat{d}_{LM}^{\alpha}
+%\eea 
+%where $\delta\hat{d}_{LM}^{\alpha}$ satisfies property
+%\bea 
+%\langle \delta\hat{d}_{LM}^{\alpha} \rangle = - \phi_{LM}E_{L}^{\alpha}
+%\eea 
+%so that
+%\bea 
+%\langle \hat{\mathcal{D}}_{LM}^{\alpha} \rangle = d_{LM}
+%\eea 
+%We should also notice that we only consider $\alpha = TT, TE, EE$ cases. \\
+%Let's see what the Gaussion noise would be in this construction
+%\bea 
+%&&\langle \hat{\mathcal{D}}_{LM}^{\alpha}\hat{\mathcal{D}}_{L'M'}^{\beta*} \rangle \nonumber \\
+%&=&\langle \hat{d}_{LM}^{\alpha}\hat{d}_{L'M'}^{\beta*} \rangle + \langle \delta\hat{d}_{LM}^{\alpha}\hat{d}_{L'M'}^{\beta*} \rangle \nonumber \\
+%&&+\langle \hat{d}_{LM}^{\alpha}\delta\hat{d}_{L'M'}^{\beta*} \rangle + \langle \delta\hat{d}_{LM}^{\alpha}\delta\hat{d}_{L'M'}^{\beta*} \rangle \nonumber \\
+%&=&\delta_{LL'}\delta_{MM'}(C_{L}^{dd}+N_{L}^{\alpha\beta}+\Delta_{L}^{\alpha\beta})
+%\eea 
 %\end{appendices}
 
 \bibliography{refs}
