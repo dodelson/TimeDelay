@@ -171,11 +171,11 @@ observed temperature in a given direction $\tob(\hat n)$ is the undistorted temp
 %
 % so I think you are OK with commenting it out?
 %
-The second term's derivative can be evaluated by recalling that the undistorted temperature can be expanded in spherical harmonics with coefficients
+The third term's derivative can be evaluated by recalling that the undistorted temperature can be expanded in spherical harmonics with coefficients
 \be
 \tu_{lm} = 4\pi(-i)^{l} \int \frac{d^{3}k}{(2\pi)^{3}}Y_{lm}^{*}(\hat{k})S(\vec k;\eta_{*})j_{l}(kD_{*}) 
 \ee
-where $S$ is the source function, dominated on small scales by the monopole and dipole, as in Eq. (22) of Ref.~\cite{Hu:2001bc}. The derivative then acts on the spherical Bessel function, and after expanding the fractional difference in spherical harmonics as well, we obtain
+where $S$ is the source function, dominated on small scales by the monopole and dipole, as in Eq. (22) of Ref.~\cite{Hu:2001bc}. The derivative with respect to distance then acts on the spherical Bessel function, and after expanding the fractional difference in spherical harmonics as well, we obtain
 \be
 \tob_{lm} = \tu_{lm} +\delta \Theta_{lm}^{\rm lens}- \delta \td_{lm}
 \ee
@@ -200,7 +200,7 @@ Here, we have written the integral over the product of three spherical harmonics
 %
 with
 \bea
-{}_{s}F_{lLl'} &\equiv& \big[L(L+1)-l'(l'+1)+l(l+1)\big]\nonumber  \\& \times& \frac{\big[ (2l+1)(2L+1)(2l'+1)\big]^{1/2} }{\sqrt{16 \pi}} \bigl(\begin{smallmatrix} l & L & l' \\ s & 0 & -s  \end{smallmatrix}\bigr) \\
+{}_{s}F_{lLl'} &\equiv& \big[L(L+1)-l'(l'+1)+l(l+1)\big]\nonumber  \\& \times& \frac{\big[ (2l+1)(2L+1)(2l'+1)\big]^{1/2} }{\sqrt{16 \pi}} \bigl(\begin{smallmatrix} l & L & l' \\ s & 0 & -s  \end{smallmatrix}\bigr) \nonumber\\
 {}_{s}G_{lLl'} &\equiv& \frac{\big[ (2l+1)(2L+1)(2l'+1)\big]^{1/2} }{\sqrt{4 \pi}} \bigl(\begin{smallmatrix} l & L & l' \\ s & 0 & -s  \end{smallmatrix}\bigr)\eql{fg}
 .\eea
 Note the extra two powers of the multipoles in the function $F$ that governs deflection; these follow from the fact that both the temperature and the potential are differentiated with respect to transverse position on the sky. By contrast, the radial derivative that governs the impact of the time delay, or change in distance to the last scattering surface, appears in \ec{dtd} as the logarithmic derivative of the unlensed coefficients $\tilde\Theta_{LM}$.
@@ -223,8 +223,10 @@ f_{l_1Ll_2} &\equiv& \big[ \tilde{C}_{l_{1}}^{\Theta\Theta} {}_{0}F_{l_{2}Ll_{1}
 \vs
 g_{l_1Ll_2} &\equiv&\big[ \tilde{C}_{l_{1}}^{\Theta\Theta,d} {}_{0}G_{l_{2}Ll_{1}} +\tilde{C}_{l_{2}}^{\Theta \Theta,d} {}_{0}G_{l_{1}Ll_{2}}\big].\eql{lfg}
 \eea
-Note the difference between these two functions. The one that governs deflections, $f$, depends on the unlensed CMB spectrum $\tilde{C}_{l}^{\Theta\Theta} $
-and the deflections are encoded in the extra powers of $l$ (which are derivatives with respect to transverse position in real space) contained in $F$ compared to $G$ in \ec{fg}. The function that governs changes in distances depends on the spectrum $C^{\Theta\Theta,d}_{l}$, which carries a radial derivative.
+Note the difference between these two functions. Each involves a derivative. The one that governs deflections, $f$, %depends on the unlensed CMB spectrum $\tilde{C}_{l}^{\Theta\Theta}$
+%and the deflections are encoded 
+involves a derivative with respect to the transverse directions so $F$ as defined in \ec{fg} has more powers of $l$ than does $G$.% (which are derivatives with respect to transverse position in real space) contained in $F$ compared to $G$ in \ec{fg}. 
+The function that governs changes in distances involved a radial derivative, and this shows up in the spectrum $C^{\Theta\Theta,d}_{l}$.
 
 \Spng{TT1}{Spectra of CMB temperature anisotropies and the logarithmic derivative of that spectrum with respect to the distance to the last scattering surface as defined in \ec{cld}.}
 
@@ -259,7 +261,8 @@ The noise on these estimators is now given by the prefactors $A_L$ and $B_L$, so
 \langle \hat d_{LM} \hat d^*_{L'M'}  \rangle = \delta_{LL'}\delta_{MM'} \left( C_L^{dd} + B_L \right)
 \ee
 with the first term on the right the signal and the second the noise. Fig.~\rf{Delay} shows the signal and bias as a function of $L$ for several \scott{We should put in CMB-S4 specs and perhaps cosmic variance. Also, this is temperature only?} experimental configuration.
-\Spng{Delay}{Signal and noise spectra for detector noise $C_{l}^{\Theta \Theta}|_{\rm noise} = 0$ or $\left(\frac{\Delta_{\Theta}}{T_{\rm CMB}} \right)^{2} e^{l(l+1)\theta_{\rm FWHM}^{2}/8 \, \rm ln \,2}$, with $\Delta_{\Theta}=1\mu K-arcmin$ and $\theta_{\rm FWHM}=1'$ or $4'$, which is the expected noise level CMB-S4 can reach. \scott{Other noise configurations.}}
+\Spng{Delay}{Signal (decreasing blue curve) due to the distorted surface of last scattering and the noise using the quadratic estimator constructed from the small scale temperature anisotropy ($\Theta\Theta$ in the notation of Table 1) for several different experimental configurations. Most optimistic is no noise out to $l_{\rm max}=7000$; the other two noise curves have sensitivity of 1$\mu$k-arcmin and beam size %the and noise spectra for detector noise $C_{l}^{\Theta \Theta}|_{\rm noise} = 0$ or $\left(\frac{\Delta_{\Theta}}{T_{\rm CMB}} \right)^{2} e^{l(l+1)\theta_{\rm FWHM}^{2}/8 \, \rm ln \,2}$, with $\Delta_{\Theta}=1\mu K-arcmin$ and 
+$\theta_{\rm FWHM}=1'$ or $4'$. Here, $f_{\rm sky}$ is set to one. \scott{Peikai, can you check fsky and lmax?}}
 
 \section{Polarization}
 
@@ -269,7 +272,7 @@ The estimator above used only the temperature anisotropy field, but the polariza
 &\times&
 \big[ \phi_{LM}f^{\alpha}_{l_{1}Ll_{2}} + d_{LM}g^{\alpha}_{l_{1}Ll_{2}} \big] 
 .\eea
-The functions $f^\alpha$ and $g^\alpha$ are the generalizations of \ec{lfg} to include polarization (\ec{lfg} now corresponds to $\alpha=\Theta\Theta$). The full set of $f^{\alpha}$ was determined by Ref.~\cite{Okamoto:2003zw} and is reproduced in Table 1, which now includes the full set of $g^{\alpha}$ that govern the impact of changing radial distances. Note that $\tilde C_l$ corresponds to the unlensed fields.
+The functions $f^\alpha$ and $g^\alpha$ are the generalizations of \ec{lfg} to include polarization (\ec{lfg} now corresponds to $\alpha=\Theta\Theta$). The full set of $f^{\alpha}$ was determined by Ref.~\cite{Okamoto:2003zw} and is reproduced in Table 1, which now includes the full set of $g^{\alpha}$ that govern the impact of changing radial distances. Note that $\tilde C_l$ corresponds to the spectra of the unlensed fields.
 
 \begin{table}[thbp]
 \scalebox{0.9}{
@@ -290,10 +293,10 @@ $BB$ &$\tilde{C}_{l_{1}}^{BB} {}_{2}F_{l_{2}Ll_{1}}+\tilde{C}_{l_{2}}^{BB}{}_{2}
 
 An estimator can now be constructed for each of the pairs of fields (except $BB$), so letting $\alpha$ denote pairs of fields $(ab)$, we have
 \bea
-\hat{d}^{\alpha}_{LM} &=&\nonumber B_{L}^{\alpha}\sum_{l_{1}m_{1}}\sum_{l_{2}m_{2}} \\
-&& (-1)^{M}\bigl(\begin{smallmatrix} l_1 & l_2 & L \\ m_1 & m_2 & -M  \end{smallmatrix}\bigr) h^{\alpha,d}_{l_{1}l_{2}}(L) a^{obs}_{l_{1}m_{1}}b^{obs}_{l_{2}m_{2}} ,
+\hat{d}^{\alpha}_{LM} &=&\nonumber  (-1)^{M} B_{L}^{\alpha}\sum_{l_{1}m_{1}}\sum_{l_{2}m_{2}}\bigl(\begin{smallmatrix} l_1 & l_2 & L \\ m_1 & m_2 & -M  \end{smallmatrix}\bigr) \\
+&& \times h^{\alpha,d}_{l_{1}l_{2}}(L) a^{obs}_{l_{1}m_{1}}b^{obs}_{l_{2}m_{2}} ,
 \eea
-where the coefficients are generalizations of \ec{bt} with $g$ and $h$ acquiring superscripts $\alpha$. The $g^\alpha$ are given in Table 1 and the minimizing weights are
+where the coefficients are generalizations of \ec{bt} with $g$ and $h$ there acquiring superscripts $\alpha$. The $g^\alpha$ are given in Table 1 and the minimizing weights are
 \bea
 h^{\alpha=(ab),d}_{l_{1}l_{2}}(L) 
 &=& \frac{C_{l_{2}}^{aa}C_{l_{1}}^{bb}g^{\alpha*}_{l_{1}Ll_{2}}-(-1)^{L+l_{1}+l_{2}}C_{l_{1}}^{ab}C_{l_{2}}^{ab}g^{\alpha*}_{l_{2}Ll_{1}}}{C_{l_{1}}^{aa}C_{l_{2}}^{aa}C_{l_{1}}^{bb}C_{l_{2}}^{bb}-(C_{l_{1}}^{ab}C_{l_{2}}^{ab})^{2}}
@@ -332,11 +335,16 @@ N^{d,\rm mv}_{L} &=& \frac{1}{\sum_{\alpha\beta} (N_{L}^{d,-1})^{\alpha \beta}}
 \eea
 where $N_{L}^{d,-1}$ is the inverse matrix of time delay noise given by Eq. (27), with matrix indices given by polarizations. 
 
-We saw in Fig.~\rf{Delay} that temperature maps only are not sufficient to detect this signal. To assess the added information contained in the polarization field, we show the signal to noise for the lowest $L$-mode as a function $l_{\rm max}$ for a noiseless experiment in Fig.~\rf{StoN}.
+We saw in Fig.~\rf{Delay} that small scale temperature maps only are not sufficient to detect this signal. To assess the added information contained in the polarization field, we show the signal to noise for the lowest $L$-mode as a function $l_{\rm max}$ for a noiseless experiment in Fig.~\rf{StoN}.
 %We can see that the noise for time delay $\Theta \Theta$ quadratic estimator in FIG. 3 is much larger than the signal, given that we sum up from $1000$ to $4000$ for $l_{1}$ and $l_{2}$ in Eq. (19) indices and also detector noise is taken into consideration.
 \Spng{StoN}{Time Delay Signal to Noise, with the formula $(\frac{S}{N})^{2}=\sum_{L}\left\{ \frac{C^{dd}_{L}}{\sqrt{\frac{2}{(2L+1)f_{\rm sky}}}(C^{dd}_{L}+B^{\alpha}_{L})}\right\}^{2}$ for different estimators. Here we set the fraction of sky $f_{\rm sky}$ to be $1$.}
-Here we keep $l_{\rm min}$ fixed at $1000$ and let $l_{\rm max}$ vary (note that the choice of $l_{\rm min}$ will only have a very little influence, e.g. if we set $l_{\rm min}=500$, $S/N$ will only have $\approx 1\%$ difference from when $l_{\rm max}$ is fixed at $4000$). We can see that at $l_{\rm max} \approx 5000$, minimum variance estimator $S/N \approx 1$.  \wh{some words on why $l_{\rm min}$? and whether that matters?}
+Here we keep $l_{\rm min}$ fixed at $1000$ (we tested that our final results are insensitive to this choice) and let $l_{\rm max}$ vary %(note that the choice of $l_{\rm min}$ will only have a very little influence, e.g. if we set $l_{\rm min}=500$, $S/N$ will only have $\approx 1\%$ difference from when $l_{\rm max}$ is fixed at $4000$). 
+We can see that at $l_{\rm max} \approx 5000$, the minimum variance estimator signal to noise reaches 1, but of course this is for the most optimistic of configurations. %$S/N \approx 1$.  \wh{some words on why $l_{\rm min}$? and whether that matters?}
 %Also notice that there is no $\Theta B$, $EB$ or $BB$ polarization here, since if you look at the difference of ${}_{s} F_{lLl'}$ and ${}_{s} G_{lLl'}$, we would find that the noise for $\Theta B$, $EB$ and $BB$ estimator is much larger than $\Theta \Theta$, $\Theta E$ and $EE$ estimator. So we don't include those terms. 
+
+\section{Conclusions}
+
+The last scattering surface of the CMB is not purely spherical due to the different travel times experienced by photons as they traverse the inhomogeneous gravitational potential. In principle, these distortions in the distance to different directions is detectable, but we conclude here that the standard auto-correlation techniques will not be sufficient to enable detection in the near future. There is the possibility of cross-correlating a map of the distance distortions constructed with the quadratic estimators introduced here with another map of a closely related integrated potential and extracting the signal in that way. Indeed, this was the way that the transverse distortions in the CMB were first detected~|cite{Smith:2007rg}. We have considered where the cross-correlation signal between the distance distortion and the standard transverse deviation maps can be detected and concluded that it cannot. We leave exploration of other cross-correlations for further work; however, we point out that yet another challenge confronted will be the fidelity of the distance distortion maps, as they are contaminated by the standard lensing signals.
 
 %\begin{appendices}
 \appendix
