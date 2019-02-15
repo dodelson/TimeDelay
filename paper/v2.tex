@@ -225,7 +225,7 @@ The change in distance to the last scattering spectrum produces the spectrum
 \be
 C^{\Theta\Theta,d}_{l} \equiv \frac{2}{\pi}\,\int_0^\infty dk\,k^2\, P_S(k,\eta_*)\,j_l(kD_*)\,\frac{\partial j_l(kD_*)}{\partial\ln D_*}\eql{cld}
 \ee
-with $P_S$ the power spectrum of the source. This expression is identical to the one for the undistorted CMB spectrum $C_l$ other than the replacement $j_l\rightarrow j_l'$. The two spectra are shown in Fig.~\rf{TT1}. We modify the public CAMB code and account for the finite thickness of the last scattering surface. The last line of \ec{quad} defines the functions 
+with $P_S$ the power spectrum of the source. This expression is identical to the one for the undistorted CMB spectrum $C_l$ other than the replacement $j_l\rightarrow j_l'$. The two spectra are shown in Fig.~\rf{TT1}. We modify the public CAMB code and account for the finite thickness of the last scattering surface.  \wh{More words on this?  similar comment on the polarization analogues below.}
 
 Note the difference between these two functions. Each involves a derivative. The one that governs deflections, $f$, %depends on the unlensed CMB spectrum $\tilde{C}_{l}^{\Theta\Theta}$
 %and the deflections are encoded 
@@ -271,6 +271,7 @@ The noise on these estimators is now given by the prefactors $A_L$ and $B_L$, so
 \langle \hat d_{LM} \hat d^*_{L'M'}  \rangle = \delta_{LL'}\delta_{MM'} \left( C_L^{dd} + B_L \right)
 \ee
 with the first term on the right the signal and the second the noise. Fig.~\rf{Delay} shows the signal and bias as a function of $L$ for several \scott{We should put in CMB-S4 specs and perhaps cosmic variance. Also, this is temperature only?} experimental configuration.
+
 \Spng{Delay}{Signal (decreasing blue curve) due to the distorted surface of last scattering and the noise using the quadratic estimator constructed from the small scale temperature anisotropy ($\Theta\Theta$ in the notation of Table 1) for several different experimental configurations. Most optimistic is no noise out to $l_{\rm max}=7000$; the other two noise curves have sensitivity of 1$\mu$K-arcmin and beam size %the and noise spectra for detector noise $C_{l}^{\Theta \Theta}|_{\rm noise} = 0$ or $\left(\frac{\Delta_{\Theta}}{T_{\rm CMB}} \right)^{2} e^{l(l+1)\theta_{\rm FWHM}^{2}/8 \, \rm ln \,2}$, with $\Delta_{\Theta}=1\mu K-arcmin$ and 
 $\theta_{\rm FWHM}=1'$ or $4'$. Here, $f_{\rm sky}$ is set to one. \scott{Peikai, can you check fsky and lmax?} \wh{labels on figs need to be bigger, factors of $\ell$ need to be explained in text - for example if this were meant to read as averaged all $\ell,m$ in a log band $\Delta \ell/\ell \sim 1$ then the factor would be $1/\sqrt{\ell(2\ell+1)}$ and if it were to reflect errors then $\sqrt{2/\ell(2\ell+1)}$, etc..   }}
 
@@ -282,7 +283,7 @@ The estimator above used only the temperature anisotropy field, but the polariza
 &\times&
 \big[ \phi_{LM}f^{\alpha}_{l_{1}Ll_{2}} + d_{LM}g^{\alpha}_{l_{1}Ll_{2}} \big] 
 .\eea
-The functions $f^\alpha$ and $g^\alpha$ are the generalizations of \ec{lfg} to include polarization (\ec{lfg} now corresponds to $\alpha=\Theta\Theta$). The full set of $f^{\alpha}$ was determined by Ref.~\cite{Okamoto:2003zw} and is reproduced in Table 1, which now includes the full set of $g^{\alpha}$ that govern the impact of changing radial distances. Note that $\tilde C_l$ corresponds to the spectra of the unlensed fields.
+The functions $f^\alpha$ and $g^\alpha$ are the generalizations of \ec{lfg} to include polarization (\ec{lfg} now corresponds to $\alpha=\Theta\Theta$). The full set of $f^{\alpha}$ was determined by Ref.~\cite{Okamoto:2003zw} and is reproduced in Table 1, which now includes the full set of $g^{\alpha}$ that govern the impact of changing radial distances. Note that $\tilde C_l$ corresponds to the spectra of the unlensed fields. \wh{Perhaps be more explicit about what $\tilde C_\ell^{EE,d}$ and $\tilde C_\ell^{\Theta E,d}$ are?}
 
 \begin{table}[thbp]
 \scalebox{0.9}{
@@ -294,7 +295,7 @@ $\Theta \Theta$ & $\tilde{C}_{l_{1}}^{\Theta\Theta} {}_{0}F_{l_{2}Ll_{1}}+\tilde
 $\Theta E$ &$\tilde{C}_{l_{1}}^{\Theta E} {}_{2}F_{l_{2}Ll_{1}}+\tilde{C}_{l_{2}}^{\Theta E}{}_{0}F_{l_{1}Ll_{2}}$ & $\tilde{C}_{l_{1}}^{\Theta E,d} {}_{2}G_{l_{2}Ll_{1}}+\tilde{C}_{l_{2}}^{\Theta E,d}{}_{0}G_{l_{1}Ll_{2}}$ \\
 $EE$ &$\tilde{C}_{l_{1}}^{EE} {}_{2}F_{l_{2}Ll_{1}}+\tilde{C}_{l_{2}}^{EE}{}_{2}F_{l_{1}Ll_{2}}$ & $\tilde{C}_{l_{1}}^{EE,d} {}_{2}G_{l_{2}Ll_{1}}+\tilde{C}_{l_{2}}^{EE,d}{}_{2}G_{l_{1}Ll_{2}}$ \\
 $\Theta B$ & $i\tilde{C}^{ \Theta E}_{l_{1}} {}_{2}F_{l_{2}Ll_{1}}$ &$i\tilde{C}^{\Theta E,d}_{l_{1}}{}_{2}G_{l_{2}Ll_{1}}  $\\
-$EB$ &i\big[$\tilde{C}_{l_{1}}^{EE} {}_{2}F_{l_{2}Ll_{1}}-\tilde{C}_{l_{2}}^{BB}{}_{2}F_{l_{1}Ll_{2}}$\big] & $i\big[\tilde{C}_{l_{1}}^{EE,d} {}_{2}G_{l_{2}Ll_{1}}-\tilde{C}_{l_{2}}^{BB,d}{}_{2}G_{l_{1}Ll_{2}}\big]$ \\
+$EB$ &$i\big[\tilde{C}_{l_{1}}^{EE} {}_{2}F_{l_{2}Ll_{1}}-\tilde{C}_{l_{2}}^{BB}{}_{2}F_{l_{1}Ll_{2}}$\big] & $i\big[\tilde{C}_{l_{1}}^{EE,d} {}_{2}G_{l_{2}Ll_{1}}-\tilde{C}_{l_{2}}^{BB,d}{}_{2}G_{l_{1}Ll_{2}}\big]$ \\
 $BB$ &$\tilde{C}_{l_{1}}^{BB} {}_{2}F_{l_{2}Ll_{1}}+\tilde{C}_{l_{2}}^{BB}{}_{2}F_{l_{1}Ll_{2}}$ & $\tilde{C}_{l_{1}}^{BB,d} {}_{2}G_{l_{2}Ll_{1}}+\tilde{C}_{l_{2}}^{BB,d}{}_{2}G_{l_{1}Ll_{2}}$ \\
 \hline
 \end{tabular}}
@@ -313,7 +314,7 @@ h^{\alpha=(ab),d}_{l_{1}l_{2}}(L)
 \ee
 with 
 \bea 
-h_{l_{1}l_{2}}^{\alpha=(aa),d}(L)= \frac{g_{l_{1}Ll_{2}}^{\alpha*}}{2C_{l_{1}}^{aa}C_{l_{2}}^{aa}}
+h_{l_{1}l_{2}}^{\alpha=(aa),d}(L)= \frac{g_{l_{1}Ll_{2}}^{\alpha*}}{2C_{l_{1}}^{aa}C_{l_{2}}^{aa}}.
 \eea 
 %We have some simplifications, for $a=b$, we have
 %\be
@@ -337,7 +338,7 @@ Armed with these expressions, we can form a minimum variance estimator
 \be
 \hat{d}^{\rm mv}_{LM} = \sum_{\alpha}\omega^{\alpha}(L)\hat{d}^{\alpha}_{LM}
 \ee
-with weights and variance give by
+with weights and variance given by
 \bea
 \omega^{\alpha}(L) & =&N^{d,\rm mv}_{L} \sum_{\beta}(N_{L}^{d,-1})^{\alpha \beta} \\
 N^{d,\rm mv}_{L} &=& \frac{1}{\sum_{\alpha\beta} (N_{L}^{d,-1})^{\alpha \beta}}
@@ -346,9 +347,10 @@ where $N_{L}^{d,-1}$ is the inverse matrix of time delay noise given by Eq. (27)
 
 We saw in Fig.~\rf{Delay} that small scale temperature maps only are not sufficient to detect this signal. To assess the added information contained in the polarization field, we show the signal to noise for the lowest $L$-mode as a function $l_{\rm max}$ for a noiseless experiment in Fig.~\rf{StoN}.
 %We can see that the noise for time delay $\Theta \Theta$ quadratic estimator in FIG. 3 is much larger than the signal, given that we sum up from $1000$ to $4000$ for $l_{1}$ and $l_{2}$ in Eq. (19) indices and also detector noise is taken into consideration.
+
 \Spng{StoN}{Time Delay Signal to Noise, with the formula $(\frac{S}{N})^{2}=\sum_{L}\left\{ \frac{C^{dd}_{L}}{\sqrt{\frac{2}{(2L+1)f_{\rm sky}}}(C^{dd}_{L}+B^{\alpha}_{L})}\right\}^{2}$ for different estimators. Here we set the fraction of sky $f_{\rm sky}$ to be $1$.}
-Here we keep $l_{\rm min}$ fixed at $1000$ (we tested that our final results are insensitive to this choice) and let $l_{\rm max}$ vary %(note that the choice of $l_{\rm min}$ will only have a very little influence, e.g. if we set $l_{\rm min}=500$, $S/N$ will only have $\approx 1\%$ difference from when $l_{\rm max}$ is fixed at $4000$). 
-We can see that at $l_{\rm max} \approx 5000$, the minimum variance estimator signal to noise reaches 1, but of course this is for the most optimistic of configurations. %$S/N \approx 1$.  \wh{some words on why $l_{\rm min}$? and whether that matters?}
+Here we keep $l_{\rm min}$ fixed at $1000$ \wh{for the CMB fields} (we tested that our final results are insensitive to this choice) and let $l_{\rm max}$ vary.
+We can see that at $l_{\rm max} \approx 5000$, the minimum variance estimator signal to noise reaches 1, but of course this is for the most optimistic of configurations. \wh{What noise level is this?  if no noise why isn't $\Theta\Theta$ above one at $l_{\rm max}=7000$ as it seems to be in previous plot?  Any comments on the differences between lensing and delay estimators especially on $B$ modes.} %$S/N \approx 1$.  \wh{some words on why $l_{\rm min}$? and whether that matters?}
 %Also notice that there is no $\Theta B$, $EB$ or $BB$ polarization here, since if you look at the difference of ${}_{s} F_{lLl'}$ and ${}_{s} G_{lLl'}$, we would find that the noise for $\Theta B$, $EB$ and $BB$ estimator is much larger than $\Theta \Theta$, $\Theta E$ and $EE$ estimator. So we don't include those terms. 
 
 \section{Conclusions}
