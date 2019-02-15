@@ -175,7 +175,7 @@ observed temperature in a given direction $\tob(\hat n)$ is the undistorted temp
 %
 The third term's derivative can be evaluated by recalling that the undistorted temperature can be expanded in spherical harmonics with coefficients
 \be
-\tu_{lm} = 4\pi(-i)^{l} \int \frac{d^{3}k}{(2\pi)^{3}}Y_{lm}^{*}(\hat{k})S(\vec k;\eta_{*})j_{l}(kD_{*}) 
+\tu_{lm} = 4\pi(-i)^{l} \int \frac{d^{3}k}{(2\pi)^{3}}Y_{lm}^{*}(\hat{k})S(\vec k;\eta_{*})j_{l}(kD_{*}) ,
 \ee
 where $S$ is the source function, dominated on small scales by the monopole and dipole, as in Eq. (22) of Ref.~\cite{Hu:2001bc}. The derivative with respect to distance then acts on the spherical Bessel function, and after expanding the fractional difference in spherical harmonics as well, we obtain
 \be
@@ -183,16 +183,16 @@ where $S$ is the source function, dominated on small scales by the monopole and 
 \ee
 with the two first order terms due to deflection and the change in distance equal to
 \bea
-\dtl_{lm} &=& \sum_{LM}\sum_{l'm'}{}_{0}I_{lLl'}^{mMm'}\tu_{l'm'}\phi_{LM}\\
+\dtl_{lm} &=& \sum_{LM}\sum_{l'm'}{}_{0}I_{lLl'}^{mMm'}\tu_{l'm'}\phi_{LM},\\
 \dtd_{lm} &=& \sum_{LM}\sum_{l'm'} {}_{0} J_{lLl'}^{mMm'}\frac{\partial \tu_{l'm'}(D_{*})}{\partial \ln D_{*}}d_{LM}\eql{dtd}
 .\eea
 Here, we have written the integral over the product of three spherical harmonics as $_0I$ and $_0J$ to enable generalization to the case of polarization \wh{which involve spin $s=2$ harmonics}. The general expression is  
 %\scott{I get two $(-1)^m$ factors: once when converting the complex conjugate and once when using Eq 12 from Okamoto-Hu.}\scott{Update: I think i now disagree with the $(-1)^{m_1}$ factor in Eq 12 of Okamoto-Hu, which means that I now agree with the $(-1)^m$'s here}
 \bea
 {}_{s}I_{lLl'}^{mMm'}  &=& (-1)^m\,
-\bigl(\begin{smallmatrix} l & L & l' \\ -m & M & m'  \end{smallmatrix}\bigr) {}_{s}F_{lLl'} \\
+\bigl(\begin{smallmatrix} l & L & l' \\ -m & M & m'  \end{smallmatrix}\bigr) {}_{s}F_{lLl'}, \\
 {}_{s}J_{lLl'}^{mMm'}  &=& (-1)^m\,
-\bigl(\begin{smallmatrix} l & L & l' \\ -m & M & m'  \end{smallmatrix}\bigr) {}_{s}G_{lLl'}
+\bigl(\begin{smallmatrix} l & L & l' \\ -m & M & m'  \end{smallmatrix}\bigr) {}_{s}G_{lLl'},
 \eea
 %\scott{Resurrecting this comment of Wayne's to make sure we have it right, %although not sure i understand it:} \wh{why interchange the rolls of $L %\leftrightarrow l'$ for $d$? are you trying to get rid of some %$(-1)^{l+l'+L}$ phase }
 %factor for $s\ne 0$?  relatedly $s$ looks unexplained here.}\scott{I think i addressed the last issue.}
@@ -202,7 +202,7 @@ Here, we have written the integral over the product of three spherical harmonics
 %
 with
 \bea
-{}_{s}F_{lLl'} &\equiv& \big[L(L+1)-l'(l'+1)+l(l+1)\big]\nonumber  \\& \times& \frac{\big[ (2l+1)(2L+1)(2l'+1)\big]^{1/2} }{\sqrt{16 \pi}} \bigl(\begin{smallmatrix} l & L & l' \\ s & 0 & -s  \end{smallmatrix}\bigr) \nonumber\\
+{}_{s}F_{lLl'} &\equiv& \big[L(L+1)-l'(l'+1)+l(l+1)\big]\nonumber  \\& \times& \frac{\big[ (2l+1)(2L+1)(2l'+1)\big]^{1/2} }{\sqrt{16 \pi}} \bigl(\begin{smallmatrix} l & L & l' \\ s & 0 & -s  \end{smallmatrix}\bigr) ,\nonumber\\
 {}_{s}G_{lLl'} &\equiv& \frac{\big[ (2l+1)(2L+1)(2l'+1)\big]^{1/2} }{\sqrt{4 \pi}} \bigl(\begin{smallmatrix} l & L & l' \\ s & 0 & -s  \end{smallmatrix}\bigr)\eql{fg}
 .\eea
 Note the extra two powers of the multipoles in the function $F$ that governs deflection; these follow from the fact that both the temperature and the potential are differentiated with respect to transverse position on the sky. By contrast, the radial derivative that governs the impact of the time delay, or change in distance to the last scattering surface, appears in \ec{dtd} as the logarithmic derivative of the unlensed coefficients $\tilde\Theta_{LM}$.
@@ -210,24 +210,27 @@ Note the extra two powers of the multipoles in the function $F$ that governs def
 As in the case of the effect of deflections on the CMB, the varying distances to the last scattering surface leads to correlations between $l$-modes that differ from one another. We proceed as in Ref.~\cite{Hu:2001tn} by focusing on the expectation of off-diagonal (${l_1,m_1\ne l_2,m_2}$) terms quadratic in the observed moments:
 \bea
 \langle \tob_{l_1m_1} \tob_{l_2m_2} \rangle &=& \sum_{LM}  (-1)^M \bigl(\begin{smallmatrix} l_1 & l_2 & L \\ m_1 & m_2 & -M  \end{smallmatrix}\bigr) \nonumber \\
-&\times&\left\{  \phi_{LM} \big[ \tilde{C}_{l_{1}}^{\Theta\Theta} {}_{0}F_{l_{2}Ll_{1}} +\tilde{C}_{l_{2}}^{\Theta\Theta} {}_{0}F_{l_{1}Ll_{2}}\big] \right. \nonumber \\
-&&+ \left. d_{LM} \big[ \tilde{C}_{l_{1}}^{\Theta\Theta,d} {}_{0}G_{l_{2}Ll_{1}} +\tilde{C}_{l_{2}}^{\Theta \Theta,d} {}_{0}G_{l_{1}Ll_{2}}\big] \right \} \nonumber \\
-&&\equiv \sum_{LM}(-1)^{M}\bigl(\begin{smallmatrix} l_1 & l_2 & L \\ m_1 & m_2 & -M  \end{smallmatrix}\bigr)
-\vs&&\times\big[ \phi_{LM}f_{l_{1}Ll_{2}} + d_{LM}g_{l_{1}Ll_{2}} \big]   \eql{quad}
+%&\times&\left\{  \phi_{LM} \big[ \tilde{C}_{l_{1}}^{\Theta\Theta} {}_{0}F_{l_{2}Ll_{1}} +\tilde{C}_{l_{2}}^{\Theta\Theta} {}_{0}F_{l_{1}Ll_{2}}\big] \right. \nonumber \\
+%&&+ \left. d_{LM} \big[ \tilde{C}_{l_{1}}^{\Theta\Theta,d} {}_{0}G_{l_{2}Ll_{1}} +\tilde{C}_{l_{2}}^{\Theta \Theta,d} {}_{0}G_{l_{1}Ll_{2}}\big] \right \} \nonumber \\
+%&\equiv& \sum_{LM}(-1)^{M}\bigl(\begin{smallmatrix} l_1 & l_2 & L \\ m_1 & m_2 & -M  \end{smallmatrix}\bigr)
+\vs&&\times\big[ \phi_{LM}f_{l_{1}Ll_{2}} + d_{LM}g_{l_{1}Ll_{2}} \big] ,  \eql{quad}
 \eea
-where the change in distance to the last scattering spectrum produces the spectrum
+where
+\bea
+f_{l_1Ll_2} &\equiv& \big[ \tilde{C}_{l_{1}}^{\Theta\Theta} {}_{0}F_{l_{2}Ll_{1}} +\tilde{C}_{l_{2}}^{\Theta\Theta} {}_{0}F_{l_{1}Ll_{2}}\big],
+\vs
+g_{l_1Ll_2} &\equiv&\big[ \tilde{C}_{l_{1}}^{\Theta\Theta,d} {}_{0}G_{l_{2}Ll_{1}} +\tilde{C}_{l_{2}}^{\Theta \Theta,d} {}_{0}G_{l_{1}Ll_{2}}\big].\eql{lfg}
+\eea
+The change in distance to the last scattering spectrum produces the spectrum
 \be
 C^{\Theta\Theta,d}_{l} \equiv \frac{2}{\pi}\,\int_0^\infty dk\,k^2\, P_S(k,\eta_*)\,j_l(kD_*)\,\frac{\partial j_l(kD_*)}{\partial\ln D_*}\eql{cld}
 \ee
 with $P_S$ the power spectrum of the source. This expression is identical to the one for the undistorted CMB spectrum $C_l$ other than the replacement $j_l\rightarrow j_l'$. The two spectra are shown in Fig.~\rf{TT1}. We modify the public CAMB code and account for the finite thickness of the last scattering surface. The last line of \ec{quad} defines the functions 
-\bea
-f_{l_1Ll_2} &\equiv& \big[ \tilde{C}_{l_{1}}^{\Theta\Theta} {}_{0}F_{l_{2}Ll_{1}} +\tilde{C}_{l_{2}}^{\Theta\Theta} {}_{0}F_{l_{1}Ll_{2}}\big]
-\vs
-g_{l_1Ll_2} &\equiv&\big[ \tilde{C}_{l_{1}}^{\Theta\Theta,d} {}_{0}G_{l_{2}Ll_{1}} +\tilde{C}_{l_{2}}^{\Theta \Theta,d} {}_{0}G_{l_{1}Ll_{2}}\big].\eql{lfg}
-\eea
+
 Note the difference between these two functions. Each involves a derivative. The one that governs deflections, $f$, %depends on the unlensed CMB spectrum $\tilde{C}_{l}^{\Theta\Theta}$
 %and the deflections are encoded 
-involves a derivative with respect to the transverse directions so $F$ as defined in \ec{fg} has more powers of $l$ than does $G$.% (which are derivatives with respect to transverse position in real space) contained in $F$ compared to $G$ in \ec{fg}. 
+involves a derivative with respect to the transverse directions so $F$ as defined in \ec{fg} has more powers of $l$ than does $G$.  
+% (which are derivatives with respect to transverse position in real space) contained in $F$ compared to $G$ in \ec{fg}. 
 The function that governs changes in distances involved a radial derivative, and this shows up in the spectrum $C^{\Theta\Theta,d}_{l}$.
 
 \Spng{TT1}{Spectra of CMB temperature anisotropies and the logarithmic derivative of that spectrum with respect to the distance to the last scattering surface as defined in \ec{cld}.}
