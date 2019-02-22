@@ -107,26 +107,26 @@ The surface of last scattering of the photons in the cosmic microwave background
 \section{Distance to the Last Scattering Surface}
 \newcommand\fd{d}
 
-The theory of general relativity dictates that particles traveling through gravitational potential wells experience time delays~\cite{1964PhRvL..13..789S}. If two photons are emitted at the same time, then they will travel different distances depending upon the potential $\Phi$ through which they travel. Here we use space-time metric convention as 
+The theory of general relativity dictates that particles traveling through gravitational potential wells experience time delays~\cite{1964PhRvL..13..789S}. If two photons are emitted at the same time, then they will travel different distances depending upon the potential $\Phi$ through which they travel. Here we use the space-time metric convention 
 \bea
 ds^{2}= -(1+2\Phi)dt^{2}+a^{2}(1-2\Phi)d\vec{x}^{2}
 \eea
-where $a$ is the scale factor. In a cosmological context of an expanding universe, the %fractional difference in comoving distance $D$ to a source at redshift $z$ is equal to  
+where $a$ is the scale factor. In the cosmological context of an expanding, Euclidean universe, the %fractional difference in comoving distance $D$ to a source at redshift $z$ is equal to  
 %\be
 %d(\hat n) = -2\, \int_0^{z} d\ln(1+z')\, K(z,z')\Phi\left(D(z')\hat n; t(z')\right)
 %\ee
 %\wh{see query on measure, I'd suggest also we switch back to: 
 fractional difference in comoving distance
-$D_*$ to a source at redshift $z_*$ in a spatially flat universe is equal to
+$D_*$ to a source at redshift $z_*$ is 
 \be
 d(\hat n) = \frac{2}{D_*}\, \int_0^{D_*} dD\, \Phi\left(D \hat n; t(D)\right)
 \ee
 where %the kernel $K(z,z')=(H(z') D(z))^{-1}$ with $H$ the Hubble rate; and 
-$t(D)$ is the age of the universe when the photon is a comoving distance $D$ from us. Note the sign: if photons pass through an over-dense region where $\Phi<0$, then they experience a time delay and therefore they arrive from a closer distance than the unperturbed last scattering surface. There is also a geometric time delay that is typically of the same size for a single lens, but when the path is through a series of peaks and troughs, the mean time delay is much smaller, of order $\theta_{\rm RMS}$, so we neglect it here.  
-\wh{$\theta$ hasn't been defined and it's not clear how a time delay is being compared to an angle - in fact 
-actually I'm now unclear on what we're saying above -
-the geometric delay goes as deflection angles $\theta^2$ which don't cancel out whereas short wavelength potential delays do cancel out - so isn't the relevant comparison between
-the deflection angle and the angular scale of the delay, i.e. dipole scales of the full sky to arcmin scales of the lensing deflections?  In a single lens, multiple image system you'd set those two scales to be the same.  } 
+$t(D)$ is the age of the universe when the photon is a comoving distance $D$ from us. Note the sign: if photons pass through an over-dense region where $\Phi<0$, then they experience a time delay and therefore they arrive from a closer distance than the unperturbed last scattering surface\footnote{There is also a geometric time delay that is typically of the same size for a single lens but is much smaller here on the large scales of interest.}.%, but when the path is through a series of peaks and troughs, the mean time delay is much smaller, of order $\theta_{\rm RMS}$, so we neglect it here.  }
+%\wh{$\theta$ hasn't been defined and it's not clear how a time delay is being compared to an angle - in fact 
+%actually I'm now unclear on what we're saying above -
+%the geometric delay goes as deflection angles $\theta^2$ which don't cancel out whereas short wavelength potential delays do cancel out - so isn't the relevant comparison between
+%the deflection angle and the angular scale of the delay, i.e. dipole scales of the full sky to arcmin scales of the lensing deflections?  In a single lens, multiple image system you'd set those two scales to be the same.  } 
 
 
 Photons that comprise the cosmic microwave background (CMB) experience these same time delays or advances~\cite{Hu:2001yq} where $z_*$ is the redshift corresponding to the last scattering surface. Since photons do not decouple instantaneously from the electron-proton plasma, the surface of last scattering is often said to have a finite width, and a more accurate expression for the fractional difference in distance traveled is
@@ -162,9 +162,9 @@ It is clear that they will be highly correlated, so as a first approximation, we
 \newcommand\tu{\tilde{\Theta}}
 \newcommand\td{\Theta^{\rm dist}}
 The %starting point is to assume that the last scattering surface is infinitely thin, note that the 
-observed temperature in a given direction $\tob(\hat n)$ is the undistorted temperature $\tu(\hat n)$ plus the deflection due to gravitational lensing plus a term proportional to the small fractional difference $\fd(\hat n)$ \scott{Based on emails with Wayne, I now think the sign of the 2nd term on the right should be negative}:
+observed temperature in a given direction $\tob(\hat n)$ is the undistorted temperature $\tu(\hat n)$ plus the deflection due to gravitational lensing plus a term proportional to the small fractional difference $\fd(\hat n)$ %\scott{Based on emails with Wayne, I now think the sign of the 2nd term on the right should be negative}:
 \be
-\tob(\hat n) = \tu(\hat n) + \nabla_{i} \phi(\hat n) \nabla^{i}\tu(\hat n) - \frac{\partial\tu(\hat n)}{\partial \ln D_*}\, \fd(\hat n)
+\tob(\hat n) = \tu(\hat n) - \nabla_{i} \phi(\hat n) \nabla^{i}\tu(\hat n) - \frac{\partial\tu(\hat n)}{\partial \ln D_*}\, \fd(\hat n)
 .\ee
 %\wh{I'm unclear on what caveat you are pointing out here - at this point, we're just linearizing and haven't yet
 %dropped any cross terms as far as I can see: The first term is caused by lensing and the second term is due to time delay. 
@@ -182,14 +182,14 @@ The third term's derivative can be evaluated by recalling that the undistorted t
 \ee
 where $S$ is the source function, dominated on small scales by the monopole and dipole, as in Eq. (22) of Ref.~\cite{Hu:2001bc}. The derivative with respect to distance then acts on the spherical Bessel function, and after expanding the fractional difference in spherical harmonics as well, we obtain
 \be
-\tob_{lm} = \tu_{lm} +\delta \Theta_{lm}^{\rm lens}- \delta \td_{lm}
+\tob_{lm} = \tu_{lm} -\delta \Theta_{lm}^{\rm lens}- \delta \td_{lm}
 \ee
 with the two first order terms due to deflection and the change in distance equal to
 \bea
 \dtl_{lm} &=& \sum_{LM}\sum_{l'm'}{}_{0}I_{lLl'}^{mMm'}\tu_{l'm'}\phi_{LM},\\
 \dtd_{lm} &=& \sum_{LM}\sum_{l'm'} {}_{0} J_{lLl'}^{mMm'}\frac{\partial \tu_{l'm'}(D_{*})}{\partial \ln D_{*}}d_{LM}\eql{dtd}
 .\eea
-Here, we have written the integral over the product of three spherical harmonics as $_0I$ and $_0J$ to enable generalization to the case of polarization \wh{which involve spin $s=2$ harmonics}. The general expression is  
+Here, we have written the integral over the product of three spherical harmonics as $_0I$ and $_0J$ to enable generalization to the case of polarization, which involves spin $s=2$ harmonics. The general expression is  
 %\scott{I get two $(-1)^m$ factors: once when converting the complex conjugate and once when using Eq 12 from Okamoto-Hu.}\scott{Update: I think i now disagree with the $(-1)^{m_1}$ factor in Eq 12 of Okamoto-Hu, which means that I now agree with the $(-1)^m$'s here}
 \bea
 {}_{s}I_{lLl'}^{mMm'}  &=& (-1)^m\,
@@ -253,12 +253,12 @@ where
 h^{\phi}_{l_1l_2}(L)&\equiv& \frac{f_{l_1Ll_2}}{2C_{l_1}C_{l_2}} \\
 h^{d}_{l_1l_2}(L)&\equiv& \frac{g_{l_1Ll_2}}{2C_{l_1}C_{l_2}}
 \eea
-and \wh{redefined $A_L$ to absorb $L's$  - the original one was normalized to
-deflection angles but there's no reason to do that here.} %\peikai{I changed it back.}\scott{I changed the prefactor of $A_L$ (square root) so that now its expectation value is equal to $\phi$; please check.}
+and %\wh{redefined $A_L$ to absorb $L's$  - the original one was normalized to
+%deflection angles but there's no reason to do that here.} %\peikai{I changed it back.}\scott{I changed the prefactor of $A_L$ (square root) so that now its expectation value is equal to $\phi$; please check.}
 \bea
 A_L &\equiv& 
 %\sqrt{L(L+1)}
-\wh{(2L+1)}
+(2L+1)
  \left\{ \sum_{l_1l_2} h^{\phi}_{l_1l_2}(L)f_{l_1Ll_2}\right\}^{-1}\\
 B_L &\equiv& (2L+1) \left\{ \sum_{l_1l_2} h^{d}_{l_1l_2}(L)g_{l_1Ll_2}\right\}^{-1}.\eql{bt}
 \eea 
@@ -273,10 +273,10 @@ The noise on these estimators is now given by the prefactors $A_L$ and $B_L$, so
 \be
 \langle \hat d_{LM} \hat d^*_{L'M'}  \rangle = \delta_{LL'}\delta_{MM'} \left( C_L^{dd} + B_L \right)
 \ee
-with the first term on the right the signal and the second the noise. Fig.~\rf{Delay} shows the signal and bias as a function of $L$ for several \scott{We should put in CMB-S4 specs and perhaps cosmic variance. Also, this is temperature only?} experimental configuration.
+with the first term on the right the signal and the second the noise. Fig.~\rf{Delay} shows the signal and noise at each $ L$ for several experimental configurations. Since the signal can be extract from all available $d_{LM}$, the noise curves in Fig.~\rf{Delay} are $\sqrt{2/(2L+1)f_{\rm sky}} B_L$.
 
-\Spng{Delay}{Signal (decreasing blue curve) due to the distorted surface of last scattering and the noise using the quadratic estimator constructed from the small scale temperature anisotropy ($\Theta\Theta$ in the notation of Table 1) for several different experimental configurations. Most optimistic is no noise out to $l_{\rm max}=7000$; the other two noise curves have sensitivity of 1$\mu$K-arcmin and beam size %the and noise spectra for detector noise $C_{l}^{\Theta \Theta}|_{\rm noise} = 0$ or $\left(\frac{\Delta_{\Theta}}{T_{\rm CMB}} \right)^{2} e^{l(l+1)\theta_{\rm FWHM}^{2}/8 \, \rm ln \,2}$, with $\Delta_{\Theta}=1\mu K-arcmin$ and 
-$\theta_{\rm FWHM}=1'$ or $4'$. Here, $f_{\rm sky}$ is set to one. \scott{Peikai, can you check fsky and lmax?} \wh{labels on figs need to be bigger, factors of $\ell$ need to be explained in text - for example if this were meant to read as averaged all $\ell,m$ in a log band $\Delta \ell/\ell \sim 1$ then the factor would be $1/\sqrt{\ell(2\ell+1)}$ and if it were to reflect errors then $\sqrt{2/\ell(2\ell+1)}$, etc..   }}
+\Spng{Delay}{Signal (decreasing blue curve) due to the distorted surface of last scattering and the noise using the quadratic estimator constructed from the small scale temperature anisotropy ($\Theta\Theta$ in the notation of Table 1) for several different experimental configurations. Most optimistic is no noise out to $l_{\rm max}=7000$; the other two noise curves have sensitivity of 1$\mu$K-arcmin and beam size. %the and noise spectra for detector noise $C_{l}^{\Theta \Theta}|_{\rm noise} = 0$ or $\left(\frac{\Delta_{\Theta}}{T_{\rm CMB}} \right)^{2} e^{l(l+1)\theta_{\rm FWHM}^{2}/8 \, \rm ln \,2}$, with $\Delta_{\Theta}=1\mu K-arcmin$ and 
+$\theta_{\rm FWHM}=1'$ or $4'$. Here, $f_{\rm sky}$ is set to one.} %\scott{Peikai, can you check fsky and lmax?} \wh{labels on figs need to be bigger, factors of $\ell$ need to be explained in text - for example if this were meant to read as averaged all $\ell,m$ in a log band $\Delta \ell/\ell \sim 1$ then the factor would be $1/\sqrt{\ell(2\ell+1)}$ and if it were to reflect errors then $\sqrt{2/\ell(2\ell+1)}$, etc..   }}
 
 \section{Polarization}
 
