@@ -107,7 +107,9 @@ The surface of last scattering of the photons in the cosmic microwave background
 \section{Distance to the Last Scattering Surface}
 \newcommand\fd{d}
 
-The theory of general relativity dictates that particles traveling through gravitational potential wells experience time delays~\cite{1964PhRvL..13..789S}. If two photons are emitted at the same time, then they will travel different distances depending upon the potential $\Phi$ through which they travel. In the cosmological context of an expanding, Euclidean universe, the %fractional difference in comoving distance $D$ to a source at redshift $z$ is equal to  
+The theory of general relativity dictates that particles traveling through gravitational potential wells experience time delays~\cite{1964PhRvL..13..789S}. If two photons are emitted at the same time, then they will travel different distances depending upon the potential $\Phi$ through which they travel. In the cosmological context of an expanding, Euclidean universe
+\wh{what does Euclidean mean here?  spatially flat background?}
+, the %fractional difference in comoving distance $D$ to a source at redshift $z$ is equal to  
 %\be
 %d(\hat n) = -2\, \int_0^{z} d\ln(1+z')\, K(z,z')\Phi\left(D(z')\hat n; t(z')\right)
 %\ee
@@ -138,13 +140,14 @@ Photons that comprise the cosmic microwave background (CMB) experience these sam
 %\wh{would suggest here 
 \be
 \fd(\hat n) = 2\, \int_0^{\infty} dz \, e^{-\tau(z)}\, K_\fd(z)\Phi\left(D(z)\hat n; t(z)\right)
+\eql{deffield}
 \ee
 %\wh{perhaps define  $K_\fd(z) = -2(H(z)D_*)^{-1}$?}
 where $H(z)$ is the Hubble expansion rate; $K_\fd(z) =  (H(z)D_*)^{-1}$ and $D_* =  \int_0^\infty dz' e^{-\tau(z') }/H(z')$.
 with $\tau$ being the optical depth, ignoring reionization, which becomes very large at times smaller than the epoch of  last scattering, $t_*$ or equivalently when $z>z_*$.
-This directional-dependent change in the distance to last scattering is independent of its finite width and is a phenomenon difference from the angular deflections~\cite{Hu:2001tn,Lewis:2006fu} that have been captured by recent experiments~\cite{Smith:2007rg,Ade:2013tyw,Story:2014hni,Sherwin:2016tyf,Aghanim:2018oex}.
+This directional-dependent change in the distance to last scattering is independent of its finite width and is a phenomenon difference \wh{something not parsing here} from the angular deflections~\cite{Hu:2001tn,Lewis:2006fu} that have been captured by recent experiments~\cite{Smith:2007rg,Ade:2013tyw,Story:2014hni,Sherwin:2016tyf,Aghanim:2018oex}.
 
-Although deflections and delays are two different phenomena, they share some similarities, especially in the case of the CMB. Both are determined by the integrated potential along the line of sight, although with slightly different kernels, as depicted in Figure~\rf{kernel}: the integrated potential $\phi$ that determines deflections has the same form as the right-hand side of Eq 2 with
+Although deflections and delays are two different phenomena, they share some similarities, especially in the case of the CMB. Both are determined by the integrated potential along the line of sight, although with slightly different kernels, as depicted in Figure~\rf{kernel}: the integrated potential $\phi$ that determines deflections has the same form as the right-hand side of \ec{deffield}  with
 %\scott{I changed the order of terms in the numerator here from what you had Wayne; I assume that was a typo? Please check out the new figure; it's different from before because of a bug; does it look right to you? is it misleading because we don't capture the transverse derivative for the deflection term?} \wh{I think it's now clear what is plotted - and its a good way to show high cross correlation though less good at identifying observability}
 \be
 K_\phi(z) = \frac{D_*-D(z)}{ D(z) D_* H(z)} .
@@ -152,7 +155,8 @@ K_\phi(z) = \frac{D_*-D(z)}{ D(z) D_* H(z)} .
 %\wh{and define absolute instead of relative $K_\phi = (D_*-D)/(D D_* H)$.}
 It is clear that they will be highly correlated, so as a first approximation, we might view the maps of the lensing potential created for example in \citet{Aghanim:2018oex} as maps of distance to the last scattering surface. Another similarity, one that has not yet been exploited, is that the quadratic estimator formalism  \cite{Hu:2001tn} can be applied to the delays as well, and this is what we will do in this paper.  We start though with the rather daunting facts that the RMS fractional distance differences are a factor of ten smaller than the RMS angular deviations 
  % this part is arguably comparing apples to oranges so I think the more daunting fact is the many orders of magnitude between their effects on the power spectra
- and their impact on CMB power spectra is even smaller \cite{Hu:2001yq}. Further, while the latter peaks at degree scales, the former peak on the largest scales.
+ and their impact on CMB power spectra is even smaller \cite{Hu:2001yq}. Further, while the latter peaks at degree scales, the former peak on the largest scales where cosmic variance is
+ higher.
 
 \Sfig{kernel}{Kernel that weights the integral of the gravitational potential for the time delay examined here and the more carefully studied deflection angle.}
 
@@ -182,8 +186,14 @@ The third term's derivative can be evaluated by recalling that the undistorted t
 \tu_{lm} = 4\pi(-i)^{l} \int \frac{d^{3}k}{(2\pi)^{3}}Y_{lm}^{*}(\hat{k})S(\vec k;\eta_{*})j_{l}(kD_{*}) ,
 \ee
 where $S$ is the source function, dominated on small scales by the monopole and dipole, as in Eq. (22) of Ref.~\cite{Hu:2001bc}. The derivative with respect to distance then acts on the spherical Bessel function, and after expanding the fractional difference in spherical harmonics as well, we obtain
+%
+% you seem to have defined conflicting macros and not changed this line:
+%\be
+%\tob_{lm} = \tu_{lm} -\delta \Theta_{lm}^{\rm lens}- \delta \td_{lm}
+%\ee
+% so: 
 \be
-\tob_{lm} = \tu_{lm} -\delta \Theta_{lm}^{\rm lens}- \delta \td_{lm}
+\tob_{lm} = \tu_{lm} -\dtl_{lm}- \dtd_{lm}
 \ee
 with the two first order terms due to deflection and the change in distance equal to
 \bea
@@ -278,6 +288,9 @@ with the first term on the right the signal and the second the noise. Fig.~\rf{D
 \be
 \left(\frac{S}{N}\right)^2 =\sum_{L=1}^\infty \frac{2}{(2L+1)f_{\rm sky}} \frac{ C_L^{dd}}{C_L^{dd}+B_L}\eql{sn}
 .\ee
+\wh{This doesn't look right to me at least the mode counting is inverted but I also don't understand what S/N this is
+ - I suggest you define the signal to noise as the number of sigma that you an detect the given power spectrum as in my note.  Also, the connection with what is plotted in the figure
+ isn't made explicit here.}
 We see that most of the signal arises from the lowest $L$-modes, particularly $L=1$. However, even for a full-sky experiment, the most optimistic niose projections lead to a total signal to noise less than 1, using temperature only.
 
 \Sfig{Delay}{Signal (decreasing blue curve) due to the distorted surface of last scattering and the noise using the quadratic estimator constructed from the small scale temperature anisotropy ($\Theta\Theta$ in the notation of Table 1) for several different experimental configurations. Most optimistic is no noise out to $l_{\rm max}=7000$; the other two noise curves have sensitivity of 1$\mu$K-arcmin and beam size. %the and noise spectra for detector noise $C_{l}^{\Theta \Theta}|_{\rm noise} = 0$ or $\left(\frac{\Delta_{\Theta}}{T_{\rm CMB}} \right)^{2} e^{l(l+1)\theta_{\rm FWHM}^{2}/8 \, \rm ln \,2}$, with $\Delta_{\Theta}=1\mu K-arcmin$ and 
@@ -291,12 +304,14 @@ The estimator above used only the temperature anisotropy field, but the polariza
 &\times&
 \big[ \phi_{LM}f^{\alpha}_{l_{1}Ll_{2}} + d_{LM}g^{\alpha}_{l_{1}Ll_{2}} \big] 
 .\eea
-The functions $f^\alpha$ and $g^\alpha$ are the generalizations of \ec{lfg} to include polarization (\ec{lfg} now corresponds to $\alpha=\Theta\Theta$). The full set of $f^{\alpha}$ was determined by Ref.~\cite{Okamoto:2003zw} and is reproduced in Table 1, which now includes the full set of $g^{\alpha}$ that govern the impact of changing radial distances. Note that $\tilde C_l$ corresponds to the spectra of the unlensed fields. \wh{Perhaps be more explicit about what $\tilde C_\ell^{EE,d}$ and $\tilde C_\ell^{\Theta E,d}$ are?} \scott{I think we should change the $\tilde C \rightarrow C$ here, since they are not the spectra of the unlensed fields: they are the radial derivatives of the spectra, right? Also, propose to add the following few lines, replacing the sentence above that starts ``Note that ...''}
+The functions $f^\alpha$ and $g^\alpha$ are the generalizations of \ec{lfg} to include polarization (\ec{lfg} now corresponds to $\alpha=\Theta\Theta$). The full set of $f^{\alpha}$ was determined by Ref.~\cite{Okamoto:2003zw} and is reproduced in Table 1, which now includes the full set of $g^{\alpha}$ that govern the impact of changing radial distances. Note that $\tilde C_l$ corresponds to the spectra of the unlensed fields.  \scott{I think we should change the $\tilde C \rightarrow C$ here, since they are not the spectra of the unlensed fields: they are the radial derivatives of the spectra, right?} \wh{They are radial derivatives of the unlensed (i.e. before lensing) fields}
+ \scott{Also, propose to add the following few lines, replacing the sentence above that starts ``Note that ...''}
 \scott{\bf Note that the angular deflection coefficients $f^\alpha$ included the unlensed field because the transverse derivatives are captured by powers of $\ell$. The radial derivatives must be computed directly, as in \ec{cld}. For example,
 \be
 C^{\Theta E,d}_{l} \equiv \frac{2}{\pi}\,\int_0^\infty dk\,k^2\, P^{\Theta E}(k,\eta_*)\,j_l(kD_*)\,\frac{\partial j_l(kD_*)}{\partial\ln D_*}
 \ee
 with $P^{\Theta E}(k,\eta_*)$ the 3D cross-power spectrum at the time of recombination of the temperature field and the E-mode of the polarization field.}
+\wh{We still need to comment on the link to what is actually done, which is to include the time variation of the source fields}
 
 \begin{table}[thbp]
 \scalebox{0.9}{
