@@ -286,7 +286,7 @@ The noise on these estimators is now given by the prefactors $A_L$ and $B_L$, so
 \ee
 with the first term on the right the signal and the second the noise. Fig.~\rf{Delay} shows the signal and noise at each $ L$ for several experimental configurations. Since the signal can be extracted from all available $d_{LM}$, the total signal to noise for a measurement is
 \be
-\left(\frac{S}{N}\right)^2 =\sum_{L=1}^\infty \frac{2}{(2L+1)f_{\rm sky}} \frac{ C_L^{dd}}{C_L^{dd}+B_L}\eql{sn}
+\left(\frac{S}{N}\right)^2 = \sum_L^{\infty} \frac{(2L+1)f_{\rm sky}}{2} (\frac{C_L^{dd}}{C_L^{dd}+B_L})^2\eql{sn}
 .\ee
 \wh{This doesn't look right to me at least the mode counting is inverted but I also don't understand what S/N this is
  - I suggest you define the signal to noise as the number of sigma that you an detect the given power spectrum as in my note.  Also, the connection with what is plotted in the figure
@@ -436,7 +436,11 @@ When $(\alpha\beta)=(\gamma \sigma)$, this simplified to
 &&\left. 
 +(C_{L}^{\phi \phi} +N_{L}^{\phi,\alpha \alpha})(C_{L}^{d d}+N_{L}^{d,\beta \beta})\right\}
 \eea
-And we can compute cross power spectrum signal-to-noise.
+\noindent And we can compute cross power spectrum signal-to-noise by assuming that $(C_{L}^{\phi d}+\mathcal{N}_{L}^{\alpha \beta})=0$ and use minimu variance estimator for both lensing and time delay. Signal-to-noise in FIG.5 is given by:
+\be
+(\frac{S}{N})^{2} = \sum_L^{\infty} (2L+1)f_{\rm sky} \frac{C_L^{\phi d}}{C_L^{\phi \phi}+N_L^{\phi,\rm mv}}\frac{C_L^{\phi d}}{C_L^{dd}+N_L^{d,\rm mv}}\eql{sn}
+.\ee
+We set $f_{\rm sky}=1$ and sum up tp $L=100$. We could see that in this ideal case, $S/N$ could reach about $2.5$, which still may not be detectable.
 \Sfig{CrossStoN}{Cross Power Spectrum S/N \peikai{Signal to Noise looks really bad for this one...}}
 %\section{Appendix B: Contamination}
 
