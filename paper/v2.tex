@@ -243,7 +243,7 @@ with $P_S$ the power spectrum of the source. This expression is identical to the
 \bea
 P_S(k,\eta_*)&\,&j_l(kD_*)\frac{\partial j_l(kD_*)}{\partial\ln D_*}\vs
 \rightarrow&&
-\int d\eta g(\eta) P_S(k,\eta) j_l(kD(\eta)) \frac{\partial j_l(kD(\eta))}{\partial \ln D}
+\int d\eta g(\eta) P_S(k,\eta) j_l(kD(\eta)) \frac{\partial j_l(kD(\eta))}{\partial \ln D}\eql{timeevol}
 \eea
 with $g(\eta)$ the visibility function, sharply peaked at $\eta=\eta_*$.\scott{Wayne, is this what you meant? Both: is this right?}
 
@@ -258,7 +258,7 @@ The function that governs changes in distances involved a radial derivative, and
 
 The correlation between different $l$-modes enables us, following Ref.~\cite{Okamoto:2003zw}, to extract information about the fields causing these correlations by forming quadratic estimators for both the gravitational potential responsible for deflections and the fractional distance field:
 \bea
-\hat \phi_{LM} &=& \wh{A_L }
+\hat \phi_{LM} &=& A_L 
 %\frac{A_{L}}{\sqrt{L(L+1)}}
 \sum_{l_1m_1}\sum_{l_2m_2} \nonumber \\  
 && (-1)^M  \bigl(\begin{smallmatrix} l_1 & l_2 & L \\ m_1 & m_2 & -M  \end{smallmatrix}\bigr) h^{\phi}_{l_1l_2}(L)  \tob_{l_1m_1} \tob_{l_2m_2} \\
@@ -309,14 +309,14 @@ The estimator above used only the temperature anisotropy field, but the polariza
 &\times&
 \big[ \phi_{LM}f^{\alpha}_{l_{1}Ll_{2}} + d_{LM}g^{\alpha}_{l_{1}Ll_{2}} \big] 
 .\eea
-The functions $f^\alpha$ and $g^\alpha$ are the generalizations of \ec{lfg} to include polarization (\ec{lfg} now corresponds to $\alpha=\Theta\Theta$). The full set of $f^{\alpha}$ was determined by Ref.~\cite{Okamoto:2003zw} and is reproduced in Table 1, which now includes the full set of $g^{\alpha}$ that govern the impact of changing radial distances. Note that $\tilde C_l$ corresponds to the spectra of the unlensed fields.  \scott{I think we should change the $\tilde C \rightarrow C$ here, since they are not the spectra of the unlensed fields: they are the radial derivatives of the spectra, right?} \wh{They are radial derivatives of the unlensed (i.e. before lensing) fields}
- \scott{Also, propose to add the following few lines, replacing the sentence above that starts ``Note that ...''}
-\scott{\bf Note that the angular deflection coefficients $f^\alpha$ included the unlensed field because the transverse derivatives are captured by powers of $\ell$. The radial derivatives must be computed directly, as in \ec{cld}. For example,
-\be
-C^{\Theta E,d}_{l} \equiv \frac{2}{\pi}\,\int_0^\infty dk\,k^2\, P^{\Theta E}(k,\eta_*)\,j_l(kD_*)\,\frac{\partial j_l(kD_*)}{\partial\ln D_*}
-\ee
-with $P^{\Theta E}(k,\eta_*)$ the 3D cross-power spectrum at the time of recombination of the temperature field and the E-mode of the polarization field.}
-\wh{We still need to comment on the link to what is actually done, which is to include the time variation of the source fields}
+The functions $f^\alpha$ and $g^\alpha$ are the generalizations of \ec{lfg} to include polarization (\ec{lfg} now corresponds to $\alpha=\Theta\Theta$). The full set of $f^{\alpha}$ was determined by Ref.~\cite{Okamoto:2003zw} and is reproduced in Table 1, which now includes the full set of $g^{\alpha}$ that govern the impact of changing radial distances. Note that $\tilde C_l$ corresponds to the spectra of the unlensed fields; and $\tilde C_l^{\Theta\Theta,d}$ for example is the radial derivative of the unlensed spectrum.%  \scott{I think we should change the $\tilde C \rightarrow C$ here, since they are not the spectra of the unlensed fields: they are the radial derivatives of the spectra, right?} \wh{They are radial derivatives of the unlensed (i.e. before lensing) fields}
+Note that the angular deflection coefficients $f^\alpha$ do not carry superscript $^d$ because the derivatives are transverse and therefore captured by powers of $\ell$. The radial derivatives in the $g^\alpha$ must be computed directly, as in \ec{cld} and \ec{timeevol}. For example,
+\bea
+C^{\Theta E,d}_{l} &\equiv& \frac{2}{\pi}\,\int_0^\infty dk\,k^2\, \int d\eta\,g(\eta)\vs
+&&\times P^{\Theta E}(k,\eta)\,j_l(kD(\eta))\,\frac{\partial j_l(kD(\eta))}{\partial\ln D}
+\eea
+with $P^{\Theta E}(k,\eta)$ the 3D cross-power spectrum of the temperature field and the E-mode of the polarization field.
+%\wh{We still need to comment on the link to what is actually done, which is to include the time variation of the source fields}
 
 \begin{table}[thbp]
 \scalebox{0.9}{
