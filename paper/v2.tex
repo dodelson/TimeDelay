@@ -221,7 +221,16 @@ with
 .\eea
 Note the extra two powers of the multipoles in the function $F$ that governs deflection; these follow from the fact that both the temperature and the potential are differentiated with respect to transverse position on the sky. By contrast, the radial derivative that governs the impact of the time delay, or change in distance to the last scattering surface, appears in \ec{dtd} as the logarithmic derivative of the unlensed coefficients $\tilde\Theta_{LM}$.
 
-As in the case of the effect of deflections on the CMB, the varying distances to the last scattering surface leads to correlations between $l$-modes that differ from one another. We proceed as in Ref.~\cite{Hu:2001tn} by focusing on the expectation of off-diagonal (${l_1,m_1\ne l_2,m_2}$) terms quadratic in the observed moments:
+As in the case of the effect of deflections on the CMB, the varying distances to the last scattering surface leads to correlations between $l$-modes that differ from one another. 
+\wh{First let us define the power spectrum of the undistorted fields
+\begin{equation}
+\tilde C_l^{\Theta\Theta} =  \frac{2}{\pi}\,\int_0^\infty k^2 dk P_{\cal R} T_\Theta[l;k]
+T_\Theta[l;k]
+\end{equation}
+where $T_\Theta[l;k]$ is the radiation transfer function and $P_{\cal R}$ is the initial
+curvature power spectrum.  Note that the transfer function is a radial integral over
+the sources at a distance $D$, projected onto multipole moment $l$.
+We proceed as in Ref.~\cite{Hu:2001tn} by focusing on the expectation of off-diagonal (${l_1,m_1\ne l_2,m_2}$) terms quadratic in the observed moments:
 \bea
 \langle \tob_{l_1m_1} \tob_{l_2m_2} \rangle &=& \sum_{LM}  (-1)^M \bigl(\begin{smallmatrix} l_1 & l_2 & L \\ m_1 & m_2 & -M  \end{smallmatrix}\bigr) \nonumber \\
 %&\times&\left\{  \phi_{LM} \big[ \tilde{C}_{l_{1}}^{\Theta\Theta} {}_{0}F_{l_{2}Ll_{1}} +\tilde{C}_{l_{2}}^{\Theta\Theta} {}_{0}F_{l_{1}Ll_{2}}\big] \right. \nonumber \\
@@ -237,26 +246,44 @@ g_{l_1Ll_2} &\equiv&\big[ \tilde{C}_{l_{1}}^{\Theta\Theta,d} {}_{0}G_{l_{2}Ll_{1
 \eea
 The change in distance to the last scattering spectrum produces the spectrum
 \be
-C^{\Theta\Theta,d}_{l} \equiv \frac{2}{\pi}\,\int_0^\infty \frac{dk}{k} \, (S(k;\eta_*))^2\,j_l(kD_*)\,\frac{\partial j_l(kD_*)}{\partial\ln D_*}\eql{cld}
+C^{\Theta\Theta,d}_{l} \equiv \frac{2}{\pi}\,\int_0^\infty  k^2 dk P_{\cal R} T_\Theta[l;k]
+T_\Theta^{(1)}[l;k].
+\eql{cld}
 \ee
-This expression is identical to the one for the undistorted CMB spectrum $C_l$ other than the replacement $j_l\rightarrow j_l'$. The two spectra are shown in Fig.~\rf{TT1}. We modify the public CAMB code and account for the finite thickness of the last scattering surface, the actual integrand look like:
-\bea
-&&(S(k;\eta_*))^2\,j_l(kD_*)\,\frac{\partial j_l(kD_*)}{\partial\ln D_*} \vs
-\rightarrow \, && \mathcal{P}_{\rm R}(k)T_{\Theta}[j_l;k]T_{\Theta}^{(1)}[j_l;k] 
-\eea
-with $\mathcal{P}_{\rm R}$ primitive power spectrum, and $T_{\Theta}[j_l;k]$ is the transfer function for temperature defined as:
-\be
-T_{\Theta}[j_l;k] = \int d\eta \mathcal{S}_{\Theta}(k;\eta) j_l(kD(\eta))\eql{timeevol}
-.\ee
-which is the general form of the source function above. $\mathcal{S}_{\Theta}$ is the modified source function defined in CAMB, we can determine its expression using Eq. (22) of Ref.~\cite{Hu:2001bc} (ignore third term, which is the ISW effect),
-\bea
-S(\vec{k};\eta_{*})j_{l}(kD_{*}) &=& [\Theta+\Psi](\eta_{*})j_{l}(kD_{*})+v_{b}(k,\eta_{*})j'_{l}(kD_{*}) \vs
-\rightarrow T_{\Theta}[j_l;k] &=& \int d\eta \left\{ g(\eta) [\Theta+\Psi](\eta)\right. \vs
-&&\quad \quad\left.-(g(\eta)v_{b}(k,\eta))'\right\}j_{l}(kD(\eta))\eql{cld}
-\eea
-with $g(\eta)$ the visibility function, sharply peaked at $\eta=\eta_*$. Approximate $g(\eta)$ as $\delta(\eta-\eta_{*})$ we can go back from $T_{\Theta}[j_l;k]$ to $S(\vec{k};\eta_{*})j_{l}(kD_{*})$. And second term comes from integration by parts. Also define $T^{(1)}_{\Theta}[j_l;k] $ as $j_{l}(kD)$ in the integrand replaced by $\partial j_{l}(kD)/\partial\ln D$.
+This expression is identical to the one for the undistorted CMB spectrum $\tilde C_l$ other than the replacement of one of the transfer functions with 
+\begin{equation}
+T_\Theta^{(1)} \equiv \frac{\partial T_\Theta}{\partial \ln D}
+\end{equation}
+where the derivative is taken inside of the integrals over the radiation sources by modifying
+the public CAMB code. 
+The two spectra are shown in Fig.~\rf{TT1}. 
+}
 
-In order to compute $C_{l}^{\Theta \Theta,d}$ we simply replace $j_{l}(kD)$ by $\partial j_{l}(kD)/\partial\ln D$ when calculating the transfer functions and we can get the result.
+To clarify the meaning of these terms, consider the large scale limit where the temperature
+source is the Sachs-Wolfe effect on the recombination surface at $D_*$, 
+ $\Theta = {\cal R}/5$.   Then
+ \begin{equation}
+ T_\Theta[l;k] = \frac{1}{5} j_l(k D_*), \quad  T_\Theta^{(1)}[l;k] = \frac{1}{5}.
+ \frac{\partial j_l(k D_*)}{\partial \ln D_*}
+\end{equation}
+
+%We modify the public CAMB code and account for the finite thickness of the last scattering surface, the actual integrand look like:
+%\bea
+%&&(S(k;\eta_*))^2\,j_l(kD_*)\,\frac{\partial j_l(kD_*)}{\partial\ln D_*} \vs
+%\rightarrow \, && \mathcal{P}_{\rm R}(k)T_{\Theta}[j_l;k]T_{\Theta}^{(1)}[j_l;k] 
+%\eea
+%with $\mathcal{P}_{\rm R}$ primitive power spectrum, and $T_{\Theta}[j_l;k]$ is the transfer function for temperature defined as:
+%\be
+%T_{\Theta}[j_l;k] = \int d\eta \mathcal{S}_{\Theta}(k;\eta) j_l(kD(\eta))\eql{timeevol}
+%.\ee
+%which is the general form of the source function above. $\mathcal{S}_{\Theta}$ is the modified source function defined in CAMB, we can determine its expression using Eq. (22) of Ref.~\cite{Hu:2001bc} (ignore third term, which is the ISW effect),
+%\bea
+%S(\vec{k};\eta_{*})j_{l}(kD_{*}) &=& [\Theta+\Psi](\eta_{*})j_{l}(kD_{*})+v_{b}(k,\eta_{*})j'_{l}(kD_{*}) \vs
+%\rightarrow T_{\Theta}[j_l;k] &=& \int d\eta \left\{ g(\eta) [\Theta+\Psi](\eta)\right. \vs
+%&&\quad \quad\left.-(g(\eta)v_{b}(k,\eta))'\right\}j_{l}(kD(\eta))\eql{cld}
+%\eea
+%with $g(\eta)$ the visibility function, sharply peaked at $\eta=\eta_*$. Approximate $g(\eta)$ as $\delta(\eta-\eta_{*})$ we can go back from $T_{\Theta}[j_l;k]$ to $S(\vec{k};\eta_{*})j_{l}(kD_{*})$. And second term comes from integration by parts. Also define $T^{(1)}_{\Theta}[j_l;k] $ as $j_{l}(kD)$ in the integrand replaced by $\partial j_{l}(kD)/\partial\ln D$.
+%In order to compute $C_{l}^{\Theta \Theta,d}$ we simply replace $j_{l}(kD)$ by $\partial j_{l}(kD)/\partial\ln D$ when calculating the transfer functions and we can get the result.
 
 Note the difference between these two functions. Each involves a derivative. The one that governs deflections, $f$, %depends on the unlensed CMB spectrum $\tilde{C}_{l}^{\Theta\Theta}$
 %and the deflections are encoded 
