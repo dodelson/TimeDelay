@@ -296,7 +296,8 @@ involves a derivative with respect to the transverse directions so $F$ as define
 % (which are derivatives with respect to transverse position in real space) contained in $F$ compared to $G$ in \ec{fg}. 
 The function that governs changes in distances involved a radial derivative, and this shows up in the spectrum $\tilde{C}^{\Theta\Theta,d}_{l}$.
 
-\Sfig{TT1}{Spectra of CMB temperature anisotropies and the logarithmic derivative of that spectrum with respect to the distance to the last scattering surface as defined in \ec{cld}.}
+\Sfig{TT1}{Spectra of CMB temperature anisotropies and the logarithmic derivative of that spectrum with respect to the distance to the last scattering surface as defined in \ec{cld}.
+\wh{labels on all figures should be larger}}
 
 
 The correlation between different $l$-modes enables us, following Ref.~\cite{Okamoto:2003zw}, to extract information about the fields causing these correlations by forming quadratic estimators for both the gravitational potential responsible for deflections and the fractional distance field:
@@ -322,7 +323,9 @@ A_L &\equiv&
  \left\{ \sum_{l_1l_2} h^{\phi}_{l_1l_2}(L)f_{l_1Ll_2}\right\}^{-1}\\
 B_L &\equiv& (2L+1) \left\{ \sum_{l_1l_2} h^{d}_{l_1l_2}(L)g_{l_1Ll_2}\right\}^{-1}.\eql{bt}
 \eea 
-With these definitions, the expectation values of the two estimators are equal to $\phi_{LM}$ and $d_{LM}$ respectively.
+With these definitions, the expectation values of the two estimators are equal to $\phi_{LM}$ and $d_{LM}$ respectively. \wh{comment on cross contamination of the estimators or say we
+ignore it for now.
+each are only unbiased in the absence of the other}
 %\bea
 %\langle \hat{\phi}_{LM} \rangle &=& \sqrt{L(L+1)} \phi_{LM} \\
 %\langle \hat{d}_{LM} \rangle &=& d_{LM}
@@ -339,7 +342,8 @@ An estimate of the detectability of this signal can be obtained by computing the
 \be
 \left(\frac{1}{\sigma_d}\right)^2 = \sum_L^{\infty} \frac{(2L+1)f_{\rm sky}}{2} (\frac{C_L^{dd}}{C_L^{dd}+B_L})^2\eql{sn}
 .\ee
-Fig.~\rf{Delay} shows that most of the signal comes from the lowest $L$-modes, particularly $L=1$. However, even for a full-sky experiment and the most optimistic noise projections, the signal will not be detectable using temperature only. \scott{Wayne: please check if this rewording is what you had in mind. Peikai: if we agree on this notation, please relabel the y-axis on figure 4 as ``Time Delay Detectability ($\sigma_d$)''}
+Fig.~\rf{Delay} shows that most of the signal comes from the lowest $L$-modes, particularly $L=1$. However, even for a full-sky experiment and the most optimistic noise projections, the
+\wh{auto power spectrum $C_L^{dd}$ will not be measurable using temperature only.}%{\scott{Wayne: please check if this rewording is what you had in mind. Peikai: if we agree on this notation, please relabel the y-axis on figure 4 as ``Time Delay Detectability ($\sigma_d$)''}
 
 \Sfig{Delay}{Signal (decreasing blue curve) due to the distorted surface of last scattering and the noise using the quadratic estimator constructed from the small scale temperature anisotropy ($\Theta\Theta$ in the notation of Table 1) for several different experimental configurations. Most optimistic is no noise out to $l_{\rm max}=7000$; the other two noise curves have sensitivity of 1$\mu$K-arcmin and beam size. %the and noise spectra for detector noise $C_{l}^{\Theta \Theta}|_{\rm noise} = 0$ or $\left(\frac{\Delta_{\Theta}}{T_{\rm CMB}} \right)^{2} e^{l(l+1)\theta_{\rm FWHM}^{2}/8 \, \rm ln \,2}$, with $\Delta_{\Theta}=1\mu K-arcmin$ and 
 $\theta_{\rm FWHM}=1'$ or $4'$. Here, $f_{\rm sky}$ is set to one.} %\scott{Peikai, can you check fsky and lmax?} \wh{labels on figs need to be bigger, factors of $\ell$ need to be explained in text - for example if this were meant to read as averaged all $\ell,m$ in a log band $\Delta \ell/\ell \sim 1$ then the factor would be $1/\sqrt{\ell(2\ell+1)}$ and if it were to reflect errors then $\sqrt{2/\ell(2\ell+1)}$, etc..   }}
