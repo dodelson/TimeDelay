@@ -356,19 +356,22 @@ The estimator above used only the temperature anisotropy field, but the polariza
 &\times&
 \big[ \phi_{LM}f^{\alpha}_{l_{1}Ll_{2}} + d_{LM}g^{\alpha}_{l_{1}Ll_{2}} \big] 
 .\eea
-The functions $f^\alpha$ and $g^\alpha$ are the generalizations of \ec{lfg} to include polarization (\ec{lfg} now corresponds to $\alpha=\Theta\Theta$). The full set of $f^{\alpha}$ was determined by Ref.~\cite{Okamoto:2003zw} and is reproduced in Table 1, which now includes the full set of $g^{\alpha}$ that govern the impact of changing radial distances. Note that $\tilde C_l$ corresponds to the spectra of the unlensed fields; and $\tilde C_l^{\Theta\Theta,d}$ for example is the radial derivative of the unlensed spectrum.%  \scott{I think we should change the $\tilde C \rightarrow C$ here, since they are not the spectra of the unlensed fields: they are the radial derivatives of the spectra, right?} \wh{They are radial derivatives of the unlensed (i.e. before lensing) fields}
-Note that the angular deflection coefficients $f^\alpha$ do not carry superscript $^d$ because the derivatives are transverse and therefore captured by powers of $\ell$. The radial derivatives in the $g^\alpha$ must be computed directly, as in \ec{cld} in terms of the radiation  
-transfer functions
+The functions $f^\alpha$ and $g^\alpha$ are the generalizations of \ec{lfg} to include polarization (\ec{lfg} now corresponds to $\alpha=\Theta\Theta$). The full set of $f^{\alpha}$ was determined by Ref.~\cite{Okamoto:2003zw} and is reproduced in Table 1, which now includes the full set of $g^{\alpha}$ that govern the impact of changing radial distances. Note
+that
 \bea
+\tilde{C}^{XY}_{l} \equiv \frac{2}{\pi}\,\int_0^\infty k^{2}dk \,&&{P}_{R}(k) T_{X}[l;k]T_{Y}[l;k]\eea
+denotes the power spectra of the undistorted fields with $T_X$ as the radiation transfer
+function for the field $X$ and \bea
 \tilde{C}^{XY,d}_{l} \equiv \frac{2}{\pi}\,\int_0^\infty k^{2}dk \,&&{P}_{R}(k)\frac{1}{2} \left\{T_{X}[l;k]T_{Y}^{(1)}[l;k]\right. \vs
 && \left.+ T^{(1)}_{Y}[l;k]T_{X}[l;k] \right\}
 \eea
-where $X, Y \in T, E$ with  
+with 
 \begin{equation}
-T_X^{(1)} \equiv \frac{\partial T_X}{\partial \ln D}.
+T_X^{(1)} \equiv \frac{\partial T_X}{\partial \ln D}
 \end{equation}
+is again computed by modifying CAMB.  
  See Ref.~\cite{Hu:1997de} for a more detailed discussion.
-%\wh{We still need to comment on the link to what is actually done, which is to include the time variation of the source fields}
+Note that the angular deflection coefficients $f^\alpha$ do not carry superscript $^d$ because the derivatives are transverse and therefore captured by powers of $\ell$. %\wh{We still need to comment on the link to what is actually done, which is to include the time variation of the source fields}
 
 \begin{table}[thbp]
 \scalebox{0.9}{
