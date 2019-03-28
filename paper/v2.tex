@@ -246,7 +246,7 @@ g_{l_1Ll_2} &\equiv&\big[ \tilde{C}_{l_{1}}^{\Theta\Theta,d} {}_{0}G_{l_{2}Ll_{1
 \eea
 The change in distance to the last scattering spectrum produces the spectrum
 \be
-C^{\Theta\Theta,d}_{l} \equiv \frac{2}{\pi}\,\int_0^\infty  k^2 dk P_{\cal R} T_\Theta[l;k]
+\tilde{C}^{\Theta\Theta,d}_{l} \equiv \frac{2}{\pi}\,\int_0^\infty  k^2 dk P_{\cal R} T_\Theta[l;k]
 T_\Theta^{(1)}[l;k].
 \eql{cld}
 \ee
@@ -263,7 +263,7 @@ To clarify the meaning of these terms, consider the large scale limit where the 
 source is the Sachs-Wolfe effect on the recombination surface at $D_*$, 
  $\Theta = {\cal R}/5$.   Then
  \begin{equation}
- T_\Theta[l;k] = \frac{1}{5} j_l(k D_*), \quad  T_\Theta^{(1)}[l;k] = \frac{1}{5}.
+ T_\Theta[l;k] = \frac{1}{5} j_l(k D_*), \quad  T_\Theta^{(1)}[l;k] = \frac{1}{5}
  \frac{\partial j_l(k D_*)}{\partial \ln D_*}
 \end{equation}
 
@@ -289,9 +289,9 @@ Note the difference between these two functions. Each involves a derivative. The
 %and the deflections are encoded 
 involves a derivative with respect to the transverse directions so $F$ as defined in \ec{fg} has more powers of $l$ than does $G$.  
 % (which are derivatives with respect to transverse position in real space) contained in $F$ compared to $G$ in \ec{fg}. 
-The function that governs changes in distances involved a radial derivative, and this shows up in the spectrum $C^{\Theta\Theta,d}_{l}$.
+The function that governs changes in distances involved a radial derivative, and this shows up in the spectrum $\tilde{C}^{\Theta\Theta,d}_{l}$.
 
-\Spng{TT1}{Spectra of CMB temperature anisotropies and the logarithmic derivative of that spectrum with respect to the distance to the last scattering surface as defined in \ec{cld}.}
+\Sfig{TT1}{Spectra of CMB temperature anisotropies and the logarithmic derivative of that spectrum with respect to the distance to the last scattering surface as defined in \ec{cld}.}
 
 
 The correlation between different $l$-modes enables us, following Ref.~\cite{Okamoto:2003zw}, to extract information about the fields causing these correlations by forming quadratic estimators for both the gravitational potential responsible for deflections and the fractional distance field:
@@ -350,15 +350,14 @@ The estimator above used only the temperature anisotropy field, but the polariza
 The functions $f^\alpha$ and $g^\alpha$ are the generalizations of \ec{lfg} to include polarization (\ec{lfg} now corresponds to $\alpha=\Theta\Theta$). The full set of $f^{\alpha}$ was determined by Ref.~\cite{Okamoto:2003zw} and is reproduced in Table 1, which now includes the full set of $g^{\alpha}$ that govern the impact of changing radial distances. Note that $\tilde C_l$ corresponds to the spectra of the unlensed fields; and $\tilde C_l^{\Theta\Theta,d}$ for example is the radial derivative of the unlensed spectrum.%  \scott{I think we should change the $\tilde C \rightarrow C$ here, since they are not the spectra of the unlensed fields: they are the radial derivatives of the spectra, right?} \wh{They are radial derivatives of the unlensed (i.e. before lensing) fields}
 Note that the angular deflection coefficients $f^\alpha$ do not carry superscript $^d$ because the derivatives are transverse and therefore captured by powers of $\ell$. The radial derivatives in the $g^\alpha$ must be computed directly, as in \ec{cld} and \ec{timeevol}. For example,
 \bea
-C^{\Theta E,d}_{l} \equiv \frac{2}{\pi}\,\int_0^\infty \frac{dk}{k} \,&&\mathcal{P}_{R}(k)\left\{T_{\Theta}[j_l;k]T_{E}^{(1)}[j_l^{(22)};k]\right. \vs
+\tilde{C}^{\Theta E,d}_{l} \equiv \frac{2}{\pi}\,\int_0^\infty k^{2}dk \,&&\mathcal{P}_{R}(k)\left\{T_{\Theta}[j_l;k]T_{E}^{(1)}[j_l^{(22)};k]\right. \vs
 && \left.+ T^{(1)}_{\Theta}[j_l;k]T_{E}[j_l^{(22)};k] \right\}/2
 \eea
 similarly with 
-\bea
-T_{E}[j_l^{(22)};k] &=& \int d\eta \mathcal{S}_{E}(k;\eta) j_l^{(22)}(kD(\eta))\vs
-T_{E}^{(1)}[j_l^{(22)};k] &=&\int d\eta \mathcal{S}_{E}(k;\eta) \frac{\partial j_l^{(22)}(kD(\eta))}{\partial \ln D(\eta)}\eql{timeevol}
-.\eea
-$\mathcal{S}_{E}$ is the modified E-mode source function and radial function $j_{l}^{(22)}(x)\propto j_l(x)/x^2$, notice we only include scalar mode here. See Ref.~\cite{Hu:1997de} for a more detailed discussion.
+\begin{equation}
+T_E^{(1)} \equiv \frac{\partial T_E}{\partial \ln D}
+\end{equation}
+differentiation over radial function $j_{l}^{(22)}(x)\propto j_l(x)/x^2$ inside the integrand, notice we only include scalar mode here. See Ref.~\cite{Hu:1997de} for a more detailed discussion.
 %\wh{We still need to comment on the link to what is actually done, which is to include the time variation of the source fields}
 
 \begin{table}[thbp]
