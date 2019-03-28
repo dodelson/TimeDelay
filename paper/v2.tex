@@ -204,6 +204,8 @@ with the two first order terms due to deflection and the change in distance equa
 \dtl_{lm} &=& \sum_{LM}\sum_{l'm'}{}_{0}I_{lLl'}^{mMm'}\tu_{l'm'}\phi_{LM},\\
 \dtd_{lm} &=& \sum_{LM}\sum_{l'm'} {}_{0} J_{lLl'}^{mMm'}\frac{\partial \tu_{l'm'}}{\partial \ln D}d_{LM}\eql{dtd}
 .\eea
+Notice that both effects couple the undistorted temperature field to the observed
+temperature field at a different multipole.
 Here, we have written the integral over the product of three spherical harmonics as $_0I$ and $_0J$ to enable generalization to the case of polarization, which involves spin $s=2$ harmonics. The general expression is  
 %\scott{I get two $(-1)^m$ factors: once when converting the complex conjugate and once when using Eq 12 from Okamoto-Hu.}\scott{Update: I think i now disagree with the $(-1)^{m_1}$ factor in Eq 12 of Okamoto-Hu, which means that I now agree with the $(-1)^m$'s here}
 \bea
@@ -256,7 +258,7 @@ T_\Theta^{(1)}[l;k].
 \ee
 This expression is identical to the one for the undistorted CMB spectrum $\tilde C_l$ other than the replacement of one of the transfer functions with 
 \begin{equation}
-T_\Theta^{(1)} \equiv \frac{\partial T_\Theta}{\partial \ln D}
+T_\Theta^{(1)} \equiv \frac{\partial T_\Theta}{\partial \ln D},
 \end{equation}
 where the derivative is taken inside of the integrals over the radiation sources by modifying
 the public CAMB code. 
@@ -268,8 +270,10 @@ source is the Sachs-Wolfe effect on the recombination surface at $D_*$,
  $\Theta = {\cal R}/5$.   Then
  \begin{equation}
  T_\Theta[l;k] = \frac{1}{5} j_l(k D_*), \quad  T_\Theta^{(1)}[l;k] = \frac{1}{5}
- \frac{\partial j_l(k D_*)}{\partial \ln D_*}
+ \frac{\partial j_l(k D_*)}{\partial \ln D_*}.
 \end{equation}
+More generally the modification to CAMB involves replacing the Bessel function kernel of
+the source projection with its log derivative. 
 
 %We modify the public CAMB code and account for the finite thickness of the last scattering surface, the actual integrand look like:
 %\bea
@@ -337,7 +341,7 @@ The noise on these estimators is now given by the prefactors $A_L$ and $B_L$, so
 \ee
 with the first term on the right the signal and the second the noise. Fig.~\rf{Delay} shows the signal and noise at each $ L$ for several experimental configurations. Here, and throughout, the largest $l_{\rm max}$ we consider is 7000, as this seems to be within range being considered for a CMB-Stage 4 experiment (see Table 4.1 of Ref.~\cite{Abazajian:2016yjj}).
 
-An estimate of the detectability of this signal can be obtained by computing the projected error, $\sigma_d$, on the amplitude $A^d$ of the power spectrum $A^dC_L^{dd}$, where the fiducial model has $A^d=1$. This is given by summing over all multipoles:
+An estimate of the detectability of this signal can be obtained by computing the projected error, $\sigma_d$, on the amplitude $A^d$ of the power spectrum $A^dC_L^{dd}$, where the fiducial model has $A^d=1$.  Approximating the noise as Gaussian gives
 \be
 \left(\frac{1}{\sigma_d}\right)^2 = \sum_L^{\infty} \frac{(2L+1)f_{\rm sky}}{2} (\frac{C_L^{dd}}{C_L^{dd}+B_L})^2\eql{sn}
 .\ee
@@ -351,7 +355,7 @@ $\theta_{\rm FWHM}=1'$ or $4'$. Here, $f_{\rm sky}$ is set to one.} %\scott{Peik
 
 The estimator above used only the temperature anisotropy field, but the polarization field contains even more information about the lensing potential that governs deflection and distance changes. This was worked out in detail by Ref.~\cite{Okamoto:2003zw} for deflection, and we follow their notation here. There are now three fields of interest: temperature $\Theta$, and the two fields associated with polarization, $E$ and $B$. With letters $a,b$ each ranging over these three fields, we have 
 \bea
-\langle a^{obs}_{l_{1}m_{1}}b^{obs}_{l_{2}m_{2}}\rangle &=& \sum_{LM}(-1)^{M}\bigl(\begin{smallmatrix} l_1 & l_2 & L \\ m_1 & m_2 & -M  \end{smallmatrix}\bigr)\nonumber \\
+\langle a^{\rm obs}_{l_{1}m_{1}}b^{obs}_{l_{2}m_{2}}\rangle &=& \sum_{LM}(-1)^{M}\bigl(\begin{smallmatrix} l_1 & l_2 & L \\ m_1 & m_2 & -M  \end{smallmatrix}\bigr)\nonumber \\
 &\times&
 \big[ \phi_{LM}f^{\alpha}_{l_{1}Ll_{2}} + d_{LM}g^{\alpha}_{l_{1}Ll_{2}} \big] 
 .\eea
@@ -440,7 +444,7 @@ Here we keep $l_{\rm min}$ fixed at $1000$ for the CMB fields (we tested that ou
 We can see that at $l_{\rm max} \approx 5000$, the minimum variance estimator detectability reaches 1, \wh{and at 7000 is 1.X} but of course this is for the most optimistic of configurations. \wh{%What noise level is this?  if no noise why isn't $\Theta\Theta$ above one at $l_{\rm max}=7000$ as it seems to be in previous plot?  
 Any comments on the differences between lensing and delay estimators especially on $B$ modes?} %$S/N \approx 1$.  \wh{some words on why $l_{\rm min}$? and whether that matters?}
 According to Appendix B of Ref.~\cite{Hu:2000xe}, we can see that wigner-3j with odd $l_{1}+l_{2}+L$ is much smaller than its even counterpart. Unlike the deflection case, we don't have a compensation term in front. 
-\wh{This is an obscure way of phrasing the explanation even to me.}
+\wh{This is an obscure way of phrasing the explanation even to me. }
 This would result in a much smaller detectability for estimators with B-modes, so we don't include those in Fig.~\rf{StoN}.
 
 
