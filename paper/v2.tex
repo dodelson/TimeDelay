@@ -239,14 +239,24 @@ The change in distance to the last scattering spectrum produces the spectrum
 \be
 C^{\Theta\Theta,d}_{l} \equiv \frac{2}{\pi}\,\int_0^\infty \frac{dk}{k} \, (S(k;\eta_*))^2\,j_l(kD_*)\,\frac{\partial j_l(kD_*)}{\partial\ln D_*}\eql{cld}
 \ee
-This expression is identical to the one for the undistorted CMB spectrum $C_l$ other than the replacement $j_l\rightarrow j_l'$. The two spectra are shown in Fig.~\rf{TT1}. We modify the public CAMB code and account for the finite thickness of the last scattering surface, so that the integrand in \ec{cld} is actually
+This expression is identical to the one for the undistorted CMB spectrum $C_l$ other than the replacement $j_l\rightarrow j_l'$. The two spectra are shown in Fig.~\rf{TT1}. We modify the public CAMB code and account for the finite thickness of the last scattering surface, the actual integrand look like:
 \bea
-&&(S(k;\eta_*))^2\,j_l(kD_*)\,\frac{\partial j_l(kD_*)}{\partial\ln D_*}\vs
-&&\rightarrow
-\int d\eta g(\eta) S(k;\eta) j_l(kD(\eta)) \vs &&\times \int d\eta' g(\eta') S(k;\eta') \frac{\partial j_l(kD(\eta'))}{\partial\ln D(\eta')}\eql{timeevol}
+&&(S(k;\eta_*))^2\,j_l(kD_*)\,\frac{\partial j_l(kD_*)}{\partial\ln D_*} \vs
+\rightarrow \, && \mathcal{P}_{\rm R}(k)T_{\Theta}[j_l;k]T_{\Theta}^{(1)}[j_l;k] 
 \eea
-with $g(\eta)$ the visibility function, sharply peaked at $\eta=\eta_*$.\scott{Wayne, is this what you meant? Both: is this right?}
-\peikai{There is acually a slowly varying term $\mathcal{P}_{R}(k)$ in the integrand, which is the primitive power spectrum in CAMB code, but if I just add it here, it seems to be inconsistent with previous derivation.}
+with $\mathcal{P}_{\rm R}$ primitive power spectrum, and $T_{\Theta}[j_l;k]$ is the transfer function for temperature defined as:
+\be
+T_{\Theta}[j_l;k] = \int d\eta \mathcal{S}_{\Theta}(k;\eta) j_l(kD(\eta))\eql{timeevol}
+.\ee
+which is the general form of the source function above. $\mathcal{S}_{\Theta}$ is the modified source function defined in CAMB, we can determine its expression using Eq. (22) of Ref.~\cite{Hu:2001bc} (ignore third term, which is the ISW effect),
+\bea
+S(\vec{k};\eta_{*})j_{l}(kD_{*}) &=& [\Theta+\Psi](\eta_{*})j_{l}(kD_{*})+v_{b}(k,\eta_{*})j'_{l}(kD_{*}) \vs
+\rightarrow T_{\Theta}[j_l;k] &=& \int d\eta \left\{ g(\eta) [\Theta+\Psi](\eta)\right. \vs
+&&\quad \quad\left.-(g(\eta)v_{b}(k,\eta))'\right\}j_{l}(kD(\eta))\eql{cld}
+\eea
+with $g(\eta)$ the visibility function, sharply peaked at $\eta=\eta_*$. Approximate $g(\eta)$ as $\delta(\eta-\eta_{*})$ we can go back from $T_{\Theta}[j_l;k]$ to $S(\vec{k};\eta_{*})j_{l}(kD_{*})$. And second term comes from integration by parts. Also define $T^{(1)}_{\Theta}[j_l;k] $ as $j_{l}(kD)$ in the integrand replaced by $\partial j_{l}(kD)/\partial\ln D$.
+
+In order to compute $C_{l}^{\Theta \Theta,d}$ we simply replace $j_{l}(kD)$ by $\partial j_{l}(kD)/\partial\ln D$ when calculating the transfer functions and we can get the result.
 
 Note the difference between these two functions. Each involves a derivative. The one that governs deflections, $f$, %depends on the unlensed CMB spectrum $\tilde{C}_{l}^{\Theta\Theta}$
 %and the deflections are encoded 
@@ -291,7 +301,7 @@ The noise on these estimators is now given by the prefactors $A_L$ and $B_L$, so
 \be
 \langle \hat d_{LM} \hat d^*_{L'M'}  \rangle = \delta_{LL'}\delta_{MM'} \left( C_L^{dd} + B_L \right)
 \ee
-with the first term on the right the signal and the second the noise. Fig.~\rf{Delay} shows the signal and noise at each $ L$ for several experimental configurations. 
+with the first term on the right the signal and the second the noise. Fig.~\rf{Delay} shows the signal and noise at each $ L$ for several experimental configurations. Here, and throughout, the largest $l_{\rm max}$ we consider is 7000, as this seems to be within range being considered for a CMB-Stage 4 experiment (see Table 4.1 of Ref.~\cite{Abazajian:2016yjj}).
 
 An estimate of the detectability of this signal can be obtained by computing the projected error, $\sigma_d$, on the amplitude $A^d$ of the power spectrum $A^dC_L^{dd}$, where the fiducial model has $A^d=1$. This is given by summing over all multipoles:
 \be
@@ -313,11 +323,15 @@ The estimator above used only the temperature anisotropy field, but the polariza
 The functions $f^\alpha$ and $g^\alpha$ are the generalizations of \ec{lfg} to include polarization (\ec{lfg} now corresponds to $\alpha=\Theta\Theta$). The full set of $f^{\alpha}$ was determined by Ref.~\cite{Okamoto:2003zw} and is reproduced in Table 1, which now includes the full set of $g^{\alpha}$ that govern the impact of changing radial distances. Note that $\tilde C_l$ corresponds to the spectra of the unlensed fields; and $\tilde C_l^{\Theta\Theta,d}$ for example is the radial derivative of the unlensed spectrum.%  \scott{I think we should change the $\tilde C \rightarrow C$ here, since they are not the spectra of the unlensed fields: they are the radial derivatives of the spectra, right?} \wh{They are radial derivatives of the unlensed (i.e. before lensing) fields}
 Note that the angular deflection coefficients $f^\alpha$ do not carry superscript $^d$ because the derivatives are transverse and therefore captured by powers of $\ell$. The radial derivatives in the $g^\alpha$ must be computed directly, as in \ec{cld} and \ec{timeevol}. For example,
 \bea
-C^{\Theta E,d}_{l} &\equiv& \frac{2}{\pi}\,\int_0^\infty \frac{dk}{k}\, \int d\eta\,g(\eta)S(k;\eta) j_{l}(kD(\eta)) \vs
-&&\times \int d\eta' g(\eta') S^{E}(k,\eta')\,\frac{\partial j_l(kD(\eta'))}{\partial\ln D(\eta')}
+C^{\Theta E,d}_{l} \equiv \frac{2}{\pi}\,\int_0^\infty \frac{dk}{k} \,&&\mathcal{P}_{R}(k)\left\{T_{\Theta}[j_l;k]T_{E}^{(1)}[j_l^{(22)};k]\right. \vs
+&& \left.+ T^{(1)}_{\Theta}[j_l;k]T_{E}[j_l^{(22)};k] \right\}/2
 \eea
-with $S^{E}(k;\eta)$ is the source functon of the E-mode of the polarization field; defined in CAMB and we only include scalar mode here, see Ref.~\cite{Hu:1997de} for a detailed description.
-\peikai{Not sure if the description here is detailed enough...}
+similarly with 
+\bea
+T_{E}[j_l^{(22)};k] &=& \int d\eta \mathcal{S}_{E}(k;\eta) j_l^{(22)}(kD(\eta))\vs
+T_{E}^{(1)}[j_l^{(22)};k] &=&\int d\eta \mathcal{S}_{E}(k;\eta) \frac{\partial j_l^{(22)}(kD(\eta))}{\partial \ln D(\eta)}\eql{timeevol}
+.\eea
+$\mathcal{S}_{E}$ is the modified E-mode source function and radial function $j_{l}^{(22)}(x)\propto j_l(x)/x^2$, notice we only include scalar mode here. See Ref.~\cite{Hu:1997de} for a more detailed discussion.
 %\wh{We still need to comment on the link to what is actually done, which is to include the time variation of the source fields}
 
 \begin{table}[thbp]
@@ -394,71 +408,53 @@ The auto-spectrum of the distortion field, $d$, will apparently be very challeng
 
 As a first attempt, we consider the cross-spectrum of the distance distortion field with the projected potential responsible for deflections, $\phi$. An estimator for this cross-spectrum is 
 \bea
-\hat{C}_{LM}^{\phi d,\alpha \beta} = \hat{\phi}^{\alpha*}_{LM}\hat{d}^{\beta}_{LM}-\mathcal{N}_{L}^{\alpha \beta},
+\hat{C}_{LM}^{\phi d,\alpha \beta} = \hat{\phi}^{\alpha*}_{LM}\hat{d}^{\beta}_{LM}-N_{L}^{c,\alpha \beta},
 \eea 
-where the bias is equal to the noise is
+$c$ stands for cross here; where the bias is equal to the noise is
 %where $\mathcal{N}_{L}^{\alpha \beta}$ is the bias of the expectation value of $\hat{\phi}^{\alpha*}_{LM}\hat{d}^{\beta}_{LM}$ and the power spectrum
 %\bea
 %\langle \hat{\phi}^{\alpha*}_{LM} \hat{d}^{\beta}_{L'M'}\rangle = \delta_{LL'}\delta_{MM'}(C_{L}^{\phi d}+\mathcal{N}_{L}^{\alpha \beta})
 %\eea
 %thus $\mathcal{N}^{\alpha \beta}_{L}$ is given similarly as $N_{L}^{\alpha \beta}$ by
 \bea
-\mathcal{N}_{L}^{\alpha\beta}&=&\frac{\bar{A}_{L}^{\alpha*}\bar{B}_{L}^{\beta}}{(2L+1)}\sum_{l_{1}l_{2}}  \left\{ \bar{h}_{l_{1}l_{2}}^{\alpha,\phi*} (L)\big[ C_{l_{1}}^{ac}C_{l_{2}}^{bd}\bar{h}_{l_{1}l_{2}}^{\alpha,d}(L)\right. \nonumber \\
-&&\left. +(-1)^{L+l_{1}+l_{2}}C_{l_{1}}^{ad}C_{l_{2}}^{bc} \bar{h}_{l_{2}l_{1}}^{\beta,d}(L)  \big]\right\}\eql{full}.
+N_{L}^{c,\alpha\beta}&=&\frac{A_{L}^{\alpha*}B_{L}^{\beta}}{(2L+1)}\sum_{l_{1}l_{2}}  \left\{ h_{l_{1}l_{2}}^{\alpha,\phi*} (L)\big[ C_{l_{1}}^{ac}C_{l_{2}}^{bd}h_{l_{1}l_{2}}^{\alpha,d}(L)\right. \nonumber \\
+&&\left. +(-1)^{L+l_{1}+l_{2}}C_{l_{1}}^{ad}C_{l_{2}}^{bc} h_{l_{2}l_{1}}^{\beta,d}(L)  \big]\right\}\eql{full} 
 \eea
-Notice that we can choose the definition of $\bar{h}$ to minimize covariance of $\hat{C}_{LM}^{\phi d,\alpha \beta} $, and the result is quite symmetric
-\bea 
-\bar{h}_{l_{1}l_{2}}^{\alpha,\phi}(L) =h_{l_{1}l_{2}}^{\alpha,d}; \; \bar{h}_{l_{1}l_{2}}^{\alpha,d}(L)= h_{l_{1}l_{2}}^{\alpha,\phi} (L)
-\eea 
-with 
-\bea 
-\bar{A}_{L}^{\alpha} &=& (2L+1)\left\{ \sum_{l_{1}l_{2}}\bar{h}_{l_{1}l_{2}}^{\alpha,\phi}(L)f_{l_{1}Ll_{2}}^{\alpha} \right\}^{-1} \nonumber \\
-&=& (2L+1)\left\{ \sum_{l_{1}l_{2}}h_{l_{1}l_{2}}^{\alpha,d}(L)f_{l_{1}Ll_{2}}^{\alpha} \right\}^{-1} \\
-\bar{B}_{L}^{\alpha} &=& (2L+1)\left\{ \sum_{l_{1}l_{2}}\bar{h}_{l_{1}l_{2}}^{\alpha,d}(L)g_{l_{1}Ll_{2}}^{\alpha} \right\}^{-1} \nonumber \\
-&=& (2L+1)\left\{ \sum_{l_{1}l_{2}}h_{l_{1}l_{2}}^{\alpha,\phi}(L)g_{l_{1}Ll_{2}}^{\alpha} \right\}^{-1}
-\eea 
-In this case
-\bea
-\mathcal{N}_{L}^{\alpha \alpha} &=& \bar{A}_{L}^{\alpha}=\bar{B}_{L}^{\alpha}  \nonumber \\
-&=& (2L+1)\left\{ \sum_{l_{1}l_{2}}h_{l_{1}l_{2}}^{\alpha,d}(L)f_{l_{1}Ll_{2}}^{\alpha} \right\}^{-1} \nonumber \\
-&=& (2L+1)\left\{ \sum_{l_{1}l_{2}}h_{l_{1}l_{2}}^{\alpha,\phi}(L)g_{l_{1}Ll_{2}}^{\alpha} \right\}^{-1}
-\eea
-%\peikai{One thing to notice that here the definition of $A$ is the same as Okamoto \& Hu. But it is easy to get the scale Scott suggested.}\\
-Finally the Gaussian covariance of $\hat{C}_{LM}^{\phi d,\alpha \beta} $ is
+Gaussian covariance of $\hat{C}_{LM}^{\phi d,\alpha \beta} $ is
 \bea 
 &&\big\langle \hat{C}_{LM}^{\phi d,\alpha \beta*} \hat{C}_{LM}^{\phi d,\gamma \sigma} - (C_{L}^{\phi d})^{2} \big\rangle/(2L+1) \nonumber \\
-&=&\left\{(C_{L}^{\phi d}+\mathcal{N}_{L}^{\alpha \beta})(C_{L}^{\phi d}+\mathcal{N}_{L}^{\gamma \sigma})\right. \nonumber \\
-&&+(C_{L}^{\phi d}+\mathcal{N}_{L}^{\alpha \sigma})(C_{L}^{\phi d}+\mathcal{N}_{L}^{\beta \gamma})\nonumber \\
+&=&\left\{(C_{L}^{\phi d}+N_{L}^{c,\alpha \beta})(C_{L}^{\phi d}+N_{L}^{c,\gamma \sigma})\right. \nonumber \\
+&&+(C_{L}^{\phi d}+N_{L}^{c,\alpha \sigma})(C_{L}^{\phi d}+N_{L}^{c,\beta \gamma})\nonumber \\
 &&+(C_{L}^{\phi \phi}+N_{L}^{\phi,\alpha \gamma})(C_{L}^{d d}+N_{L}^{d,\beta \sigma})\nonumber\\
-&&-(C_{L}^{\phi d}+\mathcal{N}_{L}^{\alpha \beta})\mathcal{N}_{L}^{\gamma \sigma}-(C_{L}^{\phi d}+\mathcal{N}_{L}^{\gamma \sigma})\mathcal{N}_{L}^{\alpha \beta}\nonumber \\
-&&\left. +\mathcal{N}_{L}^{\alpha \beta}\mathcal{N}_{L}^{\gamma \sigma}-(C_{L}^{\phi d})^{2}\right\}/(2L+1)
+&&-(C_{L}^{\phi d}+N_{L}^{c,\alpha \beta})N_{L}^{c,\gamma \sigma}-(C_{L}^{\phi d}+N_{L}^{c,\gamma \sigma})N_{L}^{c,\alpha \beta}\nonumber \\
+&&\left. +N_{L}^{c,\alpha \beta}N_{L}^{c,\gamma \sigma}-(C_{L}^{\phi d})^{2}\right\}/(2L+1)
 \eea
 When $(\alpha\beta)=(\gamma \sigma)$, this simplifies to
 \bea 
-&&\frac{1}{2L+1}\left\{(C_{L}^{\phi d}+\mathcal{N}_{L}^{\alpha \beta})^{2}\right. \nonumber \\
+&&\frac{1}{2L+1}\left\{(C_{L}^{\phi d}+N_{L}^{c,\alpha \beta})^{2}\right. \nonumber \\
 &&\left. 
 +(C_{L}^{\phi \phi} +N_{L}^{\phi,\alpha \alpha})(C_{L}^{d d}+N_{L}^{d,\beta \beta})\right\}
 \eea
 \noindent 
 
-Given these expressions, the detectability of the cross power spectrum, defined again as the fractional error on amplitude of this spectrum, is 
+Given these expressions, the best detectability of the cross power spectrum we can reach, defined again as the fractional error on amplitude of this spectrum, is 
 \bea
 %And we can compute cross power spectrum signal-to-noise by assuming that $(C_{L}^{\phi d}+\mathcal{N}_{L}^{\alpha \beta})=0$ and use minimu variance estimator for both lensing and time delay. Signal-to-noise in FIG.5 is given by:
 %\be
 (\sigma_{\rm cross})^{-2} &&= \sum_L (2L+1)f_{\rm sky} \vs
-&\times&\frac{(C_L^{\phi d})^2}{( C_L^{\phi d}+N_L^{\phi d})^2+
-(C_L^{\phi \phi}+N_L^{\phi\phi})(C_L^{dd}+N_L^{dd})}.\vs
+&\times&\frac{(C_L^{\phi d})^2}{( C_L^{\phi d}+N_{L}^{c,\rm mv})^2+
+(C_L^{\phi\phi}+N_L^{\phi,\rm mv})(C_L^{dd}+N_L^{d,\rm mv})}.\vs
 \eql{sn1}
 \eea
 We set $f_{\rm sky}=1$ and sum up tp $L=100$ to find the detectability, as shown in Fig.~\rf{CrossStoN}. We could see that in this ideal case, $S/N$ could reach about $2.5$, which still may not be detectable.
-\Sfig{CrossStoN}{The detectability of the cross power spectrum of the distance distortion field and the potential inducing deflections as a function of $L_{\rm max}$. Unlike the auto-spectrum, there is signal out to $L_{\rm max}\sim 100$, but the contributions to the detectability plateau after that, so the best that can be hoped for with this cross spectrum is a 3-sigma detection.}
+\Sfig{CrossStoN}{The detectability of the cross power spectrum of the distance distortion field and the potential inducing deflections as a function of $L_{\rm max}$. Unlike the auto-spectrum, there is signal out to $L_{\rm max}\sim 100$, but the contributions to the detectability plateau after that, so the best that can be hoped for with this cross spectrum is a 3-sigma detection. We still set $l_{\rm max}=7000$ for all three noise terms.}
 
 \section{Conclusions}
 
 The last scattering surface of the CMB is not purely spherical due to the different travel times experienced by photons as they traverse the inhomogeneous gravitational potential. In principle, these distortions in the distance to different directions is detectable, but we conclude here that the standard auto-correlation techniques will not be sufficient to enable detection in the near future. There is the possibility of cross-correlating a map of the distance distortions constructed with the quadratic estimators introduced here with another map of a closely related integrated potential and extracting the signal in that way. Indeed, this was the way that the transverse distortions in the CMB were first detected~\cite{Smith:2007rg}. Here, we have considered  the cross-correlation signal between the distance distortion and the standard transverse deviation maps cand concluded that even an all-sky experiment with superior angular resolution would be detect the cross-spectrum at only 3-sigma. We leave exploration of other cross-correlations for further work; however, we point out that yet another challenge confronted will be the fidelity of the distance distortion maps, as they are contaminated by the standard lensing signals.
 
 %\begin{appendices}
-\appendix
+%\appendix
 
 
 %\section{Appendix B: Contamination}
