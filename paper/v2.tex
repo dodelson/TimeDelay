@@ -168,9 +168,13 @@ It is clear that they will be highly correlated, so as a first approximation, we
 \newcommand\td{\Theta^{\rm dist}}
 The %starting point is to assume that the last scattering surface is infinitely thin, note that the 
 observed temperature in a given direction $\tob(\hat n)$ is the undistorted temperature $\tu(\hat n)$ plus the deflection due to gravitational lensing plus a term proportional to the small fractional difference $\fd(\hat n)$ %\scott{Based on emails with Wayne, I now think the sign of the 2nd term on the right should be negative}:
+\wh{
 \be
-\tob(\hat n) = \tu(\hat n) - \nabla_{i} \phi(\hat n) \nabla^{i}\tu(\hat n) - \frac{\partial\tu(\hat n)}{\partial \ln D_*}\, \fd(\hat n)
-.\ee
+\tob(\hat n) = \tu(\hat n) - \nabla_{i} \phi(\hat n) \nabla^{i}\tu(\hat n) - \frac{\partial\tu(\hat n)}{\partial \ln D}\, \fd(\hat n),
+\ee
+where $D$ is the distance to the radiation sources, here mainly $D=D_*$ the distance 
+to recombination.  We shall see below that we an express this radial derivative in
+terms of the radiation transfer function.
 %\wh{I'm unclear on what caveat you are pointing out here - at this point, we're just linearizing and haven't yet
 %dropped any cross terms as far as I can see: The first term is caused by lensing and the second term is due to time delay. 
 %
@@ -181,24 +185,25 @@ observed temperature in a given direction $\tob(\hat n)$ is the undistorted temp
 %
 % so I think you are OK with commenting it out?
 %
-The third term's derivative can be evaluated by recalling that the undistorted temperature can be expanded in spherical harmonics with coefficients
-\be
-\tu_{lm} = 4\pi(-i)^{l} \int \frac{d^{3}k}{(2\pi)^{3}}Y_{lm}^{*}(\hat{k})S(\vec k;\eta_{*})j_{l}(kD_{*}) ,
-\ee
-where $S$ is the source function, dominated on small scales by the monopole and dipole, as in Eq. (22) of Ref.~\cite{Hu:2001bc}. The derivative with respect to distance then acts on the spherical Bessel function, and after expanding the fractional difference in spherical harmonics as well, we obtain
+%The third term's derivative can be evaluated by recalling that the undistorted temperature can be expanded in spherical harmonics with coefficients
+%\be
+%\tu_{lm} = 4\pi(-i)^{l} \int \frac{d^{3}k}{(2\pi)^{3}}Y_{lm}^{*}(\hat{k})S(\vec k;\eta_{*})j_{l}(kD_{*}) ,
+%\ee
+%where $S$ is the source function, dominated on small scales by the monopole and dipole, as in Eq. (22) of Ref.~\cite{Hu:2001bc}. The derivative with respect to distance then acts on the spherical Bessel function, and after expanding the fractional difference in spherical harmonics as well, we obtain
 %
 % you seem to have defined conflicting macros and not changed this line:
 %\be
 %\tob_{lm} = \tu_{lm} -\delta \Theta_{lm}^{\rm lens}- \delta \td_{lm}
 %\ee
 % so: 
+In harmonic space we can write
 \be
 \tob_{lm} = \tu_{lm} -\dtl_{lm}- \dtd_{lm}
 \ee
-with the two first order terms due to deflection and the change in distance equal to
+with the two first order terms due to deflection and the change in distance equal to}
 \bea
 \dtl_{lm} &=& \sum_{LM}\sum_{l'm'}{}_{0}I_{lLl'}^{mMm'}\tu_{l'm'}\phi_{LM},\\
-\dtd_{lm} &=& \sum_{LM}\sum_{l'm'} {}_{0} J_{lLl'}^{mMm'}\frac{\partial \tu_{l'm'}(D_{*})}{\partial \ln D_{*}}d_{LM}\eql{dtd}
+\dtd_{lm} &=& \sum_{LM}\sum_{l'm'} {}_{0} J_{lLl'}^{mMm'}\frac{\partial \tu_{l'm'}}{\partial \ln D}d_{LM}\eql{dtd}
 .\eea
 Here, we have written the integral over the product of three spherical harmonics as $_0I$ and $_0J$ to enable generalization to the case of polarization, which involves spin $s=2$ harmonics. The general expression is  
 %\scott{I get two $(-1)^m$ factors: once when converting the complex conjugate and once when using Eq 12 from Okamoto-Hu.}\scott{Update: I think i now disagree with the $(-1)^{m_1}$ factor in Eq 12 of Okamoto-Hu, which means that I now agree with the $(-1)^m$'s here}
@@ -348,16 +353,17 @@ The estimator above used only the temperature anisotropy field, but the polariza
 \big[ \phi_{LM}f^{\alpha}_{l_{1}Ll_{2}} + d_{LM}g^{\alpha}_{l_{1}Ll_{2}} \big] 
 .\eea
 The functions $f^\alpha$ and $g^\alpha$ are the generalizations of \ec{lfg} to include polarization (\ec{lfg} now corresponds to $\alpha=\Theta\Theta$). The full set of $f^{\alpha}$ was determined by Ref.~\cite{Okamoto:2003zw} and is reproduced in Table 1, which now includes the full set of $g^{\alpha}$ that govern the impact of changing radial distances. Note that $\tilde C_l$ corresponds to the spectra of the unlensed fields; and $\tilde C_l^{\Theta\Theta,d}$ for example is the radial derivative of the unlensed spectrum.%  \scott{I think we should change the $\tilde C \rightarrow C$ here, since they are not the spectra of the unlensed fields: they are the radial derivatives of the spectra, right?} \wh{They are radial derivatives of the unlensed (i.e. before lensing) fields}
-Note that the angular deflection coefficients $f^\alpha$ do not carry superscript $^d$ because the derivatives are transverse and therefore captured by powers of $\ell$. The radial derivatives in the $g^\alpha$ must be computed directly, as in \ec{cld} and \ec{timeevol}. For example,
+Note that the angular deflection coefficients $f^\alpha$ do not carry superscript $^d$ because the derivatives are transverse and therefore captured by powers of $\ell$. The radial derivatives in the $g^\alpha$ must be computed directly, as in \ec{cld} in terms of the  
+transfer functions
 \bea
-\tilde{C}^{\Theta E,d}_{l} \equiv \frac{2}{\pi}\,\int_0^\infty k^{2}dk \,&&\mathcal{P}_{R}(k)\left\{T_{\Theta}[j_l;k]T_{E}^{(1)}[j_l^{(22)};k]\right. \vs
-&& \left.+ T^{(1)}_{\Theta}[j_l;k]T_{E}[j_l^{(22)};k] \right\}/2
+\tilde{C}^{XY,d}_{l} \equiv \frac{2}{\pi}\,\int_0^\infty k^{2}dk \,&&{P}_{R}(k)\frac{1}{2} \left\{T_{X}[l;k]T_{Y}^{(1)}[l;k]\right. \vs
+&& \left.+ T^{(1)}_{Y}[l;k]T_{X}[l;k] \right\}
 \eea
-similarly with 
+where $X, Y \in T, E$ with  
 \begin{equation}
-T_E^{(1)} \equiv \frac{\partial T_E}{\partial \ln D}
+T_X^{(1)} \equiv \frac{\partial T_X}{\partial \ln D}.
 \end{equation}
-differentiation over radial function $j_{l}^{(22)}(x)\propto j_l(x)/x^2$ inside the integrand, notice we only include scalar mode here. See Ref.~\cite{Hu:1997de} for a more detailed discussion.
+ See Ref.~\cite{Hu:1997de} for a more detailed discussion.
 %\wh{We still need to comment on the link to what is actually done, which is to include the time variation of the source fields}
 
 \begin{table}[thbp]
