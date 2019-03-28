@@ -445,48 +445,51 @@ According to Appendix B of Ref.~\cite{Hu:2000xe}, we can see that wigner-3j with
 \section{Cross Power Spectrum}
 The auto-spectrum of the distortion field, $d$, will apparently be very challenging to extract. Another possibility is to cross-correlate the quadratic estimator for the distortion field with other fields that are well-measured. Cross-correlations can be more easily detected if the two-fields are highly correlated and one of the fields can be detected with high signal to noise. 
 
-As a first attempt, we consider the cross-spectrum of the distance distortion field with the projected potential responsible for deflections, $\phi$. An estimator for this cross-spectrum is 
+As a first attempt, we consider the cross correlation of the two estimators
 \bea
-\hat{C}_{LM}^{\phi d,\alpha \beta} = \hat{\phi}^{\alpha*}_{LM}\hat{d}^{\beta}_{LM}-N_{L}^{c,\alpha \beta},
+ \langle \hat{\phi}^{\alpha*}_{LM}\hat{d}^{\beta}_{LM} \rangle= \hat{C}_{L}^{\phi d} +N_{L}^{c},
 \eea 
-$c$ stands for cross here; where the bias is equal to the noise is
+$c$ stands for cross here.  Note that the noise in the estimators are correlated because 
+both come from the same quadratic combinations of observables
+%where the bias is equal to the noise is
 %where $\mathcal{N}_{L}^{\alpha \beta}$ is the bias of the expectation value of $\hat{\phi}^{\alpha*}_{LM}\hat{d}^{\beta}_{LM}$ and the power spectrum
 %\bea
 %\langle \hat{\phi}^{\alpha*}_{LM} \hat{d}^{\beta}_{L'M'}\rangle = \delta_{LL'}\delta_{MM'}(C_{L}^{\phi d}+\mathcal{N}_{L}^{\alpha \beta})
 %\eea
 %thus $\mathcal{N}^{\alpha \beta}_{L}$ is given similarly as $N_{L}^{\alpha \beta}$ by
 \bea
-N_{L}^{c,\alpha\beta}&=&\frac{A_{L}^{\alpha*}B_{L}^{\beta}}{(2L+1)}\sum_{l_{1}l_{2}}  \left\{ h_{l_{1}l_{2}}^{\alpha,\phi*} (L)\big[ C_{l_{1}}^{ac}C_{l_{2}}^{bd}h_{l_{1}l_{2}}^{\alpha,d}(L)\right. \nonumber \\
-&&\left. +(-1)^{L+l_{1}+l_{2}}C_{l_{1}}^{ad}C_{l_{2}}^{bc} h_{l_{2}l_{1}}^{\beta,d}(L)  \big]\right\}\eql{full} 
+N_{L}^{c}&=&\frac{A_{L}^{\alpha*}B_{L}^{\beta}}{(2L+1)}\sum_{l_{1}l_{2}}  \left\{ h_{l_{1}l_{2}}^{\alpha,\phi*} (L)\big[ C_{l_{1}}^{ac}C_{l_{2}}^{bd}h_{l_{1}l_{2}}^{\alpha,d}(L)\right. \nonumber \\
+&&\left. +(-1)^{L+l_{1}+l_{2}}C_{l_{1}}^{ad}C_{l_{2}}^{bc} h_{l_{2}l_{1}}^{\beta,d}(L)  \big]\right\}.\eql{full} 
 \eea
-Gaussian covariance of $\hat{C}_{LM}^{\phi d,\alpha \beta} $ is
-\bea 
-&&\big\langle \hat{C}_{LM}^{\phi d,\alpha \beta*} \hat{C}_{LM}^{\phi d,\gamma \sigma} - (C_{L}^{\phi d})^{2} \big\rangle/(2L+1) \nonumber \\
-&=&\left\{(C_{L}^{\phi d}+N_{L}^{c,\alpha \beta})(C_{L}^{\phi d}+N_{L}^{c,\gamma \sigma})\right. \nonumber \\
-&&+(C_{L}^{\phi d}+N_{L}^{c,\alpha \sigma})(C_{L}^{\phi d}+N_{L}^{c,\beta \gamma})\nonumber \\
-&&+(C_{L}^{\phi \phi}+N_{L}^{\phi,\alpha \gamma})(C_{L}^{d d}+N_{L}^{d,\beta \sigma})\nonumber\\
-&&-(C_{L}^{\phi d}+N_{L}^{c,\alpha \beta})N_{L}^{c,\gamma \sigma}-(C_{L}^{\phi d}+N_{L}^{c,\gamma \sigma})N_{L}^{c,\alpha \beta}\nonumber \\
-&&\left. +N_{L}^{c,\alpha \beta}N_{L}^{c,\gamma \sigma}-(C_{L}^{\phi d})^{2}\right\}/(2L+1)
-\eea
-When $(\alpha\beta)=(\gamma \sigma)$, this simplifies to
-\bea 
-&&\frac{1}{2L+1}\left\{(C_{L}^{\phi d}+N_{L}^{c,\alpha \beta})^{2}\right. \nonumber \\
-&&\left. 
-+(C_{L}^{\phi \phi} +N_{L}^{\phi,\alpha \alpha})(C_{L}^{d d}+N_{L}^{d,\beta \beta})\right\}
-\eea
-\noindent 
-
-Given these expressions, the best detectability of the cross power spectrum we can reach, defined again as the fractional error on amplitude of this spectrum, is 
+%Gaussian covariance of $\hat{C}_{LM}^{\phi d,\alpha \beta} $ is
+%\bea 
+%&&\big\langle \hat{C}_{LM}^{\phi d,\alpha \beta*} \hat{C}_{LM}^{\phi d,\gamma \sigma} - (C_{L}^{\phi d})^{2} \big\rangle/(2L+1) \nonumber \\
+%&=&\left\{(C_{L}^{\phi d}+N_{L}^{c,\alpha \beta})(C_{L}^{\phi d}+N_{L}^{c,\gamma \sigma})\right. \nonumber \\
+%&&+(C_{L}^{\phi d}+N_{L}^{c,\alpha \sigma})(C_{L}^{\phi d}+N_{L}^{c,\beta \gamma})\nonumber \\
+%&&+(C_{L}^{\phi \phi}+N_{L}^{\phi,\alpha \gamma})(C_{L}^{d d}+N_{L}^{d,\beta \sigma})\nonumber\\
+%&&-(C_{L}^{\phi d}+N_{L}^{c,\alpha \beta})N_{L}^{c,\gamma \sigma}-(C_{L}^{\phi d}+N_{L}^{c,\gamma \sigma})N_{L}^{c,\alpha \beta}\nonumber \\
+%&&\left. +N_{L}^{c,\alpha \beta}N_{L}^{c,\gamma \sigma}-(C_{L}^{\phi d})^{2}\right\}/(2L+1)
+%\eea
+%When $(\alpha\beta)=(\gamma \sigma)$, this simplifies to
+%\bea 
+%&&\frac{1}{2L+1}\left\{(C_{L}^{\phi d}+N_{L}^{c,\alpha \beta})^{2}\right. \nonumber \\
+%&&\left. 
+%+(C_{L}^{\phi \phi} +N_{L}^{\phi,\alpha \alpha})(C_{L}^{d d}+N_{L}^{d,\beta \beta})\right\}
+%\eea
+%\noindent 
+Assuming the estimator noise terms are Gaussian, we an  estimate the fractional
+error on a measurement of the amplitude of the cross spectra $C_l^{\phi d}$ as
 \bea
-%And we can compute cross power spectrum signal-to-noise by assuming that $(C_{L}^{\phi d}+\mathcal{N}_{L}^{\alpha \beta})=0$ and use minimu variance estimator for both lensing and time delay. Signal-to-noise in FIG.5 is given by:
-%\be
-(\sigma_{\rm cross})^{-2} &&= \sum_L (2L+1)f_{\rm sky} \vs
-&\times&\frac{(C_L^{\phi d})^2}{( C_L^{\phi d}+N_{L}^{c,\rm mv})^2+
-(C_L^{\phi\phi}+N_L^{\phi,\rm mv})(C_L^{dd}+N_L^{d,\rm mv})}.\vs
 \eql{sn1}
+%And we can compute cross power spectrum signal-to-noise by assuming that $(C_{L}^{\phi d}+\mathcal{N}_{L}^{\alpha \beta})=0$ and use minimu variance estimator for both lensing and time delay. Signal-to-noise in FIG.5 is given by:
+\frac{1}{\sigma_{\rm cross}^{2} }&=& \sum_{L=1}^{L_{\rm max}}(2L+1)f_{\rm sky} \\
+&&\times\frac{(C_L^{\phi d})^2}{( C_L^{\phi d}+N_{L}^{c})^2+
+(C_L^{\phi\phi}+N_L^{\phi})(C_L^{dd}+N_L^{d})}. \nonumber
 \eea
-We set $f_{\rm sky}=1$ and sum up tp $L=100$ to find the detectability, as shown in Fig.~\rf{CrossStoN}. We could see that in this ideal case, $S/N$ could reach about $2.5$, which still may not be detectable.
-\Sfig{CrossStoN}{The detectability of the cross power spectrum of the distance distortion field and the potential inducing deflections as a function of $L_{\rm max}$. Unlike the auto-spectrum, there is signal out to $L_{\rm max}\sim 100$, but the contributions to the detectability plateau after that, so the best that can be hoped for with this cross spectrum is a 3-sigma detection. We still set $l_{\rm max}=7000$ for all three noise terms.}
+For the $\alpha\beta$ pair that corresponds to the minimum variance estimator of
+$\phi$ and $d$ individually, we show this quantity in Fig.~\rf{CrossStoN} where we have set
+ $f_{\rm sky}=1$. We  see that in this ideal case, $S/N$ could reach about $2.5$. 
+ \Sfig{CrossStoN}{The detectability of the cross power spectrum of the distance distortion field and the potential inducing deflections as a function of $L_{\rm max}$. Unlike the auto-spectrum, there is signal out to $L_{\rm max}\sim 100$, but the contributions to the detectability plateau after that, so the best that can be hoped for with this cross spectrum is a 3-sigma detection. We still set $l_{\rm max}=7000$ for all three noise terms.}
 
 \section{Conclusions}
 
