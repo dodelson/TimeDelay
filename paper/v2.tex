@@ -516,6 +516,11 @@ $\phi$ and $d$ individually, we show this quantity in Fig.~\rf{CrossStoN} where 
  \Sfig{CrossStoN}{The detectability of the cross power spectrum of the distance distortion field and the potential inducing deflections as a function of $L_{\rm max}$. Unlike the auto-spectrum, there is signal out to $L_{\rm max}\sim 100$, but the contributions to the detectability plateau after that, so the best that can be hoped for with this cross spectrum is a $2.5\sigma$ detection
  for $l_{\rm max}=7000$.}
  
+\wh{ Up until this point, we have assumed that the estimators of $\phi$ and $d$ are not 
+ contaminated by the other so as to provide the most optimistic bound on detectability of the
+ delay distortion.   Since the cross power spectrum is potentially measurable at low $S/N$ we
+ conclude by estimating this contamination.}
+ 
  \peikai{The presence of both the deflection and the distance perturbations to the CMB leads to contamination of each of the quadratic estimators, which implicitly neglected the other. For example, the distance estimator in \ec{distest} will get contributions from the deflection field $\delta\Theta^{\rm defl}$. Of course it is possible to construct estimators that are independent of one another, but for now, we simply estimate the magnitude of the contaminations.
 Consider a lensing quadratic estimator given by Okamoto \& Hu
 \bea
@@ -526,6 +531,19 @@ Here $h^{\alpha,\phi}_{l_{1}l_{2}}$ has a similar expression to $h^{\alpha,\phi}
 \bea
 && \langle \hat{d}^{\alpha}_{LM} \rangle = d_{LM} +\phi_{LM}E_{L}^{\alpha}
 \eea
+\wh{suggest you redefine
+\bea
+&& \langle \hat{d}^{\alpha}_{LM} \rangle = d_{LM} +\phi_{LM}E_{L}^{\alpha}\sqrt{\frac{C_L^{dd}}{C_L^{\phi\phi}}}
+\eea
+so that the contamination $E$ is measured as a fraction of the rms $d$. 
+Then discuss the bias in the cross power measurement
+\bea
+ \langle \hat{\phi}^{\alpha*}_{LM}\hat{d}^{\beta}_{LM} \rangle= {C}_{L}^{\phi d}+ C_L^{dd} E_L^\alpha +N_{L}^{c},
+\eea 
+and finally
+ also define the
+converse contamination and discuss whether lensing estimators ever need worry about this
+effect.}
 where $E^{\alpha}_{L}$ is given by
 \be
 E^{\alpha}_{L} = \frac{\sum_{l_{1}l_{2}}h_{l_{1}l_{2}}^{\alpha,d}(L)f_{l_{1}Ll_{2}}^{\alpha}}{\sum_{l_{1}l_{2}}h_{l_{1}l_{2}}^{\alpha,d}(L)g_{l_{1}Ll_{2}}^{\alpha}}
