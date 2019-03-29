@@ -453,11 +453,13 @@ We saw in Fig.~\rf{Delay} that small scale temperature maps only are not suffici
 
 \Sfig{StoN}{Detectability of the spectrum of the time delay signal, $\sigma_d$, using \ec{sn} for different quadratic estimators as a function of the largest $l$-mode accessed. Here we set $f_{\rm sky}$ to be $1$.}
 Here we keep $l_{\rm min}$ fixed at $1000$ for the CMB fields (we tested that our final results are insensitive to this choice) and let $l_{\rm max}$ vary.
-We can see that at $l_{\rm max} \approx 5000$, the minimum variance estimator detectability reaches 1, and at 7000 is 1.42 but of course this is for the most optimistic of configurations. \wh{%What noise level is this?  if no noise why isn't $\Theta\Theta$ above one at $l_{\rm max}=7000$ as it seems to be in previous plot?  
-Any comments on the differences between lensing and delay estimators especially on $B$ modes?} %$S/N \approx 1$.  \wh{some words on why $l_{\rm min}$? and whether that matters?}
-According to Appendix B of Ref.~\cite{Hu:2000xe}, we can see that wigner-3j with odd $l_{1}+l_{2}+L$ is much smaller than its even counterpart. Unlike the deflection case, we don't have a compensation term in front. 
-\wh{This is an obscure way of phrasing the explanation even to me. }
-This would result in a much smaller detectability for estimators with B-modes, so we don't include those in Fig.~\rf{StoN}.
+We can see that at $l_{\rm max} \approx 5000$, the minimum variance estimator detectability reaches 1, and at 7000 is 1.42 but of course this is for the most optimistic of configurations. 
+Note that unlike the minimum variance lensing  estimator, the deflection estimator
+gets little contribution from $EB$.   This is because the conversion of $E$ modes to $B$
+modes is inefficient in the squeezed limit where $L\ll l$ and that the $B$ modes from lensing
+provide an intrinsic floor to detectability even in the absence of undistorted $B$ modes
+from gravitational waves.
+
 
 
 \section{Cross Power Spectrum}
