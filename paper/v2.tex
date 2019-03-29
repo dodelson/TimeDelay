@@ -1,6 +1,6 @@
 %\documentclass[prd,twocolumn,amsmath,amssymb,floatfix,superscriptaddress,nofootinbib,preprintnumbers]{revtex4-1}
 %\documentclass[prl,amsmath,amssymb,floatfix,superscriptaddress,nofootinbib,preprintnumbers]{revtex4-1}
-\documentclass[prl,amsmath,amssymb,floatfix,superscriptaddress,nofootinbib,twocolumn]{revtex4-1}
+\documentclass[prd,amsmath,amssymb,floatfix,superscriptaddress,nofootinbib,twocolumn]{revtex4-1}
 
 \def\be{\begin{equation}}
 \def\ee{\end{equation}}
@@ -238,7 +238,7 @@ As in the case of the effect of deflections on the CMB, the varying distances to
 \tilde C_l^{\Theta\Theta} =  \frac{2}{\pi}\,\int_0^\infty k^2 dk P_{\cal R} T_l^ \Theta(k)T_l^ \Theta(k)
 \eql{cdtt}
 \end{equation}
-where $T_\Theta[l;k]$ is the radiation transfer function and $P_{\cal R}$ is the  power spectrum of the initial curvature field ${\cal R}$.  Note that the transfer function is a radial integral over
+where $T_l^\Theta(k)$ is the radiation transfer function and $P_{\cal R}$ is the  power spectrum of the initial curvature field ${\cal R}$.  Note that the transfer function is a radial integral over
 the sources at a distance $D$, projected onto multipole moment $l$.
 We proceed as in Ref.~\cite{Hu:2001tn} by focusing on the expectation of off-diagonal (${l_1,m_1\ne l_2,m_2}$) terms quadratic in the observed moments:
 \bea
@@ -333,9 +333,13 @@ A_L &\equiv&
  \left\{ \sum_{l_1l_2} h^{\phi}_{l_1l_2}(L)f_{l_1Ll_2}\right\}^{-1}\nonumber\\
 B_L &\equiv& (2L+1) \left\{ \sum_{l_1l_2} h^{d}_{l_1l_2}(L)g_{l_1Ll_2}\right\}^{-1}.\eql{bt}
 \eea 
-With these definitions, the expectation values of the two estimators are equal to $\phi_{LM}$ and $d_{LM}$ respectively. \wh{comment on cross contamination of the estimators or say we
-ignore it for now.
-each are only unbiased in the absence of the other}
+\wh{
+With these definitions, 
+$\langle \hat\phi_{LM} \rangle = \phi_{LM}$ when $d_{LM}=0$ and
+$\langle \hat d _{LM} \rangle = d_{LM}$ when $\phi_{LM}=0$.  We return to the issue
+of cross contamination of the estimators in Sec.~\ref{sec:cross}.}
+
+
 %\bea
 %\langle \hat{\phi}_{LM} \rangle &=& \sqrt{L(L+1)} \phi_{LM} \\
 %\langle \hat{d}_{LM} \rangle &=& d_{LM}
@@ -457,6 +461,8 @@ This would result in a much smaller detectability for estimators with B-modes, s
 
 
 \section{Cross Power Spectrum}
+\label{sec:cross}
+
 The auto-spectrum of the distortion field, $d$, will apparently be very challenging to extract. Another possibility is to cross-correlate the quadratic estimator for the distortion field with other fields that are well-measured. Cross-correlations can be more easily detected if the two-fields are highly correlated and one of the fields can be detected with high signal to noise. 
 
 As a first attempt, we consider the cross correlation of the two estimators without 
