@@ -401,7 +401,7 @@ $BB$ &$\tilde{C}_{l_{1}}^{BB} {}_{2}F_{l_{2}Ll_{1}}+\tilde{C}_{l_{2}}^{BB}{}_{2}
 \caption{Explicit forms for $f$ anb $h$ of various polarizations. Notice that for $TT$, $TE$, $EE$ and $BB$ polarization these functions are ``even"; for $TB$ and $EB$ polarization they are ``odd" instead. ``Even" and ``Odd" indicate that the functions are non-zero only when $l_{1}+l_{2}+L$ are even or odd, respectively.}
 \end{table}
 
-An estimator can now be constructed for each of the pairs of fields (except $BB$ \wh{what does this refer to given the table has BB - do you mean that we later assume the undistorted BB, $\tilde C_l^{BB}=0$}), so letting $\alpha$ denote pairs of fields $(ab)$, we have
+An estimator can now be constructed for each of the pairs of fields (except $BB$ \wh{what does this refer to given the table has BB - do you mean that we later assume the undistorted BB, $\tilde C_l^{BB}=0$} \peikai{I actually computed $\tilde{C}^{BB}$ and $\tilde{C}^{BB,d}$ using tensor mode; while for $\Theta$ and E I used scalar modes only. So could we just set $a=\Theta,E,B$ to make it consistent? Maybe make an annotation for it.}), so letting $\alpha$ denote pairs of fields $(ab)$, we have
 \bea
 \hat{d}^{\alpha}_{LM} &=&\nonumber  (-1)^{M} B_{L}^{\alpha}\sum_{l_{1}m_{1}}\sum_{l_{2}m_{2}}\bigl(\begin{smallmatrix} l_1 & l_2 & L \\ m_1 & m_2 & -M  \end{smallmatrix}\bigr) \\
 && \times h^{\alpha,d}_{l_{1}l_{2}}(L) a^{obs}_{l_{1}m_{1}}b^{obs}_{l_{2}m_{2}} ,
@@ -449,7 +449,7 @@ We saw in Fig.~\rf{Delay} that small scale temperature maps only are not suffici
 
 \Sfig{StoN}{Detectability of the spectrum of the time delay signal, $\sigma_d$, using \ec{sn} for different quadratic estimators as a function of the largest $l$-mode accessed. Here we set $f_{\rm sky}$ to be $1$.}
 Here we keep $l_{\rm min}$ fixed at $1000$ for the CMB fields (we tested that our final results are insensitive to this choice) and let $l_{\rm max}$ vary.
-We can see that at $l_{\rm max} \approx 5000$, the minimum variance estimator detectability reaches 1, \wh{and at 7000 is 1.X} but of course this is for the most optimistic of configurations. \wh{%What noise level is this?  if no noise why isn't $\Theta\Theta$ above one at $l_{\rm max}=7000$ as it seems to be in previous plot?  
+We can see that at $l_{\rm max} \approx 5000$, the minimum variance estimator detectability reaches 1, and at 7000 is 1.42 but of course this is for the most optimistic of configurations. \wh{%What noise level is this?  if no noise why isn't $\Theta\Theta$ above one at $l_{\rm max}=7000$ as it seems to be in previous plot?  
 Any comments on the differences between lensing and delay estimators especially on $B$ modes?} %$S/N \approx 1$.  \wh{some words on why $l_{\rm min}$? and whether that matters?}
 According to Appendix B of Ref.~\cite{Hu:2000xe}, we can see that wigner-3j with odd $l_{1}+l_{2}+L$ is much smaller than its even counterpart. Unlike the deflection case, we don't have a compensation term in front. 
 \wh{This is an obscure way of phrasing the explanation even to me. }
@@ -506,6 +506,22 @@ $\phi$ and $d$ individually, we show this quantity in Fig.~\rf{CrossStoN} where 
  $f_{\rm sky}=1$. We  see that in this ideal case, $S/N$ could reach about $2.5$. 
  \Sfig{CrossStoN}{The detectability of the cross power spectrum of the distance distortion field and the potential inducing deflections as a function of $L_{\rm max}$. Unlike the auto-spectrum, there is signal out to $L_{\rm max}\sim 100$, but the contributions to the detectability plateau after that, so the best that can be hoped for with this cross spectrum is a $2.5\sigma$ detection
  for $l_{\rm max}=7000$.}
+ 
+ \peikai{The presence of both the deflection and the distance perturbations to the CMB leads to contamination of each of the quadratic estimators, which implicitly neglected the other. For example, the distance estimator in \ec{distest} will get contributions from the deflection field $\delta\Theta^{\rm defl}$. Of course it is possible to construct estimators that are independent of one another, but for now, we simply estimate the magnitude of the contaminations.
+Consider a lensing quadratic estimator given by Okamoto \& Hu
+\bea
+\hat{\phi}^{\alpha}_{LM} &=&\nonumber \frac{A_{L}^{\alpha}}{\sqrt{L(L+1)}}\sum_{l_{1}m_{1}}\sum_{l_{2}m_{2}} \\
+&& (-1)^{M}\bigl(\begin{smallmatrix} l_1 & l_2 & L \\ m_1 & m_2 & -M  \end{smallmatrix}\bigr) h^{\alpha,\phi}_{l_{1}l_{2}}(L) a^{obs}_{l_{1}m_{1}}b^{obs}_{l_{2}m_{2}}
+\eea
+Here $h^{\alpha,\phi}_{l_{1}l_{2}}$ has a similar expression to $h^{\alpha,\phi}_{l_{1}l_{2}}$ with $g$ replaced by $f$. And we can compute the lensing contamination of this time delay estimator
+\bea
+&& \langle \hat{d}^{\alpha}_{LM} \rangle = d_{LM} +\phi_{LM}E_{L}^{\alpha}
+\eea
+where $E^{\alpha}_{L}$ is given by
+\be
+E^{\alpha}_{L} = \frac{\sum_{l_{1}l_{2}}h_{l_{1}l_{2}}^{\alpha,d}(L)f_{l_{1}Ll_{2}}^{\alpha}}{\sum_{l_{1}l_{2}}h_{l_{1}l_{2}}^{\alpha,d}(L)g_{l_{1}Ll_{2}}^{\alpha}}
+\ee
+And contamination from lensing is relatively large, $E_{L=1}^{TT} \approx -1.73$.}
 
 \section{Conclusions}
 
