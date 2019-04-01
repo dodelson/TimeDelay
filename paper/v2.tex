@@ -365,7 +365,7 @@ $\theta_{\rm FWHM}=1'$ or $4'$. Here, $f_{\rm sky}$ is set to one.} %\scott{Peik
 
 The estimator above used only the temperature anisotropy field, but the polarization field contains even more information about the lensing potential that governs deflection and distance changes. This was worked out in detail by Ref.~\cite{Okamoto:2003zw} for deflection, and we follow their notation here. There are now three fields of interest: temperature $\Theta$, and the two fields associated with polarization, $E$ and $B$. With letters $a,b$ each ranging over these three fields, we have 
 \bea
-\langle a^{\rm obs}_{l_{1}m_{1}}b^{obs}_{l_{2}m_{2}}\rangle &=& \sum_{LM}(-1)^{M}\bigl(\begin{smallmatrix} l_1 & l_2 & L \\ m_1 & m_2 & -M  \end{smallmatrix}\bigr)\nonumber \\
+\langle a^{\rm obs}_{l_{1}m_{1}}b^{\rm obs}_{l_{2}m_{2}}\rangle &=& \sum_{LM}(-1)^{M}\bigl(\begin{smallmatrix} l_1 & l_2 & L \\ m_1 & m_2 & -M  \end{smallmatrix}\bigr)\nonumber \\
 &&\times
 \big[ \phi_{LM}f^{\alpha}_{l_{1}Ll_{2}} + d_{LM}g^{\alpha}_{l_{1}Ll_{2}} \big] 
 .\eea
@@ -407,7 +407,7 @@ $BB$ &$\tilde{C}_{l_{1}}^{BB} {}_{2}F_{l_{2}Ll_{1}}+\tilde{C}_{l_{2}}^{BB}{}_{2}
 An estimator can now be constructed for each of the pairs of fields, so letting $\alpha$ denote pairs of fields $(ab)$, we have
 \bea
 \hat{d}^{\alpha}_{LM} &=&\nonumber  (-1)^{M} B_{L}^{\alpha}\sum_{l_{1}m_{1}}\sum_{l_{2}m_{2}}\bigl(\begin{smallmatrix} l_1 & l_2 & L \\ m_1 & m_2 & -M  \end{smallmatrix}\bigr) \\
-&& \times h^{\alpha,d}_{l_{1}l_{2}}(L) a^{obs}_{l_{1}m_{1}}b^{obs}_{l_{2}m_{2}} ,
+&& \times h^{\alpha,d}_{l_{1}l_{2}}(L) a^{\rm obs}_{l_{1}m_{1}}b^{\rm obs}_{l_{2}m_{2}} ,
 \eea
 where the coefficients are generalizations of \ec{bt} with $g$ and $h$ there acquiring superscripts $\alpha$. The $g^\alpha$ are given in Table 1 and the minimizing weights are
 \be
@@ -580,7 +580,7 @@ F^{\alpha}_{L} &=& \frac{\sum_{l_{1}l_{2}}h_{l_{1}l_{2}}^{\alpha,\phi}(L)g_{l_{1
 %Consider a lensing quadratic estimator given by Okamoto \& Hu
 %\bea
 %\hat{\phi}^{\alpha}_{LM} &=&\nonumber A_L^{\alpha}\sum_{l_{1}m_{1}}\sum_{l_{2}m_{2}} \\
-%&& (-1)^{M}\bigl(\begin{smallmatrix} l_1 & l_2 & L \\ m_1 & m_2 & -M  \end{smallmatrix}\bigr) h^{\alpha,\phi}_{l_{1}l_{2}}(L) a^{obs}_{l_{1}m_{1}}b^{obs}_{l_{2}m_{2}}
+%&& (-1)^{M}\bigl(\begin{smallmatrix} l_1 & l_2 & L \\ m_1 & m_2 & -M  \end{smallmatrix}\bigr) h^{\alpha,\phi}_{l_{1}l_{2}}(L) a^{\rm obs}_{l_{1}m_{1}}b^{\rm obs}_{l_{2}m_{2}}
 %\eea
 %Here $h^{\alpha,\phi}_{l_{1}l_{2}}$ has a similar expression to $h^{\alpha,\phi}_{l_{1}l_{2}}$ with $g$ replaced by $f$. And we can compute the lensing contamination of this time delay estimator
 %\bea
@@ -632,7 +632,7 @@ The last scattering surface of the CMB is not purely spherical due to the differ
 %Consider a lensing quadratic estimator given by Okamoto \& Hu
 %\bea
 %\hat{\phi}^{\alpha}_{LM} &=&\nonumber \frac{A_{L}^{\alpha}}{\sqrt{L(L+1)}}\sum_{l_{1}m_{1}}\sum_{l_{2}m_{2}} \\
-%&& (-1)^{M}\bigl(\begin{smallmatrix} l_1 & l_2 & L \\ m_1 & m_2 & -M  \end{smallmatrix}\bigr) h^{\alpha,\phi}_{l_{1}l_{2}}(L) a^{obs}_{l_{1}m_{1}}b^{obs}_{l_{2}m_{2}}
+%&& (-1)^{M}\bigl(\begin{smallmatrix} l_1 & l_2 & L \\ m_1 & m_2 & -M  \end{smallmatrix}\bigr) h^{\alpha,\phi}_{l_{1}l_{2}}(L) a^{\rm obs}_{l_{1}m_{1}}b^{\rm obs}_{l_{2}m_{2}}
 %\eea
 %Here $h^{\alpha,\phi}_{l_{1}l_{2}}$ has a similar expression to $h^{\alpha,\phi}_{l_{1}l_{2}}$ with $g$ replaced by $f$. And we can compute the lensing contamination of this time delay estimator
 %\bea
