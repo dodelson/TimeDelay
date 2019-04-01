@@ -166,7 +166,7 @@ It is clear that they will be highly correlated, so as a first approximation, we
 \newcommand\tu{\tilde{\Theta}}
 \newcommand\td{\Theta^{\rm dist}}
 The %starting point is to assume that the last scattering surface is infinitely thin, note that the 
-observed temperature in a given direction $\tob(\hat n)$ is the undistorted temperature $\tu(\hat n)$ plus the deflection due to gravitational lensing plus a term proportional to the small fractional difference $\fd(\hat n)$.  \wh{Linearizing these distortions, we obtain
+observed temperature in a given direction $\tob(\hat n)$ is the undistorted temperature $\tu(\hat n)$ plus the deflection due to gravitational lensing plus a term proportional to the small fractional difference $\fd(\hat n)$.  Linearizing these distortions, we obtain
 \be
 \tob(\hat n) = \tu(\hat n) - \nabla_{i} \phi(\hat n) \nabla^{i}\tu(\hat n) - \frac{\partial\tu(\hat n)}{\partial \ln D}\, \fd(\hat n),
 \ee
@@ -198,7 +198,7 @@ In harmonic space we can write
 \be
 \tob_{lm} = \tu_{lm} -\dtl_{lm}- \dtd_{lm}
 \ee
-with the two first order terms due to deflection and the change in distance equal to}
+with the two first order terms due to deflection and the change in distance equal to
 \bea
 \dtl_{lm} &=& \sum_{LM}\sum_{l'm'}{}_{0}I_{lLl'}^{mMm'}\tu_{l'm'}\phi_{LM},\nonumber\\
 \dtd_{lm} &=& \sum_{LM}\sum_{l'm'} {}_{0} J_{lLl'}^{mMm'}\frac{\partial \tu_{l'm'}}{\partial \ln D}d_{LM}\eql{dtd}
@@ -224,12 +224,10 @@ with
 %{}_{s}F_{lLl'} &\equiv& \big[L(L+1)-l'(l'+1)+l(l+1)\big]\nonumber  \\& \times& \frac{\big[ (2l+1)(2L+1)(2l'+1)\big]^{1/2} }{\sqrt{16 \pi}} \bigl(\begin{smallmatrix} l & L & l' \\ s & 0 & -s  \end{smallmatrix}\bigr) ,\nonumber\\
 %{}_{s}G_{lLl'} &\equiv& \frac{\big[ (2l+1)(2L+1)(2l'+1)\big]^{1/2} }{\sqrt{4 \pi}} \bigl(\begin{smallmatrix} l & L & l' \\ s & 0 & -s  \end{smallmatrix}\bigr)\eql{fg}
 %\eea
-\wh{
 \bea
 {}_{s}F_{lLl'} &\equiv& \big[L(L+1)-l'(l'+1)+l(l+1)\big]  \\& \times&\sqrt{ \frac{ (2l+1)(2L+1)(2l'+1) }{16 \pi} }\begin{pmatrix} l & L & l'  \\   s & 0 & -s  \end{pmatrix} ,\nonumber\\
 {}_{s}G_{lLl'} &\equiv& \sqrt{ \frac{(2l+1)(2L+1)(2l'+1) }{4 \pi}} \begin{pmatrix} l & L & l' \\  \vphantom{a^b} s & 0 & -s  \end{pmatrix}\eql{fg} \nonumber
 .\eea
-}
 Note the extra two powers of the multipoles in the function $F$ that governs deflection; these follow from the fact that both the temperature and the potential are differentiated with respect to transverse position on the sky. By contrast, the radial derivative that governs the impact of the time delay, or change in distance to the last scattering surface, appears in \ec{dtd} as the logarithmic derivative of the undistorted coefficients $\tilde\Theta_{LM}$.
 
 As in the case of the effect of deflections on the CMB, the varying distances to the last scattering surface leads to correlations between $l$-modes that differ from one another. 
