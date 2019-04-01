@@ -520,45 +520,66 @@ Up until this point, we have assumed that the estimators of $\phi$ and $d$ are n
  delay distortion.   Since the cross power spectrum is potentially measurable at low $S/N$ we
  conclude by estimating this contamination.
  
- \peikai{The presence of both the deflection and the distance perturbations to the CMB leads to contamination of each of the quadratic estimators, which implicitly neglected the other. For example, the distance estimator in \ec{distest} will get contributions from the deflection field $\delta\Theta^{\rm defl}$. Of course it is possible to construct estimators that are independent of one another, but for now, we simply estimate the magnitude of the contaminations.
-Consider a lensing quadratic estimator given by Okamoto \& Hu
-\bea
-\hat{\phi}^{\alpha}_{LM} &=&\nonumber A_L^{\alpha}\sum_{l_{1}m_{1}}\sum_{l_{2}m_{2}} \\
-&& (-1)^{M}\bigl(\begin{smallmatrix} l_1 & l_2 & L \\ m_1 & m_2 & -M  \end{smallmatrix}\bigr) h^{\alpha,\phi}_{l_{1}l_{2}}(L) a^{obs}_{l_{1}m_{1}}b^{obs}_{l_{2}m_{2}}
+ We can define the cross contamination by generalizing the computation in \ec{bt} to retain the distortion induced by $\phi$ on the estimator of $d$ and vice
+ versa from \ec{quad} for the average over CMB modes
+ \bea
+ \langle \hat{d}^{\alpha}_{LM} \rangle &\equiv& d_{LM} +\phi_{LM}E_{L}^{\alpha}\sqrt{\frac{C_L^{dd}}{C_L^{\phi\phi}}}, \nonumber\\
+ \langle \hat{\phi}^{\alpha}_{LM} \rangle &\equiv& \phi_{LM} +d_{LM}F_{L}^{\alpha}\sqrt{\frac{C_L^{\phi\phi}}{C_L^{dd}}},
 \eea
-Here $h^{\alpha,\phi}_{l_{1}l_{2}}$ has a similar expression to $h^{\alpha,\phi}_{l_{1}l_{2}}$ with $g$ replaced by $f$. And we can compute the lensing contamination of this time delay estimator
+ where $E$ and $F$ measure the expected fractional contamination to each estimator in units of their expected rms 
 \bea
-&& \langle \hat{d}^{\alpha}_{LM} \rangle = d_{LM} +\phi_{LM}E_{L}^{\alpha}
+E^{\alpha}_{L} &=& \frac{\sum_{l_{1}l_{2}}h_{l_{1}l_{2}}^{\alpha,d}(L)f_{l_{1}Ll_{2}}^{\alpha}}{\sum_{l_{1}l_{2}}h_{l_{1}l_{2}}^{\alpha,d}(L)g_{l_{1}Ll_{2}}^{\alpha}} \sqrt{\frac{C_{L}^{\phi\phi}}{C_{L}^{dd}}},\nonumber\\
+F^{\alpha}_{L} &=& \frac{\sum_{l_{1}l_{2}}h_{l_{1}l_{2}}^{\alpha,\phi}(L)g_{l_{1}Ll_{2}}^{\alpha}}{\sum_{l_{1}l_{2}}h_{l_{1}l_{2}}^{\alpha,\phi}(L)f_{l_{1}Ll_{2}}^{\alpha}} \sqrt{\frac{C_{L}^{dd}}{C_{L}^{\phi\phi}}}.
 \eea
-\wh{suggest you redefine
-\bea
-&& \langle \hat{d}^{\alpha}_{LM} \rangle = d_{LM} +\phi_{LM}E_{L}^{\alpha}\sqrt{\frac{C_L^{dd}}{C_L^{\phi\phi}}}
+ \wh{I think it would be best to use minimum variance for each here instead of
+ $\Theta\Theta$ and discuss the relative impact for the reconstruction and then the cross power measurement.}
+ 
+ For the cross spectrum measurements these contamination terms introduce an additive and multiplicative bias
+ \bea
+ \langle \hat{\phi}^{\alpha*}_{LM}\hat{d}^{\beta}_{LM} \rangle&=& (1+ F_L^{\alpha *} E_L^{\alpha}){C}_{L}^{\phi d}+ \sqrt{C_{L}^{\phi\phi} C_{L}^{dd}} (E_L^{\alpha*} + F_L^\alpha) \nonumber\\
+&&  +N_{L}^{c} 
 \eea
-so that the contamination $E$ is measured as a fraction of the rms $d$. 
-Then discuss the bias in the cross power measurement
-\bea
- \langle \hat{\phi}^{\alpha*}_{LM}\hat{d}^{\beta}_{LM} \rangle= {C}_{L}^{\phi d}+ C_L^{dd} E_L^\alpha +N_{L}^{c},
-\eea 
-\peikai{Shouldn't it be
-\bea
- \langle \hat{\phi}^{\alpha*}_{LM}\hat{d}^{\beta}_{LM} \rangle= {C}_{L}^{\phi d}+ \sqrt{C_{L}^{\phi\phi} C_{L}^{dd}} E_L^\alpha +N_{L}^{c}
-?\eea 
-}}
-where $E^{\alpha}_{L}$ is given by
-\be
-E^{\alpha}_{L} = \frac{\sum_{l_{1}l_{2}}h_{l_{1}l_{2}}^{\alpha,d}(L)f_{l_{1}Ll_{2}}^{\alpha}}{\sum_{l_{1}l_{2}}h_{l_{1}l_{2}}^{\alpha,d}(L)g_{l_{1}Ll_{2}}^{\alpha}} \sqrt{\frac{C_{L}^{\phi\phi}}{C_{L}^{dd}}}
-\ee
-Similarly we can also compute the inverse coontamination by:
-\bea
-&& \langle \hat{\phi}^{\alpha}_{LM} \rangle = \phi_{LM} +d_{LM}F_{L}^{\alpha}\sqrt{\frac{C_L^{\phi\phi}}{C_L^{dd}}}
-\eea
-with
-\be
-F^{\alpha}_{L} = \frac{\sum_{l_{1}l_{2}}h_{l_{1}l_{2}}^{\alpha,\phi}(L)g_{l_{1}Ll_{2}}^{\alpha}}{\sum_{l_{1}l_{2}}h_{l_{1}l_{2}}^{\alpha,\phi}(L)f_{l_{1}Ll_{2}}^{\alpha}} \sqrt{\frac{C_{L}^{dd}}{C_{L}^{\phi\phi}}}
-\ee
-I made this plot using Eq(42) and (44) because I really don't know how to get Eq. (41). 
-\Sfig{Cont_PtoD}{Contamination to cross power spectrum due to lensing (green curve) or time delay (orange curve); extra overall factor $[L(L+1)]^{1/2}$ to reflect the angular gradients in the deflection angles.}
-}
+ \wh{discuss figure, mostly contamination from the additive $E$ term.  some words on subtraction of noise bias at the expense of S/N and reoptimization of the estimators to be 
+ more orthogonal.}
+% \peikai{The presence of both the deflection and the distance perturbations to the CMB leads to contamination of each of the quadratic estimators, which implicitly neglected the other. For example, the distance estimator in \ec{distest} will get contributions from the deflection field $\delta\Theta^{\rm defl}$. Of course it is possible to construct estimators that are independent of one another, but for now, we simply estimate the magnitude of the contaminations.
+%Consider a lensing quadratic estimator given by Okamoto \& Hu
+%\bea
+%\hat{\phi}^{\alpha}_{LM} &=&\nonumber A_L^{\alpha}\sum_{l_{1}m_{1}}\sum_{l_{2}m_{2}} \\
+%&& (-1)^{M}\bigl(\begin{smallmatrix} l_1 & l_2 & L \\ m_1 & m_2 & -M  \end{smallmatrix}\bigr) h^{\alpha,\phi}_{l_{1}l_{2}}(L) a^{obs}_{l_{1}m_{1}}b^{obs}_{l_{2}m_{2}}
+%\eea
+%Here $h^{\alpha,\phi}_{l_{1}l_{2}}$ has a similar expression to $h^{\alpha,\phi}_{l_{1}l_{2}}$ with $g$ replaced by $f$. And we can compute the lensing contamination of this time delay estimator
+%\bea
+%&& \langle \hat{d}^{\alpha}_{LM} \rangle = d_{LM} +\phi_{LM}E_{L}^{\alpha}
+%\eea
+%\wh{suggest you redefine
+%\bea
+%&& \langle \hat{d}^{\alpha}_{LM} \rangle = d_{LM} +\phi_{LM}E_{L}^{\alpha}\sqrt{\frac{C_L^{dd}}{C_L^{\phi\phi}}}
+%\eea
+%so that the contamination $E$ is measured as a fraction of the rms $d$. 
+%Then discuss the bias in the cross power measurement
+%\bea
+% \langle \hat{\phi}^{\alpha*}_{LM}\hat{d}^{\beta}_{LM} \rangle= {C}_{L}^{\phi d}+ C_L^{dd} E_L^\alpha +N_{L}^{c},
+%\eea 
+%\peikai{Shouldn't it be
+%\bea
+% \langle \hat{\phi}^{\alpha*}_{LM}\hat{d}^{\beta}_{LM} \rangle= {C}_{L}^{\phi d}+ \sqrt{C_{L}^{\phi\phi} C_{L}^{dd}} E_L^\alpha +N_{L}^{c}
+%?\eea 
+%}}
+%where $E^{\alpha}_{L}$ is given by
+%\be
+%E^{\alpha}_{L} = \frac{\sum_{l_{1}l_{2}}h_{l_{1}l_{2}}^{\alpha,d}(L)f_{l_{1}Ll_{2}}^{\alpha}}{\sum_{l_{1}l_{2}}h_{l_{1}l_{2}}^{\alpha,d}(L)g_{l_{1}Ll_{2}}^{\alpha}} \sqrt{\frac{C_{L}^{\phi\phi}}{C_{L}^{dd}}}
+%\ee
+%Similarly we can also compute the inverse coontamination by:
+%\bea
+%&& \langle \hat{\phi}^{\alpha}_{LM} \rangle = \phi_{LM} +d_{LM}F_{L}^{\alpha}\sqrt{\frac{C_L^{\phi\phi}}{C_L^{dd}}}
+%\eea
+%with
+%\be
+%F^{\alpha}_{L} = \frac{\sum_{l_{1}l_{2}}h_{l_{1}l_{2}}^{\alpha,\phi}(L)g_{l_{1}Ll_{2}}^{\alpha}}{\sum_{l_{1}l_{2}}h_{l_{1}l_{2}}^{\alpha,\phi}(L)f_{l_{1}Ll_{2}}^{\alpha}} \sqrt{\frac{C_{L}^{dd}}{C_{L}^{\phi\phi}}}
+%\ee
+%I made this plot using Eq(42) and (44) because I really don't know how to get Eq. (41). 
+%\Sfig{Cont_PtoD}{Contamination to cross power spectrum due to lensing (green curve) or time delay (orange curve); extra overall factor $[L(L+1)]^{1/2}$ to reflect the angular gradients in the deflection angles.}
+%}
 
 \section{Conclusions}
 
