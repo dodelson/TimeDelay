@@ -157,8 +157,10 @@ It is clear that they will be highly correlated, so as a first approximation, we
  and their impact on CMB power spectra is even smaller \cite{Hu:2001yq}. Further, while the latter peaks at degree scales, the former peak on the largest scales where cosmic variance is
  higher.
 
-\Sfig{kernel}{Kernel that weights the integral of the gravitational potential for the time delay examined here and the more carefully studied deflection angle. \wh{A plot here of 
-$C_l^{\phi\phi}$, $C_l^{\phi d}$ and $C_l^{dd}$ would help}}
+\Sfig{kernel}{Kernel that weights the integral of the gravitational potential for the time delay examined here and the more carefully studied deflection angle.}
+\Sfig{Spectrum}{Power spectra for the lensing deflection angle
+($\phi\phi$), fractional distance ($dd$) and deflection-distortion cross correlation
+($\phi d$). Since lensing depends on the angular gradient of the potential and hence $C_{L}^{\phi\phi}$ and $C_{L}^{\phi d}$ are weighted by $L(L+1)$ and $[L(L+1)]^{1/2}$ respectively.}
 
 \section{Effect of distance changes on the CMB}
 \newcommand\dtl{\delta\Theta^{\rm defl}}
@@ -167,7 +169,7 @@ $C_l^{\phi\phi}$, $C_l^{\phi d}$ and $C_l^{dd}$ would help}}
 \newcommand\tu{\tilde{\Theta}}
 \newcommand\td{\Theta^{\rm dist}}
 The %starting point is to assume that the last scattering surface is infinitely thin, note that the 
-observed temperature in a given direction $\tob(\hat n)$ is the undistorted temperature $\tu(\hat n)$ plus the deflection due to gravitational lensing plus a term proportional to the small fractional difference $\fd(\hat n)$.  \wh{Linearizing these distortions, we obtain
+observed temperature in a given direction $\tob(\hat n)$ is the undistorted temperature $\tu(\hat n)$ plus the deflection due to gravitational lensing plus a term proportional to the small fractional difference $\fd(\hat n)$.  Linearizing these distortions, we obtain
 \be
 \tob(\hat n) = \tu(\hat n) - \nabla_{i} \phi(\hat n) \nabla^{i}\tu(\hat n) - \frac{\partial\tu(\hat n)}{\partial \ln D}\, \fd(\hat n),
 \ee
@@ -199,7 +201,7 @@ In harmonic space we can write
 \be
 \tob_{lm} = \tu_{lm} -\dtl_{lm}- \dtd_{lm}
 \ee
-with the two first order terms due to deflection and the change in distance equal to}
+with the two first order terms due to deflection and the change in distance equal to
 \bea
 \dtl_{lm} &=& \sum_{LM}\sum_{l'm'}{}_{0}I_{lLl'}^{mMm'}\tu_{l'm'}\phi_{LM},\nonumber\\
 \dtd_{lm} &=& \sum_{LM}\sum_{l'm'} {}_{0} J_{lLl'}^{mMm'}\frac{\partial \tu_{l'm'}}{\partial \ln D}d_{LM}\eql{dtd}
@@ -225,16 +227,14 @@ with
 %{}_{s}F_{lLl'} &\equiv& \big[L(L+1)-l'(l'+1)+l(l+1)\big]\nonumber  \\& \times& \frac{\big[ (2l+1)(2L+1)(2l'+1)\big]^{1/2} }{\sqrt{16 \pi}} \bigl(\begin{smallmatrix} l & L & l' \\ s & 0 & -s  \end{smallmatrix}\bigr) ,\nonumber\\
 %{}_{s}G_{lLl'} &\equiv& \frac{\big[ (2l+1)(2L+1)(2l'+1)\big]^{1/2} }{\sqrt{4 \pi}} \bigl(\begin{smallmatrix} l & L & l' \\ s & 0 & -s  \end{smallmatrix}\bigr)\eql{fg}
 %\eea
-\wh{
 \bea
-{}_{s}F_{lLl'} &\equiv& \big[L(L+1)-l'(l'+1)+l(l+1)\big]  \\& \times&\sqrt{ \frac{ (2l+1)(2L+1)(2l'+1) }{16 \pi} }\begin{pmatrix} l & L & l'  \\   s & 0 & -s  \end{pmatrix} ,\nonumber\\
-{}_{s}G_{lLl'} &\equiv& \sqrt{ \frac{(2l+1)(2L+1)(2l'+1) }{4 \pi}} \begin{pmatrix} l & L & l' \\  \vphantom{a^b} s & 0 & -s  \end{pmatrix}\eql{fg} \nonumber
+{}_{s}F_{lLl'} &\equiv& \big[L(L+1)+l'(l'+1)-l(l+1)\big]\nonumber  \\ & \times&\sqrt{ \frac{ (2l+1)(2L+1)(2l'+1) }{16 \pi} }\begin{pmatrix} l & L & l'  \\   s & 0 & -s  \end{pmatrix} ,\nonumber\\
+{}_{s}G_{lLl'} &\equiv& \sqrt{ \frac{(2l+1)(2L+1)(2l'+1) }{4 \pi}} \begin{pmatrix} l & L & l' \\  \vphantom{a^b} s & 0 & -s  \end{pmatrix}\eql{fg} 
 .\eea
-}
 Note the extra two powers of the multipoles in the function $F$ that governs deflection; these follow from the fact that both the temperature and the potential are differentiated with respect to transverse position on the sky. By contrast, the radial derivative that governs the impact of the time delay, or change in distance to the last scattering surface, appears in \ec{dtd} as the logarithmic derivative of the undistorted coefficients $\tilde\Theta_{LM}$.
 
 As in the case of the effect of deflections on the CMB, the varying distances to the last scattering surface leads to correlations between $l$-modes that differ from one another. 
-\wh{First let us define the power spectrum of the undistorted fields
+First let us define the power spectrum of the undistorted fields
 \begin{equation}
 \tilde C_l^{\Theta\Theta} =  \frac{2}{\pi}\,\int_0^\infty k^2 dk P_{\cal R} T_l^ \Theta(k)T_l^ \Theta(k)
 \eql{cdtt}
@@ -268,7 +268,6 @@ T_l^{\Theta,d} \equiv \frac{\partial T_l^\Theta}{\partial \ln D},
 where the derivative is taken inside of the integrals over the radiation sources by modifying
 the public CAMB code. 
 The two spectra are shown in Fig.~\rf{TT1}. 
-}
 
 To clarify the meaning of these terms, consider the large scale limit where the temperature
 source is the Sachs-Wolfe effect on the recombination surface at $D_*$, 
@@ -323,7 +322,7 @@ h^{d}_{l_1l_2}(L)  \tob_{l_1m_1} \tob_{l_2m_2}, \eql{distest}
 where
 \bea
 h^{\phi}_{l_1l_2}(L)&\equiv& \frac{f_{l_1Ll_2}}{2C_{l_1}C_{l_2}} ,\nonumber\\
-h^{d}_{l_1l_2}(L)&\equiv& \frac{g_{l_1Ll_2}}{2C_{l_1}C_{l_2}},
+h^{d}_{l_1l_2}(L)&\equiv& \frac{g_{l_1Ll_2}}{2C_{l_1}C_{l_2}},\eql{defh}
 \eea
 and %\wh{redefined $A_L$ to absorb $L's$  - the original one was normalized to
 %deflection angles but there's no reason to do that here.} %\peikai{I changed it back.}\scott{I changed the prefactor of $A_L$ (square root) so that now its expectation value is equal to $\phi$; please check.}
@@ -334,11 +333,10 @@ A_L &\equiv&
  \left\{ \sum_{l_1l_2} h^{\phi}_{l_1l_2}(L)f_{l_1Ll_2}\right\}^{-1},\nonumber\\
 B_L &\equiv& (2L+1) \left\{ \sum_{l_1l_2} h^{d}_{l_1l_2}(L)g_{l_1Ll_2}\right\}^{-1}.\eql{bt}
 \eea 
-\wh{
 With these definitions, 
 $\langle \hat\phi_{LM} \rangle = \phi_{LM}$ when $d_{LM}=0$ and
 $\langle \hat d _{LM} \rangle = d_{LM}$ when $\phi_{LM}=0$.  To provide an optimistic bound
-on detectability of the delay distortion, we ignore the cross contamination of the estimators for the time being. We return to this  issue in Sec.~\ref{sec:cross}.}
+on detectability of the delay distortion, we ignore the cross contamination of the estimators for the time being. We return to this  issue in Sec.~\ref{sec:cross}.
 
 
 %\bea
@@ -358,7 +356,7 @@ An estimate of the detectability of this signal can be obtained by computing the
 \left(\frac{1}{\sigma_d}\right)^2 = \sum_L^{\infty} \frac{(2L+1)f_{\rm sky}}{2} \left(\frac{C_L^{dd}}{C_L^{dd}+B_L}\right)^2\eql{sn}
 .\ee
 Fig.~\rf{Delay} shows that most of the signal comes from the lowest $L$-modes, particularly $L=1$. However, even for a full-sky experiment and the most optimistic noise projections, the
-\wh{auto power spectrum $C_L^{dd}$ will not be measurable using temperature only.}%{\scott{Wayne: please check if this rewording is what you had in mind. Peikai: if we agree on this notation, please relabel the y-axis on figure 4 as ``Time Delay Detectability ($\sigma_d$)''}
+auto power spectrum $C_L^{dd}$ will not be measurable using temperature only.%{\scott{Wayne: please check if this rewording is what you had in mind. Peikai: if we agree on this notation, please relabel the y-axis on figure 4 as ``Time Delay Detectability ($\sigma_d$)''}
 
 \Sfig{Delay}{Signal (decreasing blue curve) due to the distorted surface of last scattering and the noise using the quadratic estimator constructed from the small scale temperature anisotropy ($\Theta\Theta$ in the notation of Table 1) for several different experimental configurations. Most optimistic is no noise out to $l_{\rm max}=7000$; the other two noise curves have sensitivity of 1$\mu$K-arcmin and beam size. %the and noise spectra for detector noise $C_{l}^{\Theta \Theta}|_{\rm noise} = 0$ or $\left(\frac{\Delta_{\Theta}}{T_{\rm CMB}} \right)^{2} e^{l(l+1)\theta_{\rm FWHM}^{2}/8 \, \rm ln \,2}$, with $\Delta_{\Theta}=1\mu K-arcmin$ and 
 $\theta_{\rm FWHM}=1'$ or $4'$. Here, $f_{\rm sky}$ is set to one.} %\scott{Peikai, can you check fsky and lmax?} \wh{labels on figs need to be bigger, factors of $\ell$ need to be explained in text - for example if this were meant to read as averaged all $\ell,m$ in a log band $\Delta \ell/\ell \sim 1$ then the factor would be $1/\sqrt{\ell(2\ell+1)}$ and if it were to reflect errors then $\sqrt{2/\ell(2\ell+1)}$, etc..   }}
@@ -367,7 +365,7 @@ $\theta_{\rm FWHM}=1'$ or $4'$. Here, $f_{\rm sky}$ is set to one.} %\scott{Peik
 
 The estimator above used only the temperature anisotropy field, but the polarization field contains even more information about the lensing potential that governs deflection and distance changes. This was worked out in detail by Ref.~\cite{Okamoto:2003zw} for deflection, and we follow their notation here. There are now three fields of interest: temperature $\Theta$, and the two fields associated with polarization, $E$ and $B$. With letters $a,b$ each ranging over these three fields, we have 
 \bea
-\langle a^{\rm obs}_{l_{1}m_{1}}b^{obs}_{l_{2}m_{2}}\rangle &=& \sum_{LM}(-1)^{M}\bigl(\begin{smallmatrix} l_1 & l_2 & L \\ m_1 & m_2 & -M  \end{smallmatrix}\bigr)\nonumber \\
+\langle a^{\rm obs}_{l_{1}m_{1}}b^{\rm obs}_{l_{2}m_{2}}\rangle &=& \sum_{LM}(-1)^{M}\bigl(\begin{smallmatrix} l_1 & l_2 & L \\ m_1 & m_2 & -M  \end{smallmatrix}\bigr)\nonumber \\
 &&\times
 \big[ \phi_{LM}f^{\alpha}_{l_{1}Ll_{2}} + d_{LM}g^{\alpha}_{l_{1}Ll_{2}} \big] 
 .\eea
@@ -403,13 +401,13 @@ $EB$ &$i\big[\tilde{C}_{l_{1}}^{EE} {}_{2}F_{l_{2}Ll_{1}}-\tilde{C}_{l_{2}}^{BB}
 $BB$ &$\tilde{C}_{l_{1}}^{BB} {}_{2}F_{l_{2}Ll_{1}}+\tilde{C}_{l_{2}}^{BB}{}_{2}F_{l_{1}Ll_{2}}$ & $\tilde{C}_{l_{1}}^{BB,d} {}_{2}G_{l_{2}Ll_{1}}+\tilde{C}_{l_{2}}^{BB,d}{}_{2}G_{l_{1}Ll_{2}}$ \\
 \hline
 \end{tabular}}
-\caption{Explicit forms for $f$ anb $h$ of various polarizations. Notice that for $TT$, $TE$, $EE$ and $BB$ polarization these functions are ``even"; for $TB$ and $EB$ polarization they are ``odd" instead. ``Even" and ``Odd" indicate that the functions are non-zero only when $l_{1}+l_{2}+L$ are even or odd, respectively.}
+\caption{Explicit forms for $f$ anb $h$ of various polarizations. Notice that for $\Theta\Theta$, $\Theta E$, $EE$ and $BB$ polarization these functions are ``even"; for $\Theta B$ and $EB$ polarization they are ``odd" instead. ``Even" and ``Odd" indicate that the functions are non-zero only when $l_{1}+l_{2}+L$ are even or odd, respectively.}
 \end{table}
 
 An estimator can now be constructed for each of the pairs of fields, so letting $\alpha$ denote pairs of fields $(ab)$, we have
 \bea
 \hat{d}^{\alpha}_{LM} &=&\nonumber  (-1)^{M} B_{L}^{\alpha}\sum_{l_{1}m_{1}}\sum_{l_{2}m_{2}}\bigl(\begin{smallmatrix} l_1 & l_2 & L \\ m_1 & m_2 & -M  \end{smallmatrix}\bigr) \\
-&& \times h^{\alpha,d}_{l_{1}l_{2}}(L) a^{obs}_{l_{1}m_{1}}b^{obs}_{l_{2}m_{2}} ,
+&& \times h^{\alpha,d}_{l_{1}l_{2}}(L) a^{\rm obs}_{l_{1}m_{1}}b^{\rm obs}_{l_{2}m_{2}} ,
 \eea
 where the coefficients are generalizations of \ec{bt} with $g$ and $h$ there acquiring superscripts $\alpha$. The $g^\alpha$ are given in Table 1 and the minimizing weights are
 \be
@@ -469,12 +467,11 @@ from gravitational waves.
 
 The auto-spectrum of the distortion field, $d$, will apparently be very challenging to extract. Another possibility is to cross-correlate the quadratic estimator for the distortion field with other fields that are well-measured. Cross-correlations can be more easily detected if the two-fields are highly correlated and one of the fields can be detected with high signal to noise. 
 
-As a first attempt, we consider the cross correlation of the two estimators without 
-further optimization
+As a first attempt, we consider the cross correlation of the $d$-field with the $\phi$-field responsible for deflections. Without further optimization, the cross-spectrum is
 \bea
- \langle \hat{\phi}^{\alpha*}_{LM}\hat{d}^{\beta}_{LM} \rangle= {C}_{L}^{\phi d} +N_{L}^{c},
+ \langle \hat{\phi}^{\alpha*}_{LM}\hat{d}^{\beta}_{LM} \rangle= {C}_{L}^{\phi d} +N_{L}^{c,\alpha\beta},\eql{crossn}
 \eea 
-$c$ stands for cross here.  Note that the noise in the estimators are correlated because 
+where the superscript $c$ stands for cross.  Note that the noise in the estimators are correlated because 
 both come from the same quadratic combinations of observables
 %where the bias is equal to the noise is
 %where $\mathcal{N}_{L}^{\alpha \beta}$ is the bias of the expectation value of $\hat{\phi}^{\alpha*}_{LM}\hat{d}^{\beta}_{LM}$ and the power spectrum
@@ -483,7 +480,7 @@ both come from the same quadratic combinations of observables
 %\eea
 %thus $\mathcal{N}^{\alpha \beta}_{L}$ is given similarly as $N_{L}^{\alpha \beta}$ by
 \bea
-N_{L}^{c}&=&\frac{A_{L}^{\alpha*}B_{L}^{\beta}}{(2L+1)}\sum_{l_{1}l_{2}}  \left\{ h_{l_{1}l_{2}}^{\alpha,\phi*} (L)\big[ C_{l_{1}}^{ac}C_{l_{2}}^{bd}h_{l_{1}l_{2}}^{\alpha,d}(L)\right. \nonumber \\
+N_{L}^{c,\alpha\beta}&=&\frac{A_{L}^{\alpha*}B_{L}^{\beta}}{(2L+1)}\sum_{l_{1}l_{2}}  \left\{ h_{l_{1}l_{2}}^{\alpha,\phi*} (L)\big[ C_{l_{1}}^{ac}C_{l_{2}}^{bd}h_{l_{1}l_{2}}^{\alpha,d}(L)\right. \nonumber \\
 &&\left. +(-1)^{L+l_{1}+l_{2}}C_{l_{1}}^{ad}C_{l_{2}}^{bc} h_{l_{2}l_{1}}^{\beta,d}(L)  \big]\right\}.\eql{full} 
 \eea
 %Gaussian covariance of $\hat{C}_{LM}^{\phi d,\alpha \beta} $ is
@@ -502,8 +499,8 @@ N_{L}^{c}&=&\frac{A_{L}^{\alpha*}B_{L}^{\beta}}{(2L+1)}\sum_{l_{1}l_{2}}  \left\
 %+(C_{L}^{\phi \phi} +N_{L}^{\phi,\alpha \alpha})(C_{L}^{d d}+N_{L}^{d,\beta \beta})\right\}
 %\eea
 %\noindent 
-Assuming the estimator noise terms are Gaussian, we an  estimate the fractional
-error on a measurement of the amplitude of the cross spectra $C_l^{\phi d}$ as
+Assuming the noise is Gaussian, we can  estimate the fractional
+error on the measurement of the amplitude of the cross spectra $C_l^{\phi d}$ as
 \bea
 \eql{sn1}
 %And we can compute cross power spectrum signal-to-noise by assuming that $(C_{L}^{\phi d}+\mathcal{N}_{L}^{\alpha \beta})=0$ and use minimu variance estimator for both lensing and time delay. Signal-to-noise in FIG.5 is given by:
@@ -511,45 +508,113 @@ error on a measurement of the amplitude of the cross spectra $C_l^{\phi d}$ as
 &&\times\frac{(C_L^{\phi d})^2}{( C_L^{\phi d}+N_{L}^{c})^2+
 (C_L^{\phi\phi}+N_L^{\phi})(C_L^{dd}+N_L^{d})}. \nonumber
 \eea
-For the $\alpha\beta$ pair that corresponds to the minimum variance estimator of
+For the $\alpha\beta$ pairs that correspond to the minimum variance estimator of
 $\phi$ and $d$ individually, we show this quantity in Fig.~\rf{CrossStoN} where we have set
  $f_{\rm sky}=1$. We  see that in this ideal case, $S/N$ could reach about $2.5$. 
  \Sfig{CrossStoN}{The detectability of the cross power spectrum of the distance distortion field and the potential inducing deflections as a function of $L_{\rm max}$. Unlike the auto-spectrum, there is signal out to $L_{\rm max}\sim 100$, but the contributions to the detectability plateau after that, so the best that can be hoped for with this cross spectrum is a $2.5\sigma$ detection
  for $l_{\rm max}=7000$.}
  
-\wh{ Up until this point, we have assumed that the estimators of $\phi$ and $d$ are not 
+Up until this point, we have assumed that the estimators of $\phi$ and $d$ are not 
  contaminated by the other so as to provide the most optimistic bound on detectability of the
  delay distortion.   Since the cross power spectrum is potentially measurable at low $S/N$ we
- conclude by estimating this contamination.}
+ conclude by estimating this contamination.
  
- \peikai{The presence of both the deflection and the distance perturbations to the CMB leads to contamination of each of the quadratic estimators, which implicitly neglected the other. For example, the distance estimator in \ec{distest} will get contributions from the deflection field $\delta\Theta^{\rm defl}$. Of course it is possible to construct estimators that are independent of one another, but for now, we simply estimate the magnitude of the contaminations.
-Consider a lensing quadratic estimator given by Okamoto \& Hu
-\bea
-\hat{\phi}^{\alpha}_{LM} &=&\nonumber \frac{A_{L}^{\alpha}}{\sqrt{L(L+1)}}\sum_{l_{1}m_{1}}\sum_{l_{2}m_{2}} \\
-&& (-1)^{M}\bigl(\begin{smallmatrix} l_1 & l_2 & L \\ m_1 & m_2 & -M  \end{smallmatrix}\bigr) h^{\alpha,\phi}_{l_{1}l_{2}}(L) a^{obs}_{l_{1}m_{1}}b^{obs}_{l_{2}m_{2}}
+%<<<<<<< HEAD
+%The presence of both the deflection and the distance perturbations to the CMB leads to contamination of each of the quadratic estimators, which implicitly neglected the other. For example, the distance estimator in \ec{distest} will get contributions from the deflection field $\delta\Theta^{\rm defl}$. Of course it is possible to construct estimators that are independent of one another, but for now, we simply estimate the magnitude of the contaminations.
+%\peikai{Consider a lensing quadratic estimator given by \citet{Okamoto:2003zw}
+%\bea
+%\hat{\phi}^{\alpha}_{LM} &=&\nonumber A_L^{\alpha}\sum_{l_{1}m_{1}}\sum_{l_{2}m_{2}} \\
+%&& (-1)^{M}\bigl(\begin{smallmatrix} l_1 & l_2 & L \\ m_1 & m_2 & -M  \end{smallmatrix}\bigr) h^{\alpha,\phi}_{l_{1}l_{2}}(L) a^{obs}_{l_{1}m_{1}}b^{obs}_{l_{2}m_{2}}
+%\eea
+%Here $h^{\alpha,\phi}_{l_{1}l_{2}}$ has a similar expression to $h^{\alpha,\phi}_{l_{1}l_{2}}$ with $g$ replaced by $f$. \scott{I don't understand the previous sentence; is this the estimator for $\phi$? If so, why not simply use the $h^\phi$ in \ec{defh}? In either case, there must be a typo here.} We can compute the lensing contamination of this time delay estimator
+%\scott{\bea
+%&& \langle \hat{d}^{\alpha}_{LM} \rangle = d_{LM} +\phi_{LM}\,\frac{C_L^{dd}}{C_L^{\phi\phi}}E_{L}^{\alpha}
+%\eea
+%where $E^\alpha_L$ quantifies the bias in the cross-spectrum due to contamination from $\phi$ in the $\hat d$ estimator. Specifically,
+%%\wh{suggest you redefine
+%%\scott{\bea
+%%&& \langle \hat{d}^{\alpha}_{LM} \rangle = d_{LM} +\phi_{LM}E_{L}^{\alpha}\sqrt{\frac{C_L^{dd}}{C_L^{\phi\phi}}}
+%%\eea
+%%}so that the contamination $E$ is measured as a fraction of the rms $d$. 
+%%Then discuss the bias in the cross power measurement
+%%\bea
+%% \langle \hat{\phi}^{\alpha*}_{LM}\hat{d}^{\beta}_{LM} \rangle= {C}_{L}^{\phi d}+ C_L^{dd} E_L^\alpha +N_{L}^{c},
+%%\eea 
+%%\peikai{Shouldn't it be\scott{I Agree with Peikai, I think, unless there is no square root in eq 39.}
+%\bea
+% \langle \hat{\phi}^{\alpha*}_{LM}\hat{d}^{\beta}_{LM} \rangle= {C}_{L}^{\phi d}+ \sqrt{C_{L}^{\phi\phi} C_{L}^{dd}} E_L^\alpha +N_{L}^{c}
+%?\eea 
+%}}
+%where $E^{\alpha}_{L}$ is given by
+%\be
+%E^{\alpha}_{L} = \frac{\sum_{l_{1}l_{2}}h_{l_{1}l_{2}}^{\alpha,d}(L)f_{l_{1}Ll_{2}}^{\alpha}}{\sum_{l_{1}l_{2}}h_{l_{1}l_{2}}^{\alpha,d}(L)g_{l_{1}Ll_{2}}^{\alpha}} \sqrt{\frac{C_{L}^{\phi\phi}}{C_{L}^{dd}}}
+%\ee
+%Similarly we can also compute the inverse contamination by:
+%\bea
+%&& \langle \hat{\phi}^{\alpha}_{LM} \rangle = \phi_{LM} +d_{LM}F_{L}^{\alpha}\sqrt{\frac{C_L^{\phi\phi}}{C_L^{dd}}}
+%\eea
+%=======
+ We can define the cross contamination by generalizing the computation in \ec{bt} to retain the distortion induced by $\phi$ on the estimator of $d$ and vice
+ versa from \ec{quad} for the average over CMB modes
+ \bea
+ \langle \hat{d}^{\alpha}_{LM} \rangle &\equiv& d_{LM} +\phi_{LM}E_{L}^{\alpha}\sqrt{\frac{C_L^{dd}}{C_L^{\phi\phi}}}, \nonumber\\
+ \langle \hat{\phi}^{\alpha}_{LM} \rangle &\equiv& \phi_{LM} +d_{LM}F_{L}^{\alpha}\sqrt{\frac{C_L^{\phi\phi}}{C_L^{dd}}},
 \eea
-Here $h^{\alpha,\phi}_{l_{1}l_{2}}$ has a similar expression to $h^{\alpha,\phi}_{l_{1}l_{2}}$ with $g$ replaced by $f$. And we can compute the lensing contamination of this time delay estimator
+ where $E$ and $F$ measure the expected fractional contamination to each estimator in units of their expected rms 
 \bea
-&& \langle \hat{d}^{\alpha}_{LM} \rangle = d_{LM} +\phi_{LM}E_{L}^{\alpha}
+E^{\alpha}_{L} &=& \frac{\sum_{l_{1}l_{2}}h_{l_{1}l_{2}}^{\alpha,d}(L)f_{l_{1}Ll_{2}}^{\alpha}}{\sum_{l_{1}l_{2}}h_{l_{1}l_{2}}^{\alpha,d}(L)g_{l_{1}Ll_{2}}^{\alpha}} \sqrt{\frac{C_{L}^{\phi\phi}}{C_{L}^{dd}}},\nonumber\\
+F^{\alpha}_{L} &=& \frac{\sum_{l_{1}l_{2}}h_{l_{1}l_{2}}^{\alpha,\phi}(L)g_{l_{1}Ll_{2}}^{\alpha}}{\sum_{l_{1}l_{2}}h_{l_{1}l_{2}}^{\alpha,\phi}(L)f_{l_{1}Ll_{2}}^{\alpha}} \sqrt{\frac{C_{L}^{dd}}{C_{L}^{\phi\phi}}}.
 \eea
-\wh{suggest you redefine
-\bea
-&& \langle \hat{d}^{\alpha}_{LM} \rangle = d_{LM} +\phi_{LM}E_{L}^{\alpha}\sqrt{\frac{C_L^{dd}}{C_L^{\phi\phi}}}
+ \wh{I think it would be best to use minimum variance for each here instead of
+ $\Theta\Theta$ and discuss the relative impact for the reconstruction and then the cross power measurement.}
+ 
+ For the cross spectrum measurements these contamination terms introduce an additive and multiplicative bias
+ \bea
+ \langle \hat{\phi}^{\alpha*}_{LM}\hat{d}^{\beta}_{LM} \rangle&=& (1+ F_L^{\alpha *} E_L^{\alpha}){C}_{L}^{\phi d}+ \sqrt{C_{L}^{\phi\phi} C_{L}^{dd}} (E_L^{\alpha} + F_L^{\alpha*}) \nonumber\\
+&&  +N_{L}^{c} 
+%>>>>>>> f0922b3ceae5ecbc047a14cde79640a0ea4bf973
 \eea
-so that the contamination $E$ is measured as a fraction of the rms $d$. 
-Then discuss the bias in the cross power measurement
-\bea
- \langle \hat{\phi}^{\alpha*}_{LM}\hat{d}^{\beta}_{LM} \rangle= {C}_{L}^{\phi d}+ C_L^{dd} E_L^\alpha +N_{L}^{c},
-\eea 
-and finally
- also define the
-converse contamination and discuss whether lensing estimators ever need worry about this
-effect.}
-where $E^{\alpha}_{L}$ is given by
-\be
-E^{\alpha}_{L} = \frac{\sum_{l_{1}l_{2}}h_{l_{1}l_{2}}^{\alpha,d}(L)f_{l_{1}Ll_{2}}^{\alpha}}{\sum_{l_{1}l_{2}}h_{l_{1}l_{2}}^{\alpha,d}(L)g_{l_{1}Ll_{2}}^{\alpha}}
-\ee
-And contamination from lensing is relatively large, $E_{L=1}^{TT} \approx -1.73$.}
+ \wh{discuss figure, mostly contamination from the additive $E$ term.  some words on subtraction of noise bias at the expense of S/N and reoptimization of the estimators to be 
+ more orthogonal.}
+% \peikai{The presence of both the deflection and the distance perturbations to the CMB leads to contamination of each of the quadratic estimators, which implicitly neglected the other. For example, the distance estimator in \ec{distest} will get contributions from the deflection field $\delta\Theta^{\rm defl}$. Of course it is possible to construct estimators that are independent of one another, but for now, we simply estimate the magnitude of the contaminations.
+%Consider a lensing quadratic estimator given by Okamoto \& Hu
+%\bea
+%\hat{\phi}^{\alpha}_{LM} &=&\nonumber A_L^{\alpha}\sum_{l_{1}m_{1}}\sum_{l_{2}m_{2}} \\
+%&& (-1)^{M}\bigl(\begin{smallmatrix} l_1 & l_2 & L \\ m_1 & m_2 & -M  \end{smallmatrix}\bigr) h^{\alpha,\phi}_{l_{1}l_{2}}(L) a^{\rm obs}_{l_{1}m_{1}}b^{\rm obs}_{l_{2}m_{2}}
+%\eea
+%Here $h^{\alpha,\phi}_{l_{1}l_{2}}$ has a similar expression to $h^{\alpha,\phi}_{l_{1}l_{2}}$ with $g$ replaced by $f$. And we can compute the lensing contamination of this time delay estimator
+%\bea
+%&& \langle \hat{d}^{\alpha}_{LM} \rangle = d_{LM} +\phi_{LM}E_{L}^{\alpha}
+%\eea
+%\wh{suggest you redefine
+%\bea
+%&& \langle \hat{d}^{\alpha}_{LM} \rangle = d_{LM} +\phi_{LM}E_{L}^{\alpha}\sqrt{\frac{C_L^{dd}}{C_L^{\phi\phi}}}
+%\eea
+%so that the contamination $E$ is measured as a fraction of the rms $d$. 
+%Then discuss the bias in the cross power measurement
+%\bea
+% \langle \hat{\phi}^{\alpha*}_{LM}\hat{d}^{\beta}_{LM} \rangle= {C}_{L}^{\phi d}+ C_L^{dd} E_L^\alpha +N_{L}^{c},
+%\eea 
+%\peikai{Shouldn't it be
+%\bea
+% \langle \hat{\phi}^{\alpha*}_{LM}\hat{d}^{\beta}_{LM} \rangle= {C}_{L}^{\phi d}+ \sqrt{C_{L}^{\phi\phi} C_{L}^{dd}} E_L^\alpha +N_{L}^{c}
+%?\eea 
+%}}
+%where $E^{\alpha}_{L}$ is given by
+%\be
+%E^{\alpha}_{L} = \frac{\sum_{l_{1}l_{2}}h_{l_{1}l_{2}}^{\alpha,d}(L)f_{l_{1}Ll_{2}}^{\alpha}}{\sum_{l_{1}l_{2}}h_{l_{1}l_{2}}^{\alpha,d}(L)g_{l_{1}Ll_{2}}^{\alpha}} \sqrt{\frac{C_{L}^{\phi\phi}}{C_{L}^{dd}}}
+%\ee
+%Similarly we can also compute the inverse coontamination by:
+%\bea
+%&& \langle \hat{\phi}^{\alpha}_{LM} \rangle = \phi_{LM} +d_{LM}F_{L}^{\alpha}\sqrt{\frac{C_L^{\phi\phi}}{C_L^{dd}}}
+%\eea
+%with
+%\be
+%F^{\alpha}_{L} = \frac{\sum_{l_{1}l_{2}}h_{l_{1}l_{2}}^{\alpha,\phi}(L)g_{l_{1}Ll_{2}}^{\alpha}}{\sum_{l_{1}l_{2}}h_{l_{1}l_{2}}^{\alpha,\phi}(L)f_{l_{1}Ll_{2}}^{\alpha}} \sqrt{\frac{C_{L}^{dd}}{C_{L}^{\phi\phi}}}
+%\ee
+%I made this plot using Eq(42) and (44) because I really don't know how to get Eq. (41). 
+\Sfig{Cont_PtoD}{Contamination to cross power spectrum due to lensing (green curve) or time delay (orange curve); extra overall factor $[L(L+1)]^{1/2}$ to reflect the angular gradients in the deflection angles.}
+%}
 
 \section{Conclusions}
 
@@ -567,7 +632,7 @@ The last scattering surface of the CMB is not purely spherical due to the differ
 %Consider a lensing quadratic estimator given by Okamoto \& Hu
 %\bea
 %\hat{\phi}^{\alpha}_{LM} &=&\nonumber \frac{A_{L}^{\alpha}}{\sqrt{L(L+1)}}\sum_{l_{1}m_{1}}\sum_{l_{2}m_{2}} \\
-%&& (-1)^{M}\bigl(\begin{smallmatrix} l_1 & l_2 & L \\ m_1 & m_2 & -M  \end{smallmatrix}\bigr) h^{\alpha,\phi}_{l_{1}l_{2}}(L) a^{obs}_{l_{1}m_{1}}b^{obs}_{l_{2}m_{2}}
+%&& (-1)^{M}\bigl(\begin{smallmatrix} l_1 & l_2 & L \\ m_1 & m_2 & -M  \end{smallmatrix}\bigr) h^{\alpha,\phi}_{l_{1}l_{2}}(L) a^{\rm obs}_{l_{1}m_{1}}b^{\rm obs}_{l_{2}m_{2}}
 %\eea
 %Here $h^{\alpha,\phi}_{l_{1}l_{2}}$ has a similar expression to $h^{\alpha,\phi}_{l_{1}l_{2}}$ with $g$ replaced by $f$. And we can compute the lensing contamination of this time delay estimator
 %\bea
