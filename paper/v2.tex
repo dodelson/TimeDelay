@@ -469,7 +469,7 @@ The auto-spectrum of the distortion field, $d$, will apparently be very challeng
 
 As a first attempt, we consider the cross correlation of the $d$-field with the $\phi$-field responsible for deflections. Without further optimization, the cross-spectrum is
 \bea
- \langle \hat{\phi}^{\alpha*}_{LM}\hat{d}^{\beta}_{LM} \rangle= {C}_{L}^{\phi d} +N_{L}^{c,\alpha\beta},
+ \langle \hat{\phi}^{\alpha*}_{LM}\hat{d}^{\beta}_{LM} \rangle= {C}_{L}^{\phi d} +N_{L}^{c,\alpha\beta},\eql{crossn}
 \eea 
 where the superscript $c$ stands for cross.  Note that the noise in the estimators are correlated because 
 both come from the same quadratic combinations of observables
@@ -526,19 +526,20 @@ The presence of both the deflection and the distance perturbations to the CMB le
 && (-1)^{M}\bigl(\begin{smallmatrix} l_1 & l_2 & L \\ m_1 & m_2 & -M  \end{smallmatrix}\bigr) h^{\alpha,\phi}_{l_{1}l_{2}}(L) a^{obs}_{l_{1}m_{1}}b^{obs}_{l_{2}m_{2}}
 \eea
 Here $h^{\alpha,\phi}_{l_{1}l_{2}}$ has a similar expression to $h^{\alpha,\phi}_{l_{1}l_{2}}$ with $g$ replaced by $f$. \scott{I don't understand the previous sentence; is this the estimator for $\phi$? If so, why not simply use the $h^\phi$ in \ec{defh}? In either case, there must be a typo here.} We can compute the lensing contamination of this time delay estimator
-\bea
-&& \langle \hat{d}^{\alpha}_{LM} \rangle = d_{LM} +\phi_{LM}E_{L}^{\alpha}
+\scott{\bea
+&& \langle \hat{d}^{\alpha}_{LM} \rangle = d_{LM} +\phi_{LM}\,\frac{C_L^{dd}}{C_L^{\phi\phi}}E_{L}^{\alpha}
 \eea
-\wh{suggest you redefine
-\bea
-&& \langle \hat{d}^{\alpha}_{LM} \rangle = d_{LM} +\phi_{LM}E_{L}^{\alpha}\sqrt{\frac{C_L^{dd}}{C_L^{\phi\phi}}}
-\eea
-so that the contamination $E$ is measured as a fraction of the rms $d$. 
-Then discuss the bias in the cross power measurement
-\bea
- \langle \hat{\phi}^{\alpha*}_{LM}\hat{d}^{\beta}_{LM} \rangle= {C}_{L}^{\phi d}+ C_L^{dd} E_L^\alpha +N_{L}^{c},
-\eea 
-\peikai{Shouldn't it be
+where $E^\alpha_L$ quantifies the bias in the cross-spectrum due to contamination from $\phi$ in the $\hat d$ estimator. Specifically,
+%\wh{suggest you redefine
+%\scott{\bea
+%&& \langle \hat{d}^{\alpha}_{LM} \rangle = d_{LM} +\phi_{LM}E_{L}^{\alpha}\sqrt{\frac{C_L^{dd}}{C_L^{\phi\phi}}}
+%\eea
+%}so that the contamination $E$ is measured as a fraction of the rms $d$. 
+%Then discuss the bias in the cross power measurement
+%\bea
+% \langle \hat{\phi}^{\alpha*}_{LM}\hat{d}^{\beta}_{LM} \rangle= {C}_{L}^{\phi d}+ C_L^{dd} E_L^\alpha +N_{L}^{c},
+%\eea 
+%\peikai{Shouldn't it be\scott{I Agree with Peikai, I think, unless there is no square root in eq 39.}
 \bea
  \langle \hat{\phi}^{\alpha*}_{LM}\hat{d}^{\beta}_{LM} \rangle= {C}_{L}^{\phi d}+ \sqrt{C_{L}^{\phi\phi} C_{L}^{dd}} E_L^\alpha +N_{L}^{c}
 ?\eea 
