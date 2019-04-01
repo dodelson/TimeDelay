@@ -568,10 +568,19 @@ F^{\alpha}_{L} &=& \frac{\sum_{l_{1}l_{2}}h_{l_{1}l_{2}}^{\alpha,\phi}(L)g_{l_{1
  \wh{I think it would be best to use minimum variance for each here instead of
  $\Theta\Theta$ and discuss the relative impact for the reconstruction and then the cross power measurement.}
  
- For the cross spectrum measurements these contamination terms introduce an additive and multiplicative bias
- \bea
+ For the auto and cross spectrum measurements these contamination terms introduce biases \bea
+  \langle \hat{\phi}^{\alpha*}_{LM}\hat{\phi}^{\beta}_{LM} \rangle &=&
+  \left[ 1 +\frac{(F_L^{\alpha*}+F_L^{\beta} )C_L^{\phi d}}{\sqrt{C_L^{\phi\phi} C_L^{dd} }}
+  + F_L^{\alpha*}F_L^{\beta} \right] C_L^{\phi\phi} 
+  \nonumber\\
+  &&+ N_L^{\phi,\alpha\beta} \nonumber\\
+    \langle \hat{d}^{\alpha*}_{LM}\hat{d}^{\beta}_{LM} \rangle &=&
+  \left[ 1 +\frac{(E_L^{\alpha*}+E_L^{\beta} )C_L^{\phi d}}{\sqrt{C_L^{\phi\phi} C_L^{dd} }}
+  + E_L^{\alpha*}E_L^{\beta} \right] C_L^{dd} 
+  \nonumber\\
+  &&+ N_L^{d,\alpha\beta} \nonumber\\
  \langle \hat{\phi}^{\alpha*}_{LM}\hat{d}^{\beta}_{LM} \rangle&=& (1+ F_L^{\alpha *} E_L^{\beta}){C}_{L}^{\phi d}+ \sqrt{C_{L}^{\phi\phi} C_{L}^{dd}} ( F_L^{\alpha*} + E_L^{\beta}) \nonumber\\
-&&  +N_{L}^{c} 
+&&  +N_{L}^{c,\alpha\beta} 
 %>>>>>>> f0922b3ceae5ecbc047a14cde79640a0ea4bf973
 \eea
  \wh{discuss figure, mostly contamination from the additive $E$ term.  some words on subtraction of noise bias at the expense of S/N and reoptimization of the estimators to be 
