@@ -322,7 +322,7 @@ h^{d}_{l_1l_2}(L)  \tob_{l_1m_1} \tob_{l_2m_2}, \eql{distest}
 where
 \bea
 h^{\phi}_{l_1l_2}(L)&\equiv& \frac{f_{l_1Ll_2}}{2C_{l_1}C_{l_2}} ,\nonumber\\
-h^{d}_{l_1l_2}(L)&\equiv& \frac{g_{l_1Ll_2}}{2C_{l_1}C_{l_2}},
+h^{d}_{l_1l_2}(L)&\equiv& \frac{g_{l_1Ll_2}}{2C_{l_1}C_{l_2}},\eql{defh}
 \eea
 and %\wh{redefined $A_L$ to absorb $L's$  - the original one was normalized to
 %deflection angles but there's no reason to do that here.} %\peikai{I changed it back.}\scott{I changed the prefactor of $A_L$ (square root) so that now its expectation value is equal to $\phi$; please check.}
@@ -467,12 +467,11 @@ from gravitational waves.
 
 The auto-spectrum of the distortion field, $d$, will apparently be very challenging to extract. Another possibility is to cross-correlate the quadratic estimator for the distortion field with other fields that are well-measured. Cross-correlations can be more easily detected if the two-fields are highly correlated and one of the fields can be detected with high signal to noise. 
 
-As a first attempt, we consider the cross correlation of the two estimators without 
-further optimization
+As a first attempt, we consider the cross correlation of the $d$-field with the $\phi$-field responsible for deflections. Without further optimization, the cross-spectrum is
 \bea
- \langle \hat{\phi}^{\alpha*}_{LM}\hat{d}^{\beta}_{LM} \rangle= {C}_{L}^{\phi d} +N_{L}^{c},
+ \langle \hat{\phi}^{\alpha*}_{LM}\hat{d}^{\beta}_{LM} \rangle= {C}_{L}^{\phi d} +N_{L}^{c,\alpha\beta},
 \eea 
-$c$ stands for cross here.  Note that the noise in the estimators are correlated because 
+where the superscript $c$ stands for cross.  Note that the noise in the estimators are correlated because 
 both come from the same quadratic combinations of observables
 %where the bias is equal to the noise is
 %where $\mathcal{N}_{L}^{\alpha \beta}$ is the bias of the expectation value of $\hat{\phi}^{\alpha*}_{LM}\hat{d}^{\beta}_{LM}$ and the power spectrum
@@ -481,7 +480,7 @@ both come from the same quadratic combinations of observables
 %\eea
 %thus $\mathcal{N}^{\alpha \beta}_{L}$ is given similarly as $N_{L}^{\alpha \beta}$ by
 \bea
-N_{L}^{c}&=&\frac{A_{L}^{\alpha*}B_{L}^{\beta}}{(2L+1)}\sum_{l_{1}l_{2}}  \left\{ h_{l_{1}l_{2}}^{\alpha,\phi*} (L)\big[ C_{l_{1}}^{ac}C_{l_{2}}^{bd}h_{l_{1}l_{2}}^{\alpha,d}(L)\right. \nonumber \\
+N_{L}^{c,\alpha\beta}&=&\frac{A_{L}^{\alpha*}B_{L}^{\beta}}{(2L+1)}\sum_{l_{1}l_{2}}  \left\{ h_{l_{1}l_{2}}^{\alpha,\phi*} (L)\big[ C_{l_{1}}^{ac}C_{l_{2}}^{bd}h_{l_{1}l_{2}}^{\alpha,d}(L)\right. \nonumber \\
 &&\left. +(-1)^{L+l_{1}+l_{2}}C_{l_{1}}^{ad}C_{l_{2}}^{bc} h_{l_{2}l_{1}}^{\beta,d}(L)  \big]\right\}.\eql{full} 
 \eea
 %Gaussian covariance of $\hat{C}_{LM}^{\phi d,\alpha \beta} $ is
@@ -500,8 +499,8 @@ N_{L}^{c}&=&\frac{A_{L}^{\alpha*}B_{L}^{\beta}}{(2L+1)}\sum_{l_{1}l_{2}}  \left\
 %+(C_{L}^{\phi \phi} +N_{L}^{\phi,\alpha \alpha})(C_{L}^{d d}+N_{L}^{d,\beta \beta})\right\}
 %\eea
 %\noindent 
-Assuming the estimator noise terms are Gaussian, we an  estimate the fractional
-error on a measurement of the amplitude of the cross spectra $C_l^{\phi d}$ as
+Assuming the noise is Gaussian, we can  estimate the fractional
+error on the measurement of the amplitude of the cross spectra $C_l^{\phi d}$ as
 \bea
 \eql{sn1}
 %And we can compute cross power spectrum signal-to-noise by assuming that $(C_{L}^{\phi d}+\mathcal{N}_{L}^{\alpha \beta})=0$ and use minimu variance estimator for both lensing and time delay. Signal-to-noise in FIG.5 is given by:
@@ -509,7 +508,7 @@ error on a measurement of the amplitude of the cross spectra $C_l^{\phi d}$ as
 &&\times\frac{(C_L^{\phi d})^2}{( C_L^{\phi d}+N_{L}^{c})^2+
 (C_L^{\phi\phi}+N_L^{\phi})(C_L^{dd}+N_L^{d})}. \nonumber
 \eea
-For the $\alpha\beta$ pair that corresponds to the minimum variance estimator of
+For the $\alpha\beta$ pairs that correspond to the minimum variance estimator of
 $\phi$ and $d$ individually, we show this quantity in Fig.~\rf{CrossStoN} where we have set
  $f_{\rm sky}=1$. We  see that in this ideal case, $S/N$ could reach about $2.5$. 
  \Sfig{CrossStoN}{The detectability of the cross power spectrum of the distance distortion field and the potential inducing deflections as a function of $L_{\rm max}$. Unlike the auto-spectrum, there is signal out to $L_{\rm max}\sim 100$, but the contributions to the detectability plateau after that, so the best that can be hoped for with this cross spectrum is a $2.5\sigma$ detection
@@ -520,13 +519,13 @@ Up until this point, we have assumed that the estimators of $\phi$ and $d$ are n
  delay distortion.   Since the cross power spectrum is potentially measurable at low $S/N$ we
  conclude by estimating this contamination.
  
- \peikai{The presence of both the deflection and the distance perturbations to the CMB leads to contamination of each of the quadratic estimators, which implicitly neglected the other. For example, the distance estimator in \ec{distest} will get contributions from the deflection field $\delta\Theta^{\rm defl}$. Of course it is possible to construct estimators that are independent of one another, but for now, we simply estimate the magnitude of the contaminations.
-Consider a lensing quadratic estimator given by Okamoto \& Hu
+The presence of both the deflection and the distance perturbations to the CMB leads to contamination of each of the quadratic estimators, which implicitly neglected the other. For example, the distance estimator in \ec{distest} will get contributions from the deflection field $\delta\Theta^{\rm defl}$. Of course it is possible to construct estimators that are independent of one another, but for now, we simply estimate the magnitude of the contaminations.
+\peikai{Consider a lensing quadratic estimator given by \citet{Okamoto:2003zw}
 \bea
 \hat{\phi}^{\alpha}_{LM} &=&\nonumber A_L^{\alpha}\sum_{l_{1}m_{1}}\sum_{l_{2}m_{2}} \\
 && (-1)^{M}\bigl(\begin{smallmatrix} l_1 & l_2 & L \\ m_1 & m_2 & -M  \end{smallmatrix}\bigr) h^{\alpha,\phi}_{l_{1}l_{2}}(L) a^{obs}_{l_{1}m_{1}}b^{obs}_{l_{2}m_{2}}
 \eea
-Here $h^{\alpha,\phi}_{l_{1}l_{2}}$ has a similar expression to $h^{\alpha,\phi}_{l_{1}l_{2}}$ with $g$ replaced by $f$. And we can compute the lensing contamination of this time delay estimator
+Here $h^{\alpha,\phi}_{l_{1}l_{2}}$ has a similar expression to $h^{\alpha,\phi}_{l_{1}l_{2}}$ with $g$ replaced by $f$. \scott{I don't understand the previous sentence; is this the estimator for $\phi$? If so, why not simply use the $h^\phi$ in \ec{defh}? In either case, there must be a typo here.} We can compute the lensing contamination of this time delay estimator
 \bea
 && \langle \hat{d}^{\alpha}_{LM} \rangle = d_{LM} +\phi_{LM}E_{L}^{\alpha}
 \eea
@@ -548,7 +547,7 @@ where $E^{\alpha}_{L}$ is given by
 \be
 E^{\alpha}_{L} = \frac{\sum_{l_{1}l_{2}}h_{l_{1}l_{2}}^{\alpha,d}(L)f_{l_{1}Ll_{2}}^{\alpha}}{\sum_{l_{1}l_{2}}h_{l_{1}l_{2}}^{\alpha,d}(L)g_{l_{1}Ll_{2}}^{\alpha}} \sqrt{\frac{C_{L}^{\phi\phi}}{C_{L}^{dd}}}
 \ee
-Similarly we can also compute the inverse coontamination by:
+Similarly we can also compute the inverse contamination by:
 \bea
 && \langle \hat{\phi}^{\alpha}_{LM} \rangle = \phi_{LM} +d_{LM}F_{L}^{\alpha}\sqrt{\frac{C_L^{\phi\phi}}{C_L^{dd}}}
 \eea
