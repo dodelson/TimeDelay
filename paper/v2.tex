@@ -160,7 +160,7 @@ It is clear that they will be highly correlated, so as a first approximation, we
 \Sfig{kernel}{Kernel that weights the integral of the gravitational potential for the time delay examined here and the more carefully studied deflection angle.}
 \Sfig{Spectrum}{Power spectra for the lensing deflection angle
 ($\phi\phi$), fractional distance ($dd$) and deflection-distortion cross correlation
-($\phi d$). Since lensing depends on the angular gradient of the potential and hence $C_{L}^{\phi\phi}$ and $C_{L}^{\phi d}$ are weighted by $L(L+1)$ and $[L(L+1)]^{1/2}$ respectively.}
+($\phi d$).}
 
 \section{Effect of distance changes on the CMB}
 \newcommand\dtl{\delta\Theta^{\rm defl}}
@@ -567,6 +567,7 @@ F^{\alpha}_{L} &=& \frac{\sum_{l_{1}l_{2}}h_{l_{1}l_{2}}^{\alpha,\phi}(L)g_{l_{1
 \eea
  \wh{I think it would be best to use minimum variance for each here instead of
  $\Theta\Theta$ and discuss the relative impact for the reconstruction and then the cross power measurement.}
+ \peikai{One question, how do we construct mv estimators here? To build a full mv estimator like before, like what Eq.(31-33) did, we need $N^{\alpha \beta}$ where $\alpha$ don't need to be equal to $\beta$. But here we only have $\alpha=\beta$ case.}
  
  For the auto and cross spectrum measurements these contamination terms introduce biases \bea
   \langle \hat{\phi}^{\alpha*}_{LM}\hat{\phi}^{\beta}_{LM} \rangle &=&
