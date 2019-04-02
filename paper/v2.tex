@@ -160,7 +160,8 @@ It is clear that they will be highly correlated, so as a first approximation, we
 \Sfig{kernel}{Kernel that weights the integral of the gravitational potential for the time delay examined here and the more carefully studied deflection angle.}
 \Sfig{Spectrum}{Power spectra for the lensing deflection angle
 ($\phi\phi$), fractional distance ($dd$) and deflection-distortion cross correlation
-($\phi d$).}
+($\phi d$).  \wh{Have the two curves been renormalized to fit in the plot or is this the absolute
+normalization?}}
 
 \section{Effect of distance changes on the CMB}
 \newcommand\dtl{\delta\Theta^{\rm defl}}
@@ -211,6 +212,7 @@ temperature field at a different multipole.
 Here, we have written the integral over the product of three spherical harmonics as $_0I$ and $_0J$ to enable generalization to the case of polarization, which involves spin $s=2$ harmonics. The general expression is  
 %\scott{I get two $(-1)^m$ factors: once when converting the complex conjugate and once when using Eq 12 from Okamoto-Hu.}\scott{Update: I think i now disagree with the $(-1)^{m_1}$ factor in Eq 12 of Okamoto-Hu, which means that I now agree with the $(-1)^m$'s here}
 \bea
+\eql{FG}
 {}_{s}I_{lLl'}^{mMm'}  &=& (-1)^m\,
 \bigl(\begin{smallmatrix} l & L & l' \\ -m & M & m'  \end{smallmatrix}\bigr) {}_{s}F_{lLl'}, \\
 {}_{s}J_{lLl'}^{mMm'}  &=& (-1)^m\,
@@ -575,7 +577,14 @@ all $\alpha$?}
  \wh{You should follow through the mv weighting of individual estimators and write down
  exactly what you do.}
  
- For the auto and cross spectrum measurements these contamination terms introduce biases \bea
+ In Fig.~\rf{Cont_PtoD} we show the contamination fields $E$ and $F$ for the minimum 
+ variance estimators of $d$ and $\phi$ respectively.   The relative contamination for
+ $d$ is large and increases with $L$, reflecting the similar structures in the
+ mode coupling  of \ec{FG} but with extra factors of $L$ for $\phi$. 
+ Conversely, the relative contamination for $\phi$ decreases with $L$ and is most signficant
+ at $L=1$ \wh{add words on whether this is impt for MV}.  
+ 
+  For the auto and cross spectrum measurements these contamination terms introduce biases \bea
   \langle \hat{\phi}^{\alpha*}_{LM}\hat{\phi}^{\beta}_{LM} \rangle &=&
   \left[ 1 +\frac{(F_L^{\alpha*}+F_L^{\beta} )C_L^{\phi d}}{\sqrt{C_L^{\phi\phi} C_L^{dd} }}
   + F_L^{\alpha*}F_L^{\beta} \right] C_L^{\phi\phi} 
@@ -590,8 +599,12 @@ all $\alpha$?}
 &&  +N_{L}^{c,\alpha\beta} 
 %>>>>>>> f0922b3ceae5ecbc047a14cde79640a0ea4bf973
 \eea
- \wh{discuss figure, mostly contamination from the additive $E$ term.  some words on subtraction of noise bias at the expense of S/N and reoptimization of the estimators to be 
- more orthogonal.  Possibly it is more instructive to plot $E$ and $F$ itself and let the reader combine with Fig 2 in the appropriate way?}
+\wh{
+The large contributions from $E$ dominate the contamination of the delay auto and cross spectra.   To the extent that noise can be neglected in the $\phi$ lensing measurements, this bias can in principle be removed at the $d$ reconstruction level without increasing sample variance for the power spectra.    However given that the mode 
+coupling forms  of \ec{FG} are similar but not identical, especially in the different structures for $C_l^{ab}$ and $C_l^{ab,d}$, reweighting the $(L,l_1,l_2)$ triangles
+to reduce the contamination would be more optimal.  Given the relatively low $S/N$ for 
+even perfect removal, we leave these studies to a future work.}
+
 % \peikai{The presence of both the deflection and the distance perturbations to the CMB leads to contamination of each of the quadratic estimators, which implicitly neglected the other. For example, the distance estimator in \ec{distest} will get contributions from the deflection field $\delta\Theta^{\rm defl}$. Of course it is possible to construct estimators that are independent of one another, but for now, we simply estimate the magnitude of the contaminations.
 %Consider a lensing quadratic estimator given by Okamoto \& Hu
 %\bea
