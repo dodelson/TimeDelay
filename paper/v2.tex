@@ -567,9 +567,13 @@ Up until this point, we have assumed that the estimators of $\phi$ and $d$ are n
 E^{\alpha}_{L} &=& \frac{\sum_{l_{1}l_{2}}h_{l_{1}l_{2}}^{\alpha,d}(L)f_{l_{1}Ll_{2}}^{\alpha}}{\sum_{l_{1}l_{2}}h_{l_{1}l_{2}}^{\alpha,d}(L)g_{l_{1}Ll_{2}}^{\alpha}} \sqrt{\frac{C_{L}^{\phi\phi}}{C_{L}^{dd}}}=\frac{N_{L}^{c,\alpha\alpha}}{N_{L}^{\phi,\alpha\alpha}}\sqrt{\frac{C_{L}^{\phi\phi}}{C_{L}^{dd}}},\nonumber\\
 F^{\alpha}_{L} &=& \frac{\sum_{l_{1}l_{2}}h_{l_{1}l_{2}}^{\alpha,\phi}(L)g_{l_{1}Ll_{2}}^{\alpha}}{\sum_{l_{1}l_{2}}h_{l_{1}l_{2}}^{\alpha,\phi}(L)f_{l_{1}Ll_{2}}^{\alpha}} \sqrt{\frac{C_{L}^{dd}}{C_{L}^{\phi\phi}}}=\frac{N_{L}^{d,\alpha\alpha}}{N_{L}^{c,\alpha\alpha}}\sqrt{\frac{C_{L}^{dd}}{C_{L}^{\phi\phi}}}
 \eea
- \wh{I think it would be best to use minimum variance for each here instead of
- $\Theta\Theta$ and discuss the relative impact for the reconstruction and then the cross power measurement.}
+\wh{for individual $\alpha$ are you using the form with $N_L$?  not sure how it simplifies
+like that -- did you assume $\alpha=aa$, two of the same fields or does that equality hold for
+all $\alpha$?}
+ \wh{After constructing individual $\alpha$'s I think it would be best to use the minimum variance combination for the plot.}
  \peikai{One question, how do we construct mv estimators here? To build a full mv estimator like before, like what Eq.(31-33) did, we need $N^{\alpha \beta}$ where $\alpha$ don't need to be equal to $\beta$. But here we only have $\alpha=\beta$ case.}
+ \wh{You should follow through the mv weighting of individual estimators and write down
+ exactly what you do.}
  
  For the auto and cross spectrum measurements these contamination terms introduce biases \bea
   \langle \hat{\phi}^{\alpha*}_{LM}\hat{\phi}^{\beta}_{LM} \rangle &=&
