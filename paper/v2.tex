@@ -161,7 +161,7 @@ It is clear that they will be highly correlated, so as a first approximation, we
 \Sfig{Spectrum}{Power spectra for the lensing deflection angle
 ($\phi\phi$), fractional distance ($dd$) and deflection-distortion cross correlation
 ($\phi d$).  \wh{Have the two curves been renormalized to fit in the plot or is this the absolute
-normalization?}}
+normalization?}\scott{seems to agree with Cooray and Hu, at least at l=1, where it's easiest to check}}
 
 \section{Effect of distance changes on the CMB}
 \newcommand\dtl{\delta\Theta^{\rm defl}}
@@ -444,7 +444,7 @@ Armed with these expressions, we can form a minimum variance estimator
 \ee
 with weights and variance given by
 \bea
-\omega^{\alpha}(L) & =&N^{d,\rm mv}_{L} \sum_{\beta}(N_{L}^{d,-1})^{\alpha \beta} \\
+\omega^{\alpha}(L) & =&N^{d,\rm mv}_{L} \sum_{\beta}(N_{L}^{d,-1})^{\alpha \beta} \eql{weight}\\
 N^{d,\rm mv}_{L} &=& \frac{1}{\sum_{\alpha\beta} (N_{L}^{d,-1})^{\alpha \beta}}
 \eea
 where $N_{L}^{d,-1}$ is the inverse matrix of time delay noise given by Eq. (27), with matrix indices given by polarizations. 
@@ -501,16 +501,21 @@ N_{L}^{c,\alpha\beta}&=&\frac{A_{L}^{\alpha*}B_{L}^{\beta}}{(2L+1)}\sum_{l_{1}l_
 %+(C_{L}^{\phi \phi} +N_{L}^{\phi,\alpha \alpha})(C_{L}^{d d}+N_{L}^{d,\beta \beta})\right\}
 %\eea
 %\noindent 
-\wh{think we are missing some words on how we calculate $N_L^c$ for the MV estimators
-of $\phi$ and $d$ out of these pairwise formulae}
+%\wh{think we are missing some words on how we calculate $N_L^c$ for the MV estimators
+%of $\phi$ and $d$ out of these pairwise formulae}
+Weighting the quadratic pair with the $w^\alpha$'s for $d$ as in \ec{weight} and the analogous weighting for $\phi$ leads to noise on the product of this pair of minimum variance estimators $\hat d^{\rm mv}\hat\phi^{*,{\rm mv}}$ equal to
+\be
+N^{\rm c,mv}_L = \sum_{\alpha\beta } w^{\alpha,d}_L w^{\beta,\phi}_L N^{\rm c,\alpha\beta}_L
+\ee
+
 Assuming the noise is Gaussian, we can  estimate the fractional
 error on the measurement of the amplitude of the cross spectra $C_l^{\phi d}$ as
 \bea
 \eql{sn1}
 %And we can compute cross power spectrum signal-to-noise by assuming that $(C_{L}^{\phi d}+\mathcal{N}_{L}^{\alpha \beta})=0$ and use minimu variance estimator for both lensing and time delay. Signal-to-noise in FIG.5 is given by:
 \frac{1}{\sigma_{\rm cross}^{2} }&=& \sum_{L=1}^{L_{\rm max}}(2L+1)f_{\rm sky} \\
-&&\times\frac{(C_L^{\phi d})^2}{( C_L^{\phi d}+N_{L}^{c})^2+
-(C_L^{\phi\phi}+N_L^{\phi})(C_L^{dd}+N_L^{d})}. \nonumber
+&\times&\frac{(C_L^{\phi d})^2}{( C_L^{\phi d}+N_{L}^{\rm c,mv})^2+
+(C_L^{\phi\phi}+N_L^{\phi, mv})(C_L^{dd}+N_L^{\rm d,mv})}. \nonumber
 \eea
 For the $\alpha\beta$ pairs that correspond to the minimum variance estimator of
 $\phi$ and $d$ individually, we show this quantity in Fig.~\rf{CrossStoN} where we have set
@@ -561,8 +566,8 @@ Up until this point, we have assumed that the estimators of $\phi$ and $d$ are n
  We can define the cross contamination by generalizing the computation in \ec{bt} to retain the distortion induced by $\phi$ on the estimator of $d$ and vice
  versa from \ec{quad} for the average over CMB modes
  \bea
- \langle \hat{d}^{\alpha}_{LM} \rangle &\equiv& d_{LM} +\phi_{LM}E_{L}^{\alpha}\sqrt{\frac{C_L^{dd}}{C_L^{\phi\phi}}}, \nonumber\\
- \langle \hat{\phi}^{\alpha}_{LM} \rangle &\equiv& \phi_{LM} +d_{LM}F_{L}^{\alpha}\sqrt{\frac{C_L^{\phi\phi}}{C_L^{dd}}},
+ \langle \hat{d}^{\rm mv}_{LM} \rangle &\equiv& d_{LM} +\phi_{LM}E_{L}^{\rm mv}\sqrt{\frac{C_L^{dd}}{C_L^{\phi\phi}}}, \nonumber\\
+ \langle \hat{\phi}^{\rm mv}_{LM} \rangle &\equiv& \phi_{LM} +d_{LM}F_{L}^{\rm mv}\sqrt{\frac{C_L^{\phi\phi}}{C_L^{dd}}},
 \eea
  where $E$ and $F$ measure the expected fractional contamination to each estimator in units of their expected rms 
 \bea
@@ -601,11 +606,10 @@ all $\alpha$?}
 &&  +N_{L}^{c,\alpha\beta} 
 %>>>>>>> f0922b3ceae5ecbc047a14cde79640a0ea4bf973
 \eea
-\wh{
 The large contributions from $E$ dominate the contamination of the delay auto and cross spectra.   To the extent that noise can be neglected in the $\phi$ lensing measurements, this bias can in principle be removed at the $d$ reconstruction level without increasing sample variance for the power spectra.    However given that the mode 
 coupling forms  of \ec{FG} are similar but not identical, especially in the different structures for $C_l^{ab}$ and $C_l^{ab,d}$, reweighting the $(L,l_1,l_2)$ triangles
 to reduce the contamination would be more optimal.  Given the relatively low $S/N$ for 
-even perfect removal, we leave these studies to a future work.}
+even perfect removal, we leave these studies to a future work.
 
 % \peikai{The presence of both the deflection and the distance perturbations to the CMB leads to contamination of each of the quadratic estimators, which implicitly neglected the other. For example, the distance estimator in \ec{distest} will get contributions from the deflection field $\delta\Theta^{\rm defl}$. Of course it is possible to construct estimators that are independent of one another, but for now, we simply estimate the magnitude of the contaminations.
 %Consider a lensing quadratic estimator given by Okamoto \& Hu
