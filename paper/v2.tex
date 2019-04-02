@@ -161,7 +161,7 @@ It is clear that they will be highly correlated, so as a first approximation, we
 \Sfig{Spectrum}{Power spectra for the lensing deflection angle
 ($\phi\phi$), fractional distance ($dd$) and deflection-distortion cross correlation
 ($\phi d$).  \wh{Have the two curves been renormalized to fit in the plot or is this the absolute
-normalization?}\scott{seems to agree with Cooray and Hu, at least at l=1, where it's easiest to check}}
+normalization?}\peikai{absolute normalization }\scott{seems to agree with Hu and Cooray, at least at l=1, where it's easiest to check}}
 
 \section{Effect of distance changes on the CMB}
 \newcommand\dtl{\delta\Theta^{\rm defl}}
@@ -440,11 +440,11 @@ N_{L}^{d,\alpha\beta}&=&\frac{B_{L}^{\alpha*}B_{L}^{\beta}}{2L+1}\sum_{l_{1}l_{2
 with $\alpha=(ab)$, $\beta=(cd)$. For $\alpha=\beta$, \ec{full} reduces to $N_{L}^{d,\alpha\alpha}=B_{L}^{\alpha}$.
 Armed with these expressions, we can form a minimum variance estimator
 \be
-\hat{d}^{\rm mv}_{LM} = \sum_{\alpha}\omega^{\alpha}(L)\hat{d}^{\alpha}_{LM}
+\hat{d}^{\rm mv}_{LM} = \sum_{\alpha}\omega^{d,\alpha}(L)\hat{d}^{\alpha}_{LM}
 \ee
 with weights and variance given by
 \bea
-\omega^{\alpha}(L) & =&N^{d,\rm mv}_{L} \sum_{\beta}(N_{L}^{d,-1})^{\alpha \beta} \eql{weight}\\
+\omega^{d,\alpha}(L) & =&N^{d,\rm mv}_{L} \sum_{\beta}(N_{L}^{d,-1})^{\alpha \beta} \eql{weight}\\
 N^{d,\rm mv}_{L} &=& \frac{1}{\sum_{\alpha\beta} (N_{L}^{d,-1})^{\alpha \beta}}
 \eea
 where $N_{L}^{d,-1}$ is the inverse matrix of time delay noise given by Eq. (27), with matrix indices given by polarizations. 
@@ -503,9 +503,9 @@ N_{L}^{c,\alpha\beta}&=&\frac{A_{L}^{\alpha*}B_{L}^{\beta}}{(2L+1)}\sum_{l_{1}l_
 %\noindent 
 %\wh{think we are missing some words on how we calculate $N_L^c$ for the MV estimators
 %of $\phi$ and $d$ out of these pairwise formulae}
-Weighting the quadratic pair with the $w^\alpha$'s for $d$ as in \ec{weight} and the analogous weighting for $\phi$ leads to noise on the product of this pair of minimum variance estimators $\hat d^{\rm mv}\hat\phi^{*,{\rm mv}}$ equal to
+Weighting the quadratic pair with the $\omega^\alpha$'s for $d$ as in \ec{weight} and the analogous weighting for $\phi$ leads to noise on the product of this pair of minimum variance estimators $\hat\phi^{{\rm mv}*}\hat d^{\rm mv}$ equal to
 \be
-N^{\rm c,mv}_L = \sum_{\alpha\beta } w^{\alpha,d}_L w^{\beta,\phi}_L N^{\rm c,\alpha\beta}_L
+N^{\rm c,mv}_L = \sum_{\alpha\beta } \omega^{d,\alpha}(L) \omega^{\phi,\beta}(L) N^{c,\alpha\beta}_L
 \ee
 
 Assuming the noise is Gaussian, we can  estimate the fractional
@@ -514,8 +514,8 @@ error on the measurement of the amplitude of the cross spectra $C_l^{\phi d}$ as
 \eql{sn1}
 %And we can compute cross power spectrum signal-to-noise by assuming that $(C_{L}^{\phi d}+\mathcal{N}_{L}^{\alpha \beta})=0$ and use minimu variance estimator for both lensing and time delay. Signal-to-noise in FIG.5 is given by:
 \frac{1}{\sigma_{\rm cross}^{2} }&=& \sum_{L=1}^{L_{\rm max}}(2L+1)f_{\rm sky} \\
-&\times&\frac{(C_L^{\phi d})^2}{( C_L^{\phi d}+N_{L}^{\rm c,mv})^2+
-(C_L^{\phi\phi}+N_L^{\phi, mv})(C_L^{dd}+N_L^{\rm d,mv})}. \nonumber
+&\times&\frac{(C_L^{\phi d})^2}{( C_L^{\phi d}+N_{L}^{ c,\rm mv})^2+
+(C_L^{\phi\phi}+N_L^{\phi, \rm mv})(C_L^{dd}+N_L^{d,\rm mv})}. \nonumber
 \eea
 For the $\alpha\beta$ pairs that correspond to the minimum variance estimator of
 $\phi$ and $d$ individually, we show this quantity in Fig.~\rf{CrossStoN} where we have set
@@ -571,16 +571,17 @@ Up until this point, we have assumed that the estimators of $\phi$ and $d$ are n
 \eea
  where $E$ and $F$ measure the expected fractional contamination to each estimator in units of their expected rms 
 \bea
-E^{\alpha}_{L} &=& \frac{\sum_{l_{1}l_{2}}h_{l_{1}l_{2}}^{\alpha,d}(L)f_{l_{1}Ll_{2}}^{\alpha}}{\sum_{l_{1}l_{2}}h_{l_{1}l_{2}}^{\alpha,d}(L)g_{l_{1}Ll_{2}}^{\alpha}} \sqrt{\frac{C_{L}^{\phi\phi}}{C_{L}^{dd}}}=\frac{N_{L}^{c,\alpha\alpha}}{N_{L}^{\phi,\alpha\alpha}}\sqrt{\frac{C_{L}^{\phi\phi}}{C_{L}^{dd}}},\nonumber\\
-F^{\alpha}_{L} &=& \frac{\sum_{l_{1}l_{2}}h_{l_{1}l_{2}}^{\alpha,\phi}(L)g_{l_{1}Ll_{2}}^{\alpha}}{\sum_{l_{1}l_{2}}h_{l_{1}l_{2}}^{\alpha,\phi}(L)f_{l_{1}Ll_{2}}^{\alpha}} \sqrt{\frac{C_{L}^{dd}}{C_{L}^{\phi\phi}}}=\frac{N_{L}^{d,\alpha\alpha}}{N_{L}^{c,\alpha\alpha}}\sqrt{\frac{C_{L}^{dd}}{C_{L}^{\phi\phi}}}
+E^{\rm mv}_{L} &=& 
+\sum_{\alpha}\left\{\omega^{d,\alpha}(L)\frac{N_{L}^{c,\alpha\alpha}}{N_{L}^{\phi,\alpha\alpha}}\right\} \sqrt{\frac{C_{L}^{\phi\phi}}{C_{L}^{dd}}},\nonumber\\
+F^{\rm mv}_{L} &=&\sum_{\alpha}\left\{\omega^{\phi,\alpha}(L) \frac{N_{L}^{d,\alpha\alpha}}{N_{L}^{c,\alpha\alpha}}\right\}\sqrt{\frac{C_{L}^{dd}}{C_{L}^{\phi\phi}}}
 \eea
-\wh{for individual $\alpha$ are you using the form with $N_L$?  not sure how it simplifies
-like that -- did you assume $\alpha=aa$, two of the same fields or does that equality hold for
-all $\alpha$?}
- \wh{After constructing individual $\alpha$'s I think it would be best to use the minimum variance combination for the plot.}
- \peikai{One question, how do we construct mv estimators here? To build a full mv estimator like before, like what Eq.(31-33) did, we need $N^{\alpha \beta}$ where $\alpha$ don't need to be equal to $\beta$. But here we only have $\alpha=\beta$ case.}
- \wh{You should follow through the mv weighting of individual estimators and write down
- exactly what you do.}
+%\wh{for individual $\alpha$ are you using the form with $N_L$?  not sure how it simplifies
+%ike that -- did you assume $\alpha=aa$, two of the same fields or does that equality hold for
+%all $\alpha$?}
+ %\wh{After constructing individual $\alpha$'s I think it would be best to use the minimum variance combination for the plot.}
+% \peikai{One question, how do we construct mv estimators here? To build a full mv estimator like before, like what Eq.(31-33) did, we need $N^{\alpha \beta}$ where $\alpha$ don't need to be equal to $\beta$. But here we only have $\alpha=\beta$ case.}
+ %\wh{You should follow through the mv weighting of individual estimators and write down
+ %exactly what you do.}
  
  In Fig.~\rf{Cont_PtoD} we show the relative contamination fields $E$ and $F$ for the minimum 
  variance estimators of $d$ and $\phi$ respectively.   The relative contamination $E$ for
@@ -592,18 +593,18 @@ all $\alpha$?}
  If these cross contamination contributions are not removed at the reconstruction level, then
  the auto and cross spectrum measurements become biased since
  \bea
-  \langle \hat{\phi}^{\alpha*}_{LM}\hat{\phi}^{\beta}_{LM} \rangle &=&
-  \left[ 1 +\frac{(F_L^{\alpha*}+F_L^{\beta} )C_L^{\phi d}}{\sqrt{C_L^{\phi\phi} C_L^{dd} }}
-  + F_L^{\alpha*}F_L^{\beta} \right] C_L^{\phi\phi} 
+  \langle \hat{\phi}^{\rm mv*}_{LM}\hat{\phi}^{\rm mv}_{LM} \rangle &=&
+  \left[ 1 +\frac{(F_L^{\rm mv*}+F_L^{\rm mv} )C_L^{\phi d}}{\sqrt{C_L^{\phi\phi} C_L^{dd} }}
+  + F_L^{\rm mv*}F_L^{\rm mv} \right] C_L^{\phi\phi} 
   \nonumber\\
-  &&+ N_L^{\phi,\alpha\beta} \nonumber\\
-    \langle \hat{d}^{\alpha*}_{LM}\hat{d}^{\beta}_{LM} \rangle &=&
-  \left[ 1 +\frac{(E_L^{\alpha*}+E_L^{\beta} )C_L^{\phi d}}{\sqrt{C_L^{\phi\phi} C_L^{dd} }}
-  + E_L^{\alpha*}E_L^{\beta} \right] C_L^{dd} 
+  &&+ N_L^{\phi,\rm mv} \nonumber\\
+    \langle \hat{d}^{\rm mv*}_{LM}\hat{d}^{\rm mv}_{LM} \rangle &=&
+  \left[ 1 +\frac{(E_L^{\rm mv*}+E_L^{\rm mv} )C_L^{\phi d}}{\sqrt{C_L^{\phi\phi} C_L^{dd} }}
+  + E_L^{\rm mv*}E_L^{\rm mv} \right] C_L^{dd} 
   \nonumber\\
-  &&+ N_L^{d,\alpha\beta} \nonumber\\
- \langle \hat{\phi}^{\alpha*}_{LM}\hat{d}^{\beta}_{LM} \rangle&=& (1+ F_L^{\alpha *} E_L^{\beta}){C}_{L}^{\phi d}+ \sqrt{C_{L}^{\phi\phi} C_{L}^{dd}} ( F_L^{\alpha*} + E_L^{\beta}) \nonumber\\
-&&  +N_{L}^{c,\alpha\beta} 
+  &&+ N_L^{d,\rm mv} \nonumber\\
+ \langle \hat{\phi}^{\rm mv*}_{LM}\hat{d}^{\rm mv}_{LM} \rangle&=& (1+ F_L^{\rm mv*} E_L^{\rm mv}){C}_{L}^{\phi d}+ \sqrt{C_{L}^{\phi\phi} C_{L}^{dd}} ( F_L^{\rm mv*} + E_L^{\rm mv}) \nonumber\\
+&&  +N_{L}^{c,\rm mv} 
 %>>>>>>> f0922b3ceae5ecbc047a14cde79640a0ea4bf973
 \eea
 The large contributions from $E$ dominate the contamination of the delay auto and cross spectra.   To the extent that noise can be neglected in the $\phi$ lensing measurements, this bias can in principle be removed at the $d$ reconstruction level without increasing sample variance for the power spectra.    However given that the mode 
