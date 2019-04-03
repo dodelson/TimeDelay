@@ -492,7 +492,7 @@ N_{L}^{c,\alpha\beta}&=&\frac{A_{L}^{\alpha*}B_{L}^{\beta}}{(2L+1)}\sum_{l_{1}l_
 \wh{
 \bea
 N_{L}^{c,\alpha\beta}&=&\frac{A_{L}^{\alpha*}B_{L}^{\beta}}{(2L+1)}\sum_{l_{1}l_{2}}  \left\{ h_{l_{1}l_{2}}^{\alpha,\phi*} (L)\big[ C_{l_{1}}^{ac}C_{l_{2}}^{bd}h_{l_{1}l_{2}}^{\beta,d}(L)\right. \nonumber \\
-&&\left. +(-1)^{L+l_{1}+l_{2}}C_{l_{1}}^{ad}C_{l_{2}}^{bc} h_{l_{2}l_{1}}^{\beta,d}(L)  \big]\right\}
+&&\left. +(-1)^{L+l_{1}+l_{2}}C_{l_{1}}^{ad}C_{l_{2}}^{bc} h_{l_{2}l_{1}}^{\beta,d}(L)  \big]\right\}.
 \eea
 }
 %Gaussian covariance of $\hat{C}_{LM}^{\phi d,\alpha \beta} $ is
@@ -527,7 +527,7 @@ error on the measurement of the amplitude of the cross spectra $C_l^{\phi d}$ fr
 \eql{sn1}
 %And we can compute cross power spectrum signal-to-noise by assuming that $(C_{L}^{\phi d}+\mathcal{N}_{L}^{\alpha \beta})=0$ and use minimu variance estimator for both lensing and time delay. Signal-to-noise in FIG.5 is given by:
 \frac{1}{\sigma_{\rm cross}^{2} }&=& \sum_{L=1}^{L_{\rm max}}(2L+1)f_{\rm sky} \\
-&\times&\frac{(C_L^{\phi d})^2}{( C_L^{\phi d}+N_{L}^{ c})^2+
+&&\times\frac{(C_L^{\phi d})^2}{( C_L^{\phi d}+N_{L}^{ c})^2+
 (C_L^{\phi\phi}+N_L^{\phi})(C_L^{dd}+N_L^{d})}. \nonumber
 \eea
 For the $\alpha\beta$ pairs that correspond to the minimum variance estimator of
@@ -582,8 +582,7 @@ Up until this point, we have assumed that the estimators of $\phi$ and $d$ are n
  \langle \hat{d}^{\alpha}_{LM} \rangle &\equiv& d_{LM} +\phi_{LM}E_{L}^{\alpha}\sqrt{\frac{C_L^{dd}}{C_L^{\phi\phi}}}, \nonumber\\
  \langle \hat{\phi}^{\alpha}_{LM} \rangle &\equiv& \phi_{LM} +d_{LM}F_{L}^{\alpha}\sqrt{\frac{C_L^{\phi\phi}}{C_L^{dd}}},
 \eea
-where $E$ and $F$ measure the expected fractional contamination to each estimator in units of their expected rms.
-For the minimum variance combinations of the individual estimators we can again write
+where $E$ and $F$ measure the expected fractional contamination to each estimator in units of their expected rms
 %\bea
 %E^{\alpha}_{L} &=&\frac{\sum_{l_{1}l_{2}}h_{l_{1}l_{2}}^{\alpha,d}(L)f_{l_{1}Ll_{2}}^{\alpha}}{\sum_{l_{1}l_{2}}h_{l_{1}l_{2}}^{\alpha,d}(L)g_{l_{1}Ll_{2}}^{\alpha}} \sqrt{\frac{C_{L}^{\phi\phi}}{C_{L}^{dd}}}=\frac{N_{L}^{c,\alpha\alpha}}{N_{L}^{\phi,\alpha\alpha}} \sqrt{\frac{C_{L}^{\phi\phi}}{C_{L}^{dd}}},\nonumber\\
 %F^{\alpha}_{L} &=&\frac{\sum_{l_{1}l_{2}}h_{l_{1}l_{2}}^{\alpha,\phi}(L)g_{l_{1}Ll_{2}}^{\alpha}}{\sum_{l_{1}l_{2}}h_{l_{1}l_{2}}^{\alpha,\phi}(L)f_{l_{1}Ll_{2}}^{\alpha}}  \sqrt{\frac{C_{L}^{dd}}{C_{L}^{\phi\phi}}}=\frac{N_{L}^{c,\alpha\alpha}}{N_{L}^{d,\alpha\alpha}}\sqrt{\frac{C_{L}^{dd}}{C_{L}^{\phi\phi}}}
@@ -591,15 +590,15 @@ For the minimum variance combinations of the individual estimators we can again 
 %
 \bea
 E^{\alpha}_{L}  \sqrt{\frac{C_{L}^{dd}}{C_{L}^{\phi\phi}}}  &=&\frac{\sum_{l_{1}l_{2}}h_{l_{1}l_{2}}^{\alpha,d}(L)f_{l_{1}Ll_{2}}^{\alpha}}{\sum_{l_{1}l_{2}}h_{l_{1}l_{2}}^{\alpha,d}(L)g_{l_{1}Ll_{2}}^{\alpha}} =\frac{N_{L}^{c,\alpha\alpha}}{N_{L}^{\phi,\alpha\alpha}},\nonumber\\
-F^{\alpha}_{L} \sqrt{\frac{C_{L}^{\phi\phi}}{C_{L}^{dd}}}  &=&\frac{\sum_{l_{1}l_{2}}h_{l_{1}l_{2}}^{\alpha,\phi}(L)g_{l_{1}Ll_{2}}^{\alpha}}{\sum_{l_{1}l_{2}}h_{l_{1}l_{2}}^{\alpha,\phi}(L)f_{l_{1}Ll_{2}}^{\alpha}} =\frac{N_{L}^{c,\alpha\alpha}}{N_{L}^{d,\alpha\alpha}}
+F^{\alpha}_{L} \sqrt{\frac{C_{L}^{\phi\phi}}{C_{L}^{dd}}}  &=&\frac{\sum_{l_{1}l_{2}}h_{l_{1}l_{2}}^{\alpha,\phi}(L)g_{l_{1}Ll_{2}}^{\alpha}}{\sum_{l_{1}l_{2}}h_{l_{1}l_{2}}^{\alpha,\phi}(L)f_{l_{1}Ll_{2}}^{\alpha}} =\frac{N_{L}^{c,\alpha\alpha}}{N_{L}^{d,\alpha\alpha}}.
 \eea
 
  
-We can then compute minimum variance estimator contamination using \ec{dmvw} and get
+We can then compute minimum variance estimator contamination using \ec{dmvw} as
 \bea
 E_{L} &=&  
-\sum_{\alpha}\omega^{d,\alpha}(L)  E^{\alpha}_{L}  \nonumber\\
-F_{L} &=&\sum_{\alpha}\omega^{\phi,\alpha}(L) F^{\alpha}_{L} 
+\sum_{\alpha}\omega^{d,\alpha}(L)  E^{\alpha}_{L} , \nonumber\\
+F_{L} &=&\sum_{\alpha}\omega^{\phi,\alpha}(L) F^{\alpha}_{L} .
 \eea
 %\wh{for individual $\alpha$ are you using the form with $N_L$?  not sure how it simplifies
 %ike that -- did you assume $\alpha=aa$, two of the same fields or does that equality hold for
@@ -623,14 +622,14 @@ F_{L} &=&\sum_{\alpha}\omega^{\phi,\alpha}(L) F^{\alpha}_{L}
   \left[ 1 +\frac{(F_L^{*}+F_L^{} )C_L^{\phi d}}{\sqrt{C_L^{\phi\phi} C_L^{dd} }}
   + F_L^{*}F_L^{} \right] C_L^{\phi\phi} 
   \nonumber\\
-  &&+ N_L^{\phi} \nonumber\\
+  &&+ N_L^{\phi}, \nonumber\\
     \langle \hat{d}^{\rm mv*}_{LM}\hat{d}^{\rm mv}_{LM} \rangle &=&
   \left[ 1 +\frac{(E_L^{*}+E_L^{} )C_L^{\phi d}}{\sqrt{C_L^{\phi\phi} C_L^{dd} }}
   + E_L^{*}E_L^{} \right] C_L^{dd} 
   \nonumber\\
-  &&+ N_L^{d} \nonumber\\
+  &&+ N_L^{d}, \nonumber\\
  \langle \hat{\phi}^{\rm mv*}_{LM}\hat{d}^{\rm mv}_{LM} \rangle&=& (1+ F_L^{*} E_L^{}){C}_{L}^{\phi d}+ \sqrt{C_{L}^{\phi\phi} C_{L}^{dd}} ( F_L^{*} + E_L^{}) \nonumber\\
-&&  +N_{L}^{c} 
+&&  +N_{L}^{c} .
 %>>>>>>> f0922b3ceae5ecbc047a14cde79640a0ea4bf973
 \eea
 The large contributions from $E$ dominate the contamination of the delay auto and cross spectra.   To the extent that noise can be neglected in the $\phi$ lensing measurements, this bias can in principle be removed at the $d$ reconstruction level without increasing sample variance for the power spectra.    However given that the mode 
