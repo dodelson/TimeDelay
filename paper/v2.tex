@@ -471,7 +471,8 @@ from gravitational waves.
 
 The auto-spectrum of the distortion field, $d$, will apparently be very challenging to extract. Another possibility is to cross-correlate the quadratic estimator for the distortion field with other fields that are well-measured. Cross-correlations can be more easily detected if the two-fields are highly correlated and one of the fields can be detected with high signal to noise. 
 
-As a first attempt, we consider the cross correlation of the $d$-field with the $\phi$-field responsible for deflections. Without further optimization, the cross-spectrum is
+As a first attempt, we consider the cross correlation of the $d$-field with the $\phi$-field responsible for deflections. Without further optimization, the cross-spectrum for $\alpha=ab$ and
+$\beta=cd$ quadratic estimators is 
 \bea
  \langle \hat{\phi}^{\alpha*}_{LM}\hat{d}^{\beta}_{LM} \rangle= {C}_{L}^{\phi d} +N_{L}^{c,\alpha\beta},\eql{crossn}
 \eea 
@@ -487,6 +488,12 @@ both come from the same quadratic combinations of observables
 N_{L}^{c,\alpha\beta}&=&\frac{A_{L}^{\alpha*}B_{L}^{\beta}}{(2L+1)}\sum_{l_{1}l_{2}}  \left\{ h_{l_{1}l_{2}}^{\alpha,\phi*} (L)\big[ C_{l_{1}}^{ac}C_{l_{2}}^{bd}h_{l_{1}l_{2}}^{\alpha,d}(L)\right. \nonumber \\
 &&\left. +(-1)^{L+l_{1}+l_{2}}C_{l_{1}}^{ad}C_{l_{2}}^{bc} h_{l_{2}l_{1}}^{\beta,d}(L)  \big]\right\}
 \eea
+\wh{
+\bea
+N_{L}^{c,\alpha\beta}&=&\frac{A_{L}^{\alpha*}B_{L}^{\beta}}{(2L+1)}\sum_{l_{1}l_{2}}  \left\{ h_{l_{1}l_{2}}^{\alpha,\phi*} (L)\big[ C_{l_{1}}^{ac}C_{l_{2}}^{bd}h_{l_{1}l_{2}}^{\beta,d}(L)\right. \nonumber \\
+&&\left. +(-1)^{L+l_{1}+l_{2}}C_{l_{1}}^{ad}C_{l_{2}}^{bc} h_{l_{2}l_{1}}^{\beta,d}(L)  \big]\right\}
+\eea
+}
 %Gaussian covariance of $\hat{C}_{LM}^{\phi d,\alpha \beta} $ is
 %\bea 
 %&&\big\langle \hat{C}_{LM}^{\phi d,\alpha \beta*} \hat{C}_{LM}^{\phi d,\gamma \sigma} - (C_{L}^{\phi d})^{2} \big\rangle/(2L+1) \nonumber \\
@@ -505,13 +512,16 @@ N_{L}^{c,\alpha\beta}&=&\frac{A_{L}^{\alpha*}B_{L}^{\beta}}{(2L+1)}\sum_{l_{1}l_
 %\noindent 
 %\wh{think we are missing some words on how we calculate $N_L^c$ for the MV estimators
 %of $\phi$ and $d$ out of these pairwise formulae}
-Weighting the quadratic pair with the $\omega^\alpha$'s for $d$ as in \ec{weight} and the analogous weighting for $\phi$ leads to noise on the product of this pair of minimum variance estimators $\langle \hat\phi^{{\rm mv}*}_{LM} \hat d^{\rm mv}_{LM}\rangle$ equal to
+We can also construct the analogous noise cross spectrum for the minimum variance weighted estimators for $\phi$ and $d$ separately using
+the weights of \ec{weight} 
+%
+%Weighting the quadratic pair with the $\omega^\alpha$'s for $d$ as in \ec{weight} and the analogous weighting for $\phi$ leads to noise on the product of this pair of minimum variance %estimators $\langle \hat\phi^{{\rm mv}*}_{LM} \hat d^{\rm mv}_{LM}\rangle$ equal to
 \be
 N^{\rm c}_L = \sum_{\alpha\beta } \omega^{d,\alpha}(L) \omega^{\phi,\beta}(L) N^{c,\alpha\beta}_L.
 \ee
 
 Assuming the noise is Gaussian, we can  estimate the fractional
-error on the measurement of the amplitude of the cross spectra $C_l^{\phi d}$ as
+error on the measurement of the amplitude of the cross spectra $C_l^{\phi d}$ from these minimum variance estimators as
 \bea
 \eql{sn1}
 %And we can compute cross power spectrum signal-to-noise by assuming that $(C_{L}^{\phi d}+\mathcal{N}_{L}^{\alpha \beta})=0$ and use minimu variance estimator for both lensing and time delay. Signal-to-noise in FIG.5 is given by:
