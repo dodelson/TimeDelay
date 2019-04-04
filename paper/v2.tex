@@ -156,7 +156,7 @@ The corresponding auto and cross power spectra are shown in Figure~\rf{Spectrum}
 It is clear that they are highly correlated, so as a first approximation, we might view the maps of the lensing potential created for example in \citet{Aghanim:2018oex} as maps of distance to the last scattering surface. Another similarity, one that has not yet been exploited, is that the quadratic estimator formalism  \cite{Hu:2001tn} can be applied to the delays as well, and this is what we will do in this paper.  We start though with the rather daunting facts that the RMS fractional distance differences are a factor of ten smaller than the RMS angular deviations 
  % this part is arguably comparing apples to oranges so I think the more daunting fact is the many orders of magnitude between their effects on the power spectra
  and their impact on CMB power spectra is even smaller \cite{Hu:2001yq}. Further, while the latter peaks at degree scales, the former peak on the largest scales where cosmic variance is
- higher.
+ higher.  
 
 \Sfig{kernel}{Kernel that weights the integral of the gravitational potential for the time delay examined here and the more carefully studied deflection angle.}
 \Sfig{Spectrum}{Power spectra for the lensing deflection angle
@@ -527,7 +527,13 @@ error on the measurement of the amplitude of the cross spectra $C_l^{\phi d}$ fr
 \eea
 For the $\alpha\beta$ pairs that correspond to the minimum variance estimator of
 $\phi$ and $d$ individually, we show this quantity in Fig.~\rf{CrossStoN} where we have set
- $f_{\rm sky}=1$. We  see that in this ideal case, $S/N$ could reach about $2.5$. 
+ $f_{\rm sky}=1$. We  see that in this ideal case, $S/N$ could reach about $2.5$.  \wh{Although
+ there are many other lens, and more generally large-scale structure tracers, that delay 
+ reconstruction can be correlated with, note that the $S/N$ is dominated by $N_L^d$ not
+ $N_L^\phi$ or $N_L^c$ which is common to all such correlations.}
+  
+ 
+ 
  \Sfig{CrossStoN}{The detectability of the cross power spectrum of the distance distortion field and the potential inducing deflections as a function of $L_{\rm max}$ (with  $l_{\rm max}=7000$). Unlike the auto-spectrum, there is signal out to $L_{\rm max}\sim 100$, but the contributions to the detectability plateau after that, so the best that can be hoped for with this cross spectrum is a $2.5\sigma$ detection.}
  
 Up until this point, we have assumed that the estimators of $\phi$ and $d$ are not 
