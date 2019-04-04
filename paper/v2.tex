@@ -456,7 +456,7 @@ we denote the noise of the minimum variance combination with no superscripts for
 We saw in Fig.~\rf{Delay} that small scale temperature maps only are not sufficient to detect this signal convincingly. To assess the added information contained in the polarization field, we show the detectability in the form of $\sigma_d$ for the lowest $L$-modes ($L\leqslant 5$, which contributes all of the signal) as a function $l_{\rm max}$ for a noiseless experiment in Fig.~\rf{StoN}.
 %We can see that the noise for time delay $\Theta \Theta$ quadratic estimator in FIG. 3 is much larger than the signal, given that we sum up from $1000$ to $4000$ for $l_{1}$ and $l_{2}$ in Eq. (19) indices and also detector noise is taken into consideration.
 
-\Sfig{StoN}{Detectability of the spectrum of the time delay signal, $\sigma_d$, using \ec{sn} for different quadratic estimators as a function of the largest $l$-mode accessed. Here we set $f_{\rm sky}$ to be $1$.}
+\Sfig{StoN}{Detectability of the spectrum of the time delay signal, $\sigma_d^{-1}$, using \ec{sn} for different quadratic estimators as a function of the largest $l$-mode accessed. Here we set $f_{\rm sky}$ to be $1$.}
 Here we keep $l_{\rm min}$ fixed at $1000$ for the CMB fields (we tested that our final results are insensitive to this choice) and let $l_{\rm max}$ vary.
 We can see that at $l_{\rm max} \approx 5000$, the minimum variance estimator detectability reaches 1, and at 7000 is 1.42 but of course this is for the most optimistic of configurations. 
 Note that unlike the minimum variance lensing  estimator, the deflection estimator
@@ -614,7 +614,7 @@ F_{L} &=&\sum_{\alpha}\omega^{\phi,\alpha}(L) F^{\alpha}_{L} .
  $d$ is large and increases with $L$, reflecting the similar structures in the
  mode coupling  of \ec{FG} but with extra factors of $L$ for $\phi$. 
  Conversely, the relative contamination $F$ for $\phi$ decreases with $L$ and is most signficant
- at $L=1$ \wh{add words on whether this is impt for MV}.  \peikai{$F_{L=1} \approx 0.24$}
+ at $L=1$.  \peikai{$F_{L=1} \approx 0.24$  while $F_{L=2} \approx 0.05$, we can see there's a rapid decrease.}
  
  If these cross contamination contributions are not removed at the reconstruction level, then
  the auto and cross spectrum measurements become biased since
@@ -676,7 +676,8 @@ even perfect removal, we leave these studies to a future work.
 %F^{\alpha}_{L} = \frac{\sum_{l_{1}l_{2}}h_{l_{1}l_{2}}^{\alpha,\phi}(L)g_{l_{1}Ll_{2}}^{\alpha}}{\sum_{l_{1}l_{2}}h_{l_{1}l_{2}}^{\alpha,\phi}(L)f_{l_{1}Ll_{2}}^{\alpha}} \sqrt{\frac{C_{L}^{dd}}{C_{L}^{\phi\phi}}}
 %\ee
 %I made this plot using Eq(42) and (44) because I really don't know how to get Eq. (41). 
-\Sfig{Cont_multi}{Contamination. Notice that $E$ and $F$ are all negative.}
+\Sfig{Cont_multi}{\peikai{Cross contamination. Notice that $E$ and $F$ are all negative. $\frac{(F_1^{*}+F_1^{} )C_1^{\phi d}}{\sqrt{C_1^{\phi\phi} C_1^{dd} }}
+  + F_1^{*}F_1^{}\approx0.22$ which is the multiplicative bias for $\langle \phi \phi \rangle$ induced by time delay contamination at $L=1$. While for $L=2$ it became almost negeligible (0.05).}}
 %}
 
 \section{Conclusions}
