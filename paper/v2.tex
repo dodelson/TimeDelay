@@ -99,7 +99,7 @@ Enrico Fermi Institute, The University of Chicago, Chicago, IL 60637, USA}
 \date{\today}
 
 \begin{abstract}
-The surface of last scattering of the photons in the cosmic microwave background is {\bf not} a spherical shell. Apart from its finite width, each photon experiences a different gravitational potential along its journey to us, leading to different travel times in different directions. Since all photons were released at the same cosmic time, the photons with longer travel times started farther away from us than those with shorter times. Thus, the surface of last scattering is corrugated, a deformed spherical shell. We present a quadratic estimator that could provide a map of the time delays as a function of position on the sky. The signal to noise of this map could exceed unity on large scales.
+The surface of last scattering of the photons in the cosmic microwave background is {\bf not} a spherical shell. Apart from its finite width, each photon experiences a different gravitational potential along its journey to us, leading to different travel times in different directions. Since all photons were released at the same cosmic time, the photons with longer travel times started farther away from us than those with shorter times. Thus, the surface of last scattering is corrugated, a deformed spherical shell. We present an estimator quadratic in the temperature and polarization fields that could provide a map of the time delays as a function of position on the sky. The signal to noise of this map could exceed unity on large scales.
 \end{abstract}
 
 \maketitle
@@ -113,7 +113,7 @@ $D_*$ to a source at redshift $z_*$ is
 \be
 d(\hat n) = \frac{2}{D_*}\, \int_0^{D_*} dD\, \Phi\left(D \hat n; t(D)\right)\eql{defd},
 \ee
-where %the kernel $K(z,z')=(H(z') D(z))^{-1}$ with $H$ the Hubble rate; and 
+where 
 $t(D)$ is the age of the universe when the photon is a comoving distance $D$ from us, and  we use the space-time metric convention 
 \bea
 ds^{2}= -(1+2\Phi)dt^{2}+a^{2}(1-2\Phi)d\vec{x}^{2}
@@ -138,7 +138,6 @@ K_\phi(z) = \frac{D_*-D(z)}{ D(z) D_* H(z)} .
 \ee
 The corresponding auto and cross power spectra are shown in Figure~\rf{Spectrum}.
 It is clear that they are highly correlated, so as a first approximation, we might view the maps of the lensing potential created for example in \citet{Aghanim:2018oex} as maps of distance to the last scattering surface. Another similarity, one that has not yet been exploited, is that the quadratic estimator formalism  \cite{Hu:2001tn} can be applied to the delays as well, and this is what we will do in this paper.  We start though with the rather daunting facts that the RMS fractional distance differences are a factor of ten smaller than the RMS angular deviations 
- % this part is arguably comparing apples to oranges so I think the more daunting fact is the many orders of magnitude between their effects on the power spectra
  and their impact on CMB power spectra is even smaller \cite{Hu:2001yq}. Further, while the latter peaks at degree scales, the former peak on the largest scales where cosmic variance is
  higher.  
 
@@ -157,8 +156,7 @@ It is clear that they are highly correlated, so as a first approximation, we mig
 \newcommand\tob{\Theta^{\rm obs}}
 \newcommand\tu{\tilde{\Theta}}
 \newcommand\td{\Theta^{\rm dist}}
-The %starting point is to assume that the last scattering surface is infinitely thin, note that the 
-observed temperature in a given direction $\tob(\hat n)$ is the undistorted temperature $\tu(\hat n)$ plus the deflection due to gravitational lensing plus a term proportional to the small fractional difference $\fd(\hat n)$.  Linearizing these distortions, we obtain
+The observed temperature in a given direction $\tob(\hat n)$ is the undistorted temperature $\tu(\hat n)$ plus the deflection due to gravitational lensing plus a term proportional to the small fractional difference $\fd(\hat n)$.  Linearizing these distortions, we obtain
 \be
 \tob(\hat n) = \tu(\hat n) - \nabla_{i} \phi(\hat n) \nabla^{i}\tu(\hat n) - \frac{\partial\tu(\hat n)}{\partial \ln D}\, \fd(\hat n),
 \ee
@@ -177,7 +175,6 @@ with the two first order terms due to deflection and the change in distance equa
 Notice that both effects couple the undistorted temperature field to the observed
 temperature field at a different multipole.
 Here, we have written the integral over the product of three spherical harmonics as $_0I$ and $_0J$ to enable generalization to the case of polarization, which involves spin $s=2$ harmonics. The general expression is  
-%\scott{I get two $(-1)^m$ factors: once when converting the complex conjugate and once when using Eq 12 from Okamoto-Hu.}\scott{Update: I think i now disagree with the $(-1)^{m_1}$ factor in Eq 12 of Okamoto-Hu, which means that I now agree with the $(-1)^m$'s here}
 \bea
 \eql{FG}
 {}_{s}I_{lLl'}^{mMm'}  &=& (-1)^m\,
@@ -185,12 +182,7 @@ Here, we have written the integral over the product of three spherical harmonics
 {}_{s}J_{lLl'}^{mMm'}  &=& (-1)^m\,
 \bigl(\begin{smallmatrix} l & L & l' \\ -m & M & m'  \end{smallmatrix}\bigr) {}_{s}G_{lLl'}, \nonumber
 \eea
-
 with
-%\bea
-%{}_{s}F_{lLl'} &\equiv& \big[L(L+1)-l'(l'+1)+l(l+1)\big]\nonumber  \\& \times& \frac{\big[ (2l+1)(2L+1)(2l'+1)\big]^{1/2} }{\sqrt{16 \pi}} \bigl(\begin{smallmatrix} l & L & l' \\ s & 0 & -s  \end{smallmatrix}\bigr) ,\nonumber\\
-%{}_{s}G_{lLl'} &\equiv& \frac{\big[ (2l+1)(2L+1)(2l'+1)\big]^{1/2} }{\sqrt{4 \pi}} \bigl(\begin{smallmatrix} l & L & l' \\ s & 0 & -s  \end{smallmatrix}\bigr)\eql{fg}
-%\eea
 \bea
 {}_{s}F_{lLl'} &\equiv& \big[L(L+1)+l'(l'+1)-l(l+1)\big]\nonumber  \\ & \times&\sqrt{ \frac{ (2l+1)(2L+1)(2l'+1) }{16 \pi} }\begin{pmatrix} l & L & l'  \\   s & 0 & -s  \end{pmatrix} ,\nonumber\\
 {}_{s}G_{lLl'} &\equiv& \sqrt{ \frac{(2l+1)(2L+1)(2l'+1) }{4 \pi}} \begin{pmatrix} l & L & l' \\  \vphantom{a^b} s & 0 & -s  \end{pmatrix}\eql{fg} 
