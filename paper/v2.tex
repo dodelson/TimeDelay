@@ -219,7 +219,7 @@ f_{l_1Ll_2} &\equiv& \big[ \tilde{C}_{l_{1}}^{\Theta\Theta} {}_{0}F_{l_{2}Ll_{1}
 \vs
 g_{l_1Ll_2} &\equiv&\big[ \tilde{C}_{l_{1}}^{\Theta\Theta,d} {}_{0}G_{l_{2}Ll_{1}} +\tilde{C}_{l_{2}}^{\Theta \Theta,d} {}_{0}G_{l_{1}Ll_{2}}\big].\eql{lfg}
 \eea
-The change in distance to the last scattering spectrum produces the spectrum
+The change in distance to the last scattering  produces the spectrum
 \be
 \tilde{C}^{\Theta\Theta,d}_{l} \equiv \frac{2}{\pi}\,\int_0^\infty  k^2 dk P_{\cal R} T_l^\Theta(k) 
 T_l^{\Theta,d}(k).
@@ -323,7 +323,8 @@ with the first term on the right the signal and the second the noise. Fig.~\rf{D
 An estimate of the detectability of this signal can be obtained by computing the projected error, $\sigma_d$, on the amplitude $A^d$ of the power spectrum $A^dC_L^{dd}$, where the fiducial model has $A^d=1$.  Approximating the noise as Gaussian gives
 \be
 \left(\frac{1}{\sigma_d}\right)^2 = \sum_L^{\infty} \frac{(2L+1)f_{\rm sky}}{2} \left(\frac{C_L^{dd}}{C_L^{dd}+B_L}\right)^2\eql{sn}
-.\ee
+\ee
+where $f_{\rm sky}$ is the fraction of sky covered by the measurements.
 Fig.~\rf{Delay} shows that most of the signal comes from the lowest $L$-modes, particularly $L=1$. However, even for a full-sky experiment and the most optimistic noise projections, the
 auto power spectrum $C_L^{dd}$ will not be measurable using temperature only.%{\scott{Wayne: please check if this rewording is what you had in mind. Peikai: if we agree on this notation, please relabel the y-axis on figure 4 as ``Time Delay Detectability ($\sigma_d$)''}
 
@@ -388,20 +389,20 @@ An estimator can now be constructed for each of the pairs of fields, so letting 
 \hat{d}^{\alpha}_{LM} &=&\nonumber  (-1)^{M} B_{L}^{\alpha}\sum_{l_{1}m_{1}}\sum_{l_{2}m_{2}}\bigl(\begin{smallmatrix} l_1 & l_2 & L \\ m_1 & m_2 & -M  \end{smallmatrix}\bigr) \\
 && \times h^{\alpha,d}_{l_{1}l_{2}}(L) a^{\rm obs}_{l_{1}m_{1}}b^{\rm obs}_{l_{2}m_{2}} ,
 \eea
-where the coefficients are generalizations of \ec{bt} with $g$ and $h$ there acquiring superscripts $\alpha$. The $g^\alpha$ are given in Table 1 and the minimizing weights are
+where the minimum variance weights $h$ are generalizations of \ec{bt} 
 \be
 h^{\alpha=(ab),d}_{l_{1}l_{2}}(L) 
-= \frac{C_{l_{2}}^{aa}C_{l_{1}}^{bb}g^{\alpha*}_{l_{1}Ll_{2}}-(-1)^{L+l_{1}+l_{2}}C_{l_{1}}^{ab}C_{l_{2}}^{ab}g^{\alpha*}_{l_{2}Ll_{1}}}{C_{l_{1}}^{aa}C_{l_{2}}^{aa}C_{l_{1}}^{bb}C_{l_{2}}^{bb}-(C_{l_{1}}^{ab}C_{l_{2}}^{ab})^{2}}
+= \frac{C_{l_{2}}^{aa}C_{l_{1}}^{bb}g^{\alpha*}_{l_{1}Ll_{2}}-(-1)^{L+l_{1}+l_{2}}C_{l_{1}}^{ab}C_{l_{2}}^{ab}g^{\alpha*}_{l_{2}Ll_{1}}}{C_{l_{1}}^{aa}C_{l_{2}}^{aa}C_{l_{1}}^{bb}C_{l_{2}}^{bb}-(C_{l_{1}}^{ab}C_{l_{2}}^{ab})^{2}}.
 \ee
-with 
-\bea 
-h_{l_{1}l_{2}}^{\alpha=(aa),d}(L)= \frac{g_{l_{1}Ll_{2}}^{\alpha*}}{2C_{l_{1}}^{aa}C_{l_{2}}^{aa}}. 
-\eea 
 %We have some simplifications, for $a=b$, we have
 %\be
 %h^{\alpha,d}_{l_{1}l_{2}}(L) \rightarrow \frac{g^{\alpha *}_{l_{1}Ll_{2}}}{2C_{l_{1}}^{aa}C_{l_{2}}^{aa}}
 %\ee
-Note that in the special case when $C_{l}^{ab}=0$ (e.g., for $\Theta B$ or $EB$), this reduces to 
+Note that in the special cases $\alpha=aa$
+\bea 
+h_{l_{1}l_{2}}^{\alpha=(aa),d}(L)= \frac{g_{l_{1}Ll_{2}}^{\alpha*}}{2C_{l_{1}}^{aa}C_{l_{2}}^{aa}}. 
+\eea 
+and when $C_{l}^{ab}=0$ (e.g., for $\Theta B$ or $EB$),
 \be
 h^{\alpha,d}_{l_{1}l_{2}}(L) \rightarrow \frac{g^{\alpha *}_{l_{1}Ll_{2}}}{C_{l_{1}}^{aa}C_{l_{2}}^{bb}}. 
 \ee
@@ -422,18 +423,20 @@ Armed with these expressions, we can form a minimum variance estimator
 \ee
 with weights and variance given by
 \bea
-\omega^{d,\alpha}(L) & =&N^{d}_{L} \sum_{\beta}(N_{L}^{d,-1})^{\alpha \beta} \eql{weight}\\
+\omega^{d,\alpha}(L) & =&N^{d}_{L} \sum_{\beta}(N_{L}^{d,-1})^{\alpha \beta} \eql{weight} \nonumber\\
 N^{d}_{L} &=& \frac{1}{\sum_{\alpha\beta} (N_{L}^{d,-1})^{\alpha \beta}}
 \eea
 where $(N_{L}^{d,-1})^{\alpha\beta}$ are the elements of the inverse of the delay noise matrix given by \ec{full}, with matrix indices given by quadratic combinations.  Here and below
-we denote the noise of the minimum variance combination with no superscripts for simplicity.
+we denote the noise of the minimum variance combination with no superscripts for simplicity.  Analogous expressions with the superscript $^\phi$ apply for the lens potential estimators.
+
+
 
 We saw in Fig.~\rf{Delay} that small scale temperature maps only are not sufficient to detect this signal convincingly. To assess the added information contained in the polarization field, we show the detectability in the form of $\sigma_d$ for the lowest $L$-modes ($L\leqslant 5$, which contributes essentially all of the signal) as a function $l_{\rm max}$ for a noiseless experiment in Fig.~\rf{StoN}.
 %We can see that the noise for time delay $\Theta \Theta$ quadratic estimator in FIG. 3 is much larger than the signal, given that we sum up from $1000$ to $4000$ for $l_{1}$ and $l_{2}$ in Eq. (19) indices and also detector noise is taken into consideration.
 
 
 %%%%% FIGURE %%%%%%%
-\Sfig{StoN}{Detectability of the spectrum of the time delay signal, $\sigma_d^{-1}$, using \ec{sn} for different quadratic estimators as a function of the largest $l$-mode accessed. Here we set $f_{\rm sky}$ to be $1$.}
+\Sfig{StoN}{Detectability of the spectrum of the time delay signal, $\sigma_d^{-1}$, using \ec{sn} for different quadratic estimators as a function of the largest mode, $l_{\rm max}$ accessed. Here we set $f_{\rm sky}$ to be $1$.}
 %%%%% FIGURE %%%%%%%
 
 Here we keep $l_{\rm min}$ fixed at $1000$ for the CMB fields (we tested that our final results are insensitive to this choice) and let $l_{\rm max}$ vary.
@@ -452,7 +455,7 @@ from gravitational waves.
 
 The auto-spectrum of the distortion field, $d$, will apparently be very challenging to extract. Another possibility is to cross-correlate the quadratic estimator for the distortion field with other fields that are well-measured. Cross-correlations can be more easily detected if the two-fields are highly correlated and one of the fields can be detected with high signal to noise. 
 
-As a first attempt, we consider the cross correlation of the $d$-field with the $\phi$-field responsible for deflections. Without further optimization, the cross-spectrum for $\alpha=ab$ and
+As a first attempt, we consider the cross correlation of the $d$-field with the $\phi$-field responsible for deflections. Without further optimization, the cross-spectrum for the $\alpha=ab$ and
 $\beta=cd$ quadratic estimators is 
 \bea
  \langle \hat{\phi}^{\alpha*}_{LM}\hat{d}^{\beta}_{LM} \rangle= {C}_{L}^{\phi d} +N_{L}^{c,\alpha\beta},\eql{crossn}
@@ -477,11 +480,10 @@ error on the measurement of the amplitude of the cross spectra $C_l^{\phi d}$ fr
 &&\times\frac{(C_L^{\phi d})^2}{( C_L^{\phi d}+N_{L}^{ c})^2+
 (C_L^{\phi\phi}+N_L^{\phi})(C_L^{dd}+N_L^{d})}. \nonumber
 \eea
-For the $\alpha\beta$ pairs that correspond to the minimum variance estimator of
-$\phi$ and $d$ individually, we show this quantity in Fig.~\rf{CrossStoN} where we have set
- $f_{\rm sky}=1$. We  see that in this ideal case, $S/N$ could reach about $2.5$.  \wh{Although
- there are many other lens, and more generally large-scale structure tracers, that delay 
- reconstruction can be correlated with, note that the $S/N$ is dominated by $N_L^d$ not
+We show this quantity in Fig.~\rf{CrossStoN} where we have set
+ $f_{\rm sky}=1$. We  see that in this ideal case, $S/N$ could reach about $2.5$.  \wh{
+ There are many other lens, and more generally large-scale structure tracers, that delay 
+ reconstruction can be correlated with.  However the noise here is dominated by $N_L^d$ not
  $N_L^\phi$ or $N_L^c$ which is common to all such correlations.}
   
  
