@@ -200,9 +200,6 @@ the sources at a distance $D$, projected onto multipole moment $l$.
 We proceed as in Ref.~\cite{Hu:2001tn} by focusing on the expectation of off-diagonal (${l_1,m_1\ne l_2,m_2}$) terms quadratic in the observed moments:
 \bea
 \langle \tob_{l_1m_1} \tob_{l_2m_2} \rangle &=& \sum_{LM}  (-1)^M \bigl(\begin{smallmatrix} l_1 & l_2 & L \\ m_1 & m_2 & -M  \end{smallmatrix}\bigr) \nonumber \\
-%&\times&\left\{  \phi_{LM} \big[ \tilde{C}_{l_{1}}^{\Theta\Theta} {}_{0}F_{l_{2}Ll_{1}} +\tilde{C}_{l_{2}}^{\Theta\Theta} {}_{0}F_{l_{1}Ll_{2}}\big] \right. \nonumber \\
-%&&+ \left. d_{LM} \big[ \tilde{C}_{l_{1}}^{\Theta\Theta,d} {}_{0}G_{l_{2}Ll_{1}} +\tilde{C}_{l_{2}}^{\Theta \Theta,d} {}_{0}G_{l_{1}Ll_{2}}\big] \right \} \nonumber \\
-%&\equiv& \sum_{LM}(-1)^{M}\bigl(\begin{smallmatrix} l_1 & l_2 & L \\ m_1 & m_2 & -M  \end{smallmatrix}\bigr)
 \vs&&\times\big[ \phi_{LM}f_{l_{1}Ll_{2}} + d_{LM}g_{l_{1}Ll_{2}} \big] ,  \eql{quad}
 \eea
 where
@@ -235,29 +232,7 @@ source is the Sachs-Wolfe effect on the recombination surface at $D_*$,
 More generally the modification to CAMB involves replacing the appropriate Bessel function kernel of
 the source projection with its log derivative \cite{Hu:2001yq}.
 
-%We modify the public CAMB code and account for the finite thickness of the last scattering surface, the actual integrand look like:
-%\bea
-%&&(S(k;\eta_*))^2\,j_l(kD_*)\,\frac{\partial j_l(kD_*)}{\partial\ln D_*} \vs
-%\rightarrow \, && \mathcal{P}_{\rm R}(k)T_{\Theta}[j_l;k]T_{\Theta}^{(1)}[j_l;k] 
-%\eea
-%with $\mathcal{P}_{\rm R}$ primitive power spectrum, and $T_{\Theta}[j_l;k]$ is the transfer function for temperature defined as:
-%\be
-%T_{\Theta}[j_l;k] = \int d\eta \mathcal{S}_{\Theta}(k;\eta) j_l(kD(\eta))\eql{timeevol}
-%.\ee
-%which is the general form of the source function above. $\mathcal{S}_{\Theta}$ is the modified source function defined in CAMB, we can determine its expression using Eq. (22) of Ref.~\cite{Hu:2001bc} (ignore third term, which is the ISW effect),
-%\bea
-%S(\vec{k};\eta_{*})j_{l}(kD_{*}) &=& [\Theta+\Psi](\eta_{*})j_{l}(kD_{*})+v_{b}(k,\eta_{*})j'_{l}(kD_{*}) \vs
-%\rightarrow T_{\Theta}[j_l;k] &=& \int d\eta \left\{ g(\eta) [\Theta+\Psi](\eta)\right. \vs
-%&&\quad \quad\left.-(g(\eta)v_{b}(k,\eta))'\right\}j_{l}(kD(\eta))\eql{cld}
-%\eea
-%with $g(\eta)$ the visibility function, sharply peaked at $\eta=\eta_*$. Approximate $g(\eta)$ as $\delta(\eta-\eta_{*})$ we can go back from $T_{\Theta}[j_l;k]$ to $S(\vec{k};\eta_{*})j_{l}(kD_{*})$. And second term comes from integration by parts. Also define $T^{(1)}_{\Theta}[j_l;k] $ as $j_{l}(kD)$ in the integrand replaced by $\partial j_{l}(kD)/\partial\ln D$.
-%In order to compute $C_{l}^{\Theta \Theta,d}$ we simply replace $j_{l}(kD)$ by $\partial j_{l}(kD)/\partial\ln D$ when calculating the transfer functions and we can get the result.
-
-Note the difference between the two off diagonal correlations in \ec{quad}. Each involves a derivative. The one that governs deflections, $f$, %depends on the unlensed CMB spectrum $\tilde{C}_{l}^{\Theta\Theta}$
-%and the deflections are encoded 
-involves a derivative with respect to the transverse directions so $F$ as defined in \ec{fg} has more powers of $l$ than does $G$.  
-% (which are derivatives with respect to transverse position in real space) contained in $F$ compared to $G$ in \ec{fg}. 
-The function that governs changes in distances involved a radial derivative, and this shows up in the spectrum $\tilde{C}^{\Theta\Theta,d}_{l}$.
+Note the difference between the two off diagonal correlations in \ec{quad}. Each involves a derivative. The one that governs deflections, $f$, involves a derivative with respect to the transverse directions so $F$ as defined in \ec{fg} has more powers of $l$ than does $G$. The function that governs changes in distances involved a radial derivative, and this shows up in the spectrum $\tilde{C}^{\Theta\Theta,d}_{l}$.
 
 
 %%%%% FIGURE %%%%%%%
@@ -270,7 +245,6 @@ The function that governs changes in distances involved a radial derivative, and
 The correlation between different $l$-modes enables us, following Ref.~\cite{Okamoto:2003zw}, to extract information about the fields causing these correlations by forming quadratic estimators out of the observed temperature fields for both the gravitational potential responsible for deflections and the fractional distance field:
 \bea
 \hat \phi_{LM} &=& A_L 
-%\frac{A_{L}}{\sqrt{L(L+1)}}
 \sum_{l_1m_1}\sum_{l_2m_2} 
  (-1)^M  \bigl(\begin{smallmatrix} l_1 & l_2 & L \\ m_1 & m_2 & -M  \end{smallmatrix}\bigr) 
  \nonumber \\  && \times 
@@ -288,7 +262,6 @@ h^{d}_{l_1l_2}(L)&\equiv& \frac{g_{l_1Ll_2}}{2C_{l_1}C_{l_2}},\eql{defh}
 and
 \bea
 A_L &\equiv& 
-%\sqrt{L(L+1)}
 (2L+1)
  \left\{ \sum_{l_1l_2} h^{\phi}_{l_1l_2}(L)f_{l_1Ll_2}\right\}^{-1},\nonumber\\
 B_L &\equiv& (2L+1) \left\{ \sum_{l_1l_2} h^{d}_{l_1l_2}(L)g_{l_1Ll_2}\right\}^{-1}.\eql{bt}
@@ -297,13 +270,6 @@ With these definitions,
 $\langle \hat\phi_{LM} \rangle = \phi_{LM}$ when $d_{LM}=0$ and
 $\langle \hat d _{LM} \rangle = d_{LM}$ when $\phi_{LM}=0$.  To provide an optimistic bound
 on detectability of the delay distortion, we ignore the cross contamination of the estimators for the time being. We return to this  issue in Sec.~\ref{sec:cross}.
-
-
-%\bea
-%\langle \hat{\phi}_{LM} \rangle &=& \sqrt{L(L+1)} \phi_{LM} \\
-%\langle \hat{d}_{LM} \rangle &=& d_{LM}
-%\eea
-%Notice we don't have the factor of $1/\sqrt{L(L+1)}$ for the time delay estimator, since time delay effect does not depend on angular gradient. This time delay estimator has an expected value equal to the true $d_{LM}$ and a variance 
 
 The noise on these estimators is now given by the prefactors $A_L$ and $B_L$, so  
 \be
@@ -317,13 +283,12 @@ An estimate of the detectability of this signal can be obtained by computing the
 \ee
 where $f_{\rm sky}$ is the fraction of sky covered by the measurements.
 Fig.~\rf{Delay} shows that most of the signal comes from the lowest $L$-modes, particularly $L=1$. However, even for a full-sky experiment and the most optimistic noise projections, the
-auto power spectrum $C_L^{dd}$ will not be measurable using temperature only.%{\scott{Wayne: please check if this rewording is what you had in mind. Peikai: if we agree on this notation, please relabel the y-axis on figure 4 as ``Time Delay Detectability ($\sigma_d$)''}
+auto power spectrum $C_L^{dd}$ will not be measurable using temperature only.
 
 
 
 %%%%% FIGURE %%%%%%%
-\Sfig{Delay}{Signal (decreasing blue curve) due to the distorted surface of last scattering and the noise using the quadratic estimator constructed from the small scale temperature anisotropy ($\Theta\Theta$ in the notation of Table 1) for several different experimental configurations. Most optimistic is no noise out to $l_{\rm max}=7000$; the other two noise curves have sensitivity of 1$\mu$K-arcmin and beam size. %the and noise spectra for detector noise $C_{l}^{\Theta \Theta}|_{\rm noise} = 0$ or $\left(\frac{\Delta_{\Theta}}{T_{\rm CMB}} \right)^{2} e^{l(l+1)\theta_{\rm FWHM}^{2}/8 \, \rm ln \,2}$, with $\Delta_{\Theta}=1\mu K-arcmin$ and 
-$\theta_{\rm FWHM}=1'$ or $4'$. Here, $f_{\rm sky}$ is set to one.} 
+\Sfig{Delay}{Signal (decreasing blue curve) due to the distorted surface of last scattering and the noise using the quadratic estimator constructed from the small scale temperature anisotropy ($\Theta\Theta$ in the notation of Table 1) for several different experimental configurations. Most optimistic is no noise out to $l_{\rm max}=7000$; the other two noise curves have sensitivity of 1$\mu$K-arcmin and beam size. $\theta_{\rm FWHM}=1'$ or $4'$. Here, $f_{\rm sky}$ is set to one.} 
 %%%%% FIGURE %%%%%%%
 
 
@@ -341,10 +306,9 @@ that
 \bea
 \tilde{C}^{ab}_{l} \equiv \frac{2}{\pi}\,\int_0^\infty k^{2}dk \,&&{P}_{R}(k) T^{a}_l(k) T^b_l(k) \eea
 denotes the power spectra of the undistorted fields with $T_l^a$ as the radiation transfer
-function for the field $a$ and \be
+function for the field $a$ and 
+\be
 \tilde{C}^{ab,d}_{l} \equiv  \frac{2}{\pi}\,\int_0^\infty k^{2}dk \,{P}_{R}(k)\frac{T_l^{a}(k)T^{b,d}(k)+T_l^{a,d}(k)T_l^{b}(k)}{2} 
-%\left\{\right. \vs
-%&& \left.+ T_l^{a,d}(k)T_l^{b}(k)\right\}
 \ee
 with 
 \begin{equation}
@@ -385,10 +349,6 @@ where the minimum variance weights $h$ are generalizations of \ec{bt}
 h^{\alpha=(ab),d}_{l_{1}l_{2}}(L) 
 = \frac{C_{l_{2}}^{aa}C_{l_{1}}^{bb}g^{\alpha*}_{l_{1}Ll_{2}}-(-1)^{L+l_{1}+l_{2}}C_{l_{1}}^{ab}C_{l_{2}}^{ab}g^{\alpha*}_{l_{2}Ll_{1}}}{C_{l_{1}}^{aa}C_{l_{2}}^{aa}C_{l_{1}}^{bb}C_{l_{2}}^{bb}-(C_{l_{1}}^{ab}C_{l_{2}}^{ab})^{2}}.
 \ee
-%We have some simplifications, for $a=b$, we have
-%\be
-%h^{\alpha,d}_{l_{1}l_{2}}(L) \rightarrow \frac{g^{\alpha *}_{l_{1}Ll_{2}}}{2C_{l_{1}}^{aa}C_{l_{2}}^{aa}}
-%\ee
 Note that in the special cases $\alpha=aa$
 \bea 
 h_{l_{1}l_{2}}^{\alpha=(aa),d}(L)= \frac{g_{l_{1}Ll_{2}}^{\alpha*}}{2C_{l_{1}}^{aa}C_{l_{2}}^{aa}}. 
@@ -423,7 +383,6 @@ we denote the noise of the minimum variance combination with no superscripts for
 
 
 We saw in Fig.~\rf{Delay} that small scale temperature maps only are not sufficient to detect this signal convincingly. To assess the added information contained in the polarization field, we show the detectability in the form of $\sigma_d$ for the lowest $L$-modes ($L\leqslant 5$, which contributes essentially all of the signal) as a function $l_{\rm max}$ for a noiseless experiment in Fig.~\rf{StoN}.
-%We can see that the noise for time delay $\Theta \Theta$ quadratic estimator in FIG. 3 is much larger than the signal, given that we sum up from $1000$ to $4000$ for $l_{1}$ and $l_{2}$ in Eq. (19) indices and also detector noise is taken into consideration.
 
 
 %%%%% FIGURE %%%%%%%
@@ -496,11 +455,6 @@ Up until this point, we have assumed that the estimators of $\phi$ and $d$ are n
  \langle \hat{\phi}^{\alpha}_{LM} \rangle &\equiv& \phi_{LM} +d_{LM}F_{L}^{\alpha}\sqrt{\frac{C_L^{\phi\phi}}{C_L^{dd}}},
 \eea
 where $E$ and $F$ measure the expected fractional contamination to each estimator in units of their uncontaminated signal rms
-%\bea
-%E^{\alpha}_{L} &=&\frac{\sum_{l_{1}l_{2}}h_{l_{1}l_{2}}^{\alpha,d}(L)f_{l_{1}Ll_{2}}^{\alpha}}{\sum_{l_{1}l_{2}}h_{l_{1}l_{2}}^{\alpha,d}(L)g_{l_{1}Ll_{2}}^{\alpha}} \sqrt{\frac{C_{L}^{\phi\phi}}{C_{L}^{dd}}}=\frac{N_{L}^{c,\alpha\alpha}}{N_{L}^{\phi,\alpha\alpha}} \sqrt{\frac{C_{L}^{\phi\phi}}{C_{L}^{dd}}},\nonumber\\
-%F^{\alpha}_{L} &=&\frac{\sum_{l_{1}l_{2}}h_{l_{1}l_{2}}^{\alpha,\phi}(L)g_{l_{1}Ll_{2}}^{\alpha}}{\sum_{l_{1}l_{2}}h_{l_{1}l_{2}}^{\alpha,\phi}(L)f_{l_{1}Ll_{2}}^{\alpha}}  \sqrt{\frac{C_{L}^{dd}}{C_{L}^{\phi\phi}}}=\frac{N_{L}^{c,\alpha\alpha}}{N_{L}^{d,\alpha\alpha}}\sqrt{\frac{C_{L}^{dd}}{C_{L}^{\phi\phi}}}
-%\eea
-%
 \bea
 E^{\alpha}_{L}  \sqrt{\frac{C_{L}^{dd}}{C_{L}^{\phi\phi}}}  &=&\frac{\sum_{l_{1}l_{2}}h_{l_{1}l_{2}}^{\alpha,d}(L)f_{l_{1}Ll_{2}}^{\alpha}}{\sum_{l_{1}l_{2}}h_{l_{1}l_{2}}^{\alpha,d}(L)g_{l_{1}Ll_{2}}^{\alpha}} =\frac{N_{L}^{c,\alpha\alpha}}{N_{L}^{\phi,\alpha\alpha}},\nonumber\\
 F^{\alpha}_{L} \sqrt{\frac{C_{L}^{\phi\phi}}{C_{L}^{dd}}}  &=&\frac{\sum_{l_{1}l_{2}}h_{l_{1}l_{2}}^{\alpha,\phi}(L)g_{l_{1}Ll_{2}}^{\alpha}}{\sum_{l_{1}l_{2}}h_{l_{1}l_{2}}^{\alpha,\phi}(L)f_{l_{1}Ll_{2}}^{\alpha}} =\frac{N_{L}^{c,\alpha\alpha}}{N_{L}^{d,\alpha\alpha}}.
@@ -533,12 +487,10 @@ F_{L} &=&\sum_{\alpha}\omega^{\phi,\alpha}(L) F^{\alpha}_{L} .
   \langle \hat{\phi}^{\rm mv*}_{LM}\hat{\phi}^{\rm mv}_{LM} \rangle &=&
   \left[ 1 +\frac{(F_L^{*}+F_L^{} )C_L^{\phi d}}{\sqrt{C_L^{\phi\phi} C_L^{dd} }}
   + F_L^{*}F_L^{} \right] C_L^{\phi\phi} 
- % \nonumber\\&&
   + N_L^{\phi}, \nonumber\\
     \langle \hat{d}^{\rm mv*}_{LM}\hat{d}^{\rm mv}_{LM} \rangle &=&
   \left[ 1 +\frac{(E_L^{*}+E_L^{} )C_L^{\phi d}}{\sqrt{C_L^{\phi\phi} C_L^{dd} }}
   + E_L^{*}E_L^{} \right] C_L^{dd} 
-  %\nonumber\\ &&
   + N_L^{d}, \nonumber\\
  \langle \hat{\phi}^{\rm mv*}_{LM}\hat{d}^{\rm mv}_{LM} \rangle&=& (1+ F_L^{*} E_L^{}){C}_{L}^{\phi d}+ \sqrt{C_{L}^{\phi\phi} C_{L}^{dd}} ( F_L^{*} + E_L^{}) \nonumber\\
 &&  +N_{L}^{c} .
