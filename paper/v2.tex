@@ -124,7 +124,7 @@ Note the sign in \ec{defd}: if photons pass through an over-dense region where $
 
 Photons that comprise the cosmic microwave background (CMB) experience these same time delays or advances~\cite{Hu:2001yq} where $z_*$ is the redshift corresponding to the last scattering surface. Since photons do not decouple instantaneously from the electron-proton plasma, the surface of last scattering is often said to have a finite width, and a more accurate expression for the fractional difference in distance traveled is
 \be
-\fd(\hat n) = 2\, \int_0^{\infty} dz \, e^{-\tau(z)}\, K_\fd(z)\Phi\left(D(z)\hat n; t(z)\right)
+\fd(\hat n) = 2\, \int_0^{\infty} dz \, e^{-\tau(z)}\, K_\fd(z)\Phi\left(D(z)\hat n; t(z)\right) ,
 \eql{deffield}
 \ee
 where $H(z)$ is the Hubble expansion rate; $K_\fd(z) =  (H(z)D_*)^{-1}$ and $D_* =  \int_0^\infty dz' e^{-\tau(z') }/H(z')$.  Here 
@@ -268,7 +268,7 @@ B_L &\equiv& (2L+1) \left\{ \sum_{l_1l_2} h^{d}_{l_1l_2}(L)g_{l_1Ll_2}\right\}^{
 \eea 
 With these definitions, 
 $\langle \hat\phi_{LM} \rangle = \phi_{LM}$ when $d_{LM}=0$ and
-$\langle \hat d _{LM} \rangle = d_{LM}$ when $\phi_{LM}=0$.  To provide an optimistic bound
+$\langle \hat d _{LM} \rangle = d_{LM}$ when $\phi_{LM}=0$, where the average is over the undistorted CMB fields given fixed distortion fields.  To provide an optimistic bound
 on detectability of the delay distortion, we ignore the cross contamination of the estimators for the time being. We return to this  issue in Sec.~\ref{sec:cross}.
 
 The noise on these estimators is now given by the prefactors $A_L$ and $B_L$, so  
@@ -279,7 +279,8 @@ with the first term on the right the signal and the second the noise. Fig.~\rf{D
 
 An estimate of the detectability of this signal can be obtained by computing the projected error, $\sigma_d$, on the amplitude $A^d$ of the power spectrum $A^dC_L^{dd}$, where the fiducial model has $A^d=1$.  Approximating the noise as Gaussian gives
 \be
-\left(\frac{1}{\sigma_d}\right)^2 = \sum_L^{\infty} \frac{(2L+1)f_{\rm sky}}{2} \left(\frac{C_L^{dd}}{C_L^{dd}+B_L}\right)^2\eql{sn}
+\left(\frac{1}{\sigma_d}\right)^2 = \sum_L^{\infty} \frac{(2L+1)f_{\rm sky}}{2} \left(\frac{C_L^{dd}}{C_L^{dd}+B_L}\right)^2,
+\eql{sn}
 \ee
 where $f_{\rm sky}$ is the fraction of sky covered by the measurements.
 Fig.~\rf{Delay} shows that most of the signal comes from the lowest $L$-modes, particularly $L=1$. However, even for a full-sky experiment and the most optimistic noise projections, the
