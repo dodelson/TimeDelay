@@ -99,7 +99,7 @@ Enrico Fermi Institute, The University of Chicago, Chicago, IL 60637, USA}
 \date{\today}
 
 \begin{abstract}
-The surface of last scattering of the photons in the cosmic microwave background is {\bf not} a spherical shell. Apart from its finite width, each photon experiences a different gravitational potential along its journey to us, leading to different travel times in different directions. Since all photons were released at the same cosmic time, the photons with longer travel times started farther away from us than those with shorter times. Thus, the surface of last scattering is corrugated, a deformed spherical shell. We present an estimator quadratic in the temperature and polarization fields that could provide a map of the time delays as a function of position on the sky. The signal to noise of this map could exceed unity for the dipole, thereby providing a rare insight into the universe on the largest observable scales .
+The surface of last scattering of the photons in the cosmic microwave background is {\bf not} a spherical shell. Apart from its finite width, each photon experiences a different gravitational potential along its journey to us, leading to different travel times in different directions. Since all photons were released at the same cosmic time, the photons with longer travel times started farther away from us than those with shorter times. Thus, the surface of last scattering is corrugated, a deformed spherical shell. We present an estimator quadratic in the temperature and polarization fields that could provide a map of the time delays as a function of position on the sky. The signal to noise of this map could exceed unity for the dipole, thereby providing a rare insight into the universe on the largest observable scales.
 \end{abstract}
 
 \maketitle
@@ -378,7 +378,7 @@ with weights and variance given by
 N^{d}_{L} &=& \frac{1}{\sum_{\alpha\beta} (N_{L}^{d,-1})^{\alpha \beta}}
 \eea
 where $(N_{L}^{d,-1})^{\alpha\beta}$ are the elements of the inverse of the delay noise matrix given by \ec{full}, with matrix indices given by quadratic combinations.  Here and below
-we denote the noise of the minimum variance combination with no superscripts for simplicity.  Analogous expressions with the superscript $^\phi$ apply for the lens potential estimators.
+we denote the noise of the minimum variance combination with no indices for simplicity.  Analogous expressions with the superscript $^\phi$ apply for the lens potential estimators.
 
 
 
@@ -410,8 +410,8 @@ $\beta=cd$ quadratic estimators is
 \bea
  \langle \hat{\phi}^{\alpha*}_{LM}\hat{d}^{\beta}_{LM} \rangle= {C}_{L}^{\phi d} +N_{L}^{c,\alpha\beta},\eql{crossn}
 \eea 
-where the superscript $c$ stands for cross.  Note that the noise in the estimators are correlated because 
-both come from the same quadratic combinations of observables 
+where the superscript $c$ stands for cross.  Note that the noise in the estimators is correlated because 
+both estimators come from the  quadratic combinations of same observables 
 \bea
 N_{L}^{c,\alpha\beta}&=&\frac{A_{L}^{\alpha*}B_{L}^{\beta}}{(2L+1)}\sum_{l_{1}l_{2}}  \left\{ h_{l_{1}l_{2}}^{\alpha,\phi*} (L)\big[ C_{l_{1}}^{ac}C_{l_{2}}^{bd}h_{l_{1}l_{2}}^{\beta,d}(L)\right. \nonumber \\
 &&\left. +(-1)^{L+l_{1}+l_{2}}C_{l_{1}}^{ad}C_{l_{2}}^{bc} h_{l_{2}l_{1}}^{\beta,d}(L)  \big]\right\}.
@@ -432,8 +432,8 @@ error on the measurement of the amplitude of the cross spectra $C_l^{\phi d}$ fr
 \eea
 We show this quantity in Fig.~\rf{CrossStoN} where we have set
  $f_{\rm sky}=1$. We  see that in this ideal case, $S/N$ could reach about $2.5$. There are many other lens, and more generally large-scale structure tracers, that delay 
- reconstruction can be correlated with.  However the noise here is dominated by $N_L^d$ not
- $N_L^\phi$ or $N_L^c$ which is common to all such correlations.
+ reconstruction can be correlated with.  However the noise here is dominated by $N_L^d$, which is common to all such correlations, not
+ $N_L^\phi$ or $N_L^c$.
   
  
  %%%%% FIGURE %%%%%%%
@@ -495,7 +495,7 @@ F_{L} &=&\sum_{\alpha}\omega^{\phi,\alpha}(L) F^{\alpha}_{L} .
  \langle \hat{\phi}^{\rm mv*}_{LM}\hat{d}^{\rm mv}_{LM} \rangle&=& (1+ F_L^{*} E_L^{}){C}_{L}^{\phi d}+ \sqrt{C_{L}^{\phi\phi} C_{L}^{dd}} ( F_L^{*} + E_L^{}) \nonumber\\
 &&  +N_{L}^{c} .
 \eea
-The large contributions from $E$ dominate the contamination of the delay auto and cross spectra. For the $F$ contamination to $C_l^{\phi\phi}$ measurements, even at the $L=1$, the renormalization factor in the brackets is only 1.22 and converges to unity rapidly with $L$. To the extent that noise and cross contamination can be neglected in the $\phi$ lensing measurements, this bias can in principle be removed at the $d$ reconstruction level without increasing sample variance for the power spectra.    In practice this would involve iterating
+The large contributions from $E$ dominate the contamination of the delay auto and cross spectra. For the $F$ contamination to $C_l^{\phi\phi}$ measurements, even at the $L=1$, the renormalization factor in the brackets is only 1.22 and converges to unity rapidly with $L$. To the extent that noise and cross contamination can be neglected in the $\phi$ lensing measurements, the $E$ bias can in principle be removed at the $d$ reconstruction level without increasing sample variance for the power spectra.    In practice this would involve iterating
 the estimators.   
 However given that the mode 
 coupling forms  of \ec{FG} are similar but not identical, especially in the different structures for $C_l^{ab}$ and $C_l^{ab,d}$, reweighting the $(L,l_1,l_2)$ triangles
