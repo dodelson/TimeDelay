@@ -111,7 +111,7 @@ The theory of general relativity dictates that particles traveling through gravi
 fractional difference in comoving distance
 $D_*$ to a source at redshift $z_*$ is 
 \be
-d(\hat n) = \frac{2}{D_*}\, \int_0^{D_*} dD\, \Phi\left(D \hat n; t(D)\right)\eql{defd},
+d(\hat n) =- \frac{2}{D_*}\, \int_0^{D_*} dD\, \Phi\left(D \hat n; t(D)\right)\eql{defd},
 \ee
 where 
 $t(D)$ is the age of the universe when the photon is a comoving distance $D$ from us, and  we use the space-time metric convention 
@@ -119,7 +119,7 @@ $t(D)$ is the age of the universe when the photon is a comoving distance $D$ fro
 ds^{2}= -(1+2\Phi)dt^{2}+a^{2}(1-2\Phi)d\vec{x}^{2}
 \eea
 with $a(t)$ the scale factor.
-Note the sign in \ec{defd}: if photons pass through an over-dense region where $\Phi<0$, then they experience a time delay and therefore they arrive from a closer distance than the unperturbed last scattering surface\footnote{There is also a geometric time delay that is typically of the same size for a single lens but is much smaller here on the large scales of interest.}. 
+Note the sign in \ec{defd}: if photons pass through an over-dense region where $\Phi>0$, then they experience a time delay and therefore they arrive from a closer distance than the unperturbed last scattering surface\footnote{There is also a geometric time delay that is typically of the same size for a single lens but is much smaller here on the large scales of interest.}. 
 
 
 Photons that comprise the cosmic microwave background (CMB) experience these same time delays or advances~\cite{Hu:2001yq} where $z_*$ is the redshift corresponding to the last scattering surface. Since photons do not decouple instantaneously from the electron-proton plasma, the surface of last scattering is often said to have a finite width, and a more accurate expression for the fractional difference in distance traveled is
@@ -127,14 +127,14 @@ Photons that comprise the cosmic microwave background (CMB) experience these sam
 \fd(\hat n) = 2\, \int_0^{\infty} dz \, e^{-\tau(z)}\, K_\fd(z)\Phi\left(D(z)\hat n; t(z)\right) ,
 \eql{deffield}
 \ee
-where $H(z)$ is the Hubble expansion rate; $K_\fd(z) =  (H(z)D_*)^{-1}$ and $D_* =  \int_0^\infty dz' e^{-\tau(z') }/H(z')$.  Here 
+where $H(z)$ is the Hubble expansion rate; $K_\fd(z) =  -(H(z)D_*)^{-1}$ and $D_* =  \int_0^\infty dz' e^{-\tau(z') }/H(z')$.  Here 
  $\tau$ is the optical depth, ignoring reionization, which becomes very large at times smaller than the epoch of  last scattering, $t_*$ or equivalently when $z>z_*$.
 
 This directional-dependent change in the distance to last scattering implies that the last scattering surface is not a simple spherical shell. There are two other well-studied phenomena that undercut the notion that the photons in the CMB freely streamed to us from a infinitely thin last scattering sphere. First, since the mean free path at recombination was finite, the last scattering surface has a finite width, and this is accounted for in all computations of CMB anisotropies. Second, the photons in the CMB experience angular deflections as they traverse the inhomogeneous universe~\cite{Hu:2001tn,Lewis:2006fu} and this effect has been exploited by recent experiments~\cite{Smith:2007rg,Ade:2013tyw,Story:2014hni,Sherwin:2016tyf,Aghanim:2018oex} that make maps of the projected gravitational potential.
 
 Although deflections and delays are two different phenomena, they share some similarities, especially in the case of the CMB. Both are determined by the integrated potential along the line of sight, although with slightly different kernels, as depicted in Figure~\rf{kernel}: the integrated potential $\phi$ that determines deflections has the same form as the right-hand side of \ec{deffield}  with
 \be
-K_\phi(z) = \frac{D_*-D(z)}{ D(z) D_* H(z)} .
+K_\phi(z) = -\frac{D_*-D(z)}{ D(z) D_* H(z)} .
 \ee
 The corresponding auto and cross power spectra are shown in Figure~\rf{Spectrum}.
 It is clear that they are highly correlated, so as a first approximation, we might view the maps of the lensing potential created for example in \citet{Aghanim:2018oex} as maps of distance to the last scattering surface. Another similarity, one that has not yet been exploited, is that the quadratic estimator formalism  \cite{Hu:2001tn} can be applied to the delays as well, and this is what we will do in this paper.  We start though with the rather daunting facts that the RMS fractional distance differences are a factor of ten smaller than the RMS angular deviations 
@@ -158,14 +158,14 @@ It is clear that they are highly correlated, so as a first approximation, we mig
 \newcommand\td{\Theta^{\rm dist}}
 The observed temperature in a given direction $\tob(\hat n)$ is the undistorted temperature $\tu(\hat n)$ plus the deflection due to gravitational lensing plus a term proportional to the small fractional difference $\fd(\hat n)$.  Linearizing these distortions, we obtain
 \be
-\tob(\hat n) = \tu(\hat n) - \nabla_{i} \phi(\hat n) \nabla^{i}\tu(\hat n) - \frac{\partial\tu(\hat n)}{\partial \ln D}\, \fd(\hat n),
+\tob(\hat n) = \tu(\hat n) + \nabla_{i} \phi(\hat n) \nabla^{i}\tu(\hat n) + \frac{\partial\tu(\hat n)}{\partial \ln D}\, \fd(\hat n),
 \ee
 where $D$ is the distance to the radiation sources, here mainly $D=D_*$ the distance 
 to recombination.  We shall see below that we can express this radial derivative in
 terms of operations on the radiation transfer function.
 In harmonic space we can write
 \be
-\tob_{lm} = \tu_{lm} -\dtl_{lm}- \dtd_{lm}
+\tob_{lm} = \tu_{lm} +\dtl_{lm}+ \dtd_{lm}
 \ee
 with the two first order terms due to deflection and the change in distance equal to
 \bea
