@@ -116,7 +116,7 @@ d(\hat n) =- \frac{2}{D_*}\, \int_0^{D_*} dD\, \Phi\left(D \hat n; t(D)\right)\e
 where 
 $t(D)$ is the age of the universe when the photon is a comoving distance $D$ from us, and  we use the space-time metric convention 
 \bea
-ds^{2}= -(1+2\Phi)dt^{2}+a^{2}(1-2\Phi)d\vec{x}^{2}
+ds^{2}= -(1-2\Phi)dt^{2}+a^{2}(1+2\Phi)d\vec{x}^{2}
 \eea
 with $a(t)$ the scale factor.
 Note the sign in \ec{defd}: if photons pass through an over-dense region where $\Phi>0$, then they experience a time delay and therefore they arrive from a closer distance than the unperturbed last scattering surface\footnote{There is also a geometric time delay that is typically of the same size for a single lens but is much smaller here on the large scales of interest.}. 
@@ -134,7 +134,7 @@ This directional-dependent change in the distance to last scattering implies tha
 
 Although deflections and delays are two different phenomena, they share some similarities, especially in the case of the CMB. Both are determined by the integrated potential along the line of sight, although with slightly different kernels, as depicted in Figure~\rf{kernel}: the integrated potential $\phi$ that determines deflections has the same form as the right-hand side of \ec{deffield}  with
 \be
-K_\phi(z) = -\frac{D_*-D(z)}{ D(z) D_* H(z)} .
+K_\phi(z) = \frac{D_*-D(z)}{ D(z) D_* H(z)} .
 \ee
 The corresponding auto and cross power spectra are shown in Figure~\rf{Spectrum}.
 It is clear that they are highly correlated, so as a first approximation, we might view the maps of the lensing potential created for example in \citet{Aghanim:2018oex} as maps of distance to the last scattering surface. Another similarity, one that has not yet been exploited, is that the quadratic estimator formalism  \cite{Hu:2001tn} can be applied to the delays as well, and this is what we will do in this paper.  We start though with the rather daunting facts that the RMS fractional distance differences are a factor of ten smaller than the RMS angular deviations 
