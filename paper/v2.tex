@@ -411,6 +411,8 @@ $\beta=cd$ quadratic estimators is
 \bea
  \langle \hat{\phi}^{\alpha*}_{LM}\hat{d}^{\beta}_{LM} \rangle= {C}_{L}^{\phi d} +N_{L}^{c,\alpha\beta},\eql{crossn}
 \eea 
+\wh{clarify sign of cross term.  sanity test on overdensity being with the new conventions: positive $\Phi$, positive $\phi$ and negative $d$ - so negative?
+ should have flipped from the old kernels so was it positive before?}
 where the superscript $c$ stands for cross.  Note that the noise in the estimators is correlated because 
 both estimators come from the  quadratic combinations of same observables 
 \bea
@@ -474,7 +476,7 @@ F_{L} &=&\sum_{\alpha}\omega^{\phi,\alpha}(L) F^{\alpha}_{L} .
  variance estimators of $d$ and $\phi$ respectively.   The relative contamination $E$ for
  $d$ is large and increases with $L$, reflecting the similar structures in the
  mode coupling  of \ec{FG} but with extra factors of $L$ for $\phi$. 
- Conversely, the relative contamination $F$ for $\phi$ decreases with $L$: $F_{L=1} \approx 0.24$,  $F_{L=2} \approx 0.05$.  In principle lensing estimators 
+ Conversely, the relative contamination $F$ for $\phi$ decreases with $L$: $F_{L=1} \approx 0.24$,  $F_{L=2} \approx 0.05$ \wh{caption says $F$ is negative?}.  In principle lensing estimators 
  should be corrected for this effect at the lowest $L$. 
    While in the regime relevant to current 
  measurements, the delay contribution to the lens reconstruction is entirely negligible.
@@ -496,7 +498,7 @@ F_{L} &=&\sum_{\alpha}\omega^{\phi,\alpha}(L) F^{\alpha}_{L} .
  \langle \hat{\phi}^{\rm mv*}_{LM}\hat{d}^{\rm mv}_{LM} \rangle&=& (1+ F_L^{*} E_L^{}){C}_{L}^{\phi d}+ \sqrt{C_{L}^{\phi\phi} C_{L}^{dd}} ( F_L^{*} + E_L^{}) \nonumber\\
 &&  +N_{L}^{c} .
 \eea
-The large contributions from $E$ dominate the contamination of the delay auto and cross spectra. For the $F$ contamination to $C_l^{\phi\phi}$ measurements, even at the $L=1$, the renormalization factor in the brackets is only 1.22 and converges to unity rapidly with $L$. To the extent that noise and cross contamination can be neglected in the $\phi$ lensing measurements, the $E$ bias can in principle be removed at the $d$ reconstruction level without increasing sample variance for the power spectra.    In practice this would involve iterating
+The large contributions from $E$ dominate the contamination of the delay auto and cross spectra. For the $F$ contamination to $C_l^{\phi\phi}$ measurements, even at the $L=1$, the renormalization factor in the brackets is only 1.22 \wh{revise} and converges to unity rapidly with $L$. To the extent that noise and cross contamination can be neglected in the $\phi$ lensing measurements, the $E$ bias can in principle be removed at the $d$ reconstruction level without increasing sample variance for the power spectra.    In practice this would involve iterating
 the estimators.   
 However given that the mode 
 coupling forms  of \ec{FG} are similar but not identical, especially in the different structures for $C_l^{ab}$ and $C_l^{ab,d}$, reweighting the $(L,l_1,l_2)$ triangles
