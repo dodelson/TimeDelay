@@ -146,7 +146,7 @@ It is clear that they are highly correlated, so as a first approximation, we mig
 \Sfig{kernel}{Kernel that weights the integral of the gravitational potential for the time delay examined here and the more carefully studied deflection angle.}
 \Sfig{Spectrum}{Power spectra for the lensing deflection potential
 ($\phi\phi$), fractional distance ($dd$) and deflection-distortion cross correlation
-($\phi d$). }
+($\phi d$). Dashed line means $C^{\phi d}_{L}$ is negative.}
 %%%%% FIGURE %%%%%%%
 
 
@@ -411,9 +411,7 @@ $\beta=cd$ quadratic estimators is
 \bea
  \langle \hat{\phi}^{\alpha*}_{LM}\hat{d}^{\beta}_{LM} \rangle= {C}_{L}^{\phi d} +N_{L}^{c,\alpha\beta},\eql{crossn}
 \eea 
-\wh{clarify sign of cross term.  sanity test on overdensity being with the new conventions: positive $\Phi$, positive $\phi$ and negative $d$ - so negative?
- should have flipped from the old kernels so was it positive before?}
-where the superscript $c$ stands for cross.  Note that the noise in the estimators is correlated because 
+where the superscript $c$ stands for cross. $C^{\phi d}_{L}$ is negative here. Note that the noise in the estimators is correlated because 
 both estimators come from the  quadratic combinations of same observables 
 \bea
 N_{L}^{c,\alpha\beta}&=&\frac{A_{L}^{\alpha*}B_{L}^{\beta}}{(2L+1)}\sum_{l_{1}l_{2}}  \left\{ h_{l_{1}l_{2}}^{\alpha,\phi*} (L)\big[ C_{l_{1}}^{ac}C_{l_{2}}^{bd}h_{l_{1}l_{2}}^{\beta,d}(L)\right. \nonumber \\
@@ -440,7 +438,7 @@ We show this quantity in Fig.~\rf{CrossStoN} where we have set
   
  
  %%%%% FIGURE %%%%%%%
- \Sfig{CrossStoN}{The detectability of the cross power spectrum of the distance distortion field and the potential inducing deflections as a function of $L_{\rm max}$ (with  $l_{\rm max}=7000$). Unlike the auto-spectrum, there is signal out to $L_{\rm max}\sim 100$, but the contributions to the detectability plateau after that, so the best that can be hoped for with this cross spectrum is a $2.5\sigma$ detection.}
+ \Sfig{CrossStoN}{The detectability of the cross power spectrum of the distance distortion field and the potential inducing deflections as a function of $L_{\rm max}$ (with  $l_{\rm max}=7000$). Unlike the auto-spectrum, there is signal out to $L_{\rm max}\sim 100$, but the contributions to the detectability plateau after that, so the best that can be hoped for with this cross spectrum is a $2.2\sigma$ detection.}
 %%%%% FIGURE %%%%%%%
 
  
@@ -476,7 +474,7 @@ F_{L} &=&\sum_{\alpha}\omega^{\phi,\alpha}(L) F^{\alpha}_{L} .
  variance estimators of $d$ and $\phi$ respectively.   The relative contamination $E$ for
  $d$ is large and increases with $L$, reflecting the similar structures in the
  mode coupling  of \ec{FG} but with extra factors of $L$ for $\phi$. 
- Conversely, the relative contamination $F$ for $\phi$ decreases with $L$: $F_{L=1} \approx 0.24$,  $F_{L=2} \approx 0.05$ \wh{caption says $F$ is negative?}.  In principle lensing estimators 
+ Conversely, the relative contamination $F$ for $\phi$ decreases with $L$: $F_{L=1} \approx -0.24$,  $F_{L=2} \approx -0.05$.  In principle lensing estimators 
  should be corrected for this effect at the lowest $L$. 
    While in the regime relevant to current 
  measurements, the delay contribution to the lens reconstruction is entirely negligible.
@@ -498,7 +496,7 @@ F_{L} &=&\sum_{\alpha}\omega^{\phi,\alpha}(L) F^{\alpha}_{L} .
  \langle \hat{\phi}^{\rm mv*}_{LM}\hat{d}^{\rm mv}_{LM} \rangle&=& (1+ F_L^{*} E_L^{}){C}_{L}^{\phi d}+ \sqrt{C_{L}^{\phi\phi} C_{L}^{dd}} ( F_L^{*} + E_L^{}) \nonumber\\
 &&  +N_{L}^{c} .
 \eea
-The large contributions from $E$ dominate the contamination of the delay auto and cross spectra. For the $F$ contamination to $C_l^{\phi\phi}$ measurements, even at the $L=1$, the renormalization factor in the brackets is only 1.22 \wh{revise} and converges to unity rapidly with $L$. To the extent that noise and cross contamination can be neglected in the $\phi$ lensing measurements, the $E$ bias can in principle be removed at the $d$ reconstruction level without increasing sample variance for the power spectra.    In practice this would involve iterating
+The large contributions from $E$ dominate the contamination of the delay auto and cross spectra. For the $F$ contamination to $C_l^{\phi\phi}$ measurements, even at the $L=1$, the renormalization factor in the brackets is about 1.3 and converges to unity rapidly with $L$. To the extent that noise and cross contamination can be neglected in the $\phi$ lensing measurements, the $E$ bias can in principle be removed at the $d$ reconstruction level without increasing sample variance for the power spectra.    In practice this would involve iterating
 the estimators.   
 However given that the mode 
 coupling forms  of \ec{FG} are similar but not identical, especially in the different structures for $C_l^{ab}$ and $C_l^{ab,d}$, reweighting the $(L,l_1,l_2)$ triangles
