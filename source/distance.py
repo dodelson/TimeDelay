@@ -34,10 +34,10 @@ def growth(z):
 	return growth
 
 z=.83
-print chi(z)
+print(chi(z))
 zl=.3
 zs=1.
-print chi(zs)/(1.+zs),chi(zl)/(1.+zl)
+print(chi(zs)/(1.+zs),chi(zl)/(1.+zl))
 
 #z = arange(0.5,.72,.1)
 #da = zeros(z.size)
