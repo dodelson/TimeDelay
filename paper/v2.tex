@@ -48,7 +48,6 @@
 \newcommand\zle{D_L}
 \newcommand\zsl{D_{SL}}
 
-
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
 \usepackage{amssymb}
@@ -72,6 +71,7 @@
 \newcommand{\peikai}[1]{{\color{blue} #1}}
 \newcommand{\WH}[1]{{\color{red} #1}}
 \newcommand{\wh}[1]{{\color{red} #1}}
+\newcommand{\prvs}[1]{{\color{magenta} #1}}
 \newcommand{\AL}[1]{{\color{magenta} AL: #1}}
 \newcommand{\MR}[1]{{\color{blue} MR: #1}}
 
@@ -92,7 +92,7 @@ Enrico Fermi Institute, The University of Chicago, Chicago, IL 60637, USA}
 \date{\today}
 
 \begin{abstract}
-The surface of last scattering of the photons in the cosmic microwave background is {\bf not} a spherical shell. Apart from its finite width, each photon experiences a different gravitational potential along its journey to us, leading to different travel times in different directions. Since all photons were released at the same cosmic time, the photons with longer travel times started farther away from us than those with shorter times. Thus, the surface of last scattering is corrugated, a deformed spherical shell. We present an estimator quadratic in the temperature and polarization fields that could provide a map of the time delays as a function of position on the sky. The signal to noise of this map could exceed unity for the dipole, thereby providing a rare insight into the universe on the largest observable scales.
+The surface of last scattering of the photons in the cosmic microwave background is {\bf not} a spherical shell. Apart from its finite width, each photon experiences a different gravitational potential along its journey to us, leading to different travel times in different directions. Since all photons were released \prvs{at the same cosmic time}\peikai{on the same energy level?}, the photons with longer travel times started farther away from us than those with shorter times. Thus, the surface of last scattering is corrugated, a deformed spherical shell. We present an estimator quadratic in the temperature and polarization fields that could provide a map of the time delays as a function of position on the sky. The signal to noise of this map could exceed unity for the dipole, thereby providing a rare insight into the universe on the largest observable scales.
 \end{abstract}
 
 \maketitle
@@ -267,10 +267,18 @@ The noise on these estimators is now given by the prefactors $A_L$ and $B_L$, so
 with the first term on the right the signal and the second the noise. Fig.~\rf{Delay} shows the signal and noise at each $ L$ for several experimental configurations. Here, and throughout, the largest $l_{\rm max}$ we consider is 7000, as this seems to be within range being considered for a CMB-Stage 4 experiment (see Table 4.1 of Ref.~\cite{Abazajian:2016yjj}).
 
 An estimate of the detectability of this signal can be obtained by computing the projected error, $\sigma_d$, on the amplitude $A^d$ of the power spectrum $A^dC_L^{dd}$, where the fiducial model has $A^d=1$.  Approximating the noise as Gaussian gives
-\be
+\prvs{
+\begin{eqnarray*}
 \left(\frac{1}{\sigma_d}\right)^2 = \sum_L^{\infty} \frac{(2L+1)f_{\rm sky}}{2} \left(\frac{C_L^{dd}}{C_L^{dd}+B_L}\right)^2,
 \eql{sn}
+\end{eqnarray*}
+}
+\peikai{
+\be
+\left(\frac{1}{\sigma_d}\right)^2 = \sum_{L=1}^{\infty} \frac{(2L+1)f_{\rm sky}}{2} \left(\frac{C_L^{dd}}{C_L^{dd}+B_L}\right)^2,
+\eql{sn}
 \ee
+}
 where $f_{\rm sky}$ is the fraction of sky covered by the measurements.
 Fig.~\rf{Delay} shows that most of the signal comes from the lowest $L$-modes, particularly $L=1$. However, even for a full-sky experiment and the most optimistic noise projections, the
 auto power spectrum $C_L^{dd}$ will not be measurable using temperature only.
@@ -322,7 +330,7 @@ $EB$ &$i\big[\tilde{C}_{l_{1}}^{EE} {}_{2}F_{l_{2}Ll_{1}}-\tilde{C}_{l_{2}}^{BB}
 $BB$ &$\tilde{C}_{l_{1}}^{BB} {}_{2}F_{l_{2}Ll_{1}}+\tilde{C}_{l_{2}}^{BB}{}_{2}F_{l_{1}Ll_{2}}$ & $\tilde{C}_{l_{1}}^{BB,d} {}_{2}G_{l_{2}Ll_{1}}+\tilde{C}_{l_{2}}^{BB,d}{}_{2}G_{l_{1}Ll_{2}}$ \\
 \hline
 \end{tabular}}
-\caption{Explicit forms for $f$ anb $h$ of various polarizations. Notice that for $\Theta\Theta$, $\Theta E$, $EE$ and $BB$ polarization these functions are ``even"; for $\Theta B$ and $EB$ polarization they are ``odd" instead. ``Even" and ``Odd" indicate that the functions are non-zero only when $l_{1}+l_{2}+L$ are even or odd, respectively.}
+\caption{Explicit forms for $f$ \prvs{anb}\peikai{and} $h$ of various polarizations. Notice that for $\Theta\Theta$, $\Theta E$, $EE$ and $BB$ polarization these functions are ``even"; for $\Theta B$ and $EB$ polarization they are ``odd" instead. ``Even" and ``Odd" indicate that the functions are non-zero only when $l_{1}+l_{2}+L$ are even or odd, respectively.}
 \end{table}
 
 
@@ -364,7 +372,7 @@ with weights and variance given by
 \omega^{d,\alpha}(L) & =&N^{d}_{L} \sum_{\beta}(N_{L}^{d,-1})^{\alpha \beta} \eql{weight} \nonumber\\
 N^{d}_{L} &=& \frac{1}{\sum_{\alpha\beta} (N_{L}^{d,-1})^{\alpha \beta}}
 \eea
-where $(N_{L}^{d,-1})^{\alpha\beta}$ are the elements of the inverse of the delay noise matrix given by \ec{full}, with matrix indices given by quadratic combinations.  Here and below
+where $(N_{L}^{d,-1})^{\alpha\beta}$ are the elements of the inverse of the delay noise matrix given by \ec{full}, with matrix indices given by quadratic combinations. Here and below
 we denote the noise of the minimum variance combination with no indices for simplicity.  Analogous expressions with the superscript $^\phi$ apply for the lens potential estimators.
 
 
@@ -381,7 +389,7 @@ gets little contribution from $EB$.   This is because the conversion of $E$ mode
 modes is inefficient in the squeezed limit where $L\ll l_1,l_2$, as reflected in the difference between
 $L+l_1+l_2$ even and odd configurations of the Wigner 3$j$ symbols, and that the $B$ modes from lensing
 provide an intrinsic floor to detectability even in the absence of undistorted $B$ modes
-from gravitational waves.
+from gravitational waves. \peikai{We should also notice the emission angle effect, which is discussed in \cite{Lewis:2017ea}, is the same order as the time delay effect\footnote{\peikai{There is a module in recent versions of CAMB which is able to calculate the corrections to BB power spectrum due to time delay and emission angle effects. See \url{https://camb.readthedocs.io/en/latest/emission_angle.html}.}}. There can be significant cancellations between $B$ modes of these two effects. Since $B$ modes only have a little impact on time delay detectability, we leave the detailed calculation to future work.}
 
 
 
@@ -444,8 +452,7 @@ E^{\alpha}_{L}  \sqrt{\frac{C_{L}^{dd}}{C_{L}^{\phi\phi}}}  &=&\frac{\sum_{l_{1}
 F^{\alpha}_{L} \sqrt{\frac{C_{L}^{\phi\phi}}{C_{L}^{dd}}}  &=&\frac{\sum_{l_{1}l_{2}}h_{l_{1}l_{2}}^{\alpha,\phi}(L)g_{l_{1}Ll_{2}}^{\alpha}}{\sum_{l_{1}l_{2}}h_{l_{1}l_{2}}^{\alpha,\phi}(L)f_{l_{1}Ll_{2}}^{\alpha}} =\frac{N_{L}^{c,\alpha\alpha}}{N_{L}^{d,\alpha\alpha}}.
 \eea
 
- 
-We can then compute minimum variance estimator contaminations using \ec{dmvw} as
+\peikai{There's been methods such as bias-hardened method developed in CMB lensing case to remove biases from full sky reconstruction, see \cite{Namikawa:2014bh} for detailed discussion. Here we only focus on the magnitude of cross contamination on low $L$.} We can then compute minimum variance estimator contaminations using \ec{dmvw} as
 \bea
 E_{L} &=&  
 \sum_{\alpha}\omega^{d,\alpha}(L)  E^{\alpha}_{L} , \nonumber\\
@@ -494,7 +501,7 @@ even perfect removal, we leave these studies to a future work.
 
 \section{Conclusions}
 
-The last scattering surface of the CMB is not purely spherical due to the different travel times experienced by photons as they traverse the inhomogeneous gravitational potential. In principle, these distortions in the distance to different directions is detectable, but we conclude here that the standard auto-correlation techniques will not be sufficient to enable detection in the near future. There is the possibility of cross-correlating a map of the distance distortions constructed with the quadratic estimators introduced here with another map of a closely related integrated potential and extracting the signal in that way. Indeed, this was the way that the transverse distortions in the CMB were first detected~\cite{Smith:2007rg}. Here, we have considered  the cross-correlation signal between the distance distortion and the standard transverse deviation maps and concluded that even an all-sky experiment with superior angular resolution would be detect the combination of auto and cross-spectra at less than 3-sigma. We leave exploration of other cross-correlations and the removal of cross contamination between lensing and delay estimators to future work.
+The last scattering surface of the CMB is not purely spherical due to the different travel times experienced by photons as they traverse the inhomogeneous gravitational potential. In principle, these distortions in the distance to different directions is detectable, but we conclude here that the standard auto-correlation techniques will not be sufficient to enable detection in the near future. There is the possibility of cross-correlating a map of the distance distortions constructed with the quadratic estimators introduced here with another map of a closely related integrated potential and extracting the signal in that way. Indeed, this was the way that the transverse distortions in the CMB were first detected~\cite{Smith:2007rg}. Here, we have considered  the cross-correlation signal between the distance distortion and the standard transverse deviation maps and concluded that even an all-sky experiment with superior angular resolution \prvs{would be detect the combination of auto and cross-spectra at less than 3-sigma} \peikai{would have a detectability of the combination of auto and cross-spectra at less than 3-sigma}. We leave exploration of other cross-correlations and the removal of cross contamination between lensing and delay estimators to future work.
 
 To conclude, we emphasize that a measurement of the matter density on the largest observable scales, which is what a detection of the distance-distortion spectrum (either in auto- or cross-) would provide, carries the potential for enormous insight into the standard cosmological model. The apparent acceleration of the universe is of course a very large scale effect that remains a mystery. Inflation too is deeply embedded in the standard cosmological model and clues to it -- or its replacement -- might be found by studying the universe on the largest of scales. Over the past decades, a number of large scale anomalies have emerged (see, e.g., the first section of \citet{Hansen:2018pgg} for a review of the anomalies) and many ideas for models that might be responsible have emerged. A measurement of CMB deflections and time delays on the largest observable scales could help us either identify one such model or cast further doubt on the standard cosmological model.
 
@@ -508,7 +515,7 @@ and  the Simons Foundation.
 
 
 
-
+%\input{main.bbl}
 \bibliography{refs}
 \end{document}
 
